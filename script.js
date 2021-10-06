@@ -12,9 +12,19 @@
 
 class Course{
 	constructor(num){
+		this.letterGrade = 5;
+		this.classText = "";
+	
+	}
+
+}
 
 
-	document.getElementById("temp").innerHTML = '<textarea placeholder=\
+function createCourse(num){
+	var tempElementId = "temp".concat("", String(num));
+	var tempElementIdNext = "temp".concat("", String(num + 1));
+
+	document.getElementById(tempElementId).innerHTML = '<textarea placeholder=\
 	"Class ' + num + '" id="cl' + num + 'txt"></textarea>\
 	<form>\
 	<select id="cl' + num + '">\
@@ -27,22 +37,31 @@ class Course{
 	</select>\
 	<br><br>\
 	</form>\
-	';
-
+	<div class="selectionbox" id="' + tempElementIdNext +'">';
+	
 	}
 
-}
 
 function getCookies(){
 
-	
+	const courses = [];
 
-for (let itr = 0; itr < 10; itr++ ) {
-	eval('var ' + "cl" + itr + '= ' + new Course(itr) + ';')
-	console.log("test")
+  var arraycookie = localStorage.getItem('arraycookie');
+
+for (let itr = 1; itr < 8; itr++ ) {
+	createCourse(itr);
+	courses.push(new Course());
 }
 
+console.log(JSON.stringify(courses));
+
+
 }
+tempCourses = JSON.stringify(courses)
+
+		var arraycookie = tempCourses;
+		localStorage.setItem('arraycookie', tempCourses, 365);
+
 /*
 //Load Cookies
 function getCookies(){
