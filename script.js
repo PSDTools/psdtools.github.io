@@ -44,9 +44,9 @@ function createCourse(num){
 
 function getCookies(){
 
-	const courses = [];
-
   var arraycookie = localStorage.getItem('arraycookie');
+
+	var courses = JSON.parse(localStorage.getItem('arraycookie'));
 
 for (let itr = 1; itr < 8; itr++ ) {
 	createCourse(itr);
@@ -55,9 +55,8 @@ for (let itr = 1; itr < 8; itr++ ) {
 
 console.log(JSON.stringify(courses));
 
-
 }
-tempCourses = JSON.stringify(courses)
+tempCourses = JSON.stringify(getCookies.courses)
 
 		var arraycookie = tempCourses;
 		localStorage.setItem('arraycookie', tempCourses, 365);
