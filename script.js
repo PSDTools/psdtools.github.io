@@ -46,20 +46,41 @@ function getCookies(){
 
   var arraycookie = localStorage.getItem('arraycookie');
 
-	var courses = JSON.parse(localStorage.getItem('arraycookie'));
+	lenNum = arraycookie.search('{')
+	lenNum = parseInt(lenNum) + 10
+	arraycookie = arraycookie.slice(lenNum);
+	
 
-for (let itr = 1; itr < 8; itr++ ) {
-	createCourse(itr);
+	const courses = [];
+
+    for(var i in arraycookie){
+        courses.push(arraycookie[i]);
+		}
+for (let itr = 0; itr < 8; itr++ ) {
 	courses.push(new Course());
+	createCourse(itr);
+
+varCourses = JSON.stringify(courses);
 }
 
 console.log(JSON.stringify(courses));
 
-}
-tempCourses = JSON.stringify(getCookies.courses)
 
+}
+function loadgpa(){
+tempCourses = getCookies.varCourses
 		var arraycookie = tempCourses;
 		localStorage.setItem('arraycookie', tempCourses, 365);
+}
+
+
+
+
+
+
+
+
+
 
 /*
 //Load Cookies
