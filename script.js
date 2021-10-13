@@ -10,6 +10,8 @@
 
 // include("coursebox.js");
 
+var courses
+
 class Course{
 	constructor(num){
 		this.letterGrade = 5;
@@ -46,31 +48,29 @@ function getCookies(){
 
   var arraycookie = localStorage.getItem('arraycookie');
 
-	lenNum = arraycookie.search('{')
-	lenNum = parseInt(lenNum) + 10
-	arraycookie = arraycookie.slice(lenNum);
+	// lenNum = arraycookie.search('{')
+	// lenNum = parseInt(lenNum) + 10
+	// arraycookie = arraycookie.slice(lenNum);
 	
+if (arraycookie == null){
+ 	courses = [];
 
-	const courses = [];
-
-    for(var i in arraycookie){
-        courses.push(arraycookie[i]);
-		}
 for (let itr = 0; itr < 8; itr++ ) {
 	courses.push(new Course());
 	createCourse(itr);
-
-varCourses = JSON.stringify(courses);
 }
 
-console.log(JSON.stringify(courses));
-
+console.log("is null")
+}else{
+courses = [arraycookie]
+console.log("not null")
+}
 
 }
 function loadgpa(){
-tempCourses = getCookies.varCourses
-		var arraycookie = tempCourses;
-		localStorage.setItem('arraycookie', tempCourses, 365);
+		var arraycookie = courses;
+		localStorage.setItem('arraycookie', arraycookie, 365);
+		console.log(JSON.stringify(courses))
 }
 
 
