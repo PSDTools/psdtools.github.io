@@ -56,7 +56,7 @@ function getCookies(){
     for(var i in arraycookie){
         courses.push(arraycookie[i]);
 		}
-for (let itr = 0; itr < 8; itr++ ) {
+for (let itr = 0; itr < 100; itr++ ) {
 	courses.push(new Course());
 	createCourse(itr);
 
