@@ -10,13 +10,13 @@
 
 // include("coursebox.js");
 
-var courses
+var courses = [];
 
 class Course{
 	constructor(num){
 		this.letterGrade = 5;
 		this.classText = "";
-	
+	  this.classNum = num;
 	}
 
 }
@@ -41,7 +41,7 @@ function createCourse(num){
 	</form>\
 	<div class="selectionbox" id="' + tempElementIdNext +'">';
 	
-	}
+}
 
 
 function getCookies(){
@@ -51,26 +51,40 @@ function getCookies(){
 	// lenNum = arraycookie.search('{')
 	// lenNum = parseInt(lenNum) + 10
 	// arraycookie = arraycookie.slice(lenNum);
-	
-if (arraycookie == null){
- 	courses = [];
+		
+	if (arraycookie == null){
 
-for (let itr = 0; itr < 8; itr++ ) {
-	courses.push(new Course());
-	createCourse(itr);
+		for (let itr = 0; itr < 8; itr++ ) {
+			courses.push(new Course(itr + 1));
+			createCourse(itr + 1);
+		}
+
+		console.log("is null")
+	}
+	else {
+		courses = [arraycookie]
+		console.log("not null")
+	}
 }
 
-console.log("is null")
-}else{
-courses = [arraycookie]
-console.log("not null")
-}
-
-}
 function loadgpa(){
-		var arraycookie = courses;
-		localStorage.setItem('arraycookie', arraycookie, 365);
-		console.log(JSON.stringify(courses))
+	var tempLGID = "";
+	var tempCTID = "";
+
+	for (let itr = 0; itr < courses.length; itr++ ) {
+
+			tempLGID = "cl".concat("", String(itr + 1));
+			tempCTID = "cl".concat("", String(itr + 1) + "txt");
+
+		courses[itr].letterGrade = document.getElementById(tempLGID).value;
+		courses[itr].classText = document.getElementById(tempCTID).value;
+
+	}
+	console.log(courses);
+
+	// var arraycookie = JSON.stringify(courses);
+	// localStorage.setItem('arraycookie', arraycookie, 365);
+	// console.log(JSON.stringify(courses))
 }
 
 
