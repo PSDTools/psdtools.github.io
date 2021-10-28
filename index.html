@@ -1,162 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-<!--GPA Calculator-->
-<!--Written By Parker Hasenkamp-->
 
+		<!--GPA Calculator-->
+		<!--Written By Parker Hasenkamp-->
+		
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>GPA Calculator with Cookies</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="script.js"></script>
+
   </head>
   
-  
-<body onload="getCookies()">
-	<!--create/put selection boxes on screen for grade selection-->
+	<body onload="getCookies()">
+			
+		<p id="gpa"></p>
 
-	<!--selection box class-->
-	<div class="selectionbox" id="temp">
+		<p id="saved"></p>
+
+		<input type="number" placeholder="Number of Classes" id="numOfClasses" ></input>
+		
+		<button onclick="classAmount()" class="button">Accept</button>
+
+		<p></p>
+
+		<div class="button"><button onclick="loadgpa()" class="button">Calculate GPA and Save</button><div>
+
+		<p></p>
+
+		<div class="selectionbox" id="temp1"><div>
 
 
-
-		<!--Grade 1-->
-<!-- <textarea placeholder="Class 1" id="cl1txt"></textarea>
-<form>
-<select id="cl1">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form> -->
-
-<!--Grade 2-->
-<!-- <textarea placeholder="Class 2" id="cl2txt"></textarea>
-<form>
-<select id="cl2">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form> -->
-
-<!--Grade 3-->
-<!-- <textarea placeholder="Class 3" id="cl3txt"></textarea>
-<form>
-<select id="cl3">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form> -->
-
-<!--Grade 4-->
-<!-- <textarea placeholder="Class 4" id="cl4txt"></textarea>
-<form>
-<select id="cl4">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form> -->
-
-<!--Grade 5-->
-<!-- <textarea placeholder="Class 5" id="cl5txt"></textarea>
-<form>
-<select id="cl5">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form> -->
-
-<!--Grade 6-->
-<!-- <textarea placeholder="Class 6" id="cl6txt"></textarea>
-<form>
-<select id="cl6">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form> -->
-
-<!--Grade 7-->
-<!-- <textarea placeholder="Class 7" id="cl7txt"></textarea>
-<form>
-<select id="cl7">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form> -->
-
-<!--Grade 8-->
-<!-- <textarea placeholder="Class 8" id="cl8txt"></textarea>
-<form>
-<select id="cl8">
-  <option value="5">N/A</option>
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-</select>
-<br><br>
-</form>-->
-<div>
-
-  
- <!--print GPA to screen call-->
- 
-  <p id="gpa"></p>
-
-<!--print date and time call-->
-  <p id="dateandtime"></p>
-  
-<!--Cookies Disabled call-->
-  <p id="cookiesdis"></p>
-  
-<!--Calculate GPA Button-->
-
-<!--gpa button class-->
-<div class="button">
-<button onclick="loadgpa()" class="button">Calculate GPA and Save</button>
-<div>
-
-  <!--Easter Egg-->
-
-<!--secret class-->
-<div class="secret">
-<p id="Result"></p>
-<div>
-
-</body>
+	</body>
 </html>

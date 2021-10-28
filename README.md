@@ -1,5 +1,5 @@
 # Gpa_Calculator
-Creates by: Parker Hasenkamp
+Created by: Parker Hasenkamp
 
 HTML/JS/CSS site that calculates your gpa!
 
