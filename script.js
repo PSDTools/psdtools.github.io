@@ -1,5 +1,5 @@
 var courses = [];
-
+var classAmountNum = 0;
 //create Course class
 class Course{
 	constructor(num){
@@ -53,7 +53,9 @@ function classAmount(){
 
 	if (classAmountNum == parseInt(0)){
 		classAmountNum = 7
-	} else if (classAmountNum.isNaN = true) {
+	} else if (classAmountNum.isNaN == true) {
+		classAmountNum = 7
+	} else if (classAmountNum == null) {
 		classAmountNum = 7
 	}
 
