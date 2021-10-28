@@ -15,7 +15,7 @@ function createCourse(num){
 	var tempElementId = "temp".concat("", String(num));
 	var tempElementIdNext = "temp".concat("", String(num + 1));
 
-	document.getElementById(tempElementId).innerHTML = '<textarea placeholder="Name of class ' + num + '" id="cl' + num + 'txt"></textarea>\
+	document.getElementById(tempElementId).innerHTML= '<textarea placeholder="Name of class ' + num + '" id="cl' + num + 'txt"></textarea>\
 <p>Grade:</p>\
 	<form>\
 	<select id="cl' + num + '">\
