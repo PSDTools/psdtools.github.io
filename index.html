@@ -1,36 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-		<!--GPA Calculator-->
-		<!--Written By Parker Hasenkamp-->
-		
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>GPA Calculator with Cookies</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="script.js"></script>
-
-  </head>
-  
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-green.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 	<body onload="getCookies()">
-			
-		<p id="gpa"></p>
 
-		<p id="saved"></p>
+<!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
+  <button class="w3-xlarge w3-text-theme" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
+	
+		<p></p>
+	<a href="https://phs.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">PHS</a>	
+		<p></p>
+	<a href="https://ht.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">Heights</a>	
+		<p></p>
+	<a href="https://holman.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">Holman</a>	
+		<p></p>
+  <!-- <a href="#" class="w3-xlarge w3-text-theme">Link 4</a> -->
+</nav>
 
-		<input type="number" placeholder="Number of Classes" id="numOfClasses" ></input>
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
+  <div class="w3-center">
+  <h4 class="w3-large w3-animate-top" >PATTONVILLE</h4>
+  <h1 class="w3-xxxlarge w3-animate-left">Gpa Calculator</h1>
+    <div class="w3-padding-16">
+    </div>
+  </div>
+</header>
+
+<div class="w3-row w3-border w3-padding-32">
+  <div class="w3-half w3-container w3-light-grey w3-border w3-padding-16">
+    <h5 class="w3-xlarge w3-animate-right" >How to use!</h5>  
+    <p class="w3-animate-right" id="Directions">Put in your grades to and press "Calculate GPA and Save" calculate your gpa.</p>
+
+		<p class="w3-animate-right" id="gpa"></p>
+
+		<p class="w3-animate-right" id="saved"></p>
+
+		<input class="w3-animate-right" type="number" placeholder="Number of Classes" id="numOfClasses" ></input>
 		
-		<button onclick="classAmount()" class="button">Accept</button>
+		<button onclick="classAmount()" class="button w3-animate-right">Accept</button>
 
 		<p></p>
 
-		<div class="button"><button onclick="loadgpa()" class="button">Calculate GPA and Save</button><div>
+		<div class="button"><button onclick="loadgpa()" class="button w3-animate-right">Calculate GPA and Save</button>
+		</div>
+	</div>
+	
+  <div class="w3-half w3-container w3-light-grey w3-border w3-padding-16">
+    <div class="selectionbox w3-small w3-animate-right" id="temp1"></div>
+  </div>
+</div>
+<br>
 
-		<p></p>
 
-		<div class="selectionbox" id="temp1"><div>
+<!-- Footer -->
+<footer class="w3-container w3-theme-dark w3-padding-16">
+  <h3>About</h3>
+	<p>Created by Parker Hasenkamp for the <a href="https://psdr3.org" target="_blank">Pattonville School District</a></p>
+	<p>My submission for the 2021 Congressional App Challenge!</p>
+  <!-- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-theme-light w3-padding">Go To Top</span>    
+    <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+  <p>Remember to check out our  <a href="w3css_references.asp" class="w3-btn w3-theme-light" target="_blank">W3.CSS Reference</a></p> -->
+</footer>
 
+<script>
+// Side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "30%";
+  x.style.fontSize = "40px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
 
-	</body>
+</body>
 </html>
