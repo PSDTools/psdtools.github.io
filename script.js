@@ -32,40 +32,56 @@ function createCourse(num){
 	
 } 
 
-//Pulls cookies from the localStorage
-function getCookies(){
 
+function getCookies(){
+	
+	//Pulls cookies from the localStorage
 	arraycookie = localStorage.getItem('arraycookie');
 
-	if (arraycookie == null){
-		classAmount()
-	} else {
+	
+	if (arraycookie == null){//if cookies don't exist
+		
+		classAmount();
+		
+	} else {//if cookies do exist
+
 		fromCookies(arraycookie);
 		loadgpa();
+		
 	}
 }
 
 
-function classAmount(){
+function classAmount(){//if cookies don't exist
 
-	courses = []
+	//create array
+	courses = [];
 
-	classAmountNum = Math.abs(parseInt(document.getElementById("numOfClasses").value))
+	//get textbox with number of classes
+	classAmountNum = Math.abs(parseInt(document.getElementById("numOfClasses").value));
 
-	if (classAmountNum == parseInt(0)){
-		classAmountNum = 7
+	if (classAmountNum == parseInt(0)){//stops NaN/0/null
+		
+		classAmountNum = 7;
+		
 	} else if (classAmountNum.isNaN == true) {
-		classAmountNum = 7
+		
+		classAmountNum = 7;
+		
 	} else if (classAmountNum == null) {
-		classAmountNum = 7
+		
+		classAmountNum = 7;
+		
 	}
 
+	//creates classes for number of iterations
 	for (let itr = 0; itr < classAmountNum; itr++ ) {
 		courses.push(new Course(itr + 1));
 		createCourse(itr + 1);
 	}
-loadgpa()
 
+
+loadgpa();
 }
 
 
@@ -74,7 +90,7 @@ function fromCookies(arraycookie){
 	courses = JSON.parse(arraycookie);
 	
 		for (var itr = 0; itr < courses.length; itr++ ) {
-			createCourse(courses[itr].classNum)
+			createCourse(courses[itr].classNum);
 			createCookieCourse(courses[itr].classNum, courses[itr].letterGrade, courses[itr].classText, itr);	
 		}
 
@@ -86,6 +102,7 @@ function fromCookies(arraycookie){
 		document.getElementById(tempLGID).value = courses[itr].letterGrade;
 		document.getElementById(tempCTID).value = courses[itr].classText;
 	}
+
 }
 
 
@@ -104,11 +121,17 @@ function createCookieCourse(classNum, letterGrade, classText, itr){
 
 
 
-function loadgpa(){
+function loadgpa(){ //Saves values to the array
 
+//set var
+	var pregpa = 0;
+	var courseLen = courses.length;
+	
 	var tempLGID = "";
 	var tempCTID = "";
 
+//save classes to array
+	
 	for (let itr = 0; itr < courses.length; itr++ ) {
 
 			tempLGID = "cl".concat("", String(itr + 1));
@@ -119,33 +142,41 @@ function loadgpa(){
 		courses[itr].classText =  document.getElementById(tempCTID).value;
 	}
 
-	var pregpa = 0
 
+	//remove N/A from addition
 	for (let itr = 0; itr < courses.length; itr++ ) {
-		
-		if (courses[itr].letterGrade != 5){
-		pregpa = pregpa + parseInt(courses[itr].letterGrade)
-		
+		console.log(courseLen);
+		if (courses[itr].letterGrade == 5){
+			var courseLen = courseLen - 1;
+			
+		} else {
+			//adds to pregpa
+			var pregpa = pregpa + parseInt(courses[itr].letterGrade);
 		}
 
 	}
+//divide
+	gpa = pregpa / courseLen;
 
-	gpa = pregpa / courses.length
+	//round
 	var gpa = gpa.toFixed(2);
 
-	document.getElementById("gpa").innerHTML =
-	"Your GPA is a: " + gpa
 	
-	document.getElementById("saved").innerHTML =
-	"Saved!"
-	setTimeout(saveRemove, 1000)
+	document.getElementById("gpa").innerHTML =
+	"Your GPA is a: " + gpa;
 
+	//shows save text
+	document.getElementById("saved").innerHTML =
+	"Saved!";
+	setTimeout(saveRemove, 1000);
+
+	//save cookies
 	var arraycookie = JSON.stringify(courses);
-	localStorage.setItem('arraycookie', arraycookie, 365)
+	localStorage.setItem('arraycookie', arraycookie, 365);
 
 }
-
+//Remove "Saved!" Text
 function saveRemove(){
 	document.getElementById("saved").innerHTML =
-	""
+	"";
 }
