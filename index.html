@@ -8,8 +8,10 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-	<body onload="getCookies()">
-
+	<body id="dark" class="" onload="getCookies()">
+		
+	<button onclick="myFunction()">Toggle dark mode</button>
+		
 <!-- Side Navigation -->
 <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
   <button class="w3-xlarge w3-text-theme w3-padding-16" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
@@ -25,7 +27,7 @@
 
 <!-- Header -->
 <header class="w3-container w3-theme w3-padding-16" id="myHeader">
-  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button"></i> 
   <div class="w3-center">
   <h4 class="w3-xlarge w3-animate-top" >PATTONVILLE</h4>
   <h1 class="w3-xxxlarge w3-animate-left">GPA Calculator</h1>
@@ -35,7 +37,7 @@
 </header>
 		
 <div class="w3-row w3-border">
-  <div class="w3-half w3-container w3-light-grey w3-border w3-padding-16">
+  <div id="dark1" class="w3-half w3-container w3-light-grey w3-padding-16">
     <h5 class="w3-xlarge w3-animate-right" >How to use!</h5>  
     <p class="w3-animate-right" id="Directions">Input number of classes you are taking and press "Submit", then input your grades under "Grades:" and press "Calculate GPA and Save" to calculate your gpa. If you want </p>		<p class="w3-animate-right" id="Directions2">Your class data will then be saved as a cookie to your device. This is so if you refresh, your data is saved!</p>
 
@@ -53,7 +55,7 @@
 		</div>
 	</div>
 	
-  <div class="w3-half w3-container w3-light-grey w3-border w3-padding-16">
+  <div id="dark2" class="w3-half w3-container w3-light-grey w3-black w3-border w3-padding-16">
 		<h5 class="w3-xlarge w3-animate-right" >Grades:</h5>  
     <div class="selectionbox w3-small w3-animate-right" id="temp1"></div>
   </div>

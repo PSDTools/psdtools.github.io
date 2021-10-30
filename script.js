@@ -10,6 +10,18 @@ class Course{
 
 }
 
+function myFunction() {
+  var element = document.getElementById("dark");
+   element.classList.toggle("w3-theme-l1"); 
+	
+	var element1 = document.getElementById("dark1");
+   element1.classList.toggle("w3-theme-l2 ");
+
+	var element2 = document.getElementById("dark2");
+   element2.classList.toggle("w3-light-grey");
+
+}
+
 //create Course function
 function createCourse(num){
 	var tempElementId = "temp".concat("", String(num));
