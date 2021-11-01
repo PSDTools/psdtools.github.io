@@ -1,11 +1,13 @@
-body {
-	background: green;
-}
 
+body {
+  background: linear-gradient(141deg, #107500 0%, #01b800 31%, #178200 85%);
+}
 h4 {
 	color: lightgreen;
 }
-
 h3 {
 	color: green;
+}
+html {
+  scroll-behavior: smooth;
 }
