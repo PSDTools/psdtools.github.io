@@ -1,11 +1,11 @@
 body {
-  background: linear-gradient(141deg, #045700 20%, #139c00 31%, #178200 85%);
+	background: linear-gradient(141deg, #045700 20%, #139c00 31%, #178200 85%);
 }
 h4 {
 	color: lightgreen;
 }
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 .green{
 	color:green;
@@ -14,6 +14,6 @@ html {
 	display:inline-block;
 }
 .float2{
-  margin: 15px 0;
+	margin: 15px 0;
 	float:right;
 }
