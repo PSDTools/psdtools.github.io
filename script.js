@@ -79,7 +79,7 @@ function classAmount(){//if cookies don't exist
 		courses.push(new Course(itr + 1));
 		createCourse(itr + 1);
 	}
-
+	document.getElementById("cl" + classAmountNum).classList.add("float")
 
 loadgpa();
 }
