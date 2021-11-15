@@ -1,175 +1,124 @@
 <!DOCTYPE html>
 <html>
-<body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>GPA Calculator</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+	<body onload="getCookies()">
 
-<!--create selection boxes-->
-<div class="selectionbox">
-<form>
-Class 1:
-<select id="cl1">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form>
+<!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
+  <button class="w3-xlarge w3-text-theme w3-padding-16" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
+	
+		<p></p>
+	<a href="https://phs.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">PHS</a>	
+		<p></p>
+	<a href="https://ht.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">Heights</a>	
+		<p></p>
+	<a href="https://holman.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">Holman</a>	
+		<p></p>
+</nav>
 
-<form>
-Class 2:
-<select id="cl2">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form>
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding-16" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
+  <div class="w3-center">
+  <h4 class="w3-xlarge w3-animate-top" >PATTONVILLE</h4>
+  <h1 class="w3-xxxlarge w3-animate-left">GPA Calculator</h1>
+  </div>
+	<a class="w3-text-white" href="#myFooter"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-down"></i></span></a>
+</header>
+		
+<div class="w3-row w3-border">
+  <div class="w3-half w3-container w3-light-grey w3-border w3-padding-16">
+    <h5 class="w3-xlarge w3-animate-right" >How to use!</h5>  
+    <p class="w3-animate-right" id="Directions">Input number of classes you are taking and press "Submit", then input your grades under "Grades:" and press "Calculate GPA and Save" to calculate your gpa. Putting in class names is optional.</p>		<p class="w3-animate-right" id="Directions2">Your class data will then be saved as a cookie to your device. This is so if you refresh, your data is saved!</p>
 
-<form>
-Class 3:
-<select id="cl3">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form>
+		<p class="w3-animate-right" id="saved"></p>
 
-<form>
-Class 4:
-<select id="cl4">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form>
+		<input class="w3-animate-right" type="number" placeholder="Number of Classes" id="numOfClasses" ></input>
+		<button onclick="classAmount()" class="button w3-animate-right w3-button w3-theme">Submit</button>
 
-<form>
-Class 5:
-<select id="cl5">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form>
+		<p></p>
 
-<form>
-Class 6:
-<select id="cl6">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form>
-<form>
-Class 7:
-<select id="cl7">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form>
-<form>
-Class 8:
-<select id="cl8">
-  <option value="4">A</option>
-  <option value="3">B</option>
-  <option value="2">C</option>
-  <option value="1">D</option>
-  <option value="0">F</option>
-  <option value="5">N/A</option>
-</select>
-<br><br>
-</form>
-<div>
- <!--print to screen call-->
-<p id="demo"></p>
-<p id="Result"></p>
+		<div class="button">
+			
+		</div>
+	</div>
+	
+  <div class="w3-half w3-container w3-light-grey w3-border w3-padding-16">
+		<h5 class="w3-xlarge w3-animate-right" >Grades:</h5>  
+    <div class="selectionbox w3-small w3-animate-right" id="temp1"></div>
+
+				<h2 class="green float w3-animate-right" id="gpa"></h2><button onclick="loadgpa()" class="float2 button w3-animate-right w3-button w3-theme">Calculate GPA and Save</button>
+		
+	</div>
+	
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-dark w3-padding-16" id="myFooter">
+	<a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  <h3>About</h3>
+	<p>Created by Parker Hasenkamp for the <a href="https://psdr3.org" target="_blank">Pattonville School District</a></p>
+	<p>My submission for the 2021 <a href="https://www.congressionalappchallenge.us/" target="_blank">Congressional App Challenge!</a></p>
+  <!-- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-theme-light w3-padding">Go To Top</span>    
+    
+  </div>
+  <p>Remember to check out our  <a href="w3css_references.asp" class="w3-btn w3-theme-light" target="_blank">W3.CSS Reference</a></p> -->
+	
+</footer>
+
 <script>
-var clicks
-var one = 1
-//add all of the classes together
-//|A = 4|B = 3|C = 2|D = 1|F = 0|N/A = 5
-function loadgpa() { 
-  numclass = 8
-  clicks = clicks + one
-  var pregpa = parseInt(cl1.value) + parseInt(cl2.value) + parseInt(cl3.value) + parseInt(cl4.value) + parseInt(cl5.value) + parseInt(cl6.value) + parseInt(cl7.value) + parseInt(cl8.value);
-
-//Less than 8 classes support| N/A (removes the 5 from the addition value and removes 1 from division value)
-if (parseInt(cl1.value) == 5) {
-  numclass = numclass - 1
-  pregpa = pregpa -5
+// Side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "30%";
+  x.style.fontSize = "40px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
 }
-if (parseInt(cl2.value) == 5) {
-  numclass = numclass - 1
-  pregpa = pregpa -5
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
 }
-if (parseInt(cl3.value) == 5) {
-  numclass = numclass - 1
-  pregpa = pregpa -5
-}
-if (parseInt(cl4.value) == 5) {
-  numclass = numclass - 1
-  pregpa = pregpa -5
-}
-if (parseInt(cl5.value) == 5) {
-  numclass = numclass - 1
-  pregpa = pregpa -5
-}
-if (parseInt(cl6.value) == 5) {
-  numclass = numclass - 1
-  pregpa = pregpa -5
-}
-if (parseInt(cl7.value) == 5) {
-  numclass = numclass - 1
-  pregpa = pregpa -5
-}
-if (parseInt(cl8.value) == 5) {
-  numclass = numclass - 1
-  pregpa = pregpa -5
-}
-if (clicks == 15) {
-document.getElementById("Result").innerHTML =
-"You Found A Secret!";
-}
-var gpa = pregpa / numclass;
-var gpa = gpa.toFixed(2);//Round to hundreth
-document.getElementById("demo").innerHTML =
-"Your GPA is a " + gpa;}//print to screen
-
 </script>
-<button onclick="loadgpa()">Calculate GPA</button>
-<!-- <style>
- .selectionbox {
-   background-color: rgb(204, 255, 204)
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
 
- }
-}
-</style> -->
-<!-- you found a secret! -->
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1000, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
 </body>
 </html>
