@@ -37,7 +37,6 @@ function getCookies(){
 	
 	//Pulls cookies from the localStorage
 	arraycookie = localStorage.getItem('arraycookie');
-
 	
 	if (arraycookie == null){//if cookies don't exist
 		
@@ -177,6 +176,9 @@ function loadgpa(){ //Saves values to the array
 }
 //Remove "Saved!" Text
 function saveRemove(){
-	document.getElementById("saved").innerHTML =
-	"";
+	document.getElementById("saved").innerHTML = "";
+}
+
+function clearData(){
+	localStorage.setItem('arraycookie', null, -1);
 }
