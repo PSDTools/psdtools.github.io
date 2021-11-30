@@ -71,6 +71,10 @@ function classAmount(){//if cookies don't exist
 		
 		classAmountNum = 7;
 		
+	} else if (classAmountNum > 256) {
+		
+		classAmountNum = 7;
+		
 	}
 
 	//creates classes for number of iterations
@@ -181,4 +185,5 @@ function saveRemove(){
 
 function clearData(){
 	localStorage.setItem('arraycookie', null, -1);
+	location.reload()
 }
