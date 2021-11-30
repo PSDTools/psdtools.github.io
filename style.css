@@ -17,3 +17,8 @@ html {
 	margin: 15px 0;
 	float:right;
 }
+footer {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
