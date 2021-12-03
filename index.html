@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 	<body onload="getCookies()">
-
+		
 <!-- Side Navigation -->
 <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
   <button class="w3-xlarge w3-text-theme w3-padding-16" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
@@ -36,6 +36,12 @@
 		
 <div class="w3-row w3-border">
   <div class="w3-half w3-container w3-light-grey w3-border w3-padding-16">
+
+<select id="MSHSSELECT">
+		<option value="HS">HS</option>
+		<option value="MS">MS</option>
+	</select>
+		
     <h5 class="w3-xlarge w3-animate-right" >How to use!</h5>  
     <p class="w3-animate-right" id="Directions">Input number of classes you are taking and press "Submit", then input your grades under "Grades:" and press "Calculate GPA and Save" to calculate your gpa. Putting in class names is optional.</p>		<p class="w3-animate-right" id="Directions2">Your class data will then be saved as a cookie to your device. This is so if you refresh, your data is saved!</p>
 

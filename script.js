@@ -32,6 +32,34 @@ function createCourse(num){
 	
 } 
 
+function createHSCourse(num){
+	var tempElementId = "temp".concat("", String(num));
+	var tempElementIdNext = "temp".concat("", String(num + 1));
+
+	document.getElementById(tempElementId).innerHTML= '<textarea placeholder="Name of class ' + num + '" id="cl' + num + 'txt"></textarea>\
+<p>Type:</p>\
+	<form>\
+	<select id="cltyp' + num + '">\
+		<option value="normal">Normal</option>\
+		<option value="na">NA</option>\
+		<option value="na">NA</option>\
+	</select>\
+	</form>\
+<p>Grade:</p>\
+	<form>\
+	<select id="cl' + num + '">\
+		<option value="4">A</option>\
+		<option value="3">B</option>\
+		<option value="2">C</option>\
+		<option value="1">D</option>\
+		<option value="0">F</option>\
+		<option value="5">N/A</option>\
+	</select>\
+	<br><br>\
+	</form>\
+	<div class="selectionbox" id="' + tempElementIdNext +'">';
+	
+}
 
 function getCookies(){
 	
@@ -79,8 +107,13 @@ function classAmount(){//if cookies don't exist
 
 	//creates classes for number of iterations
 	for (let itr = 0; itr < classAmountNum; itr++ ) {
+		if ( document.GetElementByID("HSMSSELECT").value = "MS"){
 		courses.push(new Course(itr + 1));
 		createCourse(itr + 1);
+		} else {
+			courses.push(new Course(itr + 1));
+		createHSCourse(itr + 1);
+		}
 	}
 	document.getElementById("cl" + classAmountNum).classList.add("float")
 
