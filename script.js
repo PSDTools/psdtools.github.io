@@ -1,3 +1,31 @@
+function hsmsSwap(){
+	var checked = document.getElementById("hsmsInput").checked
+	console.log(checked + "1")
+	if (document.getElementById("hsmsInput").checked == true){
+		document.getElementById("gradeLvl").innerHTML = "High School"
+		document.getElementById("numOfClasses").value = courses.length
+		localStorage.setItem('gradecookie', checked);
+		for (let itr = 1; itr < courses.length + 1; itr++ ) {
+			document.getElementById("typeId" + itr).innerHTML = '<p>Type:</p>\
+	<form>\
+	<select class="dropmenu" id="cltyp' + itr + '">\
+		<option value="normal">N/A</option>\
+		<option value="honors">Honors</option>\
+	</select>\
+	</form>'
+		}
+		
+	} else {
+		document.getElementById("gradeLvl").innerHTML = "Middle School"
+		for (let itr = 1; itr < courses.length + 1; itr++ ) {
+			document.getElementById("typeId" + itr).innerHTML = null
+			localStorage.setItem('gradecookie', checked);
+		}
+		
+	}
+}
+
+
 var courses = [];
 var classAmountNum = 0;
 //create Course class
@@ -15,10 +43,23 @@ function createCourse(num){
 	var tempElementId = "temp".concat("", String(num));
 	var tempElementIdNext = "temp".concat("", String(num + 1));
 
-	document.getElementById(tempElementId).innerHTML= '<textarea placeholder="Name of class ' + num + '" id="cl' + num + 'txt"></textarea>\
+	document.getElementById(tempElementId).innerHTML= '\
+	<div class="input-container">\
+	<input id="cl' + num + 'txt" type="text" required=""/>\
+	<label>Class ' + num + '</label>\
+	</div>\
+<span id="typeId' + num + '">\
+<p>Type:</p>\
+	<form>\
+	<select class="dropmenu" id="cltyp' + num + '">\
+		<option value="normal">N/A</option>\
+		<option value="honors">Honors</option>\
+	</select>\
+	</form>\
+</span>\
 <p>Grade:</p>\
 	<form>\
-	<select id="cl' + num + '">\
+	<select class="dropmenu SM" id="cl' + num + '">\
 		<option value="4">A</option>\
 		<option value="3">B</option>\
 		<option value="2">C</option>\
@@ -32,49 +73,33 @@ function createCourse(num){
 	
 } 
 
-function createHSCourse(num){
-	var tempElementId = "temp".concat("", String(num));
-	var tempElementIdNext = "temp".concat("", String(num + 1));
-
-	document.getElementById(tempElementId).innerHTML= '<textarea placeholder="Name of class ' + num + '" id="cl' + num + 'txt"></textarea>\
-<p>Type:</p>\
-	<form>\
-	<select id="cltyp' + num + '">\
-		<option value="normal">Normal</option>\
-		<option value="na">NA</option>\
-		<option value="na">NA</option>\
-	</select>\
-	</form>\
-<p>Grade:</p>\
-	<form>\
-	<select id="cl' + num + '">\
-		<option value="4">A</option>\
-		<option value="3">B</option>\
-		<option value="2">C</option>\
-		<option value="1">D</option>\
-		<option value="0">F</option>\
-		<option value="5">N/A</option>\
-	</select>\
-	<br><br>\
-	</form>\
-	<div class="selectionbox" id="' + tempElementIdNext +'">';
-	
-}
 
 function getCookies(){
 	
 	//Pulls cookies from the localStorage
-	arraycookie = localStorage.getItem('arraycookie');
-	
+	var gradecookie = localStorage.getItem('gradecookie');
+	var arraycookie = localStorage.getItem('arraycookie');
+
+	if (gradecookie == "true"){
+
+		document.getElementById("hsmsInput").checked = true
+
+	} else if (gradecookie == "false"){
+
+		document.getElementById("hsmsInput").checked = false
+
+	}
+
 	if (arraycookie == null){//if cookies don't exist
 		
 		classAmount();
+		hsmsSwap();
 		
 	} else {//if cookies do exist
 
 		fromCookies(arraycookie);
 		loadgpa();
-		
+		hsmsSwap();
 	}
 }
 
@@ -107,16 +132,15 @@ function classAmount(){//if cookies don't exist
 
 	//creates classes for number of iterations
 	for (let itr = 0; itr < classAmountNum; itr++ ) {
-		if ( document.GetElementByID("HSMSSELECT").value = "MS"){
 		courses.push(new Course(itr + 1));
 		createCourse(itr + 1);
-		} else {
-			courses.push(new Course(itr + 1));
-		createHSCourse(itr + 1);
-		}
 	}
 	document.getElementById("cl" + classAmountNum).classList.add("float")
-
+	if (document.getElementById("hsmsInput").checked == false){
+		for (let itr = 1; itr < courses.length + 1; itr++ ) {
+			document.getElementById("typeId" + itr).innerHTML = null
+		}
+	}
 loadgpa();
 }
 
@@ -181,7 +205,6 @@ function loadgpa(){ //Saves values to the array
 
 	//remove N/A from addition
 	for (let itr = 0; itr < courses.length; itr++ ) {
-		console.log(courseLen);
 		if (courses[itr].letterGrade == 5){
 			var courseLen = courseLen - 1;
 			
@@ -220,3 +243,4 @@ function clearData(){
 	localStorage.setItem('arraycookie', null, -1);
 	location.reload()
 }
+
