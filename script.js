@@ -34,6 +34,7 @@ class Course{
 		this.letterGrade = 5;
 		this.classText = "";
 	  this.classNum = num;
+		this.classType = "normal"
 	}
 
 }
@@ -196,10 +197,13 @@ function loadgpa(){ //Saves values to the array
 
 			tempLGID = "cl".concat("", String(itr + 1));
 			tempCTID = "cl".concat("", String(itr + 1)) + "txt";
+			tempCTYID = "cltyp".concat("", String(itr + 1));
 		
 		courses[itr].letterGrade = document.getElementById(tempLGID).value;
 		
 		courses[itr].classText =  document.getElementById(tempCTID).value;
+
+		courses[itr].classType =  document.getElementById(tempCTYID).value;
 	}
 
 
@@ -207,10 +211,19 @@ function loadgpa(){ //Saves values to the array
 	for (let itr = 0; itr < courses.length; itr++ ) {
 		if (courses[itr].letterGrade == 5){
 			var courseLen = courseLen - 1;
-			
+				
 		} else {
 			//adds to pregpa
-			var pregpa = pregpa + parseInt(courses[itr].letterGrade);
+			if (courses[itr].classType == "honors"){
+				if (courses[itr].letterGrade == "0"){
+					var pregpa = pregpa + parseInt(courses[itr].letterGrade);
+				} else {
+					var pregpa = pregpa + 1 + parseInt(courses[itr].letterGrade);
+				}
+			} else {
+				var pregpa = pregpa + parseInt(courses[itr].letterGrade);
+			}
+			
 		}
 
 	}
@@ -243,4 +256,3 @@ function clearData(){
 	localStorage.setItem('arraycookie', null, -1);
 	location.reload()
 }
-
