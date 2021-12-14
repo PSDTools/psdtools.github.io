@@ -136,7 +136,6 @@ function classAmount(){//if cookies don't exist
 		courses.push(new Course(itr + 1));
 		createCourse(itr + 1);
 	}
-	document.getElementById("cl" + classAmountNum).classList.add("float")
 	if (document.getElementById("hsmsInput").checked == false){
 		for (let itr = 1; itr < courses.length + 1; itr++ ) {
 			document.getElementById("typeId" + itr).innerHTML = null
@@ -197,13 +196,15 @@ function loadgpa(){ //Saves values to the array
 
 			tempLGID = "cl".concat("", String(itr + 1));
 			tempCTID = "cl".concat("", String(itr + 1)) + "txt";
-			tempCTYID = "cltyp".concat("", String(itr + 1));
 		
 		courses[itr].letterGrade = document.getElementById(tempLGID).value;
 		
 		courses[itr].classText =  document.getElementById(tempCTID).value;
 
+		if (document.getElementById("hsmsInput").checked == true){
+			tempCTYID = "cltyp".concat("", String(itr + 1));
 		courses[itr].classType =  document.getElementById(tempCTYID).value;
+		}
 	}
 
 
