@@ -3,10 +3,11 @@ function hsmsSwap(){
 	console.log(checked + "1")
 	if (document.getElementById("hsmsInput").checked == true){
 		document.getElementById("gradeLvl").innerHTML = "High School"
-		document.getElementById("numOfClasses").value = courses.length
 		localStorage.setItem('gradecookie', checked);
-		for (let itr = 1; itr < courses.length + 1; itr++ ) {
-			document.getElementById("typeId" + itr).innerHTML = '<p>Type:</p>\
+		if (courses != null) {
+			document.getElementById("numOfClasses").value = courses.length
+			for (let itr = 1; itr < courses.length + 1; itr++ ) {
+				document.getElementById("typeId" + itr).innerHTML = '<p>Type:</p>\
 	<form>\
 	<select class="dropmenu" id="cltyp' + itr + '">\
 		<option value="normal">N/A</option>\
@@ -14,14 +15,15 @@ function hsmsSwap(){
 	</select>\
 	</form>'
 		}
-		
+		}
 	} else {
 		document.getElementById("gradeLvl").innerHTML = "Middle School"
-		for (let itr = 1; itr < courses.length + 1; itr++ ) {
-			document.getElementById("typeId" + itr).innerHTML = null
-			localStorage.setItem('gradecookie', checked);
+		localStorage.setItem('gradecookie', checked);
+		if (courses != null) {
+			for (let itr = 1; itr < courses.length + 1; itr++ ) {
+				document.getElementById("typeId" + itr).innerHTML = null
+			}
 		}
-		
 	}
 }
 
@@ -142,13 +144,15 @@ function classAmount(){//if cookies don't exist
 		}
 	}
 loadgpa();
+document.getElementById("gpa").innerHTML =
+	"";
 }
 
 
 function fromCookies(arraycookie){
 	
 	courses = JSON.parse(arraycookie);
-	
+	if (courses != null) {
 		for (var itr = 0; itr < courses.length; itr++ ) {
 			createCourse(courses[itr].classNum);
 			createCookieCourse(courses[itr].classNum, courses[itr].letterGrade, courses[itr].classText, itr);	
@@ -162,7 +166,7 @@ function fromCookies(arraycookie){
 		document.getElementById(tempLGID).value = courses[itr].letterGrade;
 		document.getElementById(tempCTID).value = courses[itr].classText;
 	}
-
+	}
 }
 
 
@@ -182,7 +186,7 @@ function createCookieCourse(classNum, letterGrade, classText, itr){
 
 
 function loadgpa(){ //Saves values to the array
-
+if (courses != null) {
 //set var
 	var pregpa = 0;
 	var courseLen = courses.length;
@@ -233,7 +237,6 @@ function loadgpa(){ //Saves values to the array
 
 	//round
 	var gpa = gpa.toFixed(2);
-
 	
 	document.getElementById("gpa").innerHTML =
 	"Your GPA is a: " + gpa;
@@ -252,7 +255,7 @@ function loadgpa(){ //Saves values to the array
 function saveRemove(){
 	document.getElementById("saved").innerHTML = "";
 }
-
+}
 function clearData(){
 	localStorage.setItem('arraycookie', null, -1);
 	location.reload()
