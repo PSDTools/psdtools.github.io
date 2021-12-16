@@ -17,6 +17,15 @@ html {
 	margin: 15px 0;
 	float:right;
 }
+.x-smallbutton{
+	font-size:35%;
+}
+.smallbutton{
+	font-size:40%;
+}
+.small{
+	font-size:40%;
+}
 footer {
     position: absolute;
     width: 100%;
