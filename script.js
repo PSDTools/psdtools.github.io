@@ -1,23 +1,20 @@
 function hsmsSwap(){
 	var checked = document.getElementById("hsmsInput").checked
-	console.log(checked + "1")
 	if (document.getElementById("hsmsInput").checked == true){
 		document.getElementById("gradeLvl").innerHTML = "High School"
 		document.getElementById("modalClass").innerHTML = "High School"
 		
 		localStorage.setItem('gradecookie', checked);
-		if (courses != null) {
 			document.getElementById("numOfClasses").value = courses.length
-			for (let itr = 1; itr < courses.length + 1; itr++ ) {
-				document.getElementById("typeId" + itr).innerHTML = '<p>Type:</p>\
-	<form>\
-	<select class="dropmenu" id="cltyp' + itr + '">\
-		<option value="normal">N/A</option>\
-		<option value="honors">Honors</option>\
-	</select>\
-	</form>'
-		}
-		}
+				for (let itr = 1; itr < courses.length + 1; itr++ ) {
+					document.getElementById("typeId" + itr).innerHTML = '<p>Type:</p>\
+		<form>\
+		<select class="dropmenu" id="cltyp' + itr + '">\
+			<option value="1">N/A</option>\
+			<option value="2">Honors</option>\
+		</select>\
+		</form>'
+			}
 	} else {
 		document.getElementById("gradeLvl").innerHTML = "Middle School"
 		document.getElementById("modalClass").innerHTML = "Middle School"
@@ -39,7 +36,7 @@ class Course{
 		this.letterGrade = 5;
 		this.classText = "";
 	  this.classNum = num;
-		this.classType = "normal"
+		this.classType = "1"
 	}
 
 }
@@ -48,6 +45,7 @@ class Course{
 function createCourse(num){
 	var tempElementId = "temp".concat("", String(num));
 	var tempElementIdNext = "temp".concat("", String(num + 1));
+	var tempElementIdAlsoNext = "temp".concat("", String(num + 2));
 
 	document.getElementById(tempElementId).innerHTML= '\
 	<div class="input-container">\
@@ -58,8 +56,8 @@ function createCourse(num){
 <p>Type:</p>\
 	<form>\
 	<select class="dropmenu" id="cltyp' + num + '">\
-		<option value="normal">N/A</option>\
-		<option value="honors">Honors</option>\
+		<option value="1">N/A</option>\
+		<option value="2">Honors</option>\
 	</select>\
 	</form>\
 </span>\
@@ -89,23 +87,28 @@ function getCookies(){
 	if (gradecookie == "true"){
 
 		document.getElementById("hsmsInput").checked = true
-
+		document.getElementById("gradeLvl").innerHTML = "High School"
+		document.getElementById("modalClass").innerHTML = "High School"
 	} else if (gradecookie == "false"){
 
 		document.getElementById("hsmsInput").checked = false
-
+		document.getElementById("gradeLvl").innerHTML = "Middle School"
+		document.getElementById("modalClass").innerHTML = "Middle School"
+	} else {
+		document.getElementById('id01').style.display='block';
+		hsmsSwap();
 	}
 
 	if (arraycookie == null){//if cookies don't exist
 		
 		classAmount();
-		hsmsSwap();
+		// hsmsSwap();
 		
 	} else {//if cookies do exist
 
 		fromCookies(arraycookie);
 		loadgpa();
-		hsmsSwap();
+		// hsmsSwap();
 	}
 }
 
@@ -158,22 +161,24 @@ function fromCookies(arraycookie){
 	if (courses != null) {
 		for (var itr = 0; itr < courses.length; itr++ ) {
 			createCourse(courses[itr].classNum);
-			createCookieCourse(courses[itr].classNum, courses[itr].letterGrade, courses[itr].classText, itr);	
+			createCookieCourse(courses[itr].classNum, courses[itr].letterGrade, courses[itr].classText, courses[itr].classType, itr);	
 		}
 
 	for (let itr = 0; itr < courses.length; itr++) {
 
 			tempLGID = "cl".concat("", String(itr + 1));
 			tempCTID = "cl".concat("", String(itr + 1) + "txt");
+			tempCTYID = "cltyp" + String(itr + 1);
 		
 		document.getElementById(tempLGID).value = courses[itr].letterGrade;
 		document.getElementById(tempCTID).value = courses[itr].classText;
+		document.getElementById(tempCTYID).value = courses[itr].classType;
 	}
 	}
 }
 
 
-function createCookieCourse(classNum, letterGrade, classText, itr){
+function createCookieCourse(classNum, letterGrade, classText, classType, itr){
 
 	let num = classNum;
 	
@@ -196,6 +201,7 @@ if (courses != null) {
 	
 	var tempLGID = "";
 	var tempCTID = "";
+	var tempCTYID = "";
 
 //save classes to array
 	
@@ -203,14 +209,15 @@ if (courses != null) {
 
 			tempLGID = "cl".concat("", String(itr + 1));
 			tempCTID = "cl".concat("", String(itr + 1)) + "txt";
+			tempCTYID = "cltyp".concat("", String(itr + 1));
 		
 		courses[itr].letterGrade = document.getElementById(tempLGID).value;
 		
 		courses[itr].classText =  document.getElementById(tempCTID).value;
 
-		if (document.getElementById("hsmsInput").checked == true){
-			tempCTYID = "cltyp".concat("", String(itr + 1));
-		courses[itr].classType =  document.getElementById(tempCTYID).value;
+		if (document.getElementById("hsmsInput").checked != false){
+			tempCTYID = "cltyp" + String(itr + 1);
+			courses[itr].classType = document.getElementById(tempCTYID).value;
 		}
 	}
 
@@ -222,7 +229,7 @@ if (courses != null) {
 				
 		} else {
 			//adds to pregpa
-			if (courses[itr].classType == "honors"){
+			if (courses[itr].classType == "2"){
 				if (courses[itr].letterGrade == "0"){
 					var pregpa = pregpa + parseInt(courses[itr].letterGrade);
 				} else {
@@ -262,4 +269,8 @@ function saveRemove(){
 function clearData(){
 	localStorage.setItem('arraycookie', null, -1);
 	location.reload()
+}
+function clearAll(){
+	localStorage.setItem('arraycookie', null, -1);
+	localStorage.setItem('gradecookie', null, -1);
 }
