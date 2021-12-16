@@ -3,6 +3,8 @@ function hsmsSwap(){
 	console.log(checked + "1")
 	if (document.getElementById("hsmsInput").checked == true){
 		document.getElementById("gradeLvl").innerHTML = "High School"
+		document.getElementById("modalClass").innerHTML = "High School"
+		
 		localStorage.setItem('gradecookie', checked);
 		if (courses != null) {
 			document.getElementById("numOfClasses").value = courses.length
@@ -18,6 +20,7 @@ function hsmsSwap(){
 		}
 	} else {
 		document.getElementById("gradeLvl").innerHTML = "Middle School"
+		document.getElementById("modalClass").innerHTML = "Middle School"
 		localStorage.setItem('gradecookie', checked);
 		if (courses != null) {
 			for (let itr = 1; itr < courses.length + 1; itr++ ) {

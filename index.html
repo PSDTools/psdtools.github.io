@@ -12,17 +12,18 @@
 
 <!-- Side Navigation -->
 <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
-  <button class="w3-xlarge w3-text-theme w3-padding-16" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
+  <button class="smallbutton w3-text-theme w3-padding-16" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
+	<p></p>
+		<button class="smallbutton w3-button w3-theme" onclick="document.getElementById('id01').style.display='block'">Select Grade Level</button>
+	<p></p>
 	
+		<h3>School Links</h3>
+	<a href="https://phs.psdr3.org" target="_blank" class=" w3-text-theme small">PHS</a>	
+	<a href="https://ht.psdr3.org" target="_blank" class=" w3-text-theme small">Heights</a>	
+	<a href="https://holman.psdr3.org" target="_blank" class=" w3-text-theme small">Holman</a>	
 		<p></p>
-	<a href="https://phs.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">PHS</a>	
-		<p></p>
-	<a href="https://ht.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">Heights</a>	
-		<p></p>
-	<a href="https://holman.psdr3.org" target="_blank" class="w3-xlarge w3-text-theme">Holman</a>	
-		<p></p>
+	<button class="x-smallbutton w3-button w3-theme" onclick="clearAll()">Clear All Cookies and Site Data</button>
 </nav>
-
 <!-- Header -->
 <header class="w3-container w3-theme w3-padding-16" id="myHeader">
   <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
@@ -31,13 +32,8 @@
 	<h5 id="gradeLvl" class="w3-large w3-animate-top"></h5>
   <h1 class="w3-xxxlarge w3-animate-left">GPA Calculator</h1>
   </div>
-	<!-- <a class="w3-text-white" href="#myFooter"><span class="w3-xlarge">
-    <i class="fa fa-chevron-circle-down"></i></span></a> -->
-
-<label class="switch">
-  <input onclick="hsmsSwap()" type="checkbox" id="hsmsInput" checked>
-  <span class="slider round"></span>
-</label>	
+	<a class="w3-text-white" href="#myFooter"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-down"></i></span></a>
 
 
 
@@ -68,12 +64,32 @@
 
 				<h2 class="gpa float w3-animate-right" id="gpa">No Data</h2>
 		<button id="gpaButton" onclick="loadgpa()" class="float2 button w3-animate-right w3-button w3-theme">Calculate GPA and Save</button>
-		<p></p><button id="clearDataButton" onclick="clearData()" class="float button w3-animate-right w3-button w3-theme">Clear Data</button>
+		<p></p><button id="clearDataButton" onclick="clearData()" class="float button w3-animate-right w3-button w3-theme">Clear Grade Data</button>
 		
 	</div>
 	
 </div>
-
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container w3-green"> 
+        <h5>Please Choose Your Grade Level</h5>
+      </header>
+      <div class="w3-container">
+				<h6 id="modalClass">Middle School</h6>
+        <label class="switch">
+  <input onclick="hsmsSwap()" type="checkbox" id="hsmsInput" checked>
+  <span class="slider round"></span>
+				</label>
+				<p></p>
+				<span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-large w3-green">Ok</span>
+			<p></p>
+      </div>
+      <footer class="w3-container w3-green">
+				<p>This can be changed later inside the menu.</p>
+      </footer>
+    </div>
+  </div>
 
 <!-- Footer -->
 <footer class="w3-container w3-theme-dark w3-padding-16" id="myFooter">
