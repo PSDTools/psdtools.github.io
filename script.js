@@ -79,19 +79,18 @@ function createCourse(num){
 
 
 function getCookies(){
-	
 	//Pulls cookies from the localStorage
 	var gradecookie = localStorage.getItem('gradecookie');
 	var arraycookie = localStorage.getItem('arraycookie');
 
 	if (gradecookie == "true"){
-
 		document.getElementById("hsmsInput").checked = true
+		checked = true
 		document.getElementById("gradeLvl").innerHTML = "High School"
 		document.getElementById("modalClass").innerHTML = "High School"
 	} else if (gradecookie == "false"){
-
 		document.getElementById("hsmsInput").checked = false
+		checked = false
 		document.getElementById("gradeLvl").innerHTML = "Middle School"
 		document.getElementById("modalClass").innerHTML = "Middle School"
 	} else {
@@ -100,12 +99,10 @@ function getCookies(){
 	}
 
 	if (arraycookie == null){//if cookies don't exist
-		
 		classAmount();
 		// hsmsSwap();
 		
 	} else {//if cookies do exist
-
 		fromCookies(arraycookie);
 		loadgpa();
 		// hsmsSwap();
@@ -156,14 +153,12 @@ document.getElementById("gpa").innerHTML =
 
 
 function fromCookies(arraycookie){
-	
 	courses = JSON.parse(arraycookie);
 	if (courses != null) {
 		for (var itr = 0; itr < courses.length; itr++ ) {
 			createCourse(courses[itr].classNum);
 			createCookieCourse(courses[itr].classNum, courses[itr].letterGrade, courses[itr].classText, courses[itr].classType, itr);	
 		}
-
 	for (let itr = 0; itr < courses.length; itr++) {
 
 			tempLGID = "cl".concat("", String(itr + 1));
@@ -174,6 +169,11 @@ function fromCookies(arraycookie){
 		document.getElementById(tempCTID).value = courses[itr].classText;
 		document.getElementById(tempCTYID).value = courses[itr].classType;
 	}
+		if (document.getElementById("hsmsInput").checked == false){
+			for (let itr = 1; itr < courses.length + 1; itr++ ) {
+				document.getElementById("typeId" + itr).innerHTML = null
+			}
+		}
 	}
 }
 
