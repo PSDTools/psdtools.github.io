@@ -26,6 +26,12 @@ html {
 .small{
 	font-size:40%;
 }
+.mini{
+	font-size:40%;
+}
+.black{
+	color:black;
+}
 footer {
     position: absolute;
     width: 100%;

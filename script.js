@@ -274,3 +274,15 @@ function clearAll(){
 	localStorage.setItem('arraycookie', null, -1);
 	localStorage.setItem('gradecookie', null, -1);
 }
+
+// Side nav
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "30%";
+  x.style.fontSize = "40px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
