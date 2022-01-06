@@ -96,7 +96,6 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
 /*Animated Class Text*/
 
 .input-container{
