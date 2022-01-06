@@ -1,2 +1,5 @@
 language = "html"
 run = "run="HTML index.html""
+#This file is for the Replit IDE to specify which file to run and what language.
+#It is unnessisary for any use-case that does not include the Replit IDE
+#IDE: Replit.com
