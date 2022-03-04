@@ -41,6 +41,7 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 			  <h4 class="lgreen w3-xlarge w3-animate-top">PATTONVILLE</h4>
 				<h5 id="gradeLvl" class="w3-large w3-animate-top"></h5>
 			  <h1 class="w3-xxxlarge w3-animate-left">GPA Calculator</h1>
+				<h1 class="w3-xxxlarge w3-animate-left">Help</h1>
 		  </div>
 			<a class="w3-text-white" href="#myFooter"><span class="w3-xlarge">
 		    <i class="fa fa-chevron-circle-down"></i></span></a>
@@ -51,12 +52,8 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 				
 		<div class="w3-row">
 		  <div id="c2" class="lightMode w3-half w3-container w3-padding-16">
-		    <h5 class="w3-xlarge w3-animate-right" >How to use!</h5>  
-		    <p class="w3-animate-right" id="Directions">Input number of classes you are taking and press "Submit", then input your grades under "Grades:" and press "Calculate GPA and Save" to calculate your gpa.</p>		<p class="w3-animate-right" id="Directions2">Your class data will then be saved as a cookie to your device. This is so if you refresh, your data is saved!</p>
-
-				<button class="w3-green" onclick="help()">Need Help?</button>
-		
-				<p class="w3-animate-right" id="saved"></p>
+		    <h5 class="w3-xlarge w3-animate-right" >Step 1</h5>
+		    <p class="w3-animate-right" id="help1">Type your number of classes and click submit.</p><p class="w3-animate-right" id="Directions2"></p>
 		
 				<input class="w3-animate-right txtbox" type="number" placeholder="Number of Classes" id="numOfClasses" >
 				<button onclick="classAmount()" class="button w3-animate-right w3-button w3-theme">Submit</button>
@@ -65,12 +62,19 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 			</div>
 			
 		  <div id="c" class="lightMode w3-half w3-container w3-padding-16">
+
+				<h5 class="w3-xlarge w3-animate-right" >Step 2</h5>
+		    <p class="w3-animate-right" id="help2">Input your class information.</p>
+				
 				<h5 class="w3-xlarge w3-animate-right" >Grades:</h5>
 				<p></p>
 		    <div class="selectionbox w3-small w3-animate-right" id="temp1"></div>
-		
+
+				<h5 class="w3-xlarge w3-animate-right" >Step 3</h5>
+		    <p class="w3-animate-right" id="help2">Press "Calculate GPA and Save"</p>
+				
 				<h2 class="gpa float w3-animate-right" id="gpa">No Data</h2>
-				<button id="gpaButton" onclick="loadgpa()" class="float2 button w3-animate-right w3-button w3-theme">Calculate GPA and Save</button>
+				<button id="gpaButton" onclick="loadgpahelp()" class="float2 button w3-animate-right w3-button w3-theme">Calculate GPA and Save</button>
 				<p></p><button id="clearDataButton" onclick="clearData()" class="float button w3-animate-right w3-button w3-theme">Clear Grade Data</button>
 				<p class="mini w3-animate-right">Note: This action refreshes the page.</p>
 				

@@ -247,7 +247,13 @@ function createCookieCourse(classNum, letterGrade, classText, classType, itr){//
 	
 }
 
-
+function help(){
+	window.location.href='help.html';
+}
+function loadgpahelp(){
+	loadgpa()
+	window.location.href='index.html';
+}
 
 function loadgpa(){ //Saves values to the array
 	if (courses != null) {
