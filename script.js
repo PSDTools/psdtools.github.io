@@ -429,7 +429,7 @@ function rTH() {
 function oTH() { 
 	remColors()
 	var element = document.body;
-	element.classList.add("yellowModebg");
+	element.classList.add("orangeModebg");
 	localStorage.setItem('color', "orange", 365);
 }
 function yTH() { 
