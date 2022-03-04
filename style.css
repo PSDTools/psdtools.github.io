@@ -1,7 +1,29 @@
-body {
-	background: linear-gradient(141deg, #045700 20%, #139c00 31%, #178200 85%);
+.darkMode{
+	background-color: #1c1c1c;
+	color:white;
+	border-style:solid;
+	border-width: 1px;
+	border-color:#1f1f1f;
+	transition: all 0.5s ease-in-out;
 }
-footer {
+.lightMode{
+	background-color:#f1f1f1;
+	color:black;
+	border-style:solid;
+	border-width: 1px;
+	border-color:#e7e7e7;
+	transition: all 0.5s ease-in-out;
+}
+.darkModebg{
+	background: #044200;
+	transition: all 0.5s ease-in-out;
+}
+.lightModebg{
+	background: #1a8f00 ;
+	/* background: linear-gradient(180deg, #067500 20%, #16bd00 31%, #1a8f00 85%); */
+	transition: all 0.5s ease-in-out;
+}
+.footer {
     box-shadow: 0 50vh 0 50vh #000;
 }
 .lgreen{
@@ -110,9 +132,9 @@ input:checked + .slider:before {
 	top:0px;
 	left:0px;
 	font-size:19px;
-	color:#000000;	
+	/* color:#000000;	 */
     pointer-event:none;
-	transition: all 0.5s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 .input-container input{ 
   border:0;
@@ -121,7 +143,6 @@ input:checked + .slider:before {
   width:30%;
   padding:0px 0 5px 0;
   font-size:18.5px;
-  color:rgb(0, 0, 0);
 }
 .input-container input:focus{ 
  border:none;	
@@ -156,9 +177,71 @@ input:checked + .slider:before {
   width: 215px;
   padding: 10px 0 10px 15px;
   font-weight: 500;
-  color: rgb(48, 48, 48);
+	color: rgb(48, 48, 48);
   background: #e7e7e7;
   border: 0;
   border-radius: 3px;
   outline: 0;
+}
+
+
+/* Sequence Themes! */
+
+.redModebg{
+	background: #bd0000;
+	transition: all 0.5s ease-in-out;
+}
+
+.orangeModebg{
+	background: #eb8714;
+	transition: all 0.5s ease-in-out;
+}
+
+.yellowModebg{
+	background: #eef207;
+	transition: all 0.5s ease-in-out;
+}
+
+.limeModebg{
+	background: #70e000;
+	transition: all 0.5s ease-in-out;
+}
+
+.cyanModebg{
+	background: #00bdba;
+	transition: all 0.5s ease-in-out;
+}
+
+.blueModebg{
+	background: #0008ff;
+	transition: all 0.5s ease-in-out;
+}
+
+.purpleModebg{
+	background: #7d07f2;
+	transition: all 0.5s ease-in-out;
+}
+
+.pinkModebg{
+	background: #fb00ff;
+	transition: all 0.5s ease-in-out;
+}
+
+.pinkredModebg{
+	background: #ff0088;
+	transition: all 0.5s ease-in-out;
+}
+
+.synthwaveMode{
+	background-color: #020080;
+	color:#07c7ca;
+	border-style:solid;
+	border-width: 1px;
+	border-color:#e69d00;
+	transition: all 0.5s ease-in-out;
+}
+
+.synthwaveModebg{
+	background: #ce00d1;
+	transition: all 0.5s ease-in-out;
 }

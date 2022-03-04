@@ -49,9 +49,9 @@ function createCourse(num){
 	var tempElementIdAlsoNext = "temp".concat("", String(num + 2));
 	//creates html elements in the courses class
 	document.getElementById(tempElementId).innerHTML= '\
-	<div class="input-container">\
+	<div id="input-con-div" class="input-container lightModeInput">\
 	<input id="cl' + num + 'txt" type="text" required=""/>\
-	<label>Class ' + num + '</label>\
+	<label id="cl' + num + 'label">Class ' + num + '</label>\
 	</div>\
 <span id="typeId' + num + '">\
 <p>Type:</p>\
@@ -81,9 +81,62 @@ function createCourse(num){
 
 function getCookies(){//Called on pageload
 	//Pulls cookies from localStorage
+	var color = localStorage.getItem('color');
+	var shade = localStorage.getItem('shade');
 	var gradecookie = localStorage.getItem('gradecookie');
 	var arraycookie = localStorage.getItem('arraycookie');
-	//sets top header and slider to correct values
+	//sets top header, slider, and dark mode to correct values
+	if (shade == "dark"){
+		var element = document.body;
+	  element.classList.toggle("darkModebg");
+		element.classList.toggle("lightModebg");
+		var c = document.getElementById("c");
+	  c.classList.toggle("darkMode");
+		c.classList.toggle("lightMode");
+		var c2 = document.getElementById("c2");
+		c2.classList.toggle("darkMode");
+		c2.classList.toggle("lightMode");
+		document.getElementById("darkModeButton").innerHTML = 'Light Mode'
+	} 
+	
+	//Easter Egg
+	if (color == "red"){
+		var element = document.body;
+	  element.classList.add("redModebg");
+	} else if (color == "orange"){
+		var element = document.body;
+	  element.classList.add("orangeModebg");
+	} else if (color == "yellow"){
+		var element = document.body;
+	  element.classList.add("yellowModebg");
+	} else if (color == "lime"){
+		var element = document.body;
+	  element.classList.add("limeModebg");
+	} else if (color == "cyan"){
+		var element = document.body;
+	  element.classList.add("cyanModebg");
+	} else if (color == "blue"){
+		var element = document.body;
+	  element.classList.add("blueModebg");
+	} else if (color == "purple"){
+		var element = document.body;
+	  element.classList.add("purpleModebg");
+	} else if (color == "pink"){
+		var element = document.body;
+	  element.classList.add("pinkModebg");
+	} else if (color == "pinkred"){
+		var element = document.body;
+	  element.classList.add("pinkredModebg");
+	} else if (color == "synth"){
+		var element = document.body;
+	  element.classList.add("synthwaveModebg");
+		var c = document.getElementById("c");
+	  c.classList.add("synthwaveMode");
+		var c2 = document.getElementById("c2");
+	  c2.classList.add("synthwaveMode");
+	}
+
+		
 	if (gradecookie == "true"){
 		document.getElementById("hsmsInput").checked = true
 		checked = true
@@ -278,6 +331,8 @@ function clearData(){
 function clearAll(){
 	localStorage.setItem('arraycookie', null, -1);
 	localStorage.setItem('gradecookie', null, -1);
+	localStorage.setItem('color', null, -1);
+	localStorage.setItem('shade', null, -1);
 }
 
 // Side nav bar
@@ -290,4 +345,142 @@ function w3_open() {
 }
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
+}
+//Dark Mode
+function darkMode() {
+	
+  var element = document.body;
+  element.classList.toggle("darkModebg");
+	element.classList.toggle("lightModebg");
+	
+	var c = document.getElementById("c");
+  c.classList.toggle("darkMode");
+	c.classList.toggle("lightMode");
+
+	var c2 = document.getElementById("c2");
+	c2.classList.toggle("darkMode");
+	c2.classList.toggle("lightMode");
+	
+	if (c.classList.contains("darkMode") == true){
+		document.getElementById("darkModeButton").innerHTML = 'Light Mode'
+		localStorage.setItem('shade', "dark", 365);
+		
+	} else if(element.classList.contains("lightMode") == false) {
+		document.getElementById("darkModeButton").innerHTML = 'Dark Mode'
+		localStorage.setItem('shade', "light", 365);
+	}
+}
+//Easter Egg
+//Context: https://www.google.com/search?q=Konami+Code
+
+
+
+function remColors(){
+	const classes = ["redModebg","orangeModebg","yellowModebg","limeModebg","cyanModebg","blueModebg","purpleModebg","pinkModebg","pinkredModebg","synthwaveMode","synthwaveModebg"];
+	classes.forEach(c => {
+		var element = document.body;
+	  if (element.classList.contains(c)) {
+	     element.classList.remove(c);
+	  }
+		var element = document.getElementById("c");
+	  if (element.classList.contains(c)) {
+	     element.classList.remove(c);
+	  }
+		var element = document.getElementById("c2");
+	  if (element.classList.contains(c)) {
+	     element.classList.remove(c);
+	  }
+	})
+};
+
+var keys = "";
+window.onkeydown = function (e) {
+    var code = e.keyCode ? e.keyCode : e.which;
+    if (code === 38) { //up key
+        keys += "1"
+    } else if (code === 40) { //down key
+        keys += "2"
+    } else if (code === 37) { //left key
+        keys += "3"
+    } else if (code === 39) { //right key
+        keys += "4"
+    } else if (code === 66) { //B key
+        keys += "5"
+    } else if (code === 65) { //A key
+        keys += "6"
+    } else if (code === 13) { //Start (enter) key
+        keys += "7"
+    };
+	if (keys == "11223434567"){//sequence
+		console.log(keys)
+		alert("You Found It!"); 
+		document.getElementById('id02').style.display='block';
+		remColors()
+		
+	};
+};
+//Button Theme Changing Functions
+function rTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("redModebg");
+	localStorage.setItem('color', "red", 365);
+}
+function oTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("yellowModebg");
+	localStorage.setItem('color', "orange", 365);
+}
+function yTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("yellowModebg");
+	localStorage.setItem('color', "yellow", 365);
+}
+function lTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("limeModebg");
+	localStorage.setItem('color', "lime", 365);
+}
+function cTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("cyanModebg");
+	localStorage.setItem('color', "cyan", 365);
+}
+function bTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("blueModebg");
+	localStorage.setItem('color', "blue", 365);
+}
+function pTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("purpleModebg");
+	localStorage.setItem('color', "purple", 365);
+}
+function piTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("pinkModebg");
+	localStorage.setItem('color', "pink", 365);
+}
+function prTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("pinkredModebg");
+	localStorage.setItem('color', "pinkred", 365);
+}
+function sTH() { 
+	remColors()
+	var element = document.body;
+	element.classList.add("synthwaveModebg");
+	var c = document.getElementById("c");
+	c.classList.add("synthwaveMode");
+	var c2 = document.getElementById("c2");
+	c2.classList.add("synthwaveMode");
+	localStorage.setItem('color', "synth", 365);
 }
