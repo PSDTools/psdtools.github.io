@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width">
-	    <title>GPA Calculator</title>
-	    <link href="style.css" rel="stylesheet" type="text/css" />
-	    <script src="script.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>GPA Calculator</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="script.js"></script>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-		<body class="lightModebg" onload="getCookies()">
+	<body class="lightModebg" onload="getCookies()">
 		
 	<!-- Side Navigation -->
 		<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
@@ -21,34 +21,32 @@
 			<button class="clearDataButton smallbutton w3-button w3-theme" onclick="clearAll()">Clear All Site Data</button>
 			<p></p>
 			<div id="google_translate_element"></div>
-<script type="text/javascript">// <![CDATA[
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
+			<script type="text/javascript">// <![CDATA[
+				function googleTranslateElementInit() {
+					new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+				}
 // ]]></script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+			<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
 			
 		</nav>
-
+			
 		<!-- Header -->
 		<header class="w3-container w3-theme w3-padding-16" id="myHeader">
-		  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
-		  <div class="w3-center">
-			  <h4 class="lgreen w3-xlarge w3-animate-top">PATTONVILLE</h4>
+			<i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
+			<div class="w3-center">
+				<h4 class="lgreen w3-xlarge w3-animate-top">PATTONVILLE</h4>
 				<h5 id="gradeLvl" class="w3-large w3-animate-top"></h5>
-			  <h1 class="w3-xxxlarge w3-animate-left">GPA Calculator</h1>
-		  </div>
+				<h1 class="w3-xxxlarge w3-animate-left">GPA Calculator</h1>
+			</div>
 			<a class="w3-text-white" href="#myFooter"><span class="w3-xlarge">
-		    <i class="fa fa-chevron-circle-down"></i></span></a>
-		
-		
-		
+				<i class="fa fa-chevron-circle-down"></i></span></a>
 		</header>
 				
 		<div class="w3-row">
 		  <div id="c2" class="lightMode w3-half w3-container w3-padding-16">
 		    <h5 class="w3-xlarge w3-animate-right" >How to use!</h5>  
-		    <p class="w3-animate-right" id="Directions">Input number of classes you are taking and press "Submit", then input your grades under "Grades:" and press "Calculate GPA and Save" to calculate your gpa.</p>		<p class="w3-animate-right" id="Directions2">Your class data will then be saved as a cookie to your device. This is so if you refresh, your data is saved!</p>
+		    <p class="w3-animate-right" id="Directions">Input number of classes you are taking and press "Submit", then input your grades under "Grades:" and press "Calculate GPA and Save" to calculate your gpa.</p>
+				<p class="w3-animate-right" id="Directions2">Your class data will then be saved as a cookie to your device. This is so if you refresh, your data is saved!</p>
 
 				<button class="w3-green" onclick="help()">Need Help?</button>
 		
@@ -69,31 +67,31 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 				<button id="gpaButton" onclick="loadgpa()" class="float2 button w3-animate-right w3-button w3-theme">Calculate GPA and Save</button>
 				<p></p><button id="clearDataButton" onclick="clearData()" class="float button w3-animate-right w3-button w3-theme">Clear Grade Data</button>
 				<p class="mini w3-animate-right">Note: This action refreshes the page.</p>
-				
-			</div>
-		</div>
-		<div id="id01" class="w3-modal w3-animate-opacity">
-			<div class="w3-modal-content w3-card-4">
-				<header class="w3-container w3-green"> 
-					<h3>Choose Your Grade Level</h3>
-				</header>
-				<div class="w3-container">
-					<h4 id="modalClass">Middle School</h4>
-					<label class="switch">
-					<input onclick="hsmsSwap()" type="checkbox" id="hsmsInput" checked>
-					<span class="slider round"></span>
-					</label>
-					<p></p>
-					<span onclick="document.getElementById('id01').style.display='none'" 
-					class="w3-button w3-large w3-green">Ok</span>
-					<p></p>
+					
 				</div>
-				<footer class="w3-container w3-green">
-					<p>This can be changed later inside the menu.</p>
-				</footer>
 			</div>
-		</div>
-
+			<div id="id01" class="w3-modal w3-animate-opacity">
+				<div class="w3-modal-content w3-card-4">
+					<header class="w3-container w3-green"> 
+						<h3>Choose Your Grade Level</h3>
+					</header>
+					<div class="w3-container">
+						<h4 id="modalClass">Middle School</h4>
+						<label class="switch">
+						<input onclick="hsmsSwap()" type="checkbox" id="hsmsInput" checked>
+						<span class="slider round"></span>
+						</label>
+						<p></p>
+						<span onclick="document.getElementById('id01').style.display='none'" 
+						class="w3-button w3-large w3-green">Ok</span>
+						<p></p>
+					</div>
+					<footer class="w3-container w3-green">
+						<p>This can be changed later inside the menu.</p>
+					</footer>
+				</div>
+			</div>
+	
 			<!-- Easter Egg -->
 				<div id="id02" class="w3-modal w3-animate-opacity">
 			<div class="w3-modal-content w3-card-4">
@@ -120,46 +118,45 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 				</footer>
 			</div>
 		</div>
-</body>
-		<!-- Footer -->
-		<footer class="footer w3-container w3-theme-dark w3-padding-16" id="myFooter">
-			<a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
-		    <i class="fa fa-chevron-circle-up"></i></span></a>
-		  <h3>About</h3>
-			<!-- Easter egg -->
-			<p class="float2 black">.... . .-.. .-.. --- / - .... . .-. . -.-.--</p>
-			<!-- Info -->
-			<p>Created by Parker Hasenkamp for the <a href="https://psdr3.org" target="_blank">Pattonville School District</a></p>
-			<p>My submission for the 2021 <a href="https://www.congressionalappchallenge.us/" target="_blank">Congressional App Challenge!</a></p>
-			
-		</footer>
+	</body>
+	<!-- Footer -->
+	<footer class="footer w3-container w3-theme-dark w3-padding-16" id="myFooter">
+		<a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+			<i class="fa fa-chevron-circle-up"></i></span></a>
+		<h3>About</h3>
+		<!-- Easter egg -->
+		<p class="float2 black">.... . .-.. .-.. --- / - .... . .-. . -.-.--</p>
+		<!-- Info -->
+		<p>Created by Parker Hasenkamp for the <a href="https://psdr3.org" target="_blank">Pattonville School District</a></p>
+		<p>My submission for the 2021 <a href="https://www.congressionalappchallenge.us/" target="_blank">Congressional App Challenge!</a></p>
 		
-		<!--Smooth Scroll Buttons-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script>
-			$(document).ready(function(){
-			  // Add smooth scrolling to all links
-			  $("a").on('click', function(event) {
-			
-			    // Make sure this.hash has a value before overriding default behavior
-			    if (this.hash !== "") {
-			      // Prevent default anchor click behavior
-			      event.preventDefault();
-			
-			      // Store hash
-			      var hash = this.hash;
-			
-			      // Using jQuery's animate() method to add smooth page scroll
-			      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-			      $('html, body').animate({
-			        scrollTop: $(hash).offset().top
-			      }, 1000, function(){
-			   
-			        // Add hash (#) to URL when done scrolling (default click behavior)
-			        window.location.hash = hash;
-			      });
-			    } // End if
-			  });
+	</footer>
+	<!--Smooth Scroll Buttons-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			// Add smooth scrolling to all links
+			$("a").on('click', function(event) {
+		
+				// Make sure this.hash has a value before overriding default behavior
+				if (this.hash !== "") {
+					// Prevent default anchor click behavior
+					event.preventDefault();
+		
+					// Store hash
+					var hash = this.hash;
+		
+					// Using jQuery's animate() method to add smooth page scroll
+					// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+					$('html, body').animate({
+						scrollTop: $(hash).offset().top
+					}, 1000, function(){
+			 
+						// Add hash (#) to URL when done scrolling (default click behavior)
+						window.location.hash = hash;
+					});
+				} // End if
 			});
-		</script>
+		});
+	</script>
 </html>
