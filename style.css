@@ -231,17 +231,3 @@ input:checked + .slider:before {
 	background: #ff0088;
 	transition: all 0.5s ease-in-out;
 }
-
-.synthwaveMode{
-	background-color: #020080;
-	color:#07c7ca;
-	border-style:solid;
-	border-width: 1px;
-	border-color:#e69d00;
-	transition: all 0.5s ease-in-out;
-}
-
-.synthwaveModebg{
-	background: #ce00d1;
-	transition: all 0.5s ease-in-out;
-}

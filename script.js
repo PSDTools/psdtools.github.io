@@ -127,13 +127,6 @@ function getCookies(){//Called on pageload
 	} else if (color == "pinkred"){
 		var element = document.body;
 	  element.classList.add("pinkredModebg");
-	} else if (color == "synth"){
-		var element = document.body;
-	  element.classList.add("synthwaveModebg");
-		var c = document.getElementById("c");
-	  c.classList.add("synthwaveMode");
-		var c2 = document.getElementById("c2");
-	  c2.classList.add("synthwaveMode");
 	}
 
 		
@@ -382,7 +375,7 @@ function darkMode() {
 
 
 function remColors(){
-	const classes = ["redModebg","orangeModebg","yellowModebg","limeModebg","cyanModebg","blueModebg","purpleModebg","pinkModebg","pinkredModebg","synthwaveMode","synthwaveModebg"];
+	const classes = ["redModebg","orangeModebg","yellowModebg","limeModebg","cyanModebg","blueModebg","purpleModebg","pinkModebg","pinkredModebg"];
 	classes.forEach(c => {
 		var element = document.body;
 	  if (element.classList.contains(c)) {
@@ -479,14 +472,4 @@ function prTH() {
 	var element = document.body;
 	element.classList.add("pinkredModebg");
 	localStorage.setItem('color', "pinkred", 365);
-}
-function sTH() { 
-	remColors()
-	var element = document.body;
-	element.classList.add("synthwaveModebg");
-	var c = document.getElementById("c");
-	c.classList.add("synthwaveMode");
-	var c2 = document.getElementById("c2");
-	c2.classList.add("synthwaveMode");
-	localStorage.setItem('color', "synth", 365);
 }
