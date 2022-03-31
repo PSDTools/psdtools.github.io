@@ -19,6 +19,9 @@
 			<p></p>
 			<button id="darkModeButton" onclick="darkMode()" class="smallbutton w3-button w3-theme">Dark Mode</button>
 			<p></p>
+			<p></p><button id="clearDataButton" onclick="clearData()" class="smallbutton float button w3-button w3-theme">Clear Grade Data</button>
+				<p class="mini">Note: This action refreshes the page.</p>
+			<p></p>
 			<button class="clearDataButton smallbutton w3-button w3-theme" onclick="clearAll()">Clear All Site Data</button>
 			<p></p>
 			<div id="google_translate_element"></div>
@@ -46,7 +49,7 @@
 		<div class="w3-row">
 		  <div id="c2" class="lightMode w3-half w3-container w3-padding-16">
 		    <h5 class="w3-xlarge w3-animate-right" >How to use!</h5>  
-		    <p class="w3-animate-right" id="Directions">Input number of classes you are taking and press "Submit", then input your grades under "Grades:" and press "Calculate GPA and Save" to calculate your gpa.</p>
+		    <p class="w3-animate-right" id="Directions">Input number of classes you are taking and press "Submit", then input your grades under "Grades:", and press "Calculate GPA and Save" to calculate your gpa.</p>
 				<p class="w3-animate-right" id="Directions2">Your class data will then be saved as a cookie to your device. This is so if you refresh, your data is saved!</p>
 
 				<button class="w3-green" onclick="help()">Need Help?</button>
@@ -66,8 +69,6 @@
 		
 				<h2 class="gpa float w3-animate-right" id="gpa">No Data</h2>
 				<button id="gpaButton" onclick="loadgpa()" class="float2 button w3-animate-right w3-button w3-theme">Calculate GPA and Save</button>
-				<p></p><button id="clearDataButton" onclick="clearData()" class="float button w3-animate-right w3-button w3-theme">Clear Grade Data</button>
-				<p class="mini w3-animate-right">Note: This action refreshes the page.</p>
 					
 				</div>
 			</div>
