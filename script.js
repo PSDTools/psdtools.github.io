@@ -244,7 +244,6 @@ function help(){
 	window.location.href='help.html';
 }
 function loadgpahelp(){
-	loadgpa()
 	window.location.href='index.html';
 }
 
