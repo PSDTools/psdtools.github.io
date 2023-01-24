@@ -1,3 +1,3 @@
-# <https://PSDTools.github.io/>
+# [PSDTools.github.io](https://PSDTools.github.io/)
 
 Our website.
