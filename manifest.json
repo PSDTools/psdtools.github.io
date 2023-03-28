@@ -1,0 +1,16 @@
+{
+  "background_color": "#00843e",
+  "description": "GPA Calculator for Pattonville",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Pattonville GPA Calculator",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "GPA Calculator",
+  "start_url": "https://psdtools.github.io/GPA_Calculator/",
+  "theme_color": "#000000",
+  "categories": [],
+  "screenshots": [],
+  "icons": [],
+  "shortcuts": []
+}
