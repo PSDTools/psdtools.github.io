@@ -1,19 +1,21 @@
 # Gpa Calculator
 
-Created by: Parker Hasenkamp
+PWA that calculates your GPA!
 
-Description: HTML/JS/CSS site that calculates your gpa!
+## Created by
 
-Links:
+Parker Hasenkamp ([**@ParkerH27**](https://github.com/ParkerH27))
 
-Github Repository:
-https://github.com/ParkerH27/Gpa_Calculator
+## Links
 
-Github Hosted Site:
-https://parkerh27.github.io/Gpa_Calculator/
+- Github Repository:
+  <https://github.com/PSDTools/Gpa_Calculator>
 
-Replit Project:
-https://replit.com/@ParkerHasenkamp/GpaCalculator#index.html
+- Github Hosted Site:
+  <https://PSDTools.github.io/Gpa_Calculator/>
 
-Replit Hosted Site:
-https://gpacalculator.parkerhasenkamp.repl.co/
+- Replit Project:
+  <https://replit.com/@ParkerHasenkamp/GpaCalculator#index.html>
+
+- Replit Hosted Site:
+  <https://gpacalculator.parkerhasenkamp.repl.co/>
