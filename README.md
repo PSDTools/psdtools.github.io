@@ -18,4 +18,4 @@ Parker Hasenkamp ([**@ParkerH27**](https://github.com/ParkerH27))
   <https://replit.com/@ParkerHasenkamp/GpaCalculator#index.html>
 
 - Replit Hosted Site:
-  <https://gpacalculator.parkerhasenkamp.repl.co/>
+  <https://gpacalculator--parkerhasenkamp.repl.co/>
