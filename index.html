@@ -12,10 +12,10 @@
 	<link href="AppImages/android/android-launchericon-512-512.png" rel="shortcut icon" type="text/css">
 	<body class="lightModebg" onload="getCookies()">
 		<!-- Service Worker -->
-	<script>
-if (navigator && navigator.serviceWorker) {
-  navigator.serviceWorker.register('sw.js');
-}
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
 </script>
 		
 	<!-- Side Navigation -->
