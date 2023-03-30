@@ -7,7 +7,7 @@
   "orientation": "any",
   "scope": "/",
   "short_name": "GPA Calculator",
-  "start_url": "https://psdtools.github.io/GPA_Calculator/",
+  "start_url": "/",
   "theme_color": "#000000",
   "categories": [],
   "screenshots": [],
