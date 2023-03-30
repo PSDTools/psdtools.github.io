@@ -13,9 +13,9 @@
 	<body class="lightModebg" onload="getCookies()">
 		<!-- Service Worker -->
 	<script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('sw.js')
-  }
+if (navigator && navigator.serviceWorker) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 		
 	<!-- Side Navigation -->
