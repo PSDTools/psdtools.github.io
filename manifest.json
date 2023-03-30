@@ -12,7 +12,7 @@
   "categories": [],
   "screenshots": [],
   "icons": [{
-      "src": "https://github.com/PSDTools/GPA_Calculator/blob/master/psdr3-icon.png?raw=true",
+      "src": "https://raw.githubusercontent.com/PSDTools/GPA_Calculator/master/psdr3-icon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
