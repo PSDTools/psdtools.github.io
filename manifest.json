@@ -7,7 +7,7 @@
   "orientation": "any",
   "scope": "/",
   "short_name": "GPA Calculator",
-  "start_url": "/index.html",
+  "start_url": "/GPA_Calculator/index.html",
   "theme_color": "#000000",
   "categories": [],
   "screenshots": [],
