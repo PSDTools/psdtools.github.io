@@ -1,6 +1,6 @@
 # Gpa Calculator
 
-A PWA that calculates your GPA!
+A PWA(in theory) that calculates your GPA!
 
 ## Created by
 
