@@ -1,24 +1,24 @@
-
-event.respondWith((async () => {
-  const cachedResponse = await caches.match(event.request);
-  if (cachedResponse) {
-    return cachedResponse;
+self.addEventListener('fetch', event => {
+  // Skip cross-origin requests, like those for Google Analytics.
+  if (event.request.url.startsWith(self.location.origin)) {
+    event.respondWith(
+      caches.match(event.request).then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+ 
+        return caches.open(RUNTIME).then(cache => {
+          return fetch(event.request).then(response => {
+            // Put a copy of the response in the runtime cache.
+            return cache.put(event.request, response.clone()).then(() => {
+              return response;
+            });
+          });
+        });
+      })
+    );
   }
-
-  const response = await fetch(event.request);
-
-  if (!response || response.status !== 200 || response.type !== 'basic') {
-    return response;
-  }
-
-  if (ENABLE_DYNAMIC_CACHING) {
-    const responseToCache = response.clone();
-    const cache = await caches.open(DYNAMIC_CACHE)
-    await cache.put(event.request, response.clone());
-  }
-
-  return response;
-})());
+});
 
 // const CACHE_NAME = 'cool-cache';
 
