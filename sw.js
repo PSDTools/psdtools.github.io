@@ -20,10 +20,10 @@ const CACHE_NAME = 'cool-cache';
 
 // Add whichever assets you want to pre-cache here:
 const PRECACHE_ASSETS = [
-    '/script.js',
-    '/style.css',
-		'/AppImages/',
-		'/psdr3-icon.png'
+    '/GPA_Calculator/script.js',
+    '/GPA_Calculator/style.css',
+		'/GPA_Calculator/AppImages/',
+		'/GPA_Calculator/psdr3-icon.png'
 ]
 
 // Listener for the install event - pre-caches our assets list on service worker install.
