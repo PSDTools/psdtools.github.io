@@ -4,7 +4,8 @@ A PWA(Yay!) that calculates your GPA!
 
 ## Created by
 
-Parker Hasenkamp ([**@ParkerH27**](https://github.com/ParkerH27))
+- Parker Hasenkamp ([**@ParkerH27**](https://github.com/ParkerH27))
+- Eli D. ([**@lishaduck**](https://github.com/lishaduck))
 
 ## Links
 
