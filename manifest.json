@@ -1,5 +1,5 @@
 {
-  "background_color": "#00843e",
+  "background_color": "#000000",
   "description": "GPA Calculator for Pattonville",
   "dir": "ltr",
   "display": "standalone",
@@ -8,7 +8,7 @@
   "scope": "/",
   "short_name": "GPA Calculator",
   "start_url": "/GPA_Calculator/index.html",
-  "theme_color": "#000000",
+  "theme_color": "#00843e",
   "categories": [],
   "screenshots": [],
   "icons": [{
