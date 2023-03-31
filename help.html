@@ -3,13 +3,13 @@
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width">
 	    <title>GPA Calculator</title>
-	    <link href="style.css" rel="stylesheet" type="text/css" />
-	    <script src="script.js"></script>
+	    <link href="/src/style.css" rel="stylesheet" type="text/css" />
+	    <script type="module" src="/src/script.js"></script>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 		<body class="lightModebg" onload="getCookies()">
-		
+
 	<!-- Side Navigation -->
 		<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
 		  <button class="smallbutton w3-text-theme w3-padding-16" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
@@ -30,12 +30,12 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 }
 // ]]></script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
-			
+
 		</nav>
 
 		<!-- Header -->
 		<header class="w3-container w3-theme w3-padding-16" id="myHeader">
-		  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
+		  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i>
 		  <div class="w3-center">
 			  <h4 class="lgreen w3-xlarge w3-animate-top">PATTONVILLE</h4>
 				<h5 id="gradeLvl" class="w3-large w3-animate-top"></h5>
@@ -44,43 +44,43 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 		  </div>
 			<a class="w3-text-white" href="#myFooter"><span class="w3-xlarge">
 		    <i class="fa fa-chevron-circle-down"></i></span></a>
-		
-		
-		
+
+
+
 		</header>
-				
+
 		<div class="w3-row">
 		  <div id="c2" class="lightMode w3-half w3-container w3-padding-16">
 		    <h5 class="w3-xlarge w3-animate-right" >Step 1</h5>
 		    <p class="w3-animate-right" id="help1">Type your number of classes and click submit.</p><p class="w3-animate-right" id="Directions2"></p>
-		
+
 				<input class="w3-animate-right txtbox" type="number" placeholder="Number of Classes" id="numOfClasses" >
 				<button onclick="classAmount()" class="button w3-animate-right w3-button w3-theme">Submit</button>
 				<p></p>
-				
+
 			</div>
-			
+
 		  <div id="c" class="lightMode w3-half w3-container w3-padding-16">
 
 				<h5 class="w3-xlarge w3-animate-right" >Step 2</h5>
 		    <p class="w3-animate-right" id="help2">Input your class information.</p>
-				
+
 				<h5 class="w3-xlarge w3-animate-right" >Grades:</h5>
 				<p></p>
 		    <div class="selectionbox w3-small w3-animate-right" id="temp1"></div>
 
 				<h5 class="w3-xlarge w3-animate-right" >Step 3</h5>
 		    <p class="w3-animate-right" id="help2">Press "Calculate GPA and Save"</p>
-				
+
 				<h2 class="gpa float w3-animate-right" id="gpa">No Data</h2>
 				<button id="gpaButton" onclick="loadgpahelp()" class="float2 button w3-animate-right w3-button w3-theme">Calculate GPA and Save</button>
 				<p>Note: When in help mode this only takes you back to the main page.</p>
-				
+
 			</div>
 		</div>
 		<div id="id01" class="w3-modal w3-animate-opacity">
 			<div class="w3-modal-content w3-card-4">
-				<header class="w3-container w3-green"> 
+				<header class="w3-container w3-green">
 					<h3>Choose Your Grade Level</h3>
 				</header>
 				<div class="w3-container">
@@ -90,7 +90,7 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 					<span class="slider round"></span>
 					</label>
 					<p></p>
-					<span onclick="document.getElementById('id01').style.display='none'" 
+					<span onclick="document.getElementById('id01').style.display='none'"
 					class="w3-button w3-large w3-green">Ok</span>
 					<p></p>
 				</div>
@@ -103,24 +103,24 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 			<!-- Easter Egg -->
 				<div id="id02" class="w3-modal w3-animate-opacity">
 			<div class="w3-modal-content w3-card-4">
-				<header class="w3-container w3-green"> 
+				<header class="w3-container w3-green">
 					<h3>Choose Your Theme</h3>
 				</header>
-				<p></p> 
-				<button onclick="rTH()" class="redModebg">Red</button> 
-				<button onclick="oTH()" class="orangeModebg">Orange</button> 
-				<button onclick="yTH()" class="yellowModebg">Yellow</button> 
-				<button onclick="lTH()" class="limeModebg">Green</button> 
-				<button onclick="cTH()" class="cyanModebg">Cyan</button> 
-				<button onclick="bTH()" class="blueModebg">Blue</button> 
-				<button onclick="pTH()" class="purpleModebg">Purple</button> 
+				<p></p>
+				<button onclick="rTH()" class="redModebg">Red</button>
+				<button onclick="oTH()" class="orangeModebg">Orange</button>
+				<button onclick="yTH()" class="yellowModebg">Yellow</button>
+				<button onclick="lTH()" class="limeModebg">Green</button>
+				<button onclick="cTH()" class="cyanModebg">Cyan</button>
+				<button onclick="bTH()" class="blueModebg">Blue</button>
+				<button onclick="pTH()" class="purpleModebg">Purple</button>
 				<button onclick="piTH()" class="pinkModebg">Pink</button>
 				<button onclick="prTH()" class="pinkredModebg">Pink/Red</button>
 				<button onclick="sTH()" class="synthwaveMode">Synthwave</button>
 				<p></p>
-				<span onclick="document.getElementById('id02').style.display='none'" 
+				<span onclick="document.getElementById('id02').style.display='none'"
 					class="w3-button w3-large w3-green">Ok</span>
-				
+
 				<footer class="w3-container w3-black">
 					<p></p>
 				</footer>
@@ -137,30 +137,30 @@ new google.translate.TranslateElement({pageLanguage: 'en', layout: google.transl
 			<!-- Info -->
 			<p>Created by Parker Hasenkamp for the <a href="https://psdr3.org" target="_blank">Pattonville School District</a></p>
 			<p>My submission for the 2021 <a href="https://www.congressionalappchallenge.us/" target="_blank">Congressional App Challenge!</a></p>
-			
+
 		</footer>
-		
+
 		<!--Smooth Scroll Buttons-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){
 			  // Add smooth scrolling to all links
 			  $("a").on('click', function(event) {
-			
+
 			    // Make sure this.hash has a value before overriding default behavior
 			    if (this.hash !== "") {
 			      // Prevent default anchor click behavior
 			      event.preventDefault();
-			
+
 			      // Store hash
 			      var hash = this.hash;
-			
+
 			      // Using jQuery's animate() method to add smooth page scroll
 			      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
 			      $('html, body').animate({
 			        scrollTop: $(hash).offset().top
 			      }, 1000, function(){
-			   
+
 			        // Add hash (#) to URL when done scrolling (default click behavior)
 			        window.location.hash = hash;
 			      });
