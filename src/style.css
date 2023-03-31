@@ -69,7 +69,7 @@ footer {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -133,10 +133,10 @@ input:checked + .slider:before {
 	left:0px;
 	font-size:19px;
 	/* color:#000000;	 */
-    pointer-event:none;
+    pointer-events: none;
 	transition: all 0.3s ease-in-out;
 }
-.input-container input{ 
+.input-container input{
   border:0;
   /* border-bottom:1px solid #555;   */
   background:transparent;
@@ -144,10 +144,10 @@ input:checked + .slider:before {
   padding:0px 0 5px 0;
   font-size:18.5px;
 }
-.input-container input:focus{ 
- border:none;	
+.input-container input:focus{
+ border:none;
  outline:none;
- border-bottom:1px solid black;	
+ border-bottom:1px solid black;
 }
 .input-container input:focus ~ label,
 .input-container input:valid ~ label{
