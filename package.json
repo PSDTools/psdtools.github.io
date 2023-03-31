@@ -9,7 +9,7 @@
     "dev-task": "vite",
     "deploy": " npx @azure/static-web-apps-cli login --no-use-keychain && npx @azure/static-web-apps-cli deploy",
     "build": "tsc && vite build",
-    "start": "npm run dev",
+    "start": "npm run start-remote",
     "start-remote": "vite --host"
   },
   "author": "",
