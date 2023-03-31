@@ -78,7 +78,9 @@ jobs:
   deploy_job:
     name: Deploy
     needs: [build_job]
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    timeout-minutes: 4
     permissions:
       pages: write
       id-token: write
