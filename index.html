@@ -12,13 +12,13 @@
 	<link href="AppImages/android/android-launchericon-512-512.png" rel="shortcut icon" type="text/css">
 	<body class="lightModebg" onload="getCookies()">
 		<!-- Service Worker -->
-<script>
-if ('serviceWorker' in navigator) {
-	window.addEventListener('load', () => {
-		navigator.serviceWorker.register('/GPA_Calculator/sw.js');
-	});
-}
-</script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register(
+        '/sw.js'
+      );
+    }
+  </script>
 		
 	<!-- Side Navigation -->
 		<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
