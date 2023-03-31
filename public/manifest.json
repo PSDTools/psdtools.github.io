@@ -13,12 +13,14 @@
   "related_applications": [],
   "prefer_related_applications": false,
   "display_override": ["window-controls-overlay"],
-  "icons": [{
-    "src": "/psdr3-icon.png",
-    "sizes": "512x512",
-    "type": "image/png",
-    "purpose": "any"
-  }],
+  "icons": [
+    {
+      "src": "/psdr3-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
   "screenshots": [],
   "features": [],
   "categories": [],

@@ -1,66 +1,66 @@
-.darkMode{
-	background-color: #1c1c1c;
-	color:white;
-	border-style:solid;
-	border-width: 1px;
-	border-color:#1f1f1f;
-	transition: all 0.5s ease-in-out;
+.darkMode {
+  background-color: #1c1c1c;
+  color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #1f1f1f;
+  transition: all 0.5s ease-in-out;
 }
-.lightMode{
-	background-color:#f1f1f1;
-	color:black;
-	border-style:solid;
-	border-width: 1px;
-	border-color:#e7e7e7;
-	transition: all 0.5s ease-in-out;
+.lightMode {
+  background-color: #f1f1f1;
+  color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e7e7e7;
+  transition: all 0.5s ease-in-out;
 }
-.darkModebg{
-	background: #044200;
-	transition: all 0.5s ease-in-out;
+.darkModebg {
+  background: #044200;
+  transition: all 0.5s ease-in-out;
 }
-.lightModebg{
-	background: #1a8f00 ;
-	/* background: linear-gradient(180deg, #067500 20%, #16bd00 31%, #1a8f00 85%); */
-	transition: all 0.5s ease-in-out;
+.lightModebg {
+  background: #1a8f00;
+  /* background: linear-gradient(180deg, #067500 20%, #16bd00 31%, #1a8f00 85%); */
+  transition: all 0.5s ease-in-out;
 }
 .footer {
-    box-shadow: 0 50vh 0 50vh #000;
+  box-shadow: 0 50vh 0 50vh #000;
 }
-.lgreen{
-	color: lightgreen;
+.lgreen {
+  color: lightgreen;
 }
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-.gpa{
-	color:#019300;
+.gpa {
+  color: #019300;
 }
-.float{
-	display:inline-block;
+.float {
+  display: inline-block;
 }
-.float2{
-	margin: 15px 0;
-	float:right;
+.float2 {
+  margin: 15px 0;
+  float: right;
 }
-.x-smallbutton{
-	font-size:35%;
+.x-smallbutton {
+  font-size: 35%;
 }
-.smallbutton{
-	font-size:40%;
+.smallbutton {
+  font-size: 40%;
 }
-.small{
-	font-size:40%;
+.small {
+  font-size: 40%;
 }
-.mini{
-	font-size:25%;
+.mini {
+  font-size: 25%;
 }
-.black{
-	color:black;
+.black {
+  color: black;
 }
 footer {
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
 }
 .switch {
   position: relative;
@@ -83,20 +83,20 @@ footer {
   right: 0;
   bottom: 0;
   background-color: #76bb40;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -123,41 +123,41 @@ input:checked + .slider:before {
 }
 /*Animated Class Text*/
 
-.input-container{
-	position:relative;
-	margin-bottom:2px;
+.input-container {
+  position: relative;
+  margin-bottom: 2px;
 }
-.input-container label{
-	position:absolute;
-	top:0px;
-	left:0px;
-	font-size:19px;
-	/* color:#000000;	 */
-    pointer-events: none;
-	transition: all 0.3s ease-in-out;
+.input-container label {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 19px;
+  /* color:#000000;	 */
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
 }
-.input-container input{
-  border:0;
+.input-container input {
+  border: 0;
   /* border-bottom:1px solid #555;   */
-  background:transparent;
-  width:30%;
-  padding:0px 0 5px 0;
-  font-size:18.5px;
+  background: transparent;
+  width: 30%;
+  padding: 0px 0 5px 0;
+  font-size: 18.5px;
 }
-.input-container input:focus{
- border:none;
- outline:none;
- border-bottom:1px solid black;
+.input-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
 }
 .input-container input:focus ~ label,
-.input-container input:valid ~ label{
-	top:-8px;
-	font-size:10px;
-	color:rgba(0, 0, 0, 0);
+.input-container input:valid ~ label {
+  top: -8px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0);
 }
 
-.dropmenu{
-	display: inline-block;
+.dropmenu {
+  display: inline-block;
   width: 80px;
   padding: 10px 0 10px 15px;
   font-weight: 500;
@@ -168,66 +168,65 @@ input:checked + .slider:before {
   outline: 0;
 }
 
-.SM{
+.SM {
   width: 65px;
 }
 
-.txtbox{
-	display: inline-block;
+.txtbox {
+  display: inline-block;
   width: 215px;
   padding: 10px 0 10px 15px;
   font-weight: 500;
-	color: rgb(48, 48, 48);
+  color: rgb(48, 48, 48);
   background: #e7e7e7;
   border: 0;
   border-radius: 3px;
   outline: 0;
 }
 
-
 /* Sequence Themes! */
 
-.redModebg{
-	background: #bd0000;
-	transition: all 0.5s ease-in-out;
+.redModebg {
+  background: #bd0000;
+  transition: all 0.5s ease-in-out;
 }
 
-.orangeModebg{
-	background: #eb8714;
-	transition: all 0.5s ease-in-out;
+.orangeModebg {
+  background: #eb8714;
+  transition: all 0.5s ease-in-out;
 }
 
-.yellowModebg{
-	background: #eef207;
-	transition: all 0.5s ease-in-out;
+.yellowModebg {
+  background: #eef207;
+  transition: all 0.5s ease-in-out;
 }
 
-.limeModebg{
-	background: #70e000;
-	transition: all 0.5s ease-in-out;
+.limeModebg {
+  background: #70e000;
+  transition: all 0.5s ease-in-out;
 }
 
-.cyanModebg{
-	background: #00bdba;
-	transition: all 0.5s ease-in-out;
+.cyanModebg {
+  background: #00bdba;
+  transition: all 0.5s ease-in-out;
 }
 
-.blueModebg{
-	background: #0008ff;
-	transition: all 0.5s ease-in-out;
+.blueModebg {
+  background: #0008ff;
+  transition: all 0.5s ease-in-out;
 }
 
-.purpleModebg{
-	background: #7d07f2;
-	transition: all 0.5s ease-in-out;
+.purpleModebg {
+  background: #7d07f2;
+  transition: all 0.5s ease-in-out;
 }
 
-.pinkModebg{
-	background: #fb00ff;
-	transition: all 0.5s ease-in-out;
+.pinkModebg {
+  background: #fb00ff;
+  transition: all 0.5s ease-in-out;
 }
 
-.pinkredModebg{
-	background: #ff0088;
-	transition: all 0.5s ease-in-out;
+.pinkredModebg {
+  background: #ff0088;
+  transition: all 0.5s ease-in-out;
 }

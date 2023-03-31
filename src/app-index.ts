@@ -6,7 +6,10 @@ import './pages/app-home';
 import './components/header';
 import './styles/global.css';
 
-const BASE_URL: string = (import.meta.env.BASE_URL).length > 2 ? (import.meta.env.BASE_URL).slice(1, -1) : (import.meta.env.BASE_URL);
+const BASE_URL: string =
+  import.meta.env.BASE_URL.length > 2
+    ? import.meta.env.BASE_URL.slice(1, -1)
+    : import.meta.env.BASE_URL;
 
 @customElement('app-index')
 export class AppIndex extends LitElement {
@@ -55,13 +58,13 @@ export class AppIndex extends LitElement {
 
                 This API is currently supported in Edge 111+ and Chrome 111+
               */
-              if ("startViewTransition" in document) {
+              if ('startViewTransition' in document) {
                 await (document as any).startViewTransition();
               }
 
               await import('./pages/app-about/app-about.js');
             },
-          }
+          },
         ],
       } as any,
     ]);

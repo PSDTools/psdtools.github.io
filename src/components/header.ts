@@ -6,7 +6,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 export class AppHeader extends LitElement {
   @property({ type: String }) title = 'PWA Starter';
 
-  @property({ type: Boolean}) enableBack: boolean = false;
+  @property({ type: Boolean }) enableBack: boolean = false;
 
   static get styles() {
     return css`
@@ -46,7 +46,7 @@ export class AppHeader extends LitElement {
         width: 12em;
       }
 
-      @media(prefers-color-scheme: light) {
+      @media (prefers-color-scheme: light) {
         header {
           color: black;
         }
@@ -65,11 +65,12 @@ export class AppHeader extends LitElement {
   render() {
     return html`
       <header>
-
         <div id="back-button-block">
-          ${this.enableBack ? html`<sl-button href="${(import.meta as any).env.BASE_URL}">
-            Back
-          </sl-button>` : null}
+          ${this.enableBack
+            ? html`<sl-button href="${(import.meta as any).env.BASE_URL}">
+                Back
+              </sl-button>`
+            : null}
 
           <h1>${this.title}</h1>
         </div>

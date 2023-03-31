@@ -8,7 +8,6 @@ import { styles } from '../styles/shared-styles';
 
 @customElement('app-home')
 export class AppHome extends LitElement {
-
   // For more information on using properties and state in lit
   // check out this link https://lit.dev/docs/components/properties/
   @property() message = 'Welcome!';
@@ -17,43 +16,43 @@ export class AppHome extends LitElement {
     return [
       styles,
       css`
-      #welcomeBar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-
-      #welcomeCard,
-      #infoCard {
-        padding: 18px;
-        padding-top: 0px;
-      }
-
-      sl-card::part(footer) {
-        display: flex;
-        justify-content: flex-end;
-      }
-
-      @media(min-width: 750px) {
-        sl-card {
-          width: 70vw;
-        }
-      }
-
-
-      @media (horizontal-viewport-segments: 2) {
         #welcomeBar {
-          flex-direction: row;
-          align-items: flex-start;
-          justify-content: space-between;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
         }
 
-        #welcomeCard {
-          margin-right: 64px;
+        #welcomeCard,
+        #infoCard {
+          padding: 18px;
+          padding-top: 0px;
         }
-      }
-    `];
+
+        sl-card::part(footer) {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        @media (min-width: 750px) {
+          sl-card {
+            width: 70vw;
+          }
+        }
+
+        @media (horizontal-viewport-segments: 2) {
+          #welcomeBar {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+          }
+
+          #welcomeCard {
+            margin-right: 64px;
+          }
+        }
+      `,
+    ];
   }
 
   constructor() {
@@ -90,7 +89,8 @@ export class AppHome extends LitElement {
             <p>
               For more information on the PWABuilder pwa-starter, check out the
               <a href="https://docs.pwabuilder.com/#/starter/quick-start">
-                documentation</a>.
+                documentation</a
+              >.
             </p>
 
             <p id="mainInfo">
@@ -98,12 +98,17 @@ export class AppHome extends LitElement {
               <a href="https://pwabuilder.com">PWABuilder</a>
               pwa-starter! Be sure to head back to
               <a href="https://pwabuilder.com">PWABuilder</a>
-              when you are ready to ship this PWA to the Microsoft Store, Google Play
-              and the Apple App Store!
+              when you are ready to ship this PWA to the Microsoft Store, Google
+              Play and the Apple App Store!
             </p>
 
             ${'share' in navigator
-              ? html`<sl-button slot="footer" variant="primary" @click="${this.share}">Share this Starter!</sl-button>`
+              ? html`<sl-button
+                  slot="footer"
+                  variant="primary"
+                  @click="${this.share}"
+                  >Share this Starter!</sl-button
+                >`
               : null}
           </sl-card>
 
@@ -124,13 +129,19 @@ export class AppHome extends LitElement {
               </li>
 
               <li>
-                <a href="https://vaadin.github.io/vaadin-router/vaadin-router/demo/#vaadin-router-getting-started-demos"
-                  >Vaadin Router</a>
+                <a
+                  href="https://vaadin.github.io/vaadin-router/vaadin-router/demo/#vaadin-router-getting-started-demos"
+                  >Vaadin Router</a
+                >
               </li>
             </ul>
           </sl-card>
 
-          <sl-button href="${(import.meta as any).env.BASE_URL}about" variant="primary">Navigate to About</sl-button>
+          <sl-button
+            href="${(import.meta as any).env.BASE_URL}about"
+            variant="primary"
+            >Navigate to About</sl-button
+          >
         </div>
       </main>
     `;
