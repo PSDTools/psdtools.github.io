@@ -38,8 +38,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: '16'
-          cache: 'npm'
+          node-version: "16"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache-node_modules
@@ -77,7 +77,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v1.0.8
         with:
-          path: './dist/'
+          path: "./dist/"
 
   deploy_job:
     name: Deploy
@@ -95,4 +95,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v2.0.0
-

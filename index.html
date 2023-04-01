@@ -4,9 +4,9 @@
   <meta name="viewport" content="width=device-width" />
   <link rel="manifest" href="manifest.json" />
   <title>GPA Calculator</title>
-  <link href="/src/style.css" rel="stylesheet" type="text/css" />
-  <!-- <script type="module" src="/src/script.js"></script> -->
-  <script src="/src/script.js"></script>
+  <link href="/src/styles/global.css" rel="stylesheet" type="text/css" />
+  <!-- <script type="module" src="/src/script.ts"></script> -->
+  <script src="/src/script.ts"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link
     rel="stylesheet"
@@ -24,8 +24,8 @@
   <body class="lightModebg" onload="getCookies()">
     <!-- Service Worker -->
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js');
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/sw.js");
       }
     </script>
 
@@ -234,9 +234,9 @@
   <script>
     $(document).ready(function () {
       // Add smooth scrolling to all links
-      $('a').on('click', function (event) {
+      $("a").on("click", function (event) {
         // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== '') {
+        if (this.hash !== "") {
           // Prevent default anchor click behavior
           event.preventDefault();
 
@@ -245,7 +245,7 @@
 
           // Using jQuery's animate() method to add smooth page scroll
           // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-          $('html, body').animate(
+          $("html, body").animate(
             {
               scrollTop: $(hash).offset().top,
             },
@@ -260,4 +260,3 @@
     });
   </script>
 </html>
-

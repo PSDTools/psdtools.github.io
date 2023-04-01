@@ -13,12 +13,12 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
+    "experimentalDecorators": true, // no longer needed once lit supports ts 5
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": false,
     "isolatedModules": true,
     "types": ["vite-plugin-pwa/client", "vite/client"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/script.ts"]
 }

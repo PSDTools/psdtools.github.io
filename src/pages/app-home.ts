@@ -1,16 +1,16 @@
-import { LitElement, css, html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { LitElement, css, html } from "lit";
+import { property, customElement } from "lit/decorators.js";
 
-import '@shoelace-style/shoelace/dist/components/card/card.js';
-import '@shoelace-style/shoelace/dist/components/button/button.js';
+import "@shoelace-style/shoelace/dist/components/card/card.js";
+import "@shoelace-style/shoelace/dist/components/button/button.js";
 
-import { styles } from '../styles/shared-styles';
+import { styles } from "../styles/shared-styles";
 
-@customElement('app-home')
+@customElement("app-home")
 export class AppHome extends LitElement {
   // For more information on using properties and state in lit
   // check out this link https://lit.dev/docs/components/properties/
-  @property() message = 'Welcome!';
+  @property() message = "Welcome!";
 
   static get styles() {
     return [
@@ -62,15 +62,15 @@ export class AppHome extends LitElement {
   async firstUpdated() {
     // this method is a lifecycle even in lit
     // for more info check out the lit docs https://lit.dev/docs/components/lifecycle/
-    console.log('This is your home page');
+    console.log("This is your home page");
   }
 
   share() {
     if ((navigator as any).share) {
       (navigator as any).share({
-        title: 'PWABuilder pwa-starter',
-        text: 'Check out the PWABuilder pwa-starter!',
-        url: 'https://github.com/pwa-builder/pwa-starter',
+        title: "PWABuilder pwa-starter",
+        text: "Check out the PWABuilder pwa-starter!",
+        url: "https://github.com/pwa-builder/pwa-starter",
       });
     }
   }
@@ -102,7 +102,7 @@ export class AppHome extends LitElement {
               Play and the Apple App Store!
             </p>
 
-            ${'share' in navigator
+            ${"share" in navigator
               ? html`<sl-button
                   slot="footer"
                   variant="primary"

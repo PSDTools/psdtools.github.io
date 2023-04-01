@@ -26,15 +26,5 @@
     "typescript": "^5.0.3",
     "vite": "^4.2.1",
     "vite-plugin-pwa": "^0.14.7"
-  },
-  "prettier": {
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": true,
-    "quoteProps": "consistent",
-    "trailingComma": "es5",
-    "endOfLine": "crlf",
-    "bracketSpacing": true
   }
 }
