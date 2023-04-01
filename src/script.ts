@@ -76,7 +76,7 @@ function createCourse(num) {
 	<div class="selectionbox" id="${tempElementIdNext}">`;
 }
 
-function getCookies() {
+window.getCookies = function getCookies() {
   // Called on pageload
   // Pulls cookies from localStorage
   var color = localStorage.getItem("color");
@@ -151,7 +151,7 @@ function getCookies() {
     fromCookies(arraycookie);
     loadgpa();
   }
-}
+};
 
 function classAmount() {
   // if cookies don't exist
@@ -313,17 +313,17 @@ function loadgpa() {
   }
 }
 // clears class cookie data
-function clearData() {
+window.clearData = () => {
   localStorage.setItem("arraycookie", null, -1);
   location.reload();
-}
+};
 // clears all website cookie data
-function clearAll() {
+window.clearAll = () => {
   localStorage.setItem("arraycookie", null, -1);
   localStorage.setItem("gradecookie", null, -1);
   localStorage.setItem("color", null, -1);
   localStorage.setItem("shade", null, -1);
-}
+};
 
 //  Side nav bar
 function w3_open() {
@@ -333,11 +333,11 @@ function w3_open() {
   x.style.paddingTop = "10%";
   x.style.display = "block";
 }
-function w3_close() {
+window.w3_close = () => {
   document.getElementById("mySidebar").style.display = "none";
-}
+};
 // Dark Mode
-function darkMode() {
+window.darkmode = () => {
   var element = document.body;
   element.classList.toggle("darkModebg");
   element.classList.toggle("lightModebg");
@@ -357,7 +357,7 @@ function darkMode() {
     document.getElementById("darkModeButton").innerHTML = "Dark Mode";
     localStorage.setItem("shade", "light", 365);
   }
-}
+};
 // Easter Egg
 // Context: https://www.google.com/search?q=Konami+Code
 

@@ -4,11 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <base href="/" />
-    <!-- <link rel="manifest" href="manifest.json" /> -->
+    <!-- <link rel="manifest" href="GPA_Calculator/manifest.webmanifest" /> -->
     <title>GPA Calculator</title>
     <link href="/src/styles/global.css" rel="stylesheet" type="text/css" />
-    <!-- <script type="module" src="/src/script.ts"></script> -->
-    <script src="/src/script.ts"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
       rel="stylesheet"
@@ -23,12 +21,15 @@
       rel="shortcut icon"
       type="text/css"
     />
+
+    <!-- <script type="module" src="/src/script.ts"></script> -->
+    <script type="module" src="/src/script.ts"></script>
   </head>
   <body class="lightModebg" onload="getCookies()">
     <!-- Service Worker -->
     <script>
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/sw.js");
+        navigator.serviceWorker.register("GPA_Calculator/sw.js");
       }
     </script>
 

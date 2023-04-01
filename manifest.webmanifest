@@ -1,9 +1,9 @@
 {
-  "id": "/",
-  "scope": "/",
+  "id": "/GPA_Calculator",
+  "scope": "/GPA_Calculator",
   "name": "Pattonville GPA Calculator",
   "display": "standalone",
-  "start_url": "/GPA_Calculator/index.html",
+  "start_url": "/GPA_Calculator/",
   "short_name": "GPA Calculator",
   "theme_color": "#00843e",
   "description": "GPA Calculator for Pattonville",
@@ -26,4 +26,3 @@
   "categories": [],
   "shortcuts": []
 }
-
