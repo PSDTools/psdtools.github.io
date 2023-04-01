@@ -23,7 +23,7 @@
   />
   <body class="lightModebg" onload="getCookies()">
     <!-- Service Worker -->
-    <script type="module">
+    <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js');
       }
