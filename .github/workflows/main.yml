@@ -52,6 +52,8 @@ jobs:
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: npm ci
 
+      # Magic-y stuff
+
       - name: Rewrite Manifest Path in Index
         run: sed -i 's@/manifest.json@${{ github.event.repository.name }}/manifest.json@g' ./index.html && cat index.html
 
@@ -60,6 +62,8 @@ jobs:
 
       - name: Replace Paths in Manifest
         run: sed -i 's@"/"@"/${{ github.event.repository.name }}/"@g' ./public/manifest.json && cat ./public/manifest.json
+
+      # Not magic-y stuff
 
       - name: Vite Build
         run: npm run build -- --base=${{ github.event.repository.name }}
