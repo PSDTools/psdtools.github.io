@@ -15,7 +15,7 @@
   "display_override": ["window-controls-overlay"],
   "icons": [
     {
-      "src": "/psdr3-icon.png",
+      "src": "/GPA_Calculator/psdr3-icon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -26,3 +26,4 @@
   "categories": [],
   "shortcuts": []
 }
+
