@@ -5,5 +5,10 @@
     "MD025": {
       "front_matter_title": ""
     }
+  },
+  "explorer.fileNesting.patterns": {
+    ".replit": "replit.nix",
+    "package.json": "package-lock.json",
+    "REAME*": "*.${capture}"
   }
 }
