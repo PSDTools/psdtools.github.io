@@ -19,6 +19,6 @@
     "isolatedModules": true,
     "types": ["vite-plugin-pwa/client", "vite/client"]
   },
-  "include": ["src/**/*.ts", "src/sw.js"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "src/script.ts", "src/sw.ts"]
 }

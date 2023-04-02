@@ -12,7 +12,7 @@ export default defineConfig({
     VitePWA({
       strategies: "injectManifest",
       injectManifest: {
-        swSrc: "src/sw.js",
+        swSrc: "src/sw.ts",
         swDest: "dist/sw.js",
         globDirectory: "dist",
         globPatterns: ["**/*.{html,js,css,json,png}"],
