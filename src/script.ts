@@ -337,7 +337,7 @@ window.w3_close = () => {
   document.getElementById("mySidebar").style.display = "none";
 };
 // Dark Mode
-window.darkmode = () => {
+window.darkMode = () => {
   var element = document.body;
   element.classList.toggle("darkModebg");
   element.classList.toggle("lightModebg");
