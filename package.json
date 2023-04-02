@@ -1,19 +1,28 @@
 {
-  "name": "pwa-starter",
-  "version": "0.0.1",
-  "description": "A starter kit for building PWAs!",
-  "main": "index.js",
-  "scripts": {
-    "dev-server": "vite --open",
-    "dev": "npm run dev-server",
-    "dev-task": "vite",
-    "deploy": "npx @azure/static-web-apps-cli login --no-use-keychain && npx @azure/static-web-apps-cli deploy",
-    "build": "tsc && vite build",
-    "start": "npm run start-remote",
-    "start-remote": "vite --host"
+  "name": "gpa-calculator",
+  "private": true,
+  "version": "1.1.0",
+  "description": "(Formerly) A starter kit for building PWAs!",
+  "repository": {
+    "type": "git",
+    "url": "github:PSDTools/GPA_Calculator"
   },
-  "author": "",
-  "license": "ISC",
+  "markdown": "github",
+  "author": {
+    "name": "Parker Hasenkamp"
+  },
+  "readme": "README.md",
+  "contributors": [
+    {
+      "name": "Eli",
+      "email": "88557639+lishaduck@users.noreply.github.com"
+    }
+  ],
+  "type": "module",
+  "exports": [
+    "./src/app-index.js",
+    "./src/script.ts"
+  ],
   "dependencies": {
     "@shoelace-style/shoelace": "^2.3.0",
     "@vaadin/router": "^1.7.5",
@@ -26,5 +35,14 @@
     "typescript": "^5.0.3",
     "vite": "^4.2.1",
     "vite-plugin-pwa": "^0.14.7"
+  },
+  "scripts": {
+    "dev-server": "vite --open",
+    "dev": "npm run dev-server",
+    "dev-task": "vite",
+    "deploy": "npx @azure/static-web-apps-cli login --no-use-keychain && npx @azure/static-web-apps-cli deploy",
+    "build": "tsc && vite build",
+    "start": "npm run start-remote",
+    "start-remote": "vite --host"
   }
 }
