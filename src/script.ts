@@ -76,7 +76,7 @@ function createCourse(num) {
 	<div class="selectionbox" id="${tempElementIdNext}">`;
 }
 
-window.getCookies = () {
+window.getCookies = () => {
   // Called on pageload
   // Pulls cookies from localStorage
   var color = localStorage.getItem("color");
@@ -390,7 +390,7 @@ function remColors() {
 }
 
 var keys = "";
-window.onkeydown = (e)=>{
+window.onkeydown = (e) => {
   var code = e.keyCode ? e.keyCode : e.which;
   if (code === 38) {
     // up key
