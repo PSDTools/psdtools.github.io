@@ -129,12 +129,12 @@ window.getCookies = () => {
 
   if (gradecookie == "true") {
     document.getElementById("hsmsInput").checked = true;
-    var checked = true;
+    var checked = true; // FIXME (no var)
     document.getElementById("gradeLvl").innerHTML = "High School";
     document.getElementById("modalClass").innerHTML = "High School";
   } else if (gradecookie == "false") {
     document.getElementById("hsmsInput").checked = false;
-    var checked = false;
+    var checked = false; // FIXME (no var)
     document.getElementById("gradeLvl").innerHTML = "Middle School";
     document.getElementById("modalClass").innerHTML = "Middle School";
   } else {
@@ -209,9 +209,9 @@ function fromCookies(arraycookie) {
       );
     }
     for (let itr = 0; itr < courses.length; itr++) {
-      var tempLGID = "cl".concat("", String(itr + 1));
-      var tempCTID = "cl".concat("", String(itr + 1) + "txt");
-      var tempCTYID = `cltyp${String(itr + 1)}`;
+      var tempLGID = "cl".concat("", String(itr + 1)); // FIXME (no var)
+      var tempCTID = "cl".concat("", String(itr + 1) + "txt"); // FIXME (no var)
+      var tempCTYID = `cltyp${String(itr + 1)}`; // FIXME (no var)
 
       document.getElementById(tempLGID).value = courses[itr].letterGrade;
       document.getElementById(tempCTID).value = courses[itr].classText;
@@ -231,8 +231,8 @@ function createCookieCourse(classNum, letterGrade, classText, classType, itr) {
 
   let num = classNum;
 
-  var tempElementId = "temp".concat("", String(num));
-  var tempElementIdNext = "temp".concat("", String(num + 1));
+  var tempElementId = "temp".concat("", String(num)); // FIXME (no var)
+  var tempElementIdNext = "temp".concat("", String(num + 1)); // FIXME (no var)
 
   document.getElementById(tempElementId).value = classText;
 
