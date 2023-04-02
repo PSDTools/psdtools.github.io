@@ -1,5 +1,5 @@
 // Swaps High school and Middle school
-function hsmsSwap() {
+window.hsmsSwap = () => {
   var checked = document.getElementById("hsmsInput").checked;
   if (document.getElementById("hsmsInput").checked == true) {
     document.getElementById("gradeLvl").innerHTML = "High School";
@@ -27,7 +27,7 @@ function hsmsSwap() {
       }
     }
   }
-}
+};
 
 var courses = [];
 var classAmountNum = 0;
@@ -76,7 +76,7 @@ function createCourse(num) {
 	<div class="selectionbox" id="${tempElementIdNext}">`;
 }
 
-window.getCookies = function getCookies() {
+window.getCookies = () {
   // Called on pageload
   // Pulls cookies from localStorage
   var color = localStorage.getItem("color");
@@ -129,12 +129,12 @@ window.getCookies = function getCookies() {
 
   if (gradecookie == "true") {
     document.getElementById("hsmsInput").checked = true;
-    checked = true;
+    var checked = true;
     document.getElementById("gradeLvl").innerHTML = "High School";
     document.getElementById("modalClass").innerHTML = "High School";
   } else if (gradecookie == "false") {
     document.getElementById("hsmsInput").checked = false;
-    checked = false;
+    var checked = false;
     document.getElementById("gradeLvl").innerHTML = "Middle School";
     document.getElementById("modalClass").innerHTML = "Middle School";
   } else {
@@ -153,7 +153,7 @@ window.getCookies = function getCookies() {
   }
 };
 
-function classAmount() {
+window.classAmount = () => {
   // if cookies don't exist
 
   // create array
@@ -191,7 +191,7 @@ function classAmount() {
   loadgpa();
   // sets the gpa text to ""
   document.getElementById("gpa").innerHTML = "";
-}
+};
 
 function fromCookies(arraycookie) {
   // not to be confused with getCookies()
@@ -209,9 +209,9 @@ function fromCookies(arraycookie) {
       );
     }
     for (let itr = 0; itr < courses.length; itr++) {
-      tempLGID = "cl".concat("", String(itr + 1));
-      tempCTID = "cl".concat("", String(itr + 1) + "txt");
-      tempCTYID = `cltyp${String(itr + 1)}`;
+      var tempLGID = "cl".concat("", String(itr + 1));
+      var tempCTID = "cl".concat("", String(itr + 1) + "txt");
+      var tempCTYID = `cltyp${String(itr + 1)}`;
 
       document.getElementById(tempLGID).value = courses[itr].letterGrade;
       document.getElementById(tempCTID).value = courses[itr].classText;
@@ -239,14 +239,14 @@ function createCookieCourse(classNum, letterGrade, classText, classType, itr) {
   document.getElementById(tempElementIdNext).value = classNum;
 }
 
-function help() {
+window.help = () => {
   window.location.href = "help.html";
-}
-function loadgpahelp() {
+};
+window.loadgpahelp = () => {
   window.location.href = "index.html";
-}
+};
 
-function loadgpa() {
+window.loadgpa = () => {
   // Saves values to the array
   if (courses != null) {
     // set var
@@ -311,7 +311,7 @@ function loadgpa() {
   function saveRemove() {
     document.getElementById("saved").innerHTML = "";
   }
-}
+};
 // clears class cookie data
 window.clearData = () => {
   localStorage.setItem("arraycookie", null, -1);
@@ -319,20 +319,20 @@ window.clearData = () => {
 };
 // clears all website cookie data
 window.clearAll = () => {
-  localStorage.setItem("arraycookie", null, -1);
   localStorage.setItem("gradecookie", null, -1);
   localStorage.setItem("color", null, -1);
   localStorage.setItem("shade", null, -1);
+  window.clearData();
 };
 
 //  Side nav bar
-function w3_open() {
+window.w3_open = () => {
   var x = document.getElementById("mySidebar");
   x.style.width = "30%";
   x.style.fontSize = "40px";
   x.style.paddingTop = "10%";
   x.style.display = "block";
-}
+};
 window.w3_close = () => {
   document.getElementById("mySidebar").style.display = "none";
 };
@@ -390,7 +390,7 @@ function remColors() {
 }
 
 var keys = "";
-window.onkeydown = function (e) {
+window.onkeydown = (e)=>{
   var code = e.keyCode ? e.keyCode : e.which;
   if (code === 38) {
     // up key
@@ -423,57 +423,57 @@ window.onkeydown = function (e) {
   }
 };
 // Button Theme Changing Functions
-function rTH() {
+window.rTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("redModebg");
   localStorage.setItem("color", "red", 365);
-}
-function oTH() {
+};
+window.oTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("orangeModebg");
   localStorage.setItem("color", "orange", 365);
-}
-function yTH() {
+};
+window.yTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("yellowModebg");
   localStorage.setItem("color", "yellow", 365);
-}
-function lTH() {
+};
+window.lTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("limeModebg");
   localStorage.setItem("color", "lime", 365);
-}
-function cTH() {
+};
+window.cTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("cyanModebg");
   localStorage.setItem("color", "cyan", 365);
-}
-function bTH() {
+};
+window.bTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("blueModebg");
   localStorage.setItem("color", "blue", 365);
-}
-function pTH() {
+};
+window.pTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("purpleModebg");
   localStorage.setItem("color", "purple", 365);
-}
-function piTH() {
+};
+window.piTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("pinkModebg");
   localStorage.setItem("color", "pink", 365);
-}
-function prTH() {
+};
+window.prTH = () => {
   remColors();
   var element = document.body;
   element.classList.add("pinkredModebg");
   localStorage.setItem("color", "pinkred", 365);
-}
+};
