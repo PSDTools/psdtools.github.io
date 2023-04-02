@@ -19,13 +19,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# WARNING: THIS BREAKS DEPENDABOT
-
-# Allow one concurrent deployment
-# concurrency:
-#   group: 'pages'
-#   cancel-in-progress: true
-
 jobs:
   build_job:
     name: Build
@@ -76,6 +69,9 @@ jobs:
       pages: write
       id-token: write
       contents: read
+    concurrency:
+      group: "pages"
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
