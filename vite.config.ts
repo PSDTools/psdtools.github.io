@@ -12,13 +12,16 @@ export default defineConfig({
     VitePWA({
       strategies: "injectManifest",
       injectManifest: {
-        swSrc: "public/sw.js",
+        swSrc: "src/sw.js",
         swDest: "dist/sw.js",
         globDirectory: "dist",
         globPatterns: ["**/*.{html,js,css,json,png}"],
       },
+      srcDir: "src",
+      filename: "sw.ts",
       devOptions: {
         enabled: true,
+        type: "module",
       },
       manifest: {
         id: "/GPA_Calculator",
