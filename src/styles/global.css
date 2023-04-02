@@ -11,6 +11,7 @@
   border-color: #1f1f1f;
   transition: all 0.5s ease-in-out;
 }
+
 .lightMode {
   background-color: #f1f1f1;
   color: black;
@@ -19,54 +20,69 @@
   border-color: #e7e7e7;
   transition: all 0.5s ease-in-out;
 }
+
 .darkModebg {
   background: #044200;
   transition: all 0.5s ease-in-out;
 }
+
 .lightModebg {
   background: #1a8f00;
   /* background: linear-gradient(180deg, #067500 20%, #16bd00 31%, #1a8f00 85%); */
   transition: all 0.5s ease-in-out;
 }
+
 .footer {
   box-shadow: 0 50vh 0 50vh #000;
 }
+
 .lgreen {
   color: lightgreen;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 .gpa {
   color: #019300;
 }
+
 .float {
   display: inline-block;
 }
+
 .float2 {
   margin: 15px 0;
   float: right;
 }
+
 .x-smallbutton {
   font-size: 35%;
 }
+
 .smallbutton {
   font-size: 40%;
 }
+
 .small {
   font-size: 40%;
 }
+
 .mini {
   font-size: 25%;
 }
+
 .black {
   color: black;
 }
+
 footer {
   position: absolute;
   width: 100%;
   overflow: hidden;
 }
+
 .switch {
   position: relative;
   display: inline-block;
@@ -124,7 +140,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders*/
+/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -132,12 +148,13 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-/*Animated Class Text*/
 
+/* Animated Class Text */
 .input-container {
   position: relative;
   margin-bottom: 2px;
 }
+
 .input-container label {
   position: absolute;
   top: 0px;
@@ -147,6 +164,7 @@ input:checked + .slider:before {
   pointer-events: none;
   transition: all 0.3s ease-in-out;
 }
+
 .input-container input {
   border: 0;
   /* border-bottom:1px solid #555;   */
@@ -155,11 +173,13 @@ input:checked + .slider:before {
   padding: 0px 0 5px 0;
   font-size: 18.5px;
 }
+
 .input-container input:focus {
   border: none;
   outline: none;
   border-bottom: 1px solid black;
 }
+
 .input-container input:focus ~ label,
 .input-container input:valid ~ label {
   top: -8px;
@@ -196,7 +216,6 @@ input:checked + .slider:before {
 }
 
 /* Sequence Themes! */
-
 .redModebg {
   background: #bd0000;
   transition: all 0.5s ease-in-out;
