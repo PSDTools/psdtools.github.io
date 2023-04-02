@@ -24,8 +24,8 @@ export default defineConfig({
         type: "module",
       },
       manifest: {
-        id: "/GPA_Calculator",
-        scope: "/GPA_Calculator",
+        id: "/GPA_Calculator/",
+        scope: "/GPA_Calculator/",
         name: "Pattonville GPA Calculator",
         display: "standalone",
         start_url: "/GPA_Calculator/",
