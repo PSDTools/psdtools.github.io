@@ -16,7 +16,5 @@ A PWA(Yay!) that calculates your GPA!
   <https://PSDTools.github.io/GPA_Calculator/>
 
 - Replit Project:
-  <https://replit.com/@ParkerHasenkamp/GpaCalculator#index.html>
+  <https://replit.com/@ParkerHasenkamp/GPACalculatorExpBranch>
 
-- Replit Hosted Site:
-  <https://gpacalculator--parkerhasenkamp.repl.co/>

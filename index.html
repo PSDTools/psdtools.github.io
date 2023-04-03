@@ -6,7 +6,7 @@
     <base href="/" />
     <!-- <link rel="manifest" href="GPA_Calculator/manifest.webmanifest" /> -->
     <title>GPA Calculator</title>
-    <link href="/src/styles/global.css" rel="stylesheet" type="text/css" />
+    <link href="/src/styles/style.css" rel="stylesheet" type="text/css" />
 
     <link
       href="/AppImages/android/android-launchericon-512-512.png"
@@ -14,32 +14,22 @@
       type="text/css"
     />
 
-    <!-- <script type="module" src="/src/script.ts"></script> -->
-    <script type="module" src="/src/script.ts"></script>
+    <script type="module" src="/src/script.js"></script>
   </head>
-  <body class="lightModebg" onload="getCookies()">
-    <!-- Service Worker -->
-    <!-- <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("GPA_Calculator/sw.js");
-      }
-    </script> -->
+  <body onload="getCookies()">
 
     <!-- Side Navigation -->
     <nav
-      class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center"
-      style="display: none"
       id="mySidebar"
     >
       <button
-        class="smallbutton w3-text-theme w3-padding-16"
         onclick="w3_close()"
       >
-        Close <i class="fa-xmakr fa-remove"></i>
+        Close <i></i>
       </button>
       <p></p>
       <button
-        class="smallbutton w3-button w3-theme"
+        
         onclick="document.getElementById('id01').style.display='block'"
       >
         Select Grade Level
@@ -48,7 +38,6 @@
       <button
         id="darkModeButton"
         onclick="darkMode()"
-        class="smallbutton w3-button w3-theme"
       >
         Dark Mode
       </button>
@@ -57,14 +46,12 @@
       <button
         id="clearDataButton"
         onclick="clearData()"
-        class="smallbutton float button w3-button w3-theme"
       >
         Clear Grade Data
       </button>
-      <p class="mini">Note: This action refreshes the page.</p>
+      <p>Note: This action refreshes the page.</p>
       <p></p>
       <button
-        class="clearDataButton smallbutton w3-button w3-theme"
         onclick="clearAll()"
       >
         Clear All Site Data
@@ -81,41 +68,35 @@
     </nav>
 
     <!-- Header -->
-    <header class="w3-container w3-theme w3-padding-16" id="myHeader">
+    <header id="myHeader">
       <i
         onclick="w3_open()"
-        class="fa-solid fa-bars w3-xlarge w3-button w3-theme"
       ></i>
-      <div class="w3-center">
-        <h4 class="lgreen w3-xlarge w3-animate-top">PATTONVILLE</h4>
-        <h5 id="gradeLvl" class="w3-large w3-animate-top"></h5>
-        <h1 class="w3-xxxlarge w3-animate-left">GPA Calculator</h1>
+      <div>
+        <h4>PATTONVILLE</h4>
+        <h5 id="gradeLvl"></h5>
+        <h1>GPA Calculator</h1>
       </div>
-      <a class="w3-text-white" href="#myFooter"
-        ><span class="w3-xlarge">
-          <i class="fa-solid fa-circle-chevron-down"></i></span
-      ></a>
     </header>
 
-    <div class="w3-row">
-      <div id="c2" class="lightMode w3-half w3-container w3-padding-16">
-        <h5 class="w3-xlarge w3-animate-right">How to use!</h5>
-        <p class="w3-animate-right" id="Directions">
+    <div>
+      <div id="c2">
+        <h5>How to use!</h5>
+        <p id="Directions">
           Input number of classes you are taking and press "Submit", then input
           your grades under "Grades:", and press "Calculate GPA and Save" to
           calculate your gpa.
         </p>
-        <p class="w3-animate-right" id="Directions2">
+        <p id="Directions2">
           Your class data will then be saved as a cookie to your device. This is
           so if you refresh, your data is saved!
         </p>
 
-        <button class="w3-green" onclick="help()">Need Help?</button>
+        <button onclick="help()">Need Help?</button>
 
-        <p class="w3-animate-right" id="saved"></p>
+        <p id="saved"></p>
 
         <input
-          class="w3-animate-right txtbox"
           type="number"
           placeholder="Number of Classes"
           id="numOfClasses"
@@ -129,16 +110,15 @@
         <p></p>
       </div>
 
-      <div id="c" class="lightMode w3-half w3-container w3-padding-16">
-        <h5 class="w3-xlarge w3-animate-right">Grades:</h5>
+      <div id="c">
+        <h5>Grades:</h5>
         <p></p>
-        <div class="selectionbox w3-small w3-animate-right" id="temp1"></div>
+        <div id="temp1"></div>
 
-        <h2 class="gpa float w3-animate-right" id="gpa">No Data</h2>
+        <h2 id="gpa">No Data</h2>
         <button
           id="gpaButton"
           onclick="loadgpa()"
-          class="float2 button w3-animate-right w3-button w3-theme"
         >
           Calculate GPA and Save
         </button>
@@ -175,43 +155,12 @@
     </div>
 
     <!-- Easter Egg -->
-    <div id="id02" class="w3-modal w3-animate-opacity">
-      <div class="w3-modal-content w3-card-4">
-        <header class="w3-container w3-green">
-          <h3>Choose Your Theme</h3>
-        </header>
-        <p></p>
-        <button onclick="rTH()" class="redModebg">Red</button>
-        <button onclick="oTH()" class="orangeModebg">Orange</button>
-        <button onclick="yTH()" class="yellowModebg">Yellow</button>
-        <button onclick="lTH()" class="limeModebg">Green</button>
-        <button onclick="cTH()" class="cyanModebg">Cyan</button>
-        <button onclick="bTH()" class="blueModebg">Blue</button>
-        <button onclick="pTH()" class="purpleModebg">Purple</button>
-        <button onclick="piTH()" class="pinkModebg">Pink</button>
-        <button onclick="prTH()" class="pinkredModebg">Pink/Red</button>
-        <p></p>
-        <span
-          onclick="document.getElementById('id02').style.display='none'"
-          class="w3-button w3-large w3-green"
-          >Ok</span
-        >
-
-        <footer class="w3-container w3-black">
-          <p>You Found It!</p>
-        </footer>
-      </div>
-    </div>
   </body>
   <!-- Footer -->
-  <footer class="footer w3-container w3-theme-dark w3-padding-16" id="myFooter">
-    <a class="w3-text-white" href="#myHeader"
-      ><span class="w3-xlarge">
-        <i class="fa-solid fa-circle-chevron-up"></i></span
-    ></a>
+  <footer id="myFooter">
     <h3>About</h3>
     <!-- Easter egg -->
-    <p class="float2 black">.... . .-.. .-.. --- / - .... . .-. . -.-.--</p>
+    <p>.... . .-.. .-.. --- / - .... . .-. . -.-.--</p>
     <!-- Info -->
     <p>
       Created by Parker Hasenkamp for the
@@ -227,7 +176,7 @@
     </p>
   </footer>
   <!--Smooth Scroll Buttons-->
-  <script type="module">
+<!--   <script type="module">
     import $ from "jquery";
 
     $(document).ready(function () {
@@ -256,5 +205,5 @@
         } // #ENDIF
       });
     });
-  </script>
+  </script> -->
 </html>
