@@ -7,15 +7,7 @@
     <!-- <link rel="manifest" href="GPA_Calculator/manifest.webmanifest" /> -->
     <title>GPA Calculator</title>
     <link href="/src/styles/global.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      rel="stylesheet"
-      href="https://www.w3schools.com/lib/w3-theme-black.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
-    />
+
     <link
       href="/AppImages/android/android-launchericon-512-512.png"
       rel="shortcut icon"
@@ -43,7 +35,7 @@
         class="smallbutton w3-text-theme w3-padding-16"
         onclick="w3_close()"
       >
-        Close <i class="fa fa-remove"></i>
+        Close <i class="fa-xmakr fa-remove"></i>
       </button>
       <p></p>
       <button
@@ -92,7 +84,7 @@
     <header class="w3-container w3-theme w3-padding-16" id="myHeader">
       <i
         onclick="w3_open()"
-        class="fa fa-bars w3-xlarge w3-button w3-theme"
+        class="fa-solid fa-bars w3-xlarge w3-button w3-theme"
       ></i>
       <div class="w3-center">
         <h4 class="lgreen w3-xlarge w3-animate-top">PATTONVILLE</h4>
@@ -101,7 +93,7 @@
       </div>
       <a class="w3-text-white" href="#myFooter"
         ><span class="w3-xlarge">
-          <i class="fa fa-chevron-circle-down"></i></span
+          <i class="fa-solid fa-circle-chevron-down"></i></span
       ></a>
     </header>
 
@@ -214,7 +206,8 @@
   <!-- Footer -->
   <footer class="footer w3-container w3-theme-dark w3-padding-16" id="myFooter">
     <a class="w3-text-white" href="#myHeader"
-      ><span class="w3-xlarge"> <i class="fa fa-chevron-circle-up"></i></span
+      ><span class="w3-xlarge">
+        <i class="fa-solid fa-circle-chevron-up"></i></span
     ></a>
     <h3>About</h3>
     <!-- Easter egg -->
@@ -234,8 +227,9 @@
     </p>
   </footer>
   <!--Smooth Scroll Buttons-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>
+  <script type="module">
+    import $ from "jquery";
+
     $(document).ready(function () {
       // Add smooth scrolling to all links
       $("a").on("click", function (event) {

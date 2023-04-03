@@ -1,3 +1,7 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import url("https://www.w3schools.com/lib/w3-theme-black.css");
+@import url("@fortawesome/fontawesome-free/css/all.css");
+
 /*
   This file is used for all of your global styles and CSS variables.
   Check here https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties for more info on using CSS variables.
