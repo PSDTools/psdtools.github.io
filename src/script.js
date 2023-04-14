@@ -1,3 +1,12 @@
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+window.openNav = () => {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+window.closeNav = () => {
+  document.getElementById("mySidenav").style.width = "0%";
+}
 
 
 // Swaps High school and Middle school
@@ -5,24 +14,20 @@ window.hsmsSwap = () => {
   var checked = document.getElementById("hsmsInput").checked;
   if (document.getElementById("hsmsInput").checked == true) {
     document.getElementById("gradeLvl").innerHTML = "High School";
-    document.getElementById("modalClass").innerHTML = "High School";
 
-    localStorage.setItem("gradecookie", checked);
+    localStorage.setItem("gradestorage", checked);
     document.getElementById("numOfClasses").value = courses.length;
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      document.getElementById(`typeId${itr}`).innerHTML = `
-      <p>Type:</p>
-		  <form>
-        <select class="dropmenu" id="cltyp${itr}">
-          <option value="1">N/A</option>
-          <option value="2">Honors</option>
-        </select>
-		  </form>`;
+      document.getElementById(`typeId${itr}`).innerHTML = `	 <form>	<select class="blacktxt" id="cltyp${itr}">
+		    <option value="1">No-Weight</option>
+		    <option value="2">Honors</option>
+	    </select>	    
+	  </form>`;
+		document.getElementById(`typeId${itr}`).value = 1
     }
   } else {
     document.getElementById("gradeLvl").innerHTML = "Middle School";
-    document.getElementById("modalClass").innerHTML = "Middle School";
-    localStorage.setItem("gradecookie", checked);
+    localStorage.setItem("gradestorage", checked);
     if (courses != null) {
       for (let itr = 1; itr < courses.length + 1; itr++) {
         document.getElementById(`typeId${itr}`).innerHTML = null;
@@ -50,11 +55,20 @@ function createCourse(num) {
   var tempElementIdAlsoNext = "temp".concat("", String(num + 2));
   // creates html elements in the courses class
   document.getElementById(tempElementId).innerHTML = `
-	<div class="pt-4 pb-4 text-lg">
+	<div class="pt-4 pb-4 lg:text-2xl text-lg">
 	<div id="input-con-div" class="">
-	  <input style="width:75px;"class="placeholder-white blacktxt" placeholder="Class ${num}:" id="cl${num}txt" type="text" required=""/>
-	 <input type="range" min="0" max="4" value="4" class="slider" style="float:right; width:50%;" id="slide${num}" oninput="document.getElementById('cl${num}').value = document.getElementById('slide${num}').value;loadgpa();">
-	  <select class="blacktxt" oninput="document.getElementById('slide${num}').value = document.getElementById('cl${num}').value;loadgpa();" style="float:right;-webkit-appearance: none;" id="cl${num}">
+	  <input style="width:150px;"class="hover:scale-105 placeholder-white blacktxt" placeholder="Class ${num}:" oninput="loadgpa();" id="cl${num}txt" type="text" required=""/>
+	   <span style="float:right;" id="typeId${num}">
+	  <form>
+	 	<select oninput="loadgpa();" class="hover:scale-105 blacktxt" id="cltyp${num}">
+		    <option value="1">No-Weight</option>
+		    <option value="2">Honors</option>
+	    </select>	    
+	  </form>
+  </span>
+
+	 <input type="range" min="0" max="4" value="4" class="hover:scale-105 slider" style="float:right; width:50%;" id="slide${num}" oninput="document.getElementById('cl${num}').value = document.getElementById('slide${num}').value;loadgpa();">
+	  <select class="hover:scale-105 blacktxt" oninput="document.getElementById('slide${num}').value = document.getElementById('cl${num}').value;loadgpa();" style="float:right;-webkit-appearance: none;" id="cl${num}">
 		  <option value="4">A</option>
 		  <option value="3">B</option>
       <option value="2">C</option>
@@ -65,27 +79,18 @@ function createCourse(num) {
 	
 	 <!-- <label id="cl${num}label">Class ${num}</label> -->
 	</div>
-  <span id="typeId${num}">
-    <p>Type:</p>
-	  <form>
-	    <select class="blacktxt" id="cltyp${num}">
-		    <option value="1">N/A</option>
-		    <option value="2">Honors</option>
-	    </select>
-	  </form>
-  </span>
   <!--<p>Grade:</p>-->
  </div>
 	<div class="selectionbox" id="${tempElementIdNext}">`;
 }
 
-window.getCookies = () => {
+window.getstorage = () => {
   // Called on pageload
-  // Pulls cookies from localStorage
+  // Pulls storage from localStorage
   var color = localStorage.getItem("color");
   var shade = localStorage.getItem("shade");
-  var gradecookie = localStorage.getItem("gradecookie");
-  var arraycookie = localStorage.getItem("arraycookie");
+  var gradestorage = localStorage.getItem("gradestorage");
+  var arraystorage = localStorage.getItem("arraystorage");
   // sets top header, slider, and dark mode to correct values
   if (shade == "dark") {
     var element = document.body;
@@ -130,34 +135,32 @@ window.getCookies = () => {
     element.classList.add("pinkredModebg");
   }
 
-  if (gradecookie == "true") {
+  if (gradestorage == "true") {
     document.getElementById("hsmsInput").checked = true;
     var checked = true; // FIXME (no var)
     document.getElementById("gradeLvl").innerHTML = "High School";
-    document.getElementById("modalClass").innerHTML = "High School";
-  } else if (gradecookie == "false") {
+  } else if (gradestorage == "false") {
     document.getElementById("hsmsInput").checked = false;
     var checked = false; // FIXME (no var)
     document.getElementById("gradeLvl").innerHTML = "Middle School";
-    document.getElementById("modalClass").innerHTML = "Middle School";
   } else {
     // Modal that pops up on first start
     document.getElementById("id01").style.display = "block";
     hsmsSwap();
   }
 
-  if (arraycookie == null) {
-    // if cookies don't exist
+  if (arraystorage == null) {
+    // if storage don't exist
     classAmount();
   } else {
-    // if cookies do exist
-    fromCookies(arraycookie);
+    // if storage do exist
+    fromstorage(arraystorage);
     loadgpa();
   }
 };
 
 window.classAmount = () => {
-  // if cookies don't exist
+  // if storage don't exist
 
   // create array
   courses = [];
@@ -196,14 +199,14 @@ window.classAmount = () => {
   document.getElementById("gpa").innerHTML = "";
 };
 
-function fromCookies(arraycookie) {
-  // not to be confused with getCookies()
-  courses = JSON.parse(arraycookie);
-  // creates courses from array data after it is pulled from cookies
+function fromstorage(arraystorage) {
+  // not to be confused with getstorage()
+  courses = JSON.parse(arraystorage);
+  // creates courses from array data after it is pulled from storage
   if (courses != null) {
     for (var itr = 0; itr < courses.length; itr++) {
       createCourse(courses[itr].classNum);
-      createCookieCourse(
+      createstorageCourse(
         courses[itr].classNum,
         courses[itr].letterGrade,
         courses[itr].classText,
@@ -229,7 +232,7 @@ function fromCookies(arraycookie) {
   }
 }
 
-function createCookieCourse(classNum, letterGrade, classText, classType, itr) {
+function createstorageCourse(classNum, letterGrade, classText, classType, itr) {
   // Populates course object data
 
   let num = classNum;
@@ -306,39 +309,29 @@ window.loadgpa = () => {
     document.getElementById("saved").innerHTML = "Saved!";
     setTimeout(saveRemove, 1000);
 
-    // save cookies
-    var arraycookie = JSON.stringify(courses);
-    localStorage.setItem("arraycookie", arraycookie, 365);
+    // save storage
+    var arraystorage = JSON.stringify(courses);
+    localStorage.setItem("arraystorage", arraystorage, 365);
   }
   // Remove "Saved!" Text
   function saveRemove() {
     document.getElementById("saved").innerHTML = "";
   }
 };
-// clears class cookie data
+// clears class storage data
 window.clearData = () => {
-  localStorage.setItem("arraycookie", null, -1);
+  localStorage.setItem("arraystorage", null, -1);
   location.reload();
 };
-// clears all website cookie data
+// clears all website storage data
 window.clearAll = () => {
-  localStorage.setItem("gradecookie", null, -1);
+  localStorage.setItem("gradestorage", null, -1);
   localStorage.setItem("color", null, -1);
   localStorage.setItem("shade", null, -1);
   window.clearData();
 };
 
-//  Side nav bar
-window.w3_open = () => {
-  var x = document.getElementById("mySidebar");
-  x.style.width = "30%";
-  x.style.fontSize = "40px";
-  x.style.paddingTop = "10%";
-  x.style.display = "block";
-};
-window.w3_close = () => {
-  document.getElementById("mySidebar").style.display = "none";
-};
+
 // Dark Mode
 window.darkMode = () => {
   var element = document.body;
