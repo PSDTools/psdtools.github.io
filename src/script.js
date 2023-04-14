@@ -1,3 +1,5 @@
+
+
 // Swaps High school and Middle school
 window.hsmsSwap = () => {
   var checked = document.getElementById("hsmsInput").checked;
@@ -48,22 +50,11 @@ function createCourse(num) {
   var tempElementIdAlsoNext = "temp".concat("", String(num + 2));
   // creates html elements in the courses class
   document.getElementById(tempElementId).innerHTML = `
-	<div id="input-con-div" class="input-container lightModeInput">
-	  <input id="cl${num}txt" type="text" required=""/>
-	  <label id="cl${num}label">Class ${num}</label>
-	</div>
-  <span id="typeId${num}">
-    <p>Type:</p>
-	  <form>
-	    <select class="dropmenu" id="cltyp${num}">
-		    <option value="1">N/A</option>
-		    <option value="2">Honors</option>
-	    </select>
-	  </form>
-  </span>
-  <p>Grade:</p>
-	<form>
-	  <select class="dropmenu SM" id="cl${num}">
+	<div class="pt-4 pb-4 text-lg">
+	<div id="input-con-div" class="">
+	  <input style="width:75px;"class="placeholder-white blacktxt" placeholder="Class ${num}:" id="cl${num}txt" type="text" required=""/>
+	 <input type="range" min="0" max="4" value="4" class="slider" style="float:right; width:50%;" id="slide${num}" oninput="document.getElementById('cl${num}').value = document.getElementById('slide${num}').value;loadgpa();">
+	  <select class="blacktxt" oninput="document.getElementById('slide${num}').value = document.getElementById('cl${num}').value;loadgpa();" style="float:right;-webkit-appearance: none;" id="cl${num}">
 		  <option value="4">A</option>
 		  <option value="3">B</option>
       <option value="2">C</option>
@@ -71,8 +62,20 @@ function createCourse(num) {
       <option value="0">F</option>
       <option value="5">N/A</option>
     </select>
-	  <br><br>
-	</form>
+	
+	 <!-- <label id="cl${num}label">Class ${num}</label> -->
+	</div>
+  <span id="typeId${num}">
+    <p>Type:</p>
+	  <form>
+	    <select class="blacktxt" id="cltyp${num}">
+		    <option value="1">N/A</option>
+		    <option value="2">Honors</option>
+	    </select>
+	  </form>
+  </span>
+  <!--<p>Grade:</p>-->
+ </div>
 	<div class="selectionbox" id="${tempElementIdNext}">`;
 }
 

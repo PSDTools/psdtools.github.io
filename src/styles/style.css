@@ -1,0 +1,117 @@
+html, body { height: 100%; }
+@font-face {
+    font-family: Norwester;
+    src: url("fonts/norwester.otf") format("opentype");
+}
+body{
+	font-family: "Norwester";
+}
+.row {
+  display: flex;
+}
+.bg{
+	background-image: url("bground.png");
+}
+.blacktxt{
+	color:white;
+	background-color: rgba(0,0,0,0);
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #ffffff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ffffff;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ffffff;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #ffffff;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #ffffff;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    #ffffff;
+}
+
+input[type="range"] { 
+    margin: auto;
+    -webkit-appearance: none;
+    position: relative;
+    overflow: hidden;
+    height: 25px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 0; /* iOS */
+		border-radius: 13px; 
+}
+
+::-webkit-slider-runnable-track {
+    background: #000000;
+}
+
+/*
+ * 1. Set to 0 width and remove border for a slider without a thumb
+ * 2. Shadow is negative the full width of the input and has a spread 
+ *    of the width of the input.
+ */
+::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px; /* 1 */
+    height: 25px;
+		border-radius: 13px; 
+    background: #00d5ff;
+    box-shadow: -500px 0 0 490px #00d5ff; /* 2 */
+    border: 2px solid #000000; /* 1 */
+}
+
+::-moz-range-track {
+    height: 40px;
+    background: #000000;
+}
+
+::-moz-range-thumb {
+    background: #000000;
+    height: 40px;
+    width: 20px;
+    border: 3px solid #000000;
+    border-radius: 0 !important;
+    box-shadow: -200px 0 0 200px dodgerblue;
+    box-sizing: border-box;
+}
+
+::-ms-fill-lower { 
+    background: dodgerblue;
+}
+
+::-ms-thumb { 
+    background: #000000;
+    border: 2px solid #000000;
+    height: 40px;
+    width: 20px;
+    box-sizing: border-box;
+}
+
+::-ms-ticks-after { 
+    display: none; 
+}
+
+::-ms-ticks-before { 
+    display: none; 
+}
+
+::-ms-track { 
+    background: #000000;
+    color: transparent;
+    height: 40px;
+    border: none;
+}
+
+::-ms-tooltip { 
+    display: none;
+}
