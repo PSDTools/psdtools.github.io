@@ -12,6 +12,12 @@ import "./pages/app-home";
 import "./components/header";
 import "./styles/global.css";
 
+declare global {
+  interface Document {
+    startViewTransition: () => Promise<void>;
+  }
+}
+
 const BASE_URL: string =
   import.meta.env.BASE_URL.length > 2
     ? import.meta.env.BASE_URL.slice(1, -1)
@@ -45,8 +51,7 @@ export class AppIndex extends LitElement {
 
     // For more info on using the @vaadin/router check here https://vaadin.com/router
     const router = new Router(this.shadowRoot?.querySelector("#routerOutlet"));
-    router
-      .setRoutes([
+    router.setRoutes([
         // temporarily cast to any because of a Type bug with the router
         {
           path: BASE_URL,
@@ -76,7 +81,7 @@ export class AppIndex extends LitElement {
             },
             { path: "/calculator", component: "calculator" },
           ],
-        } as any,
+        } as never,
       ])
       .catch(() => {});
   }
