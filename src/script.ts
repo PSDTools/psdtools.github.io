@@ -1,3 +1,34 @@
+/**
+ * The main script.
+ */
+
+import { clearData, clearAll, setData } from "./scripts/storage.js";
+
+declare global {
+  interface Window {
+    hsmsSwap: () => void;
+    getCookies: () => void;
+    classAmount: () => void;
+    help: () => void;
+    loadgpa: () => void;
+    loadgpahelp: () => void;
+    clearData: () => void;
+    clearAll: () => void;
+    w3Toggle: (open: boolean) => void;
+    darkMode: () => void;
+    rTH: () => void;
+    prTH: () => void;
+    oTH: () => void;
+    yTH: () => void;
+    lTH: () => void;
+    cTH: () => void;
+    bTH: () => void;
+    pTH: () => void;
+    piTH: () => void;
+  }
+}
+
+
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 window.openNav = () => {
   document.getElementById("mySidenav").style.width = "100%";
@@ -9,7 +40,7 @@ window.closeNav = () => {
 };
 
 // Swaps High school and Middle school
-window.hsmsSwap = () => {
+function hsmsSwap() {
   var checked = document.getElementById("hsmsInput").checked;
   if (document.getElementById("hsmsInput").checked == true) {
     document.getElementById("gradeLvl").innerHTML = "High School";
@@ -139,7 +170,6 @@ window.getstorage = () => {
 
 window.classAmount = () => {
   // if storage don't exist
-
   // shows save text
   document.getElementById("saved")!.innerHTML = "Saved!";
   setTimeout(saveRemove, 1000);
@@ -332,58 +362,32 @@ function loadgpahelp(): void {
 }
 window.loadgpahelp = loadgpahelp;
 
-window.loadgpa = () => {
-  // Saves values to the array
-  if (courses != null) {
-    // set var
-    var pregpa = 0;
-    var courseLen = courses.length;
+  if (gradecookie === "true") {
+    hsmsInput.checked = true;
+    checked = true;
+    gradeLvl.innerHTML = high;
+    modalClass.innerHTML = high;
+  } else if (gradecookie === "false") {
+    hsmsInput.checked = false;
+    checked = false;
+    gradeLvl.innerHTML = middle;
+    modalClass.innerHTML = middle;
+  } else {
+    // Modal that pops up on first start
+    document.getElementById("id01")!.style.display = "block";
+    hsmsSwap();
+  }
 
-    var tempLGID = "";
-    var tempCTID = "";
-    var tempCTYID = "";
-
-    // save classes to array
-
-    for (let itr = 0; itr < courses.length; itr++) {
-      tempLGID = "cl".concat("", String(itr + 1));
-      tempCTID = "cl".concat("", String(itr + 1)) + "txt";
-      tempCTYID = "cltyp".concat("", String(itr + 1));
-
-      courses[itr].letterGrade = document.getElementById(tempLGID).value;
-
-      courses[itr].classText = document.getElementById(tempCTID).value;
-
-      if (document.getElementById("hsmsInput").checked != false) {
-        tempCTYID = `cltyp${String(itr + 1)}`;
-        courses[itr].classType = document.getElementById(tempCTYID).value;
-      }
-    }
-
-    // remove N/A from addition
-    for (let itr = 0; itr < courses.length; itr++) {
-      if (courses[itr].letterGrade == 5) {
-        var courseLen = courseLen - 1;
-      } else {
-        // adds to pregpa
-        if (courses[itr].classType == "2") {
-          if (courses[itr].letterGrade == "0") {
-            var pregpa = pregpa + parseInt(courses[itr].letterGrade);
-          } else {
-            var pregpa = pregpa + 1 + parseInt(courses[itr].letterGrade);
-          }
-        } else {
-          var pregpa = pregpa + parseInt(courses[itr].letterGrade);
-        }
-      }
-    }
-    // divide
-    gpa = pregpa / courseLen;
-
-    // round
-    var gpa = gpa.toFixed(2);
-
-    document.getElementById("gpa").innerHTML = `Your GPA is a: ${gpa}`;
+  if (arraycookie === null) {
+    // if cookies don't exist
+    classAmount();
+  } else {
+    // if cookies do exist
+    fromCookies(arraycookie);
+    loadgpa();
+  }
+}
+window.getCookies = getCookies;
 
     // shows save text
     document.getElementById("saved").innerHTML = "Saved!";
@@ -410,6 +414,7 @@ window.clearAll = () => {
   localStorage.setItem("shade", null, -1);
   window.clearData();
 };
+
 
 // Dark Mode
 window.darkMode = (): void => {
