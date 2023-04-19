@@ -14,7 +14,7 @@
       type="text/css"
     />
 
-    <script type="module" src="/src/script.js"></script>
+    <script type="module" src="/src/script.ts"></script>
 		<script src="https://cdn.tailwindcss.com"></script>
   </head>
 
@@ -68,11 +68,12 @@
 	
 
 	<h5 class="col-start-2 col-span-4 align-middle text-center text-3xl " id="gradeLvl"></h5>
-
+	<div class="col-start-6 align-middle text-xs">Grade Level
 <label class="oldswitch">
   <input onclick="hsmsSwap()" type="checkbox" id="hsmsInput">
   <span class="switch round"></span>
 </label>
+		</div>
 </div>
 </div>
     <!-- Side Navigation -->
@@ -155,21 +156,22 @@
           so if you refresh, your data is saved!
         </p>
 
-        <button onclick="help()">Need Help?</button>
-
        
-
-        <input
-          type="number"
-          placeholder="Number of Classes"
-          id="numOfClasses"
-        />
-        <button
-          onclick="classAmount()"
-          class="button w3-animate-right w3-button w3-theme"
-        >
-          Submit
-        </button>
+				<form>
+	        <input
+	          type="number"
+	          placeholder="Number of Classes"
+	          id="numOfClasses"
+						class="text-black rounded-sm mt-3 pl-1"
+	        />
+	        <button
+	          onclick="classAmount()"
+	          class="bg-cyan-500 text-black px-1 rounded-sm"
+						type="submit"
+	        >
+	          Submit
+	        </button>
+				</form>
         <p></p>
       </div>
 

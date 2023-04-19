@@ -307,7 +307,7 @@ window.loadgpa = () => {
 
     // shows save text
     document.getElementById("saved").innerHTML = "Saved!";
-    setTimeout(saveRemove, 1000);
+    setTimeout(saveRemove, 3000);
 
     // save storage
     var arraystorage = JSON.stringify(courses);
