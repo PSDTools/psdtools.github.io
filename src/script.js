@@ -1,13 +1,12 @@
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 window.openNav = () => {
   document.getElementById("mySidenav").style.width = "100%";
-}
+};
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 window.closeNav = () => {
   document.getElementById("mySidenav").style.width = "0%";
-}
-
+};
 
 // Swaps High school and Middle school
 window.hsmsSwap = () => {
@@ -18,12 +17,14 @@ window.hsmsSwap = () => {
     localStorage.setItem("gradestorage", checked);
     document.getElementById("numOfClasses").value = courses.length;
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      document.getElementById(`typeId${itr}`).innerHTML = `	 <form>	<select class="blacktxt" id="cltyp${itr}">
+      document.getElementById(
+        `typeId${itr}`
+      ).innerHTML = `	 <form>	<select class="blacktxt" id="cltyp${itr}">
 		    <option value="1">No-Weight</option>
 		    <option value="2">Honors</option>
 	    </select>	    
 	  </form>`;
-		document.getElementById(`typeId${itr}`).value = 1
+      document.getElementById(`typeId${itr}`).value = 1;
     }
   } else {
     document.getElementById("gradeLvl").innerHTML = "Middle School";
@@ -330,7 +331,6 @@ window.clearAll = () => {
   localStorage.setItem("shade", null, -1);
   window.clearData();
 };
-
 
 // Dark Mode
 window.darkMode = () => {

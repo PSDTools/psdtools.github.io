@@ -1,43 +1,24 @@
-html, body { height: 100%; }
-@font-face {
-    font-family: Norwester;
-    src: url("fonts/norwester.otf") format("opentype");
+html,
+body {
+  height: 100%;
 }
-body{
-	font-family: "Norwester";
+@font-face {
+  font-family: Norwester;
+  src: url("fonts/norwester.otf") format("opentype");
+}
+body {
+  font-family: "Norwester";
 }
 .row {
   display: flex;
 }
-.bg{
-	background-image: url("bground.png");
+.bg {
+  background-image: url("bground.png");
 }
-.blacktxt{
-	color:white;
-	background-color: rgba(0,0,0,0);
+.blacktxt {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* The switch - the box around the slider */
 .oldswitch {
@@ -63,8 +44,8 @@ body{
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .switch:before {
@@ -75,16 +56,16 @@ body{
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .switch {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .switch {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .switch:before {
@@ -102,32 +83,17 @@ input:checked + .switch:before {
   border-radius: 50%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* The Overlay (background) */
 .overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
   height: 100%;
   width: 0;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  background-color: rgb(0,0,0); /* Black fallback color */
-  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  background-color: rgb(0, 0, 0); /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -152,7 +118,8 @@ input:checked + .switch:before {
 }
 
 /* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
+.overlay a:hover,
+.overlay a:focus {
   color: #f1f1f1;
 }
 
@@ -166,7 +133,9 @@ input:checked + .switch:before {
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
+  .overlay a {
+    font-size: 20px;
+  }
   .overlay .closebtn {
     font-size: 40px;
     top: 15px;
@@ -174,53 +143,48 @@ input:checked + .switch:before {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #ffffff;
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #ffffff;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #ffffff;
-   opacity:  1;
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ffffff;
+  opacity: 1;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #ffffff;
-   opacity:  1;
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ffffff;
+  opacity: 1;
 }
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #ffffff;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ffffff;
 }
-::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #ffffff;
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ffffff;
 }
 
-::placeholder { /* Most modern browsers support this now. */
-   color:    #ffffff;
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: #ffffff;
 }
 
-input[type="range"] { 
-    margin: auto;
-    -webkit-appearance: none;
-    position: relative;
-    overflow: hidden;
-    height: 25px;
-    width: 200px;
-    cursor: pointer;
-    border-radius: 0; /* iOS */
-		border-radius: 13px; 
+input[type="range"] {
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 25px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 0; /* iOS */
+  border-radius: 13px;
 }
 
 ::-webkit-slider-runnable-track {
-    background: #000000;
+  background: #000000;
 }
 
 /*
@@ -229,57 +193,57 @@ input[type="range"] {
  *    of the width of the input.
  */
 ::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 25px; /* 1 */
-    height: 25px;
-		border-radius: 13px; 
-    background: #00d5ff;
-    box-shadow: -500px 0 0 490px #00d5ff; /* 2 */
-    border: 2px solid #ffffff; /* 1 */
+  -webkit-appearance: none;
+  width: 25px; /* 1 */
+  height: 25px;
+  border-radius: 13px;
+  background: #00d5ff;
+  box-shadow: -500px 0 0 490px #00d5ff; /* 2 */
+  border: 2px solid #ffffff; /* 1 */
 }
 
 ::-moz-range-track {
-    height: 40px;
-    background: #000000;
+  height: 40px;
+  background: #000000;
 }
 
 ::-moz-range-thumb {
-    background: #000000; 
-    height: 40px;
-    width: 20px;
-    border: 3px solid #000000;
-    border-radius: 0 !important;
-    box-shadow: -200px 0 0 200px #1bd6ff;
-    box-sizing: border-box;
+  background: #000000;
+  height: 40px;
+  width: 20px;
+  border: 3px solid #000000;
+  border-radius: 0 !important;
+  box-shadow: -200px 0 0 200px #1bd6ff;
+  box-sizing: border-box;
 }
 
-::-ms-fill-lower { 
-    background: #1bd6ff;
+::-ms-fill-lower {
+  background: #1bd6ff;
 }
 
-::-ms-thumb { 
-    background: #000000;
-    border: 2px solid #000000;
-    height: 40px;
-    width: 20px;
-    box-sizing: border-box;
+::-ms-thumb {
+  background: #000000;
+  border: 2px solid #000000;
+  height: 40px;
+  width: 20px;
+  box-sizing: border-box;
 }
 
-::-ms-ticks-after { 
-    display: none; 
+::-ms-ticks-after {
+  display: none;
 }
 
-::-ms-ticks-before { 
-    display: none; 
+::-ms-ticks-before {
+  display: none;
 }
 
-::-ms-track { 
-    background: #000000;
-    color: transparent;
-    height: 40px;
-    border: none;
+::-ms-track {
+  background: #000000;
+  color: transparent;
+  height: 40px;
+  border: none;
 }
 
-::-ms-tooltip { 
-    display: none;
+::-ms-tooltip {
+  display: none;
 }
