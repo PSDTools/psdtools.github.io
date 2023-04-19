@@ -28,4 +28,7 @@ export default defineFlatConfig([
       "no-console": "warn",
     },
   },
+  {
+    ignores: ["src/sw.ts"],
+  },
 ]);
