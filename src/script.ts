@@ -42,7 +42,7 @@ window.hsmsSwap = hsmsSwap;
 function createCourse(num: number): void {
   tempElementId = `temp${String(num)}`;
   tempElementIdNext = `temp${String(num + 1)}`;
-  tempElementIdAlsoNext = `temp${String(num + 2)}`;
+  // tempElementIdAlsoNext = `temp${String(num + 2)}`;
   // creates html elements in the courses class
   document.getElementById(tempElementId).innerHTML = `
 	<div class="pt-4 pb-4 lg:text-2xl text-lg">
@@ -175,7 +175,7 @@ function classAmount(): void {
     courses.push(new Course(itr + 1));
     createCourse(itr + 1);
   }
-  if (!(document.getElementById("hsmsInput") as HTMLInputElement).checked) {
+  if (!hsmsInput.checked) {
     for (let itr = 1; itr < courses.length + 1; itr++) {
       // loops through all course classes and removes the <span id="typeId"></span> (honors dropdown)
       document.getElementById(`typeId${itr}`)!.innerHTML = "";
@@ -231,7 +231,7 @@ function fromstorage(arraystorage) {
     (document.getElementById(tempCTYID) as HTMLInputElement).value =
       course.classType;
   }
-  if (!(document.getElementById("hsmsInput") as HTMLInputElement).checked) {
+  if (!hsmsInput.checked) {
     for (let itr = 1; itr < courses.length + 1; itr++) {
       // removes typeId <span> element from courses objects
       document.getElementById(`typeId${itr}`)!.innerHTML = "";
@@ -296,15 +296,15 @@ function createstorageCourse(classNum, letterGrade, classText, classType, itr) {
   }
 
   if (gradecookie === "true") {
-    (document.getElementById("hsmsInput") as HTMLInputElement).checked = true;
+    hsmsInput.checked = true;
     checked = true;
-    document.getElementById("gradeLvl")!.innerHTML = high;
-    document.getElementById("modalClass")!.innerHTML = high;
+    gradeLvl.innerHTML = high;
+    modalClass.innerHTML = high;
   } else if (gradecookie === "false") {
-    (document.getElementById("hsmsInput") as HTMLInputElement).checked = false;
+    hsmsInput.checked = false;
     checked = false;
-    document.getElementById("gradeLvl")!.innerHTML = middle;
-    document.getElementById("modalClass")!.innerHTML = middle;
+    gradeLvl.innerHTML = middle;
+    modalClass.innerHTML = middle;
   } else {
     // Modal that pops up on first start
     document.getElementById("id01")!.style.display = "block";
