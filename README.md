@@ -17,4 +17,3 @@ A PWA(Yay!) that calculates your GPA!
 
 - Replit Project:
   <https://replit.com/@ParkerHasenkamp/GPACalculatorExpBranch>
-
