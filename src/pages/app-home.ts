@@ -1,9 +1,13 @@
-import { LitElement, css, html } from "lit";
+import {
+  type CSSResult,
+  LitElement,
+  css,
+  html,
+  type TemplateResult,
+} from "lit";
 import { property, customElement } from "lit/decorators.js";
-
 import "@shoelace-style/shoelace/dist/components/card/card.js";
 import "@shoelace-style/shoelace/dist/components/button/button.js";
-
 import { styles } from "../styles/shared-styles";
 
 @customElement("app-home")
@@ -12,7 +16,7 @@ export class AppHome extends LitElement {
   // check out this link https://lit.dev/docs/components/properties/
   @property() message = "Welcome!";
 
-  static get styles() {
+  static get styles(): CSSResult[] {
     return [
       styles,
       css`
@@ -59,23 +63,23 @@ export class AppHome extends LitElement {
     super();
   }
 
-  async firstUpdated() {
+  async firstUpdated(): Promise<void> {
     // this method is a lifecycle even in lit
     // for more info check out the lit docs https://lit.dev/docs/components/lifecycle/
     console.log("This is your home page");
   }
 
-  share() {
-    if ((navigator as any).share) {
-      (navigator as any).share({
+  share(): void {
+    navigator
+      .share({
         title: "PWABuilder pwa-starter",
         text: "Check out the PWABuilder pwa-starter!",
         url: "https://github.com/pwa-builder/pwa-starter",
-      });
-    }
+      })
+      .catch(() => {});
   }
 
-  render() {
+  render(): TemplateResult<1> {
     return html`
       <app-header></app-header>
 
@@ -102,14 +106,14 @@ export class AppHome extends LitElement {
               Play and the Apple App Store!
             </p>
 
-            ${"share" in navigator
+            ${Object.hasOwn(navigator, "share")
               ? html`<sl-button
                   slot="footer"
                   variant="primary"
                   @click="${this.share}"
                   >Share this Starter!</sl-button
                 >`
-              : null}
+              : html``}
           </sl-card>
 
           <sl-card id="infoCard">
@@ -137,9 +141,7 @@ export class AppHome extends LitElement {
             </ul>
           </sl-card>
 
-          <sl-button
-            href="${(import.meta as any).env.BASE_URL}about"
-            variant="primary"
+          <sl-button href="${import.meta.env.BASE_URL}about" variant="primary"
             >Navigate to About</sl-button
           >
         </div>
