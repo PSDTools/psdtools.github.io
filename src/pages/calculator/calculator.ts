@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css, type TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
 
 @customElement("calculator")
@@ -9,7 +9,7 @@ export class AppSettings extends LitElement {
     `,
   ];
 
-  render() {
+  render(): TemplateResult {
     return html` <app-header ?enableBack="${true}"></app-header>`;
   }
 }

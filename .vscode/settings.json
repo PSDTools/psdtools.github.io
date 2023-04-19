@@ -10,5 +10,6 @@
     ".replit": "replit.nix",
     "package.json": "package-lock.json",
     "REAME*": "*.${capture}"
-  }
+  },
+  "cSpell.enableFiletypes": ["!typescript"]
 }

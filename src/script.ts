@@ -22,7 +22,7 @@ window.hsmsSwap = () => {
       ).innerHTML = `	 <form>	<select class="blacktxt" id="cltyp${itr}">
 		    <option value="1">No-Weight</option>
 		    <option value="2">Honors</option>
-	    </select>	    
+	    </select>
 	  </form>`;
       document.getElementById(`typeId${itr}`).value = 1;
     }
@@ -35,25 +35,14 @@ window.hsmsSwap = () => {
       }
     }
   }
-};
-
-var courses = [];
-var classAmountNum = 0;
-// create Course class
-class Course {
-  constructor(num) {
-    this.letterGrade = 5;
-    this.classText = "";
-    this.classNum = num;
-    this.classType = "1";
-  }
 }
+window.hsmsSwap = hsmsSwap;
 
 // create Course function
-function createCourse(num) {
-  var tempElementId = "temp".concat("", String(num));
-  var tempElementIdNext = "temp".concat("", String(num + 1));
-  var tempElementIdAlsoNext = "temp".concat("", String(num + 2));
+function createCourse(num: number): void {
+  tempElementId = `temp${String(num)}`;
+  tempElementIdNext = `temp${String(num + 1)}`;
+  tempElementIdAlsoNext = `temp${String(num + 2)}`;
   // creates html elements in the courses class
   document.getElementById(tempElementId).innerHTML = `
 	<div class="pt-4 pb-4 lg:text-2xl text-lg">
@@ -64,7 +53,7 @@ function createCourse(num) {
 	 	<select oninput="loadgpa();" class="hover:scale-105 blacktxt" id="cltyp${num}">
 		    <option value="1">No-Weight</option>
 		    <option value="2">Honors</option>
-	    </select>	    
+	    </select>
 	  </form>
   </span>
 
@@ -77,7 +66,7 @@ function createCourse(num) {
       <option value="0">F</option>
       <option value="5">N/A</option>
     </select>
-	
+
 	 <!-- <label id="cl${num}label">Class ${num}</label> -->
 	</div>
   <!--<p>Grade:</p>-->
@@ -106,34 +95,22 @@ window.getstorage = () => {
     document.getElementById("darkModeButton").innerHTML = "Light Mode";
   }
 
-  // Easter Egg
-  if (color == "red") {
-    var element = document.body;
-    element.classList.add("redModebg");
-  } else if (color == "orange") {
-    var element = document.body;
-    element.classList.add("orangeModebg");
-  } else if (color == "yellow") {
-    var element = document.body;
-    element.classList.add("yellowModebg");
-  } else if (color == "lime") {
-    var element = document.body;
-    element.classList.add("limeModebg");
-  } else if (color == "cyan") {
-    var element = document.body;
-    element.classList.add("cyanModebg");
-  } else if (color == "blue") {
-    var element = document.body;
-    element.classList.add("blueModebg");
-  } else if (color == "purple") {
-    var element = document.body;
-    element.classList.add("purpleModebg");
-  } else if (color == "pink") {
-    var element = document.body;
-    element.classList.add("pinkModebg");
-  } else if (color == "pinkred") {
-    var element = document.body;
-    element.classList.add("pinkredModebg");
+  // remove N/A from addition
+  for (const course of courses) {
+    if (course.letterGrade === 5) {
+      courseLen = courseLen - 1;
+    } else {
+      // adds to pregpa
+      if (course.classType === "2") {
+        if (course.letterGrade === 0) {
+          pregpa = pregpa + course.letterGrade;
+        } else {
+          pregpa = pregpa + 1 + course.letterGrade;
+        }
+      } else {
+        pregpa = pregpa + course.letterGrade;
+      }
+    }
   }
 
   if (gradestorage == "true") {
@@ -163,23 +140,33 @@ window.getstorage = () => {
 window.classAmount = () => {
   // if storage don't exist
 
-  // create array
-  courses = [];
+  // shows save text
+  document.getElementById("saved")!.innerHTML = "Saved!";
+  setTimeout(saveRemove, 1000);
+
+  // save cookies
+  const arraycookie = JSON.stringify(courses);
+  setData(arraycookie);
+}
+window.loadgpa = loadgpa;
+
+function classAmount(): void {
+  courses = []; // if cookies don't exist, create the array
 
   // get textbox with number of classes
   classAmountNum = Math.abs(
-    parseInt(document.getElementById("numOfClasses").value)
+    parseInt(
+      (document.getElementById("numOfClasses") as HTMLInputElement).value,
+    ),
   );
 
-  if (classAmountNum == parseInt(0)) {
+  if (
+    classAmountNum === 0 ||
+    Number.isNaN(classAmountNum) ||
+    classAmountNum > 256
+  ) {
     // stops NaN/0/null on numOfClasses textbox
 
-    classAmountNum = 7;
-  } else if (classAmountNum.isNaN == true) {
-    classAmountNum = 7;
-  } else if (classAmountNum == null) {
-    classAmountNum = 7;
-  } else if (classAmountNum > 256) {
     classAmountNum = 7;
   }
 
@@ -188,17 +175,18 @@ window.classAmount = () => {
     courses.push(new Course(itr + 1));
     createCourse(itr + 1);
   }
-  if (document.getElementById("hsmsInput").checked == false) {
+  if (!(document.getElementById("hsmsInput") as HTMLInputElement).checked) {
     for (let itr = 1; itr < courses.length + 1; itr++) {
       // loops through all course classes and removes the <span id="typeId"></span> (honors dropdown)
-      document.getElementById(`typeId${itr}`).innerHTML = null;
+      document.getElementById(`typeId${itr}`)!.innerHTML = "";
     }
   }
   // calculates and saves the gpa
   loadgpa();
   // sets the gpa text to ""
-  document.getElementById("gpa").innerHTML = "";
-};
+  document.getElementById("gpa")!.innerHTML = "";
+}
+window.classAmount = classAmount;
 
 function fromstorage(arraystorage) {
   // not to be confused with getstorage()
@@ -220,15 +208,33 @@ function fromstorage(arraystorage) {
       var tempCTID = "cl".concat("", String(itr + 1) + "txt"); // FIXME (no var)
       var tempCTYID = `cltyp${String(itr + 1)}`; // FIXME (no var)
 
-      document.getElementById(tempLGID).value = courses[itr].letterGrade;
-      document.getElementById(tempCTID).value = courses[itr].classText;
-      document.getElementById(tempCTYID).value = courses[itr].classType;
-    }
-    if (document.getElementById("hsmsInput").checked == false) {
-      for (let itr = 1; itr < courses.length + 1; itr++) {
-        // removes typeId <span> element from courses objects
-        document.getElementById(`typeId${itr}`).innerHTML = null;
-      }
+  for (const [itr, course] of courses.entries()) {
+    createCourse(course.classNum);
+    createCookieCourse(
+      course.classNum,
+      course.letterGrade,
+      course.classText,
+      course.classType,
+      itr,
+    );
+  }
+  for (const [itr, course] of courses.entries()) {
+    tempLGID = `cl${String(itr + 1)}`;
+    tempCTID = `cl${String(itr + 1)}txt`;
+    tempCTYID = `cltyp${String(itr + 1)}`;
+
+    (document.getElementById(tempLGID) as HTMLInputElement).value = String(
+      course.letterGrade,
+    );
+    (document.getElementById(tempCTID) as HTMLInputElement).value =
+      course.classText;
+    (document.getElementById(tempCTYID) as HTMLInputElement).value =
+      course.classType;
+  }
+  if (!(document.getElementById("hsmsInput") as HTMLInputElement).checked) {
+    for (let itr = 1; itr < courses.length + 1; itr++) {
+      // removes typeId <span> element from courses objects
+      document.getElementById(`typeId${itr}`)!.innerHTML = "";
     }
   }
 }
@@ -236,22 +242,95 @@ function fromstorage(arraystorage) {
 function createstorageCourse(classNum, letterGrade, classText, classType, itr) {
   // Populates course object data
 
-  let num = classNum;
+  // Easter Egg
+  switch (color) {
+    case "red": {
+      element.classList.add("redModebg");
 
-  var tempElementId = "temp".concat("", String(num)); // FIXME (no var)
-  var tempElementIdNext = "temp".concat("", String(num + 1)); // FIXME (no var)
+      break;
+    }
+    case "orange": {
+      element.classList.add("orangeModebg");
 
-  document.getElementById(tempElementId).value = classText;
+      break;
+    }
+    case "yellow": {
+      element.classList.add("yellowModebg");
 
-  document.getElementById(tempElementIdNext).value = classNum;
+      break;
+    }
+    case "lime": {
+      element.classList.add("limeModebg");
+
+      break;
+    }
+    case "cyan": {
+      element.classList.add("cyanModebg");
+
+      break;
+    }
+    case "blue": {
+      element.classList.add("blueModebg");
+
+      break;
+    }
+    case "purple": {
+      element.classList.add("purpleModebg");
+
+      break;
+    }
+    case "pink": {
+      element.classList.add("pinkModebg");
+
+      break;
+    }
+    case "pinkred": {
+      element.classList.add("pinkredModebg");
+
+      break;
+    }
+    default: {
+      // Do nothing
+      break;
+    }
+  }
+
+  if (gradecookie === "true") {
+    (document.getElementById("hsmsInput") as HTMLInputElement).checked = true;
+    checked = true;
+    document.getElementById("gradeLvl")!.innerHTML = high;
+    document.getElementById("modalClass")!.innerHTML = high;
+  } else if (gradecookie === "false") {
+    (document.getElementById("hsmsInput") as HTMLInputElement).checked = false;
+    checked = false;
+    document.getElementById("gradeLvl")!.innerHTML = middle;
+    document.getElementById("modalClass")!.innerHTML = middle;
+  } else {
+    // Modal that pops up on first start
+    document.getElementById("id01")!.style.display = "block";
+    hsmsSwap();
+  }
+
+  if (arraycookie === null) {
+    // if cookies don't exist
+    classAmount();
+  } else {
+    // if cookies do exist
+    fromCookies(arraycookie);
+    loadgpa();
+  }
 }
+window.getCookies = getCookies;
 
-window.help = () => {
+function help(): void {
   window.location.href = "help.html";
-};
-window.loadgpahelp = () => {
+}
+window.help = help;
+
+function loadgpahelp(): void {
   window.location.href = "index.html";
-};
+}
+window.loadgpahelp = loadgpahelp;
 
 window.loadgpa = () => {
   // Saves values to the array
@@ -333,31 +412,33 @@ window.clearAll = () => {
 };
 
 // Dark Mode
-window.darkMode = () => {
-  var element = document.body;
+window.darkMode = (): void => {
+  const element = document.body;
   element.classList.toggle("darkModebg");
   element.classList.toggle("lightModebg");
 
-  var c = document.getElementById("c");
+  const c = document.getElementById("c")!;
   c.classList.toggle("darkMode");
   c.classList.toggle("lightMode");
 
-  var c2 = document.getElementById("c2");
+  const c2 = document.getElementById("c2")!;
   c2.classList.toggle("darkMode");
   c2.classList.toggle("lightMode");
 
-  if (c.classList.contains("darkMode") == true) {
-    document.getElementById("darkModeButton").innerHTML = "Light Mode";
-    localStorage.setItem("shade", "dark", 365);
-  } else if (element.classList.contains("lightMode") == false) {
-    document.getElementById("darkModeButton").innerHTML = "Dark Mode";
-    localStorage.setItem("shade", "light", 365);
+  if (c.classList.contains("darkMode")) {
+    document.getElementById("darkModeButton")!.innerHTML = "Light Mode";
+    localStorage.setItem("shade", "dark");
+  } else if (!element.classList.contains("lightMode")) {
+    document.getElementById("darkModeButton")!.innerHTML = "Dark Mode";
+    localStorage.setItem("shade", "light");
   }
 };
-// Easter Egg
-// Context: https://www.google.com/search?q=Konami+Code
 
-function remColors() {
+/** This is the Easter Egg.
+ *
+ * [Context](https://www.google.com/search?q=Konami+Code).
+ */
+function remColors(): void {
   const classes = [
     "redModebg",
     "orangeModebg",
@@ -369,107 +450,138 @@ function remColors() {
     "pinkModebg",
     "pinkredModebg",
   ];
-  classes.forEach((c) => {
-    var element = document.body;
+  classes.forEach((c: string): void => {
+    let element: HTMLElement | null = document.body;
     if (element.classList.contains(c)) {
       element.classList.remove(c);
     }
-    var element = document.getElementById("c");
+    element = document.getElementById("c")!;
     if (element.classList.contains(c)) {
       element.classList.remove(c);
     }
-    var element = document.getElementById("c2");
+    element = document.getElementById("c2")!;
     if (element.classList.contains(c)) {
       element.classList.remove(c);
     }
   });
 }
 
-var keys = "";
-window.onkeydown = (e) => {
-  var code = e.keyCode ? e.keyCode : e.which;
-  if (code === 38) {
-    // up key
-    keys += "1";
-  } else if (code === 40) {
-    // down key
-    keys += "2";
-  } else if (code === 37) {
-    // left key
-    keys += "3";
-  } else if (code === 39) {
-    // right key
-    keys += "4";
-  } else if (code === 66) {
-    // B key
-    keys += "5";
-  } else if (code === 65) {
-    // A key
-    keys += "6";
-  } else if (code === 13) {
-    // Start (enter) key
-    keys += "7";
+let keys = "";
+function onkeydown(e: KeyboardEvent): void {
+  const code = e.key;
+  switch (code) {
+    case "ArrowUp": {
+      // up key
+      keys += "1";
+
+      break;
+    }
+    case "ArrowDown": {
+      // down key
+      keys += "2";
+
+      break;
+    }
+    case "ArrowLeft": {
+      // left key
+      keys += "3";
+
+      break;
+    }
+    case "ArrowRight": {
+      // right key
+      keys += "4";
+
+      break;
+    }
+    case "a": {
+      // B key
+      keys += "6";
+
+      break;
+    }
+    case "b": {
+      // A key
+      keys += "5";
+
+      break;
+    }
+    case "Enter": {
+      // Start (enter) key
+      keys += "7";
+
+      break;
+    }
+    default: {
+      // Do nothing
+      break;
+    }
   }
-  if (keys == "11223434567") {
-    // sequence
-    console.log(keys);
-    alert("You Found It!");
-    document.getElementById("id02").style.display = "block";
+
+  const sequence = "11223434567";
+  console.debug(`keys: ${keys}, code: ${code}, sequence: ${sequence}`);
+  if (keys === sequence) {
+    window.alert("You Found It!");
+    document.getElementById("id02")!.style.display = "block";
     remColors();
   }
-};
+}
+window.onkeydown = onkeydown;
+
 // Button Theme Changing Functions
-window.rTH = () => {
+window.rTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("redModebg");
-  localStorage.setItem("color", "red", 365);
+  localStorage.setItem("color", "red");
 };
-window.oTH = () => {
+window.oTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("orangeModebg");
-  localStorage.setItem("color", "orange", 365);
+  localStorage.setItem("color", "orange");
 };
-window.yTH = () => {
+window.yTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("yellowModebg");
-  localStorage.setItem("color", "yellow", 365);
+  localStorage.setItem("color", "yellow");
 };
-window.lTH = () => {
+window.lTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("limeModebg");
-  localStorage.setItem("color", "lime", 365);
+  localStorage.setItem("color", "lime");
 };
-window.cTH = () => {
+window.cTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("cyanModebg");
-  localStorage.setItem("color", "cyan", 365);
+  localStorage.setItem("color", "cyan");
 };
-window.bTH = () => {
+window.bTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("blueModebg");
-  localStorage.setItem("color", "blue", 365);
+  localStorage.setItem("color", "blue");
 };
-window.pTH = () => {
+window.pTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("purpleModebg");
-  localStorage.setItem("color", "purple", 365);
+  localStorage.setItem("color", "purple");
 };
-window.piTH = () => {
+window.piTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("pinkModebg");
-  localStorage.setItem("color", "pink", 365);
+  localStorage.setItem("color", "pink");
 };
-window.prTH = () => {
+window.prTH = (): void => {
   remColors();
-  var element = document.body;
+  const element = document.body;
   element.classList.add("pinkredModebg");
-  localStorage.setItem("color", "pinkred", 365);
+  localStorage.setItem("color", "pinkred");
 };
+
+export {};
