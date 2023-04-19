@@ -136,8 +136,6 @@ function saveRemove() {
 
 /**
  * Saves values to the array.
- *
- *
  */
 function loadgpa(): void {
   // set vars
@@ -540,7 +538,6 @@ function onkeydown(e: KeyboardEvent): void {
   }
 
   const sequence = "11223434567";
-  console.debug(`keys: ${keys}, code: ${code}, sequence: ${sequence}`);
   if (keys === sequence) {
     window.alert("You Found It!");
     document.getElementById("id02")!.style.display = "block";
