@@ -4,10 +4,11 @@ body {
 }
 @font-face {
   font-family: Norwester;
-  src: url("fonts/norwester.otf") format("opentype");
+  src: local("Trickster") format("opentype"),
+    url("fonts/norwester.otf") format("opentype");
 }
 body {
-  font-family: "Norwester";
+  font-family: Norwester, Verdana, Geneva, Tahoma, sans-serif;
 }
 .row {
   display: flex;
@@ -45,6 +46,8 @@ body {
   bottom: 0;
   background-color: #ccc;
   -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -57,6 +60,8 @@ body {
   bottom: 4px;
   background-color: white;
   -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -70,6 +75,8 @@ input:focus + .switch {
 
 input:checked + .switch:before {
   -webkit-transform: translateX(26px);
+  -moz-transform: translateX(26px);
+  -o-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
@@ -174,6 +181,7 @@ input:checked + .switch:before {
 input[type="range"] {
   margin: auto;
   -webkit-appearance: none;
+  appearance: none;
   position: relative;
   overflow: hidden;
   height: 25px;
@@ -189,7 +197,7 @@ input[type="range"] {
 
 /*
  * 1. Set to 0 width and remove border for a slider without a thumb
- * 2. Shadow is negative the full width of the input and has a spread 
+ * 2. Shadow is negative the full width of the input and has a spread
  *    of the width of the input.
  */
 ::-webkit-slider-thumb {
