@@ -10,7 +10,7 @@ import { Router } from "@vaadin/router";
 
 import "./pages/app-home";
 import "./components/header";
-import "./styles/global.css";
+import "./styles/style.css";
 
 declare global {
   interface Document {
@@ -51,7 +51,8 @@ export class AppIndex extends LitElement {
 
     // For more info on using the @vaadin/router check here https://vaadin.com/router
     const router = new Router(this.shadowRoot?.querySelector("#routerOutlet"));
-    router.setRoutes([
+    router
+      .setRoutes([
         // temporarily cast to any because of a Type bug with the router
         {
           path: BASE_URL,
