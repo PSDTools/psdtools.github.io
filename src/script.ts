@@ -7,7 +7,6 @@ import { clearData, clearAll, setData } from "./scripts/storage.js";
 declare global {
   interface Window {
     hsmsSwap: () => void;
-    getCookies: () => void;
     classAmount: () => void;
     help: () => void;
     loadgpa: () => void;
