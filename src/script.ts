@@ -14,7 +14,8 @@ declare global {
     loadgpahelp: () => void;
     clearData: () => void;
     clearAll: () => void;
-    w3Toggle: (open: boolean) => void;
+    toggleNav: (open: boolean) => void;
+    getStorage: () => void;
     darkMode: () => void;
     rTH: () => void;
     prTH: () => void;
@@ -28,54 +29,96 @@ declare global {
   }
 }
 
+class Course {
+  letterGrade: number;
+  classText: string;
+  classNum: number;
+  classType: string;
 
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-window.openNav = () => {
-  document.getElementById("mySidenav").style.width = "100%";
-};
+  /**
+   * Create `Course` class.
+   */
+  constructor(num: number) {
+    this.letterGrade = 5;
+    this.classText = "";
+    this.classNum = num;
+    this.classType = "1";
+  }
+}
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-window.closeNav = () => {
-  document.getElementById("mySidenav").style.width = "0%";
-};
+let courses: Course[] = [];
+let classAmountNum = 0;
 
-// Swaps High school and Middle school
-function hsmsSwap() {
-  var checked = document.getElementById("hsmsInput").checked;
-  if (document.getElementById("hsmsInput").checked == true) {
-    document.getElementById("gradeLvl").innerHTML = "High School";
+let tempLGID = "";
+let tempCTID = "";
+let tempCTYID = "";
+let tempElementId = "";
+let tempElementIdNext = "";
+// let tempElementIdAlsoNext = "";
 
-    localStorage.setItem("gradestorage", checked);
-    document.getElementById("numOfClasses").value = courses.length;
+const high = "High School";
+const middle = "Middle School";
+const hsmsInput = document.getElementById("hsmsInput") as HTMLInputElement;
+const gradeLvl = document.getElementById("gradeLvl")!;
+const element = document.body;
+
+window.clearData = clearData;
+window.clearAll = clearAll;
+
+/**
+ * Toggle the navigation.
+ * If it's going to open:
+ * - Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to the body.
+ * - Otherwise, set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of the body to white.
+ *
+ * @param open - If you want to open the sidebar (defaults to close).
+ */
+function toggleNav(open: boolean): void {
+  document.getElementById("mySidenav")!.style.width = open ? "100%" : "0%";
+}
+window.toggleNav = toggleNav;
+
+/**
+ * Swaps the High School and the Middle School.
+ */
+function hsmsSwap(): void {
+  const checked = hsmsInput.checked;
+  if (checked) {
+    gradeLvl.innerHTML = high;
+
+    localStorage.setItem("gradestorage", String(checked));
+    (document.getElementById("numOfClasses") as HTMLInputElement).value =
+      String(courses.length);
     for (let itr = 1; itr < courses.length + 1; itr++) {
       document.getElementById(
-        `typeId${itr}`
-      ).innerHTML = `	 <form>	<select class="blacktxt" id="cltyp${itr}">
+        `typeId${itr}`,
+      )!.innerHTML = `<form>	<select class="blacktxt" id="cltyp${itr}">
 		    <option value="1">No-Weight</option>
 		    <option value="2">Honors</option>
 	    </select>
-	  </form>`;
-      document.getElementById(`typeId${itr}`).value = 1;
+	    </form>`;
+      (document.getElementById(`typeId${itr}`) as HTMLInputElement).value = "1";
     }
   } else {
-    document.getElementById("gradeLvl").innerHTML = "Middle School";
-    localStorage.setItem("gradestorage", checked);
-    if (courses != null) {
-      for (let itr = 1; itr < courses.length + 1; itr++) {
-        document.getElementById(`typeId${itr}`).innerHTML = null;
-      }
+    gradeLvl.innerHTML = middle;
+    localStorage.setItem("gradestorage", String(checked));
+    for (let itr = 1; itr < courses.length + 1; itr++) {
+      document.getElementById(`typeId${itr}`)!.innerHTML = "";
     }
   }
 }
 window.hsmsSwap = hsmsSwap;
 
-// create Course function
+/**
+ * Create a `Course`.
+ */
 function createCourse(num: number): void {
   tempElementId = `temp${String(num)}`;
   tempElementIdNext = `temp${String(num + 1)}`;
   // tempElementIdAlsoNext = `temp${String(num + 2)}`;
+
   // creates html elements in the courses class
-  document.getElementById(tempElementId).innerHTML = `
+  document.getElementById(tempElementId)!.innerHTML = `
 	<div class="pt-4 pb-4 lg:text-2xl text-lg">
 	<div id="input-con-div" class="">
 	  <input style="width:150px;"class="hover:scale-105 placeholder-white blacktxt" placeholder="Class ${num}:" oninput="loadgpa();" id="cl${num}txt" type="text" required=""/>
@@ -105,25 +148,46 @@ function createCourse(num: number): void {
 	<div class="selectionbox" id="${tempElementIdNext}">`;
 }
 
-window.getstorage = () => {
-  // Called on pageload
-  // Pulls storage from localStorage
-  var color = localStorage.getItem("color");
-  var shade = localStorage.getItem("shade");
-  var gradestorage = localStorage.getItem("gradestorage");
-  var arraystorage = localStorage.getItem("arraystorage");
-  // sets top header, slider, and dark mode to correct values
-  if (shade == "dark") {
-    var element = document.body;
-    element.classList.toggle("darkModebg");
-    element.classList.toggle("lightModebg");
-    var c = document.getElementById("c");
-    c.classList.toggle("darkMode");
-    c.classList.toggle("lightMode");
-    var c2 = document.getElementById("c2");
-    c2.classList.toggle("darkMode");
-    c2.classList.toggle("lightMode");
-    document.getElementById("darkModeButton").innerHTML = "Light Mode";
+/**
+ * Remove "Saved!" text.
+ */
+function saveRemove() {
+  document.getElementById("saved")!.innerHTML = "";
+}
+
+/**
+ * Saves values to the array.
+ */
+function loadgpa(): void {
+  // set vars
+  let pregpa = 0;
+  let courseLen: number = courses.length;
+
+  tempLGID = "";
+  tempCTID = "";
+  tempCTYID = "";
+
+  // save classes to array
+
+  for (const [itr, course] of courses.entries()) {
+    tempLGID = `cl${String(itr + 1)}`;
+    tempCTID = `cl${String(itr + 1)}txt`;
+    tempCTYID = `cltyp${String(itr + 1)}`;
+
+    course.letterGrade = Number(
+      (document.getElementById(tempLGID) as HTMLInputElement).value,
+    );
+
+    course.classText = (
+      document.getElementById(tempCTID) as HTMLInputElement
+    ).value;
+
+    if (hsmsInput.checked) {
+      tempCTYID = `cltyp${String(itr + 1)}`;
+      course.classType = (
+        document.getElementById(tempCTYID) as HTMLInputElement
+      ).value;
+    }
   }
 
   // remove N/A from addition
@@ -144,32 +208,14 @@ window.getstorage = () => {
     }
   }
 
-  if (gradestorage == "true") {
-    document.getElementById("hsmsInput").checked = true;
-    var checked = true; // FIXME (no var)
-    document.getElementById("gradeLvl").innerHTML = "High School";
-  } else if (gradestorage == "false") {
-    document.getElementById("hsmsInput").checked = false;
-    var checked = false; // FIXME (no var)
-    document.getElementById("gradeLvl").innerHTML = "Middle School";
-  } else {
-    // Modal that pops up on first start
-    document.getElementById("id01").style.display = "block";
-    hsmsSwap();
-  }
+  // divide
+  let gpa: number | string = pregpa / courseLen;
 
-  if (arraystorage == null) {
-    // if storage don't exist
-    classAmount();
-  } else {
-    // if storage do exist
-    fromstorage(arraystorage);
-    loadgpa();
-  }
-};
+  // round
+  gpa = gpa.toFixed(2);
 
-window.classAmount = () => {
-  // if storage don't exist
+  document.getElementById("gpa")!.innerHTML = `Your GPA is a: ${gpa}`;
+
   // shows save text
   document.getElementById("saved")!.innerHTML = "Saved!";
   setTimeout(saveRemove, 1000);
@@ -181,7 +227,7 @@ window.classAmount = () => {
 window.loadgpa = loadgpa;
 
 function classAmount(): void {
-  courses = []; // if cookies don't exist, create the array
+  courses = []; // if storage don't exist, create the array
 
   // get textbox with number of classes
   classAmountNum = Math.abs(
@@ -195,9 +241,7 @@ function classAmount(): void {
     Number.isNaN(classAmountNum) ||
     classAmountNum > 256
   ) {
-    // stops NaN/0/null on numOfClasses textbox
-
-    classAmountNum = 7;
+    classAmountNum = 7; // stops NaN/0/null on numOfClasses textbox
   }
 
   // creates classes for number of iterations
@@ -218,29 +262,37 @@ function classAmount(): void {
 }
 window.classAmount = classAmount;
 
-function fromstorage(arraystorage) {
-  // not to be confused with getstorage()
+/**
+ * Populates course object data.
+ */
+function createStorageCourse(
+  classNum: number,
+  _letterGrade: number,
+  classText: string,
+  _classType: string,
+  _itr: number,
+): void {
+  const num = classNum;
+
+  tempElementId = `temp${String(num)}`;
+  tempElementIdNext = `temp${String(num + 1)}`;
+
+  (document.getElementById(tempElementId) as HTMLInputElement).value =
+    classText;
+  (document.getElementById(tempElementIdNext) as HTMLInputElement).value =
+    String(classNum);
+}
+
+/**
+ * Not to be confused with `getStorage()`.
+ */
+function fromstorage(arraystorage: string) {
   courses = JSON.parse(arraystorage);
   // creates courses from array data after it is pulled from storage
-  if (courses != null) {
-    for (var itr = 0; itr < courses.length; itr++) {
-      createCourse(courses[itr].classNum);
-      createstorageCourse(
-        courses[itr].classNum,
-        courses[itr].letterGrade,
-        courses[itr].classText,
-        courses[itr].classType,
-        itr
-      );
-    }
-    for (let itr = 0; itr < courses.length; itr++) {
-      var tempLGID = "cl".concat("", String(itr + 1)); // FIXME (no var)
-      var tempCTID = "cl".concat("", String(itr + 1) + "txt"); // FIXME (no var)
-      var tempCTYID = `cltyp${String(itr + 1)}`; // FIXME (no var)
 
   for (const [itr, course] of courses.entries()) {
     createCourse(course.classNum);
-    createCookieCourse(
+    createStorageCourse(
       course.classNum,
       course.letterGrade,
       course.classText,
@@ -248,29 +300,67 @@ function fromstorage(arraystorage) {
       itr,
     );
   }
-  for (const [itr, course] of courses.entries()) {
+  for (let itr = 0; itr < courses.length; itr++) {
     tempLGID = `cl${String(itr + 1)}`;
     tempCTID = `cl${String(itr + 1)}txt`;
     tempCTYID = `cltyp${String(itr + 1)}`;
 
-    (document.getElementById(tempLGID) as HTMLInputElement).value = String(
-      course.letterGrade,
-    );
-    (document.getElementById(tempCTID) as HTMLInputElement).value =
-      course.classText;
-    (document.getElementById(tempCTYID) as HTMLInputElement).value =
-      course.classType;
-  }
-  if (!hsmsInput.checked) {
-    for (let itr = 1; itr < courses.length + 1; itr++) {
-      // removes typeId <span> element from courses objects
-      document.getElementById(`typeId${itr}`)!.innerHTML = "";
+    for (const [itr2, course] of courses.entries()) {
+      createCourse(course.classNum);
+      createStorageCourse(
+        course.classNum,
+        course.letterGrade,
+        course.classText,
+        course.classType,
+        itr2,
+      );
+    }
+
+    for (const [itr2, course] of courses.entries()) {
+      tempLGID = `cl${String(itr2 + 1)}`;
+      tempCTID = `cl${String(itr2 + 1)}txt`;
+      tempCTYID = `cltyp${String(itr2 + 1)}`;
+
+      (document.getElementById(tempLGID) as HTMLInputElement).value = String(
+        course.letterGrade,
+      );
+      (document.getElementById(tempCTID) as HTMLInputElement).value =
+        course.classText;
+      (document.getElementById(tempCTYID) as HTMLInputElement).value =
+        course.classType;
+    }
+
+    if (!hsmsInput.checked) {
+      for (let itr2 = 1; itr2 < courses.length + 1; itr2++) {
+        // removes typeId <span> element from courses objects
+        document.getElementById(`typeId${itr}`)!.innerHTML = "";
+      }
     }
   }
 }
 
-function createstorageCourse(classNum, letterGrade, classText, classType, itr) {
-  // Populates course object data
+/**
+ * Called on pageload.
+ *
+ * Pulls storage from `localStorage`.
+ */
+function getStorage(): void {
+  const color = localStorage.getItem("color");
+  const shade = localStorage.getItem("shade");
+  const gradestorage = localStorage.getItem("gradestorage");
+  const arraystorage = localStorage.getItem("arraystorage");
+  // sets top header, slider, and dark mode to correct values
+  if (shade === "dark") {
+    element.classList.toggle("darkModebg");
+    element.classList.toggle("lightModebg");
+    const c = document.getElementById("c")!;
+    c.classList.toggle("darkMode");
+    c.classList.toggle("lightMode");
+    const c2 = document.getElementById("c2")!;
+    c2.classList.toggle("darkMode");
+    c2.classList.toggle("lightMode");
+    document.getElementById("darkModeButton")!.innerHTML = "Light Mode";
+  }
 
   // Easter Egg
   switch (color) {
@@ -325,100 +415,42 @@ function createstorageCourse(classNum, letterGrade, classText, classType, itr) {
     }
   }
 
-  if (gradecookie === "true") {
+  if (gradestorage === "true") {
     hsmsInput.checked = true;
-    checked = true;
+    // let checked = true;
     gradeLvl.innerHTML = high;
-    modalClass.innerHTML = high;
-  } else if (gradecookie === "false") {
+  } else if (gradestorage === "false") {
     hsmsInput.checked = false;
-    checked = false;
+    // let checked = false;
     gradeLvl.innerHTML = middle;
-    modalClass.innerHTML = middle;
   } else {
     // Modal that pops up on first start
     document.getElementById("id01")!.style.display = "block";
     hsmsSwap();
   }
 
-  if (arraycookie === null) {
-    // if cookies don't exist
+  if (arraystorage === null) {
+    // if storage don't exist
     classAmount();
   } else {
-    // if cookies do exist
-    fromCookies(arraycookie);
+    // if storage do exist
+    fromstorage(arraystorage);
     loadgpa();
   }
 }
-window.getCookies = getCookies;
+window.getStorage = getStorage;
 
 function help(): void {
   window.location.href = "help.html";
 }
-window.help = help;
-
 function loadgpahelp(): void {
   window.location.href = "index.html";
 }
+window.help = help;
 window.loadgpahelp = loadgpahelp;
-
-  if (gradecookie === "true") {
-    hsmsInput.checked = true;
-    checked = true;
-    gradeLvl.innerHTML = high;
-    modalClass.innerHTML = high;
-  } else if (gradecookie === "false") {
-    hsmsInput.checked = false;
-    checked = false;
-    gradeLvl.innerHTML = middle;
-    modalClass.innerHTML = middle;
-  } else {
-    // Modal that pops up on first start
-    document.getElementById("id01")!.style.display = "block";
-    hsmsSwap();
-  }
-
-  if (arraycookie === null) {
-    // if cookies don't exist
-    classAmount();
-  } else {
-    // if cookies do exist
-    fromCookies(arraycookie);
-    loadgpa();
-  }
-}
-window.getCookies = getCookies;
-
-    // shows save text
-    document.getElementById("saved").innerHTML = "Saved!";
-    setTimeout(saveRemove, 3000);
-
-    // save storage
-    var arraystorage = JSON.stringify(courses);
-    localStorage.setItem("arraystorage", arraystorage, 365);
-  }
-  // Remove "Saved!" Text
-  function saveRemove() {
-    document.getElementById("saved").innerHTML = "";
-  }
-};
-// clears class storage data
-window.clearData = () => {
-  localStorage.setItem("arraystorage", null, -1);
-  location.reload();
-};
-// clears all website storage data
-window.clearAll = () => {
-  localStorage.setItem("gradestorage", null, -1);
-  localStorage.setItem("color", null, -1);
-  localStorage.setItem("shade", null, -1);
-  window.clearData();
-};
-
 
 // Dark Mode
 window.darkMode = (): void => {
-  const element = document.body;
   element.classList.toggle("darkModebg");
   element.classList.toggle("lightModebg");
 
@@ -439,7 +471,8 @@ window.darkMode = (): void => {
   }
 };
 
-/** This is the Easter Egg.
+/**
+ * This is the Easter Egg.
  *
  * [Context](https://www.google.com/search?q=Konami+Code).
  */
@@ -456,17 +489,16 @@ function remColors(): void {
     "pinkredModebg",
   ];
   classes.forEach((c: string): void => {
-    let element: HTMLElement | null = document.body;
     if (element.classList.contains(c)) {
       element.classList.remove(c);
     }
-    element = document.getElementById("c")!;
-    if (element.classList.contains(c)) {
-      element.classList.remove(c);
+    const element2 = document.getElementById("c")!;
+    if (element2.classList.contains(c)) {
+      element2.classList.remove(c);
     }
-    element = document.getElementById("c2")!;
-    if (element.classList.contains(c)) {
-      element.classList.remove(c);
+    const element3 = document.getElementById("c2")!;
+    if (element3.classList.contains(c)) {
+      element3.classList.remove(c);
     }
   });
 }
@@ -535,55 +567,46 @@ window.onkeydown = onkeydown;
 // Button Theme Changing Functions
 window.rTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("redModebg");
   localStorage.setItem("color", "red");
 };
 window.oTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("orangeModebg");
   localStorage.setItem("color", "orange");
 };
 window.yTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("yellowModebg");
   localStorage.setItem("color", "yellow");
 };
 window.lTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("limeModebg");
   localStorage.setItem("color", "lime");
 };
 window.cTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("cyanModebg");
   localStorage.setItem("color", "cyan");
 };
 window.bTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("blueModebg");
   localStorage.setItem("color", "blue");
 };
 window.pTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("purpleModebg");
   localStorage.setItem("color", "purple");
 };
 window.piTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("pinkModebg");
   localStorage.setItem("color", "pink");
 };
 window.prTH = (): void => {
   remColors();
-  const element = document.body;
   element.classList.add("pinkredModebg");
   localStorage.setItem("color", "pinkred");
 };

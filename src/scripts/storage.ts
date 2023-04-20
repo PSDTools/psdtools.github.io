@@ -1,10 +1,10 @@
-/** Clears class cookie data. */
+/** Clears class storage data. */
 function clearData(): void {
   localStorage.removeItem("arraycookie");
   location.reload();
 }
 
-/** Clears all website cookie data. */
+/** Clears all website storage data. */
 function clearAll(): void {
   localStorage.removeItem("gradecookie");
   localStorage.removeItem("color");
