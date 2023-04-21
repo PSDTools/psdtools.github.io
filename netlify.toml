@@ -26,5 +26,5 @@ command = "npm run build"
 # that handle routing internally.
 [[redirects]]
   from = "/*"
-  to = "/GPA_Calculator/index.html"
+  to = "/index.html"
   status = 200
