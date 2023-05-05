@@ -6,7 +6,6 @@
     <base href="/" />
     <!-- <link rel="manifest" href="GPA_Calculator/manifest.webmanifest" /> -->
     <title>GPA Calculator</title>
-    <link href="/src/styles/style.css" rel="stylesheet" type="text/css" />
 
     <link
       href="/AppImages/android/android-launchericon-512-512.png"
@@ -16,37 +15,39 @@
 
     <script type="module" src="/src/script.ts"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/src/styles/style.css" rel="stylesheet" type="text/css" />
   </head>
+  <body id="" class="bg-[url('/bground.png')]" onload="getStorage()">
+    <!-- The overlay -->
+    <div id="mySidenav" class="overlay">
+      <!-- Button to close the overlay navigation -->
+      <a href="javascript:void(0)" class="closebtn" onclick="toggleNav(false)"
+        >&times;</a
+      >
 
-  <!-- The overlay -->
-  <div id="mySidenav" class="overlay">
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-      >&times;</a
-    >
+      <!-- Overlay content -->
+      <form class="overlay-content text-white">
+        <label>
+          <button type="submit" id="clearDataButton" onclick="clearData()">
+            Clear Grade Data
+          </button>
+          <p class="text-sm mt-4">Note: This action refreshes the page.</p>
+        </label>
 
-    <!-- Overlay content -->
-    <div class="overlay-content text-white">
-      <button id="clearDataButton" onclick="clearData()">
-        Clear Grade Data
-      </button>
-
-      <!-- <button id="darkModeButton" onclick="darkMode()">Dark Mode</button> -->
-      <p class="text-sm mt-4">Note: This action refreshes the page.</p>
-      <p></p>
-      <button type="button" onclick="clearAll()">Clear All Site Data</button>
-      <p></p>
+        <!-- <button id="darkModeButton" onclick="darkMode()">Dark Mode</button> -->
+        <p></p>
+        <button type="submit" onclick="clearAll()">Clear All Site Data</button>
+        <p></p>
+      </form>
     </div>
-  </div>
 
-  <body id="" class="bg-[url('/bground-new.png')]" onload="getStorage()">
     <div class="main">
       <div
         class="grid grid-cols-6 gap-4 lg:w-1/3 lg:p-2 p-8 bg-black text-white border borderwhite border-t-0 border-l-0 border-r-0 border-b-1"
       >
         <button
           type="button"
-          onclick="openNav()"
+          onclick="toggleNav(true)"
           class="pb-8 text-xl text-white bg-cyan-500 rounded-full w-8 h-8"
         >
           ☰
