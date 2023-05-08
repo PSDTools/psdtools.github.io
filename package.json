@@ -38,7 +38,7 @@
     "eslint-config-sheriff": "^12.1.0",
     "eslint-define-config": "^1.20.0",
     "typescript": "^5.0.4",
-    "vite": "^4.3.4",
+    "vite": "^4.3.5",
     "vite-plugin-pwa": "^0.14.7"
   },
   "scripts": {
