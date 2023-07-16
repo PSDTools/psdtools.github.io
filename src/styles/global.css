@@ -1,120 +1,61 @@
-@import url("https://www.w3schools.com/w3css/4/w3.css");
-@import url("https://www.w3schools.com/lib/w3-theme-black.css");
-@import url("@fortawesome/fontawesome-free/css/all.css");
+html,
+body {
+  height: 100%;
+}
 
-/*
-  This file is used for all of your global styles and CSS variables.
-  Check here https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties for more info on using CSS variables.
-*/
+@font-face {
+  font-family: Norwester;
+  src: local("Norwester") format("opentype"),
+    url("/src/styles/fonts/norwester.otf") format("opentype");
+}
 
-.darkMode {
-  background-color: #1c1c1c;
+body {
+  font-family: Norwester, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.row {
+  display: flex;
+}
+
+.bg {
+  background-image: url("/bground.png");
+}
+.blacktxt {
   color: white;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #1f1f1f;
-  transition: all 0.5s ease-in-out;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.lightMode {
-  background-color: #f1f1f1;
-  color: black;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #e7e7e7;
-  transition: all 0.5s ease-in-out;
-}
-
-.darkModebg {
-  background: #044200;
-  transition: all 0.5s ease-in-out;
-}
-
-.lightModebg {
-  background: #1a8f00;
-  /* background: linear-gradient(180deg, #067500 20%, #16bd00 31%, #1a8f00 85%); */
-  transition: all 0.5s ease-in-out;
-}
-
-.footer {
-  box-shadow: 0 50vh 0 50vh #000;
-}
-
-.lgreen {
-  color: lightgreen;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.gpa {
-  color: #019300;
-}
-
-.float {
-  display: inline-block;
-}
-
-.float2 {
-  margin: 15px 0;
-  float: right;
-}
-
-.x-smallbutton {
-  font-size: 35%;
-}
-
-.smallbutton {
-  font-size: 40%;
-}
-
-.small {
-  font-size: 40%;
-}
-
-.mini {
-  font-size: 25%;
-}
-
-.black {
-  color: black;
-}
-
-footer {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-}
-
-.switch {
+/* The switch - the box around the slider */
+.oldswitch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
 
-.switch input {
+/* Hide default HTML checkbox */
+.oldswitch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.slider {
+/* The slider */
+.switch {
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #76bb40;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-.slider:before {
+.switch:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -122,145 +63,202 @@ footer {
   left: 4px;
   bottom: 4px;
   background-color: white;
+  -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-input:checked + .slider {
-  background-color: #76bb40;
+input:checked + .switch {
+  background-color: #2196f3;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #76bb40;
+input:focus + .switch {
+  box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .slider:before {
+input:checked + .switch:before {
+  -webkit-transform: translateX(26px);
   -moz-transform: translateX(26px);
   -o-transform: translateX(26px);
-  -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
 /* Rounded sliders */
-.slider.round {
+.switch.round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.switch.round:before {
   border-radius: 50%;
 }
 
-/* Animated Class Text */
-.input-container {
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0); /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
   position: relative;
-  margin-bottom: 2px;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
 
-.input-container label {
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  font-size: 19px;
-  /* color:#000000;	 */
-  pointer-events: none;
-  transition: all 0.3s ease-in-out;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
 }
 
-.input-container input {
-  border: 0;
-  /* border-bottom:1px solid #555;   */
-  background: transparent;
-  width: 30%;
-  padding: 0px 0 5px 0;
-  font-size: 18.5px;
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }
 
-.input-container input:focus {
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #ffffff;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ffffff;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ffffff;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ffffff;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ffffff;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: #ffffff;
+}
+
+input[type="range"] {
+  margin: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 25px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 0; /* iOS */
+  border-radius: 13px;
+}
+
+::-webkit-slider-runnable-track {
+  background: #000000;
+}
+
+/*
+  1. Set to 0 width and remove border for a slider without a thumb
+  2. Shadow is negative the full width of the input and has a spread of the width of the input.
+ */
+::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 25px; /* 1 */
+  height: 25px;
+  border-radius: 13px;
+  background: #00d5ff;
+  box-shadow: -500px 0 0 490px #00d5ff; /* 2 */
+  border: 2px solid #ffffff; /* 1 */
+}
+
+::-moz-range-track {
+  height: 40px;
+  background: #000000;
+}
+
+::-moz-range-thumb {
+  background: #000000;
+  height: 40px;
+  width: 20px;
+  border: 3px solid #000000;
+  border-radius: 0 !important;
+  box-shadow: -200px 0 0 200px #1bd6ff;
+  box-sizing: border-box;
+}
+
+::-ms-fill-lower {
+  background: #1bd6ff;
+}
+
+::-ms-thumb {
+  background: #000000;
+  border: 2px solid #000000;
+  height: 40px;
+  width: 20px;
+  box-sizing: border-box;
+}
+
+::-ms-ticks-after {
+  display: none;
+}
+
+::-ms-ticks-before {
+  display: none;
+}
+
+::-ms-track {
+  background: #000000;
+  color: transparent;
+  height: 40px;
   border: none;
-  outline: none;
-  border-bottom: 1px solid black;
 }
 
-.input-container input:focus ~ label,
-.input-container input:valid ~ label {
-  top: -8px;
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0);
-}
-
-.dropmenu {
-  display: inline-block;
-  width: 80px;
-  padding: 10px 0 10px 15px;
-  font-weight: 500;
-  color: rgb(48, 48, 48);
-  background: #e7e7e7;
-  border: 0;
-  border-radius: 3px;
-  outline: 0;
-}
-
-.SM {
-  width: 65px;
-}
-
-.txtbox {
-  display: inline-block;
-  width: 215px;
-  padding: 10px 0 10px 15px;
-  font-weight: 500;
-  color: rgb(48, 48, 48);
-  background: #e7e7e7;
-  border: 0;
-  border-radius: 3px;
-  outline: 0;
-}
-
-/* Sequence Themes! */
-.redModebg {
-  background: #bd0000;
-  transition: all 0.5s ease-in-out;
-}
-
-.orangeModebg {
-  background: #eb8714;
-  transition: all 0.5s ease-in-out;
-}
-
-.yellowModebg {
-  background: #eef207;
-  transition: all 0.5s ease-in-out;
-}
-
-.limeModebg {
-  background: #70e000;
-  transition: all 0.5s ease-in-out;
-}
-
-.cyanModebg {
-  background: #00bdba;
-  transition: all 0.5s ease-in-out;
-}
-
-.blueModebg {
-  background: #0008ff;
-  transition: all 0.5s ease-in-out;
-}
-
-.purpleModebg {
-  background: #7d07f2;
-  transition: all 0.5s ease-in-out;
-}
-
-.pinkModebg {
-  background: #fb00ff;
-  transition: all 0.5s ease-in-out;
-}
-
-.pinkredModebg {
-  background: #ff0088;
-  transition: all 0.5s ease-in-out;
+::-ms-tooltip {
+  display: none;
 }

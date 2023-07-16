@@ -51,7 +51,8 @@ export class AppIndex extends LitElement {
 
     // For more info on using the @vaadin/router check here https://vaadin.com/router
     const router = new Router(this.shadowRoot?.querySelector("#routerOutlet"));
-    router.setRoutes([
+    router
+      .setRoutes([
         // temporarily cast to any because of a Type bug with the router
         {
           path: BASE_URL,
@@ -83,7 +84,9 @@ export class AppIndex extends LitElement {
           ],
         } as never,
       ])
-      .catch(() => {});
+      .catch(() => {
+        // no-op catch to prevent unhandled promise rejection
+      });
   }
 
   render(): TemplateResult<1> {
