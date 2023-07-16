@@ -167,7 +167,6 @@ function loadgpa(): void {
   tempCTYID = "";
 
   // save classes to array
-
   for (const [itr, course] of courses.entries()) {
     tempLGID = `cl${String(itr + 1)}`;
     tempCTID = `cl${String(itr + 1)}txt`;
@@ -219,9 +218,9 @@ function loadgpa(): void {
   document.getElementById("saved")!.innerHTML = "Saved!";
   setTimeout(saveRemove, 1000);
 
-  // save cookies
-  const arraycookie = JSON.stringify(courses);
-  setData(arraycookie);
+  // save storage
+  const arraystorage = JSON.stringify(courses);
+  setData(arraystorage);
 }
 window.loadgpa = loadgpa;
 
@@ -285,7 +284,7 @@ function createStorageCourse(
 /**
  * Not to be confused with `getStorage()`.
  */
-function fromstorage(arraystorage: string) {
+function fromStorage(arraystorage: string) {
   courses = JSON.parse(arraystorage);
   // creates courses from array data after it is pulled from storage
 
@@ -422,10 +421,6 @@ function getStorage(): void {
     hsmsInput.checked = false;
     // let checked = false;
     gradeLvl.innerHTML = middle;
-  } else {
-    // Modal that pops up on first start
-    document.getElementById("id01")!.style.display = "block";
-    hsmsSwap();
   }
 
   if (arraystorage === null) {
@@ -433,7 +428,7 @@ function getStorage(): void {
     classAmount();
   } else {
     // if storage do exist
-    fromstorage(arraystorage);
+    fromStorage(arraystorage);
     loadgpa();
   }
 }
@@ -448,8 +443,8 @@ function loadgpahelp(): void {
 window.help = help;
 window.loadgpahelp = loadgpahelp;
 
-// Dark Mode
-window.darkMode = (): void => {
+/** This is...Dark Mode. */
+function darkMode(): void {
   element.classList.toggle("darkModebg");
   element.classList.toggle("lightModebg");
 
@@ -468,7 +463,8 @@ window.darkMode = (): void => {
     document.getElementById("darkModeButton")!.innerHTML = "Dark Mode";
     localStorage.setItem("shade", "light");
   }
-};
+}
+window.darkMode = darkMode;
 
 /**
  * This is the Easter Egg.
