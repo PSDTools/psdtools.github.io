@@ -10,7 +10,7 @@ import { Router } from "@vaadin/router";
 
 import "./pages/app-home";
 import "./components/header";
-import "./styles/style.css";
+import "./styles/global.css";
 
 declare global {
   interface Document {
@@ -84,7 +84,9 @@ export class AppIndex extends LitElement {
           ],
         } as never,
       ])
-      .catch(() => {});
+      .catch(() => {
+        // no-op catch to prevent unhandled promise rejection
+      });
   }
 
   render(): TemplateResult<1> {
