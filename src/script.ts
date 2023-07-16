@@ -102,7 +102,7 @@ function hsmsSwap(): void {
     gradeLvl.innerHTML = middle;
     localStorage.setItem("gradestorage", String(checked));
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      document.getElementById(`typeId${itr + 1}`)!.innerHTML = "";
+      document.getElementById(`typeId${itr}`)!.innerHTML = "";
     }
   }
 }
@@ -331,7 +331,7 @@ function fromStorage(arraystorage: string) {
     if (!hsmsInput.checked) {
       for (let itr2 = 1; itr2 < courses.length + 1; itr2++) {
         // removes typeId <span> element from courses objects
-        document.getElementById(`typeId${itr}`)!.innerHTML = "";
+        document.getElementById(`typeId${itr + 1}`)!.innerHTML = "";
       }
     }
   }
