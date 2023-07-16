@@ -102,7 +102,7 @@ function hsmsSwap(): void {
     gradeLvl.innerHTML = middle;
     localStorage.setItem("gradestorage", String(checked));
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      document.getElementById(`typeId${itr}`)!.innerHTML = "";
+      document.getElementById(`typeId${itr + 1}`)!.innerHTML = "";
     }
   }
 }
