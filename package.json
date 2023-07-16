@@ -19,10 +19,7 @@
     }
   ],
   "type": "module",
-  "exports": [
-    "./src/app-index.js",
-    "./src/script.ts"
-  ],
+  "exports": ["./src/app-index.js", "./src/script.ts"],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@shoelace-style/shoelace": "^2.4.0",
@@ -42,12 +39,12 @@
     "vite-plugin-pwa": "^0.14.7"
   },
   "scripts": {
-    "dev-server": "vite --open",
-    "dev": "npm run dev-server",
-    "dev-task": "vite",
+    "dev-server": "vite",
+    "dev": "npm run dev-server -- --open",
     "deploy": "npx @azure/static-web-apps-cli login --no-use-keychain && npx @azure/static-web-apps-cli deploy",
-    "build": "tsc && vite build",
-    "start": "npm run start-remote",
-    "start-remote": "vite --host"
+    "build": "npm run type-check && npm run vite",
+    "type-check": "tsc",
+    "vite": "vite build",
+    "start": "npm run dev-server -- --host"
   }
 }
