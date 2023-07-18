@@ -347,6 +347,9 @@ function getStorage(): void {
   const shade = localStorage.getItem("shade");
   const gradestorage = localStorage.getItem("gradestorage");
   const arraystorage = localStorage.getItem("arraystorage");
+  if (!arraystorage) {
+    localStorage.setItem("arraystorage", "true");
+  }
   // sets top header, slider, and dark mode to correct values
   if (shade === "dark") {
     element.classList.toggle("darkModebg");
