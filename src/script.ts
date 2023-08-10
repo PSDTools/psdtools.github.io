@@ -426,10 +426,7 @@ function getStorage(): void {
     hsmsInput.checked = false;
     // let checked = false;
     gradeLvl.innerHTML = middle;
-  } else {
-    hsmsSwap();
   }
-
   if (arraystorage === null) {
     // if storage don't exist
     classAmount();
@@ -438,6 +435,7 @@ function getStorage(): void {
     fromStorage(arraystorage);
     loadgpa();
   }
+  hsmsSwap();
 }
 window.getStorage = getStorage;
 
