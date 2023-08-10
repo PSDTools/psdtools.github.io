@@ -120,12 +120,12 @@ function createCourse(num: number): void {
 
   // creates html elements in the courses class
   document.getElementById(tempElementId)!.innerHTML = `
-	<div class="pt-4 pb-4 lg:text-2xl text-lg">
+	<div oninput="loadgpa();" class="pt-4 pb-4 lg:text-2xl text-lg">
 	<div id="input-con-div" class="">
 	  <input style="width:150px;"class="hover:scale-105 placeholder-white blacktxt" placeholder="Class ${num}:" oninput="loadgpa();" id="cl${num}txt" type="text" required=""/>
 	   <span style="float:right;" id="typeId${num}">
 	  <form>
-	 	<select oninput="loadgpa();" class="hover:scale-105 blacktxt" id="cltyp${num}">
+	 	<select class="hover:scale-105 blacktxt" id="cltyp${num}">
 		    <option value="1">No-Weight</option>
 		    <option value="2">Honors</option>
 	    </select>
