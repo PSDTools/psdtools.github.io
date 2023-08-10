@@ -424,6 +424,8 @@ function getStorage(): void {
     hsmsInput.checked = false;
     // let checked = false;
     gradeLvl.innerHTML = middle;
+  } else {
+    hsmsSwap();
   }
 
   if (arraystorage === null) {
