@@ -2,6 +2,8 @@
  * The main script.
  */
 
+
+import "./styles/global.css";
 import { clearData, clearAll, setData } from "./scripts/storage.js";
 
 declare global {
