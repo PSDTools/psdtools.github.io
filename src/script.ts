@@ -223,6 +223,9 @@ function loadgpa(): void {
   // save storage
   const arraystorage = JSON.stringify(courses);
   setData(arraystorage);
+  for (const [itr] of courses.entries()) {
+    (document.getElementById(`slide${itr+1}`) as HTMLInputElement).value = (document.getElementById(`cl${itr+1}`) as HTMLInputElement).value
+  }
 }
 window.loadgpa = loadgpa;
 
@@ -431,7 +434,7 @@ function getStorage(): void {
     // if storage don't exist
     classAmount();
   } else {
-    // if storage do exist
+    // if storage does exist
     fromStorage(arraystorage);
     loadgpa();
   }
