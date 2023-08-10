@@ -22,19 +22,19 @@
   "exports": ["./src/app-index.js", "./src/script.ts"],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
-    "@shoelace-style/shoelace": "^2.4.0",
+    "@shoelace-style/shoelace": "^2.6.0",
     "@vaadin/router": "^1.7.5",
     "jquery": "^3.7.0",
     "lit": "^2.7.4",
     "workbox-build": "^7.0.0",
     "workbox-core": "^7.0.0",
-    "workbox-precaching": "^6.5.2"
+    "workbox-precaching": "^7.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "eslint-config-sheriff": "^12.1.0",
-    "eslint-define-config": "^1.20.0",
-    "typescript": "^5.0.4",
+    "eslint-define-config": "^1.22.0",
+    "typescript": "^5.1.6",
     "vite": "^4.3.9",
     "vite-plugin-pwa": "^0.16.4"
   },
