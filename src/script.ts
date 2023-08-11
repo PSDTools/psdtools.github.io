@@ -196,7 +196,7 @@ function loadgpa(): void {
       courseLen = courseLen - 1;
     } else {
       // adds to pregpa
-      if (course.classType === "2" && hsmsInput.checked == true) {
+      if (course.classType === "2" && hsmsInput.checked === true) {
         if (course.letterGrade === 0) {
           pregpa = pregpa + course.letterGrade;
         } else {
@@ -317,7 +317,6 @@ function fromStorage(arraystorage: string) {
         course.classType,
         itr2,
       );
-      console.log(course.classType);
     }
 
     for (const [itr2, course] of courses.entries()) {
@@ -439,7 +438,7 @@ function getStorage(): void {
     fromStorage(arraystorage);
     loadgpa();
   }
-  if (gradestorage == "false") {
+  if (gradestorage === "false") {
   hsmsSwap();
   }
 }
