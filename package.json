@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "eslint": "^8.46.0",
-    "eslint-config-sheriff": "^12.1.0",
+    "eslint-config-sheriff": "^15.3.0",
     "eslint-define-config": "^1.22.0",
     "typescript": "^5.2.2",
     "vite": "^4.3.9",
