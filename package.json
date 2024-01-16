@@ -31,20 +31,23 @@
     "workbox-precaching": "^7.0.0"
   },
   "devDependencies": {
+    "@types/bun": "^1.0.1",
     "eslint": "^8.51.0",
     "eslint-config-sheriff": "^15.3.0",
     "eslint-define-config": "^1.22.0",
+    "turbo": "^1.11.3",
     "typescript": "^5.2.2",
     "vite": "^4.3.9",
     "vite-plugin-pwa": "^0.16.4"
   },
   "scripts": {
-    "dev-server": "vite",
-    "dev": "npm run dev-server -- --open",
-    "deploy": "npx @azure/static-web-apps-cli login --no-use-keychain && npx @azure/static-web-apps-cli deploy",
-    "build": "npm run type-check && npm run vite",
-    "type-check": "tsc",
-    "vite": "vite build",
-    "start": "npm run dev-server -- --host"
-  }
+    "dev": "vite --open",
+    "bundle": "vite build",
+    "typecheck:src": "tsc",
+    "lint": "eslint ."
+  },
+  "packageManager": "bun@1.0.13",
+  "browserslist": [
+    "defaults and fully supports es6-module"
+  ]
 }
