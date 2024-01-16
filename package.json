@@ -38,7 +38,7 @@
     "eslint-config-sheriff": "^15.3.0",
     "eslint-define-config": "^1.22.0",
     "turbo": "^1.11.3",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
     "vite": "^4.3.9",
     "vite-plugin-pwa": "^0.16.4"
   },
@@ -46,6 +46,8 @@
     "dev": "vite --open",
     "bundle": "vite build",
     "typecheck:src": "tsc",
+    "typecheck:sw": "tsc -p tsconfig.sw.json",
+    "typecheck:extra": "tsc -p tsconfig.eslint.json",
     "lint": "eslint ."
   },
   "packageManager": "bun@1.0.13",
