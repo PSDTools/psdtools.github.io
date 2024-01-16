@@ -1,17 +1,32 @@
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import browserslist from "browserslist";
+import browserslistToEsbuild from "browserslist-to-esbuild";
+import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
-import { resolve } from "path";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const browsersList = browserslist();
+const basename = "/GPA_Calculator/";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/GPA_Calculator/",
+  base: basename,
   build: {
     sourcemap: true,
-    assetsDir: "code",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
       },
+    },
+    target: browserslistToEsbuild(browsersList),
+    cssMinify: "lightningcss",
+  },
+  css: {
+    transformer: "lightningcss",
+    lightningcss: {
+      targets: browserslistToTargets(browsersList),
     },
   },
   plugins: [
@@ -25,16 +40,15 @@ export default defineConfig({
       },
       srcDir: "src",
       filename: "sw.ts",
-      devOptions: {
-        enabled: true,
-        type: "module",
+      workbox: {
+        cleanupOutdatedCaches: true,
       },
       manifest: {
-        id: "/GPA_Calculator/",
-        scope: "/GPA_Calculator/",
+        id: basename,
+        scope: basename,
         name: "Pattonville GPA Calculator",
         display: "standalone",
-        start_url: "/GPA_Calculator/",
+        start_url: basename,
         short_name: "GPA Calculator",
         theme_color: "#00843e",
         description: "GPA Calculator for Pattonville",
@@ -46,7 +60,7 @@ export default defineConfig({
         display_override: ["window-controls-overlay"],
         icons: [
           {
-            src: "/GPA_Calculator/psdr3-icon.png",
+            src: `${basename}/psdr3-icon.png`,
             sizes: "512x512",
             type: "image/png",
             purpose: "any",
