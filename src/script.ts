@@ -30,6 +30,7 @@ declare global {
   }
 }
 
+// eslint-disable-next-line fp/no-class
 class Course {
   letterGrade: number;
   classText: string;
@@ -84,6 +85,7 @@ window.toggleNav = toggleNav;
  */
 function hsmsSwap(): void {
   const checked = hsmsInput.checked;
+
   if (checked) {
     gradeLvl.innerHTML = high;
 
@@ -196,7 +198,7 @@ function loadgpa(): void {
       courseLen = courseLen - 1;
     } else {
       // adds to pregpa
-      if (course.classType === "2" && hsmsInput.checked === true) {
+      if (course.classType === "2" && hsmsInput.checked) {
         if (course.letterGrade === 0) {
           pregpa = pregpa + course.letterGrade;
         } else {
@@ -222,6 +224,7 @@ function loadgpa(): void {
 
   // save storage
   const arraystorage = JSON.stringify(courses);
+
   setData(arraystorage);
   for (const [itr] of courses.entries()) {
     (document.getElementById(`slide${itr+1}`) as HTMLInputElement).value = (document.getElementById(`cl${itr+1}`) as HTMLInputElement).value
@@ -272,8 +275,6 @@ function createStorageCourse(
   classNum: number,
   _letterGrade: number,
   classText: string,
-  _classType: string,
-  _itr: number,
 ): void {
   const num = classNum;
 
@@ -293,14 +294,12 @@ function fromStorage(arraystorage: string) {
   courses = JSON.parse(arraystorage);
   // creates courses from array data after it is pulled from storage
 
-  for (const [itr, course] of courses.entries()) {
+  for (const course of courses) {
     createCourse(course.classNum);
     createStorageCourse(
       course.classNum,
       course.letterGrade,
       course.classText,
-      course.classType,
-      itr,
     );
   }
   for (let itr = 0; itr < courses.length; itr++) {
@@ -308,14 +307,12 @@ function fromStorage(arraystorage: string) {
     tempCTID = `cl${String(itr + 1)}txt`;
     tempCTYID = `cltyp${String(itr + 1)}`;
 
-    for (const [itr2, course] of courses.entries()) {
+    for (const course of courses) {
       createCourse(course.classNum);
       createStorageCourse(
         course.classNum,
         course.letterGrade,
         course.classText,
-        course.classType,
-        itr2,
       );
     }
 
@@ -352,6 +349,7 @@ function getStorage(): void {
   const shade = localStorage.getItem("shade");
   const gradestorage = localStorage.getItem("gradestorage");
   const arraystorage = localStorage.getItem("arraystorage");
+
   if (!arraystorage) {
     localStorage.setItem("arraystorage", "true");
   }
@@ -360,9 +358,11 @@ function getStorage(): void {
     element.classList.toggle("darkModebg");
     element.classList.toggle("lightModebg");
     const c = document.getElementById("c")!;
+
     c.classList.toggle("darkMode");
     c.classList.toggle("lightMode");
     const c2 = document.getElementById("c2")!;
+
     c2.classList.toggle("darkMode");
     c2.classList.toggle("lightMode");
     document.getElementById("darkModeButton")!.innerHTML = "Light Mode";
@@ -459,10 +459,12 @@ function darkMode(): void {
   element.classList.toggle("lightModebg");
 
   const c = document.getElementById("c")!;
+
   c.classList.toggle("darkMode");
   c.classList.toggle("lightMode");
 
   const c2 = document.getElementById("c2")!;
+
   c2.classList.toggle("darkMode");
   c2.classList.toggle("lightMode");
 
@@ -493,15 +495,18 @@ function remColors(): void {
     "pinkModebg",
     "pinkredModebg",
   ];
+
   classes.forEach((c: string): void => {
     if (element.classList.contains(c)) {
       element.classList.remove(c);
     }
     const element2 = document.getElementById("c")!;
+
     if (element2.classList.contains(c)) {
       element2.classList.remove(c);
     }
     const element3 = document.getElementById("c2")!;
+
     if (element3.classList.contains(c)) {
       element3.classList.remove(c);
     }
@@ -509,8 +514,10 @@ function remColors(): void {
 }
 
 let keys = "";
+
 function onkeydown(e: KeyboardEvent): void {
   const code = e.key;
+
   switch (code) {
     case "ArrowUp": {
       // up key
@@ -561,6 +568,7 @@ function onkeydown(e: KeyboardEvent): void {
   }
 
   const sequence = "11223434567";
+
   if (keys === sequence) {
     window.alert("You Found It!");
     document.getElementById("id02")!.style.display = "block";
