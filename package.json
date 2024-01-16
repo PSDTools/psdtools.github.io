@@ -33,10 +33,13 @@
     "workbox-precaching": "^7.0.0"
   },
   "devDependencies": {
+    "@eslint-types/typescript-eslint": "^6.18.1",
+    "@eslint-types/unicorn": "^50.0.1",
     "@types/bun": "^1.0.1",
-    "eslint": "^8.51.0",
-    "eslint-config-sheriff": "^15.3.0",
-    "eslint-define-config": "^1.22.0",
+    "@types/eslint": "^8.56.2",
+    "eslint": "^8.56.0",
+    "eslint-config-sheriff": "^18.1.0",
+    "eslint-define-config": "^2.1.0",
     "turbo": "^1.11.3",
     "typescript": "^5.3.3",
     "vite": "^4.3.9",

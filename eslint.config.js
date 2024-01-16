@@ -1,4 +1,5 @@
-import sheriff from "eslint-config-sheriff";
+// @ts-check
+import { sheriff } from "eslint-config-sheriff";
 import { defineFlatConfig } from "eslint-define-config";
 
 const sheriffOptions = {
@@ -7,15 +8,29 @@ const sheriffOptions = {
   next: false,
   playwright: false,
   jest: false,
-  vitest: true,
+  vitest: false,
+  pathsOveriddes: {
+    tsconfigLocation: [
+      "./tsconfig.json",
+      "./tsconfig.sw.json",
+      "./tsconfig.eslint.json",
+    ],
+    ignores: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/dev-dist/**",
+      "**/build/**",
+      "**/.yarn/**",
+      "**/.pnp.*",
+    ],
+  },
 };
 
 export default defineFlatConfig([
   ...sheriff(sheriffOptions),
   {
+    files: ["**/*.ts"],
     rules: {
-      "storybook/default-exports": "off",
-      "storybook/prefer-pascal-case": "off",
       "padding-line-between-statements": "off",
       "@typescript-eslint/naming-convention": "off",
       "prefer-destructuring": "off",
@@ -23,16 +38,15 @@ export default defineFlatConfig([
       "func-style": ["error", "declaration", { allowArrowFunctions: true }],
       "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
       "operator-assignment": ["off", "always"],
-      "fp/no-class": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
       "no-console": "warn",
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        { argsIgnorePattern: "^_" },
+      "no-negated-condition": "off",
+      "unicorn/no-negated-condition": "error",
+      "@typescript-eslint/ban-ts-comment": [
+        "error",
+        { "ts-expect-error": true, "ts-check": false },
       ],
+      "import/no-unresolved": [2, { ignore: ["^virtual:"] }],
     },
-  },
-  {
-    ignores: ["src/sw.ts"],
   },
 ]);
