@@ -2,14 +2,15 @@
   "name": "gpa-calculator",
   "private": true,
   "version": "1.1.0",
-  "description": "(Formerly) A starter kit for building PWAs!",
+  "description": "A GPA calculator for built for students in the Pattonville School District.",
   "repository": {
     "type": "git",
-    "url": "github:PSDTools/GPA_Calculator"
+    "url": "git+https://github.com/PSDTools/GPA_Calculator.git"
   },
   "markdown": "github",
   "author": {
-    "name": "Parker Hasenkamp"
+    "name": "Parker Hasenkamp",
+    "email": "58083460+PetalCat@users.noreply.github.com"
   },
   "readme": "README.md",
   "contributors": [
