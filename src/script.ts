@@ -210,13 +210,12 @@ function loadgpa(): void {
     }
   }
 
-  // divide
-  let gpa: number | string = pregpa / courseLen;
+  // Divide.
+  const gpa = pregpa / courseLen;
+  // Round.
+  const roundedgpa = Math.round(gpa * 100) / 100;
 
-  // round
-  gpa = gpa.toFixed(2);
-
-  document.getElementById("gpa")!.innerHTML = `Your GPA is a: ${gpa}`;
+  document.getElementById("gpa")!.innerHTML = `Your GPA is a: ${roundedgpa}`;
 
   // shows save text
   document.getElementById("saved")!.innerHTML = "Saved!";
