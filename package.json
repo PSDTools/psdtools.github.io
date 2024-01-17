@@ -20,13 +20,14 @@
     }
   ],
   "type": "module",
-  "exports": ["./src/app-index.js", "./src/script.ts"],
+  "exports": {
+    "import": [
+      "./src/script.ts"
+    ]
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
-    "@shoelace-style/shoelace": "^2.6.0",
-    "@vaadin/router": "^1.7.5",
     "jquery": "^3.7.0",
-    "lit": "^2.7.4",
     "workbox-build": "^7.0.0",
     "workbox-core": "^7.0.0",
     "workbox-precaching": "^7.0.0"

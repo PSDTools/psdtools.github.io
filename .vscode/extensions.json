@@ -5,8 +5,6 @@
     "pwabuilder.pwa-studio",
     "esbenp.prettier-vscode",
     "davidanson.vscode-markdownlint",
-    "runem.lit-plugin",
-    "lit.lit-snippets",
     "swellaby.node-pack"
   ]
 }
