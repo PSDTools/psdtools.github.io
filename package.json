@@ -2,14 +2,15 @@
   "name": "gpa-calculator",
   "private": true,
   "version": "1.1.0",
-  "description": "(Formerly) A starter kit for building PWAs!",
+  "description": "A GPA calculator for built for students in the Pattonville School District.",
   "repository": {
     "type": "git",
-    "url": "github:PSDTools/GPA_Calculator"
+    "url": "git+https://github.com/PSDTools/GPA_Calculator.git"
   },
   "markdown": "github",
   "author": {
-    "name": "Parker Hasenkamp"
+    "name": "Parker Hasenkamp",
+    "email": "58083460+PetalCat@users.noreply.github.com"
   },
   "readme": "README.md",
   "contributors": [
@@ -19,32 +20,47 @@
     }
   ],
   "type": "module",
-  "exports": ["./src/app-index.js", "./src/script.ts"],
+  "exports": {
+    "import": [
+      "./src/script.ts"
+    ]
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
-    "@shoelace-style/shoelace": "^2.6.0",
-    "@vaadin/router": "^1.7.5",
     "jquery": "^3.7.0",
-    "lit": "^2.7.4",
     "workbox-build": "^7.0.0",
     "workbox-core": "^7.0.0",
     "workbox-precaching": "^7.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.51.0",
-    "eslint-config-sheriff": "^15.3.0",
-    "eslint-define-config": "^1.22.0",
-    "typescript": "^5.2.2",
-    "vite": "^4.3.9",
-    "vite-plugin-pwa": "^0.16.4"
+    "@eslint-types/typescript-eslint": "^6.18.1",
+    "@eslint-types/unicorn": "^50.0.1",
+    "@types/bun": "^1.0.1",
+    "@types/eslint": "^8.56.2",
+    "browserslist": "^4.22.2",
+    "browserslist-to-esbuild": "^2.1.1",
+    "eslint": "^8.56.0",
+    "eslint-config-sheriff": "^18.1.0",
+    "eslint-define-config": "^2.1.0",
+    "lightningcss": "^1.22.1",
+    "prettier": "3.2.2",
+    "turbo": "^1.11.3",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vite-plugin-pwa": "^0.17.4"
   },
   "scripts": {
-    "dev-server": "vite",
-    "dev": "npm run dev-server -- --open",
-    "deploy": "npx @azure/static-web-apps-cli login --no-use-keychain && npx @azure/static-web-apps-cli deploy",
-    "build": "npm run type-check && npm run vite",
-    "type-check": "tsc",
-    "vite": "vite build",
-    "start": "npm run dev-server -- --host"
-  }
+    "dev": "vite --open",
+    "bundle": "vite build",
+    "typecheck:src": "tsc",
+    "typecheck:sw": "tsc -p tsconfig.sw.json",
+    "typecheck:extra": "tsc -p tsconfig.eslint.json",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "eslint ."
+  },
+  "packageManager": "bun@1.0.13",
+  "browserslist": [
+    "defaults and fully supports es6-module"
+  ]
 }

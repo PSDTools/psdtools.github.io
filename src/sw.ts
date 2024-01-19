@@ -1,7 +1,6 @@
-import { cleanupOutdatedCaches, precacheAndRoute } from "workbox-precaching";
+import { precacheAndRoute } from "workbox-precaching";
 
-// This is your Service Worker, you can put any of your custom Service Worker
-// code in this file, above the `precacheAndRoute` line.
-cleanupOutdatedCaches();
-
-precacheAndRoute(self.__WB_MANIFEST || []);
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error: __WB_MANIFEST is a placeholder that workbox-precaching will inject at compile time.
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+precacheAndRoute(self.__WB_MANIFEST ?? []);

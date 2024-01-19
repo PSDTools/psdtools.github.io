@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8" />
@@ -20,14 +20,19 @@
     <!-- The overlay -->
     <div id="mySidenav" class="overlay">
       <!-- Button to close the overlay navigation -->
-      <a href="javascript:void(0)" class="closebtn"  onclick="toggleNav(false)"
+      <a href="javascript:void(0)" class="closebtn" onclick="toggleNav(false)"
         >&times;</a
       >
 
       <!-- Overlay content -->
       <form class="overlay-content text-white">
         <label>
-          <button type="submit" id="clearDataButton" style="background-color:#00d5ff; color: black;" onclick="clearData()">
+          <button
+            type="submit"
+            id="clearDataButton"
+            style="background-color: #00d5ff; color: black"
+            onclick="clearData()"
+          >
             Clear Grade Data
           </button>
           <p class="text-sm mt-4">Note: This action refreshes the page.</p>
@@ -35,7 +40,13 @@
 
         <!-- <button id="darkModeButton" onclick="darkMode()">Dark Mode</button> -->
         <p></p>
-        <button type="submit" style="background-color:#00d5ff; color: black;" onclick="clearAll()">Clear All Site Data</button>
+        <button
+          type="submit"
+          style="background-color: #00d5ff; color: black"
+          onclick="clearAll()"
+        >
+          Clear All Site Data
+        </button>
         <p></p>
       </form>
     </div>
@@ -48,7 +59,7 @@
           type="button"
           onclick="toggleNav(true)"
           class="pb-8 text-xl text-white rounded-full w-8 h-8"
-          style="background-color:#00d5ff; color: black;"
+          style="background-color: #00d5ff; color: black"
         >
           ☰
         </button>
@@ -149,8 +160,8 @@
           />
           <button
             onclick="classAmount()"
-            class=" text-black px-1 rounded-sm"
-            style="background-color:#00d5ff; color: black;"
+            class="text-black px-1 rounded-sm"
+            style="background-color: #00d5ff; color: black"
             type="submit"
           >
             Submit

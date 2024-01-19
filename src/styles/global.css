@@ -5,7 +5,8 @@ body {
 
 @font-face {
   font-family: Norwester;
-  src: local("Norwester") format("opentype"),
+  src:
+    local("Norwester") format("opentype"),
     url("/src/styles/fonts/norwester.otf") format("opentype");
 }
 
