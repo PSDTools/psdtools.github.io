@@ -3,7 +3,18 @@
  */
 
 import "./styles/global.css";
-import { clearData, clearAll, setData } from "./scripts/storage.js";
+import {
+  clearData,
+  clearAll,
+  setData,
+  setGrade,
+  getColor,
+  getShade,
+  getData,
+  getGrade,
+  setShade,
+  setColor,
+} from "./scripts/storage.js";
 
 declare global {
   interface Window {
@@ -88,7 +99,7 @@ function hsmsSwap(): void {
   if (checked) {
     gradeLvl.innerHTML = high;
 
-    localStorage.setItem("gradestorage", String(checked));
+    setGrade(String(checked));
     (document.getElementById("numOfClasses") as HTMLInputElement).value =
       String(courses.length);
     for (let itr = 1; itr < courses.length + 1; itr++) {
@@ -102,7 +113,7 @@ function hsmsSwap(): void {
     }
   } else {
     gradeLvl.innerHTML = middle;
-    localStorage.setItem("gradestorage", String(checked));
+    setGrade(String(checked));
     for (let itr = 1; itr < courses.length + 1; itr++) {
       document.getElementById(`typeId${itr}`)!.innerHTML = "";
     }
@@ -335,18 +346,18 @@ function fromStorage(arraystorage: string) {
 }
 
 /**
- * Called on pageload.
+ * Called on page load.
  *
- * Pulls storage from `localStorage`.
+ * Pulls data from storage.
  */
 function getStorage(): void {
-  const color = localStorage.getItem("color");
-  const shade = localStorage.getItem("shade");
-  const gradestorage = localStorage.getItem("gradestorage");
-  const arraystorage = localStorage.getItem("arraystorage");
+  const color = getColor();
+  const shade = getShade();
+  const gradestorage = getGrade();
+  const arraystorage = getData();
 
   if (!arraystorage) {
-    localStorage.setItem("arraystorage", "true");
+    setData("true");
   }
   // sets top header, slider, and dark mode to correct values
   if (shade === "dark") {
@@ -465,10 +476,10 @@ function darkMode(): void {
 
   if (c.classList.contains("darkMode")) {
     document.getElementById("darkModeButton")!.innerHTML = "Light Mode";
-    localStorage.setItem("shade", "dark");
+    setShade("dark");
   } else if (!element.classList.contains("lightMode")) {
     document.getElementById("darkModeButton")!.innerHTML = "Dark Mode";
-    localStorage.setItem("shade", "light");
+    setShade("light");
   }
 }
 window.darkMode = darkMode;
@@ -576,47 +587,47 @@ window.onkeydown = onkeydown;
 window.rTH = (): void => {
   remColors();
   element.classList.add("redModebg");
-  localStorage.setItem("color", "red");
+  setColor("red");
 };
 window.oTH = (): void => {
   remColors();
   element.classList.add("orangeModebg");
-  localStorage.setItem("color", "orange");
+  setColor("orange");
 };
 window.yTH = (): void => {
   remColors();
   element.classList.add("yellowModebg");
-  localStorage.setItem("color", "yellow");
+  setColor("yellow");
 };
 window.lTH = (): void => {
   remColors();
   element.classList.add("limeModebg");
-  localStorage.setItem("color", "lime");
+  setColor("lime");
 };
 window.cTH = (): void => {
   remColors();
   element.classList.add("cyanModebg");
-  localStorage.setItem("color", "cyan");
+  setColor("cyan");
 };
 window.bTH = (): void => {
   remColors();
   element.classList.add("blueModebg");
-  localStorage.setItem("color", "blue");
+  setColor("blue");
 };
 window.pTH = (): void => {
   remColors();
   element.classList.add("purpleModebg");
-  localStorage.setItem("color", "purple");
+  setColor("purple");
 };
 window.piTH = (): void => {
   remColors();
   element.classList.add("pinkModebg");
-  localStorage.setItem("color", "pink");
+  setColor("pink");
 };
 window.prTH = (): void => {
   remColors();
   element.classList.add("pinkredModebg");
-  localStorage.setItem("color", "pinkred");
+  setColor("pinkred");
 };
 
 export {};
