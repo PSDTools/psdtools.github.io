@@ -2,7 +2,6 @@
  * The main script.
  */
 
-
 import "./styles/global.css";
 import { clearData, clearAll, setData } from "./scripts/storage.js";
 
@@ -93,9 +92,8 @@ function hsmsSwap(): void {
     (document.getElementById("numOfClasses") as HTMLInputElement).value =
       String(courses.length);
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      document.getElementById(
-        `typeId${itr}`,
-      )!.innerHTML = `<form>	<select class="blacktxt" id="cltyp${itr}">
+      document.getElementById(`typeId${itr}`)!.innerHTML =
+        `<form>	<select class="blacktxt" id="cltyp${itr}">
 		    <option value="1">No-Weight</option>
 		    <option value="2">Honors</option>
 	    </select>
@@ -226,7 +224,9 @@ function loadgpa(): void {
 
   setData(arraystorage);
   for (const [itr] of courses.entries()) {
-    (document.getElementById(`slide${itr+1}`) as HTMLInputElement).value = (document.getElementById(`cl${itr+1}`) as HTMLInputElement).value
+    (document.getElementById(`slide${itr + 1}`) as HTMLInputElement).value = (
+      document.getElementById(`cl${itr + 1}`) as HTMLInputElement
+    ).value;
   }
 }
 window.loadgpa = loadgpa;
@@ -295,11 +295,7 @@ function fromStorage(arraystorage: string) {
 
   for (const course of courses) {
     createCourse(course.classNum);
-    createStorageCourse(
-      course.classNum,
-      course.letterGrade,
-      course.classText,
-    );
+    createStorageCourse(course.classNum, course.letterGrade, course.classText);
   }
   for (let itr = 0; itr < courses.length; itr++) {
     tempLGID = `cl${String(itr + 1)}`;
@@ -438,7 +434,7 @@ function getStorage(): void {
     loadgpa();
   }
   if (gradestorage === "false") {
-  hsmsSwap();
+    hsmsSwap();
   }
 }
 window.getStorage = getStorage;
