@@ -15,46 +15,29 @@ import {
   setShade,
   setColor,
 } from "./scripts/storage.js";
+import { Course } from "./data/data-types.js";
 
 declare global {
   interface Window {
-    hsmsSwap: () => void;
-    classAmount: () => void;
+    hsmsSwap: () => Promise<void>;
+    classAmount: () => Promise<void>;
     help: () => void;
-    loadgpa: () => void;
+    loadgpa: () => Promise<void>;
     loadgpahelp: () => void;
-    clearData: () => void;
-    clearAll: () => void;
+    clearData: () => Promise<void>;
+    clearAll: () => Promise<void>;
     toggleNav: (open: boolean) => void;
-    getStorage: () => void;
-    darkMode: () => void;
-    rTH: () => void;
-    prTH: () => void;
-    oTH: () => void;
-    yTH: () => void;
-    lTH: () => void;
-    cTH: () => void;
-    bTH: () => void;
-    pTH: () => void;
-    piTH: () => void;
-  }
-}
-
-// eslint-disable-next-line fp/no-class
-class Course {
-  letterGrade: number;
-  classText: string;
-  classNum: number;
-  classType: string;
-
-  /**
-   * Create `Course` class.
-   */
-  constructor(num: number) {
-    this.letterGrade = 5;
-    this.classText = "";
-    this.classNum = num;
-    this.classType = "1";
+    getStorage: () => Promise<void>;
+    darkMode: () => Promise<void>;
+    rTH: () => Promise<void>;
+    prTH: () => Promise<void>;
+    oTH: () => Promise<void>;
+    yTH: () => Promise<void>;
+    lTH: () => Promise<void>;
+    cTH: () => Promise<void>;
+    bTH: () => Promise<void>;
+    pTH: () => Promise<void>;
+    piTH: () => Promise<void>;
   }
 }
 
@@ -93,13 +76,13 @@ window.toggleNav = toggleNav;
 /**
  * Swaps the High School and the Middle School.
  */
-function hsmsSwap(): void {
+async function hsmsSwap(): Promise<void> {
   const checked = hsmsInput.checked;
 
   if (checked) {
     gradeLvl.innerHTML = high;
 
-    setGrade(String(checked));
+    await setGrade(String(checked));
     (document.getElementById("numOfClasses") as HTMLInputElement).value =
       String(courses.length);
     for (let itr = 1; itr < courses.length + 1; itr++) {
@@ -113,7 +96,7 @@ function hsmsSwap(): void {
     }
   } else {
     gradeLvl.innerHTML = middle;
-    setGrade(String(checked));
+    await setGrade(String(checked));
     for (let itr = 1; itr < courses.length + 1; itr++) {
       document.getElementById(`typeId${itr}`)!.innerHTML = "";
     }
@@ -170,7 +153,7 @@ function saveRemove() {
 /**
  * Saves values to the array.
  */
-function loadgpa(): void {
+async function loadgpa(): Promise<void> {
   // set vars
   let pregpa = 0;
   let courseLen: number = courses.length;
@@ -231,9 +214,7 @@ function loadgpa(): void {
   setTimeout(saveRemove, 1000);
 
   // save storage
-  const arraystorage = JSON.stringify(courses);
-
-  setData(arraystorage);
+  await setData(courses);
   for (const [itr] of courses.entries()) {
     (document.getElementById(`slide${itr + 1}`) as HTMLInputElement).value = (
       document.getElementById(`cl${itr + 1}`) as HTMLInputElement
@@ -242,7 +223,7 @@ function loadgpa(): void {
 }
 window.loadgpa = loadgpa;
 
-function classAmount(): void {
+async function classAmount(): Promise<void> {
   courses = []; // if storage don't exist, create the array
 
   // get textbox with number of classes
@@ -272,7 +253,7 @@ function classAmount(): void {
     }
   }
   // calculates and saves the gpa
-  loadgpa();
+  await loadgpa();
   // sets the gpa text to ""
   document.getElementById("gpa")!.innerHTML = "";
 }
@@ -300,8 +281,8 @@ function createStorageCourse(
 /**
  * Not to be confused with `getStorage()`.
  */
-function fromStorage(arraystorage: string) {
-  courses = JSON.parse(arraystorage);
+function fromStorage(arraystorage: Course[]) {
+  courses = arraystorage;
   // creates courses from array data after it is pulled from storage
 
   for (const course of courses) {
@@ -350,14 +331,14 @@ function fromStorage(arraystorage: string) {
  *
  * Pulls data from storage.
  */
-function getStorage(): void {
-  const color = getColor();
-  const shade = getShade();
-  const gradestorage = getGrade();
-  const arraystorage = getData();
+async function getStorage(): Promise<void> {
+  const color = await getColor();
+  const shade = await getShade();
+  const gradestorage = await getGrade();
+  const arraystorage = await getData();
 
   if (!arraystorage) {
-    setData("true");
+    await setData(true);
   }
   // sets top header, slider, and dark mode to correct values
   if (shade === "dark") {
@@ -437,15 +418,18 @@ function getStorage(): void {
     gradeLvl.innerHTML = middle;
   }
   if (arraystorage === null) {
-    // if storage don't exist
-    classAmount();
+    // if storage doesn't exist
+    await classAmount();
+  } else if (arraystorage === true) {
+    // if storage does exist, but is empty
+    return;
   } else {
     // if storage does exist
     fromStorage(arraystorage);
-    loadgpa();
+    await loadgpa();
   }
   if (gradestorage === "false") {
-    hsmsSwap();
+    await hsmsSwap();
   }
 }
 window.getStorage = getStorage;
@@ -460,7 +444,7 @@ window.help = help;
 window.loadgpahelp = loadgpahelp;
 
 /** This is...Dark Mode. */
-function darkMode(): void {
+async function darkMode(): Promise<void> {
   element.classList.toggle("darkModebg");
   element.classList.toggle("lightModebg");
 
@@ -476,10 +460,10 @@ function darkMode(): void {
 
   if (c.classList.contains("darkMode")) {
     document.getElementById("darkModeButton")!.innerHTML = "Light Mode";
-    setShade("dark");
+    await setShade("dark");
   } else if (!element.classList.contains("lightMode")) {
     document.getElementById("darkModeButton")!.innerHTML = "Dark Mode";
-    setShade("light");
+    await setShade("light");
   }
 }
 window.darkMode = darkMode;
@@ -584,50 +568,50 @@ function onkeydown(e: KeyboardEvent): void {
 window.onkeydown = onkeydown;
 
 // Button Theme Changing Functions
-window.rTH = (): void => {
+window.rTH = async (): Promise<void> => {
   remColors();
   element.classList.add("redModebg");
-  setColor("red");
+  await setColor("red");
 };
-window.oTH = (): void => {
+window.oTH = async (): Promise<void> => {
   remColors();
   element.classList.add("orangeModebg");
-  setColor("orange");
+  await setColor("orange");
 };
-window.yTH = (): void => {
+window.yTH = async (): Promise<void> => {
   remColors();
   element.classList.add("yellowModebg");
-  setColor("yellow");
+  await setColor("yellow");
 };
-window.lTH = (): void => {
+window.lTH = async (): Promise<void> => {
   remColors();
   element.classList.add("limeModebg");
-  setColor("lime");
+  await setColor("lime");
 };
-window.cTH = (): void => {
+window.cTH = async (): Promise<void> => {
   remColors();
   element.classList.add("cyanModebg");
-  setColor("cyan");
+  await setColor("cyan");
 };
-window.bTH = (): void => {
+window.bTH = async (): Promise<void> => {
   remColors();
   element.classList.add("blueModebg");
-  setColor("blue");
+  await setColor("blue");
 };
-window.pTH = (): void => {
+window.pTH = async (): Promise<void> => {
   remColors();
   element.classList.add("purpleModebg");
-  setColor("purple");
+  await setColor("purple");
 };
-window.piTH = (): void => {
+window.piTH = async (): Promise<void> => {
   remColors();
   element.classList.add("pinkModebg");
-  setColor("pink");
+  await setColor("pink");
 };
-window.prTH = (): void => {
+window.prTH = async (): Promise<void> => {
   remColors();
   element.classList.add("pinkredModebg");
-  setColor("pinkred");
+  await setColor("pinkred");
 };
 
 export {};

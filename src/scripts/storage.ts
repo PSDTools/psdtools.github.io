@@ -1,58 +1,66 @@
+import { createStorage, type Storage } from "unstorage";
+import indexedDbDriver from "unstorage/drivers/indexedb";
+import type { Course } from "../data/data-types";
+
+const storage: Storage = createStorage({
+  driver: indexedDbDriver({ base: "app:" }),
+});
+
 const arraystorage = "arraystorage";
 const gradestorage = "gradestorage";
 const colorstorage = "color";
 const shadestorage = "shade";
 
 /** Clears class storage data. */
-function clearData(): void {
-  localStorage.removeItem(arraystorage);
+async function clearData(): Promise<void> {
+  await storage.removeItem(arraystorage);
   location.reload();
 }
 
 /** Clears all website storage data. */
-function clearAll(): void {
-  localStorage.clear();
-  window.clearData();
+async function clearAll(): Promise<void> {
+  await storage.clear();
+  location.reload();
 }
 
 /** Sets the storage data. */
-function setData(value: string): void {
-  localStorage.setItem(arraystorage, value);
+async function setData(value: Course[] | true): Promise<void> {
+  await storage.setItem(arraystorage, value);
 }
 
 /** Gets the storage data. */
-function getData(): string | null {
-  return localStorage.getItem(arraystorage);
+async function getData(): Promise<Course[] | true | null> {
+  return storage.getItem(arraystorage);
 }
 
 /** Sets the grade. */
-function setGrade(value: string): void {
-  localStorage.setItem(gradestorage, value);
+async function setGrade(value: string): Promise<void> {
+  await storage.setItem(gradestorage, value);
 }
 
 /** Gets the grade. */
-function getGrade(): string | null {
-  return localStorage.getItem(gradestorage);
+async function getGrade(): Promise<string | null> {
+  return storage.getItem(gradestorage);
 }
 
 /** Sets the theme. */
-function setColor(value: string): void {
-  localStorage.setItem(colorstorage, value);
+async function setColor(value: string): Promise<void> {
+  await storage.setItem(colorstorage, value);
 }
 
 /** Gets the theme. */
-function getColor(): string | null {
-  return localStorage.getItem(colorstorage);
+async function getColor(): Promise<string | null> {
+  return storage.getItem(colorstorage);
 }
 
 /** Sets the dark/light mode. */
-function setShade(value: string): void {
-  localStorage.setItem(shadestorage, value);
+async function setShade(value: string): Promise<void> {
+  await storage.setItem(shadestorage, value);
 }
 
 /** Gets the dark/light mode. */
-function getShade(): string | null {
-  return localStorage.getItem(shadestorage);
+async function getShade(): Promise<string | null> {
+  return storage.getItem(shadestorage);
 }
 
 export {
