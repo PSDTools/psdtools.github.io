@@ -86,12 +86,12 @@ async function hsmsSwap(): Promise<void> {
     (document.getElementById("numOfClasses") as HTMLInputElement).value =
       String(courses.length);
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      document.getElementById(`typeId${itr}`)!.innerHTML =
-        `<form>	<select class="blacktxt" id="cltyp${itr}">
-		    <option value="1">No-Weight</option>
-		    <option value="2">Honors</option>
-	    </select>
-	    </form>`;
+      document.getElementById(`typeId${itr}`)!.innerHTML = `<form>
+        <select class="blacktxt" id="cltyp${itr}">
+          <option value="1">No-Weight</option>
+          <option value="2">Honors</option>
+        </select>
+      </form>`;
       (document.getElementById(`typeId${itr}`) as HTMLInputElement).value = "1";
     }
   } else {
@@ -113,34 +113,58 @@ function createCourse(num: number): void {
   // tempElementIdAlsoNext = `temp${String(num + 2)}`;
 
   // creates html elements in the courses class
-  document.getElementById(tempElementId)!.innerHTML = `
-	<div oninput="loadgpa();" class="pt-4 pb-4 lg:text-2xl text-lg">
-	<div id="input-con-div" class="">
-	  <input style="width:150px;"class="hover:scale-105 placeholder-white blacktxt" placeholder="Class ${num}:" oninput="loadgpa();" id="cl${num}txt" type="text" required=""/>
-	   <span style="float:right;" id="typeId${num}">
-	  <form>
-	 	<select class="hover:scale-105 blacktxt" id="cltyp${num}">
-		    <option value="1">No-Weight</option>
-		    <option value="2">Honors</option>
-	    </select>
-	  </form>
-  </span>
+  document.getElementById(tempElementId)!.innerHTML = `<div
+      oninput="loadgpa();"
+      class="pt-4 pb-4 lg:text-2xl text-lg"
+    >
+      <div id="input-con-div" class="">
+        <input
+          style="width:150px;"
+          class="hover:scale-105 placeholder-white blacktxt"
+          placeholder="Class ${num}:"
+          oninput="loadgpa();"
+          id="cl${num}txt"
+          type="text"
+          required=""
+        />
+        <span style="float:right;" id="typeId${num}">
+          <form>
+            <select class="hover:scale-105 blacktxt" id="cltyp${num}">
+              <option value="1">No-Weight</option>
+              <option value="2">Honors</option>
+            </select>
+          </form>
+        </span>
 
-	 <input type="range" min="0" max="4" value="4" class="hover:scale-105 slider" style="float:right; width:50%;" id="slide${num}" oninput="document.getElementById('cl${num}').value = document.getElementById('slide${num}').value;loadgpa();">
-	  <select class="hover:scale-105 blacktxt" oninput="document.getElementById('slide${num}').value = document.getElementById('cl${num}').value;loadgpa();" style="float:right;-webkit-appearance: none;" id="cl${num}">
-		  <option value="4">A</option>
-		  <option value="3">B</option>
-      <option value="2">C</option>
-      <option value="1">D</option>
-      <option value="0">F</option>
-      <option value="5">N/A</option>
-    </select>
+        <input
+          type="range"
+          min="0"
+          max="4"
+          value="4"
+          class="hover:scale-105 slider"
+          style="float:right; width:50%;"
+          id="slide${num}"
+          oninput="document.getElementById('cl${num}').value = document.getElementById('slide${num}').value;loadgpa();"
+        />
+        <select
+          class="hover:scale-105 blacktxt"
+          oninput="document.getElementById('slide${num}').value = document.getElementById('cl${num}').value;loadgpa();"
+          style="float:right;-webkit-appearance: none;"
+          id="cl${num}"
+        >
+          <option value="4">A</option>
+          <option value="3">B</option>
+          <option value="2">C</option>
+          <option value="1">D</option>
+          <option value="0">F</option>
+          <option value="5">N/A</option>
+        </select>
 
-	 <!-- <label id="cl${num}label">Class ${num}</label> -->
-	</div>
-  <!--<p>Grade:</p>-->
- </div>
-	<div class="selectionbox" id="${tempElementIdNext}">`;
+        <!-- <label id="cl${num}label">Class ${num}</label> -->
+      </div>
+      <!--<p>Grade:</p>-->
+    </div>
+    <div class="selectionbox" id="${tempElementIdNext}"></div>`;
 }
 
 /**
