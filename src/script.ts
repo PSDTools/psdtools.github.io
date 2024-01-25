@@ -3,6 +3,8 @@
  */
 
 import "./styles/global.css";
+
+import { registerSW } from "virtual:pwa-register";
 import {
   clearData,
   clearAll,
@@ -21,7 +23,7 @@ declare global {
     clearData: () => Promise<void>;
     clearAll: () => Promise<void>;
     toggleNav: (open: boolean) => void;
-    getStorage: () => Promise<void>;
+    startApp: () => Promise<void>;
     darkMode: () => Promise<void>;
   }
 }
@@ -368,4 +370,42 @@ async function getStorage(): Promise<void> {
     await hsmsSwap();
   }
 }
-window.getStorage = getStorage;
+
+async function updateSw(): Promise<void> {
+  await registerSW({
+    onRegisteredSW(swUrl, r) {
+      const intervalMS = 60 * 60 * 1000;
+
+      r &&
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        setInterval(async (): Promise<void> => {
+          if (r.installing !== null) {
+            return;
+          }
+
+          if (Object.hasOwn(navigator, "connection") && !navigator.onLine) {
+            return;
+          }
+
+          const resp = await fetch(swUrl, {
+            cache: "no-store",
+            headers: {
+              cache: "no-store",
+              "cache-control": "no-cache",
+            },
+          });
+
+          if (resp.status === 200) {
+            await r.update();
+          }
+        }, intervalMS);
+    },
+  })(true);
+}
+
+async function startApp(): Promise<void> {
+  await updateSw();
+  await getStorage();
+}
+
+window.startApp = startApp;
