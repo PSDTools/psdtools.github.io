@@ -11,7 +11,7 @@ import {
   getData,
   getGrade,
 } from "./scripts/storage.js";
-import { Course } from "./data/data-types.js";
+import { type Course, newCourse } from "./data/data-types.js";
 
 declare global {
   interface Window {
@@ -249,7 +249,7 @@ async function classAmount(): Promise<void> {
 
   // creates classes for number of iterations
   for (let itr = 0; itr < classAmountNum; itr++) {
-    courses.push(new Course(itr + 1));
+    courses.push(newCourse({ classNum: itr + 1 }));
     createCourse(itr + 1);
   }
   if (!hsmsInput.checked) {
