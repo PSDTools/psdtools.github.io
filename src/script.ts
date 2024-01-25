@@ -145,10 +145,7 @@ function createCourse(num: number): void {
           <option value="0">F</option>
           <option value="5">N/A</option>
         </select>
-
-        <!-- <label id="cl${num}label">Class ${num}</label> -->
       </div>
-      <!--<p>Grade:</p>-->
     </div>
     <div class="selectionbox" id="${tempElementIdNext}"></div>`;
 }
