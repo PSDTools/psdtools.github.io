@@ -34,4 +34,4 @@ const newCourse = z
     }),
   );
 
-export { type Course, courseSchema, newCourse };
+export { courseSchema, newCourse, type Course };

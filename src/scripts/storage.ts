@@ -41,4 +41,4 @@ async function getGrade(): Promise<string | null> {
   return storage.getItem(gradestorage);
 }
 
-export { clearData, clearAll, setData, getData, setGrade, getGrade };
+export { clearAll, clearData, getData, getGrade, setData, setGrade };

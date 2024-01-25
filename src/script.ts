@@ -5,15 +5,15 @@
 import "./styles/global.css";
 
 import { registerSW } from "virtual:pwa-register";
+import { newCourse, type Course } from "./data/data-types.js";
 import {
-  clearData,
   clearAll,
-  setData,
-  setGrade,
+  clearData,
   getData,
   getGrade,
+  setData,
+  setGrade,
 } from "./scripts/storage.js";
-import { type Course, newCourse } from "./data/data-types.js";
 
 declare global {
   interface Window {
