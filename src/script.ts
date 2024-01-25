@@ -34,7 +34,6 @@ let tempCTID = "";
 let tempCTYID = "";
 let tempElementId = "";
 let tempElementIdNext = "";
-// let tempElementIdAlsoNext = "";
 
 const high = "High School";
 const middle = "Middle School";
@@ -94,7 +93,6 @@ window.hsmsSwap = hsmsSwap;
 function createCourse(num: number): void {
   tempElementId = `temp${String(num)}`;
   tempElementIdNext = `temp${String(num + 1)}`;
-  // tempElementIdAlsoNext = `temp${String(num + 2)}`;
 
   // creates html elements in the courses class
   document.getElementById(tempElementId)!.innerHTML = `<div
@@ -349,11 +347,9 @@ async function getStorage(): Promise<void> {
 
   if (gradestorage === "true") {
     hsmsInput.checked = true;
-    // let checked = true;
     gradeLvl.innerHTML = high;
   } else if (gradestorage === "false") {
     hsmsInput.checked = false;
-    // let checked = false;
     gradeLvl.innerHTML = middle;
   }
   if (arraystorage === null) {
