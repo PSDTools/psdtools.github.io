@@ -580,5 +580,3 @@ function onkeydown(e: KeyboardEvent): void {
   }
 }
 window.onkeydown = onkeydown;
-
-export {};
