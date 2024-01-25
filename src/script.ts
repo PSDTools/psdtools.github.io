@@ -13,7 +13,6 @@ import {
   getData,
   getGrade,
   setShade,
-  setColor,
 } from "./scripts/storage.js";
 import { Course } from "./data/data-types.js";
 
@@ -29,15 +28,6 @@ declare global {
     toggleNav: (open: boolean) => void;
     getStorage: () => Promise<void>;
     darkMode: () => Promise<void>;
-    rTH: () => Promise<void>;
-    prTH: () => Promise<void>;
-    oTH: () => Promise<void>;
-    yTH: () => Promise<void>;
-    lTH: () => Promise<void>;
-    cTH: () => Promise<void>;
-    bTH: () => Promise<void>;
-    pTH: () => Promise<void>;
-    piTH: () => Promise<void>;
   }
 }
 
@@ -590,52 +580,5 @@ function onkeydown(e: KeyboardEvent): void {
   }
 }
 window.onkeydown = onkeydown;
-
-// Button Theme Changing Functions
-window.rTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("redModebg");
-  await setColor("red");
-};
-window.oTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("orangeModebg");
-  await setColor("orange");
-};
-window.yTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("yellowModebg");
-  await setColor("yellow");
-};
-window.lTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("limeModebg");
-  await setColor("lime");
-};
-window.cTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("cyanModebg");
-  await setColor("cyan");
-};
-window.bTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("blueModebg");
-  await setColor("blue");
-};
-window.pTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("purpleModebg");
-  await setColor("purple");
-};
-window.piTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("pinkModebg");
-  await setColor("pink");
-};
-window.prTH = async (): Promise<void> => {
-  remColors();
-  element.classList.add("pinkredModebg");
-  await setColor("pinkred");
-};
 
 export {};
