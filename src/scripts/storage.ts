@@ -8,8 +8,6 @@ const storage: Storage = createStorage({
 
 const arraystorage = "arraystorage";
 const gradestorage = "gradestorage";
-const colorstorage = "color";
-const shadestorage = "shade";
 
 /** Clears class storage data. */
 async function clearData(): Promise<void> {
@@ -43,35 +41,4 @@ async function getGrade(): Promise<string | null> {
   return storage.getItem(gradestorage);
 }
 
-/** Sets the theme. */
-async function setColor(value: string): Promise<void> {
-  await storage.setItem(colorstorage, value);
-}
-
-/** Gets the theme. */
-async function getColor(): Promise<string | null> {
-  return storage.getItem(colorstorage);
-}
-
-/** Sets the dark/light mode. */
-async function setShade(value: string): Promise<void> {
-  await storage.setItem(shadestorage, value);
-}
-
-/** Gets the dark/light mode. */
-async function getShade(): Promise<string | null> {
-  return storage.getItem(shadestorage);
-}
-
-export {
-  clearData,
-  clearAll,
-  setData,
-  getData,
-  setGrade,
-  getGrade,
-  setColor,
-  getColor,
-  setShade,
-  getShade,
-};
+export { clearData, clearAll, setData, getData, setGrade, getGrade };

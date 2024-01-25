@@ -8,11 +8,8 @@ import {
   clearAll,
   setData,
   setGrade,
-  getColor,
-  getShade,
   getData,
   getGrade,
-  setShade,
 } from "./scripts/storage.js";
 import { Course } from "./data/data-types.js";
 
@@ -20,9 +17,7 @@ declare global {
   interface Window {
     hsmsSwap: () => Promise<void>;
     classAmount: () => Promise<void>;
-    help: () => void;
     loadgpa: () => Promise<void>;
-    loadgpahelp: () => void;
     clearData: () => Promise<void>;
     clearAll: () => Promise<void>;
     toggleNav: (open: boolean) => void;
@@ -45,7 +40,6 @@ const high = "High School";
 const middle = "Middle School";
 const hsmsInput = document.getElementById("hsmsInput") as HTMLInputElement;
 const gradeLvl = document.getElementById("gradeLvl")!;
-const element = document.body;
 
 window.clearData = clearData;
 window.clearAll = clearAll;
@@ -346,80 +340,11 @@ function fromStorage(arraystorage: Course[]) {
  * Pulls data from storage.
  */
 async function getStorage(): Promise<void> {
-  const color = await getColor();
-  const shade = await getShade();
   const gradestorage = await getGrade();
   const arraystorage = await getData();
 
   if (!arraystorage) {
     await setData(true);
-  }
-  // sets top header, slider, and dark mode to correct values
-  if (shade === "dark") {
-    element.classList.toggle("darkModebg");
-    element.classList.toggle("lightModebg");
-    const c = document.getElementById("c")!;
-
-    c.classList.toggle("darkMode");
-    c.classList.toggle("lightMode");
-    const c2 = document.getElementById("c2")!;
-
-    c2.classList.toggle("darkMode");
-    c2.classList.toggle("lightMode");
-    document.getElementById("darkModeButton")!.innerHTML = "Light Mode";
-  }
-
-  // Easter Egg
-  switch (color) {
-    case "red": {
-      element.classList.add("redModebg");
-
-      break;
-    }
-    case "orange": {
-      element.classList.add("orangeModebg");
-
-      break;
-    }
-    case "yellow": {
-      element.classList.add("yellowModebg");
-
-      break;
-    }
-    case "lime": {
-      element.classList.add("limeModebg");
-
-      break;
-    }
-    case "cyan": {
-      element.classList.add("cyanModebg");
-
-      break;
-    }
-    case "blue": {
-      element.classList.add("blueModebg");
-
-      break;
-    }
-    case "purple": {
-      element.classList.add("purpleModebg");
-
-      break;
-    }
-    case "pink": {
-      element.classList.add("pinkModebg");
-
-      break;
-    }
-    case "pinkred": {
-      element.classList.add("pinkredModebg");
-
-      break;
-    }
-    default: {
-      // Do nothing
-      break;
-    }
   }
 
   if (gradestorage === "true") {
@@ -447,37 +372,3 @@ async function getStorage(): Promise<void> {
   }
 }
 window.getStorage = getStorage;
-
-function help(): void {
-  window.location.href = "help.html";
-}
-function loadgpahelp(): void {
-  window.location.href = "index.html";
-}
-window.help = help;
-window.loadgpahelp = loadgpahelp;
-
-/** This is...Dark Mode. */
-async function darkMode(): Promise<void> {
-  element.classList.toggle("darkModebg");
-  element.classList.toggle("lightModebg");
-
-  const c = document.getElementById("c")!;
-
-  c.classList.toggle("darkMode");
-  c.classList.toggle("lightMode");
-
-  const c2 = document.getElementById("c2")!;
-
-  c2.classList.toggle("darkMode");
-  c2.classList.toggle("lightMode");
-
-  if (c.classList.contains("darkMode")) {
-    document.getElementById("darkModeButton")!.innerHTML = "Light Mode";
-    await setShade("dark");
-  } else if (!element.classList.contains("lightMode")) {
-    document.getElementById("darkModeButton")!.innerHTML = "Dark Mode";
-    await setShade("light");
-  }
-}
-window.darkMode = darkMode;
