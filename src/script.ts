@@ -69,13 +69,17 @@ async function hsmsSwap(): Promise<void> {
     (document.getElementById("numOfClasses") as HTMLInputElement).value =
       String(courses.length);
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      document.getElementById(`typeId${itr}`)!.innerHTML = `<form>
-        <select class="blacktxt" id="cltyp${itr}">
-          <option value="1">No-Weight</option>
-          <option value="2">Honors</option>
-        </select>
-      </form>`;
-      (document.getElementById(`typeId${itr}`) as HTMLInputElement).value = "1";
+      const element = document.getElementById(`typeId${itr}`)!;
+
+      if (element instanceof HTMLInputElement) {
+        element.innerHTML = `<form>
+          <select class="blacktxt" id="cltyp${itr}">
+            <option value="1">No-Weight</option>
+            <option value="2">Honors</option>
+          </select>
+        </form>`;
+        element.value = "1";
+      }
     }
   } else {
     gradeLvl.innerHTML = middle;
