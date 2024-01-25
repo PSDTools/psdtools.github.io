@@ -95,8 +95,8 @@ window.hsmsSwap = hsmsSwap;
  * Create a `Course`.
  */
 function createCourse(num: number): void {
-  tempElementId = `temp${String(num)}`;
-  tempElementIdNext = `temp${String(num + 1)}`;
+  tempElementId = `temp${num}`;
+  tempElementIdNext = `temp${num + 1}`;
 
   // creates html elements in the courses class
   document.getElementById(tempElementId)!.innerHTML = `<div
@@ -174,9 +174,9 @@ async function loadgpa(): Promise<void> {
 
   // save classes to array
   for (const [itr, course] of courses.entries()) {
-    tempLGID = `cl${String(itr + 1)}`;
-    tempCTID = `cl${String(itr + 1)}txt`;
-    tempCTYID = `cltyp${String(itr + 1)}`;
+    tempLGID = `cl${itr + 1}`;
+    tempCTID = `cl${itr + 1}txt`;
+    tempCTYID = `cltyp${itr + 1}`;
 
     course.letterGrade = Number(
       (document.getElementById(tempLGID) as HTMLInputElement).value,
@@ -187,7 +187,7 @@ async function loadgpa(): Promise<void> {
     ).value;
 
     if (hsmsInput.checked) {
-      tempCTYID = `cltyp${String(itr + 1)}`;
+      tempCTYID = `cltyp${itr + 1}`;
       course.classType = (
         document.getElementById(tempCTYID) as HTMLInputElement
       ).value;
@@ -279,8 +279,8 @@ function createStorageCourse(
 ): void {
   const num = classNum;
 
-  tempElementId = `temp${String(num)}`;
-  tempElementIdNext = `temp${String(num + 1)}`;
+  tempElementId = `temp${num}`;
+  tempElementIdNext = `temp${num + 1}`;
 
   (document.getElementById(tempElementId) as HTMLInputElement).value =
     classText;
@@ -300,9 +300,9 @@ function fromStorage(arraystorage: Course[]) {
     createStorageCourse(course.classNum, course.letterGrade, course.classText);
   }
   for (let itr = 0; itr < courses.length; itr++) {
-    tempLGID = `cl${String(itr + 1)}`;
-    tempCTID = `cl${String(itr + 1)}txt`;
-    tempCTYID = `cltyp${String(itr + 1)}`;
+    tempLGID = `cl${itr + 1}`;
+    tempCTID = `cl${itr + 1}txt`;
+    tempCTYID = `cltyp${itr + 1}`;
 
     for (const course of courses) {
       createCourse(course.classNum);
@@ -314,9 +314,9 @@ function fromStorage(arraystorage: Course[]) {
     }
 
     for (const [itr2, course] of courses.entries()) {
-      tempLGID = `cl${String(itr2 + 1)}`;
-      tempCTID = `cl${String(itr2 + 1)}txt`;
-      tempCTYID = `cltyp${String(itr2 + 1)}`;
+      tempLGID = `cl${itr2 + 1}`;
+      tempCTID = `cl${itr2 + 1}txt`;
+      tempCTYID = `cltyp${itr2 + 1}`;
 
       (document.getElementById(tempLGID) as HTMLInputElement).value = String(
         course.letterGrade,
