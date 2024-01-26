@@ -165,7 +165,7 @@ function saveRemove() {
 async function loadgpa(): Promise<void> {
   // set vars
   let pregpa = 0;
-  let courseLen: number = courses.length;
+  let courseLen = courses.length;
 
   tempLGID = "";
   tempCTID = "";
