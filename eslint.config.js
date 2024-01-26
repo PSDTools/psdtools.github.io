@@ -47,6 +47,9 @@ export default defineFlatConfig([
         { "ts-expect-error": true, "ts-check": false },
       ],
       "import/no-unresolved": [2, { ignore: ["^virtual:"] }],
+      "@typescript-eslint/prefer-function-type": "warn",
+      "@typescript-eslint/explicit-function-return-type": "warn",
+      "@typescript-eslint/promise-function-async": "warn",
     },
   },
 ]);

@@ -155,7 +155,7 @@ function createCourse(num: number): void {
 /**
  * Remove "Saved!" text.
  */
-function saveRemove() {
+function saveRemove(): void {
   document.getElementById("saved")!.innerHTML = "";
 }
 
@@ -288,9 +288,9 @@ function createStorageCourse(
 }
 
 /**
- * Not to be confused with `getStorage()`.
+ * Not to be confused with {@link getStorage}.
  */
-function fromStorage(arraystorage: Course[]) {
+function fromStorage(arraystorage: Course[]): void {
   courses = arraystorage;
   // creates courses from array data after it is pulled from storage
 
