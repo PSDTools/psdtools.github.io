@@ -78,15 +78,12 @@ async function hsmsSwap(): Promise<void> {
     for (let itr = 1; itr < courses.length + 1; itr++) {
       const element = document.getElementById(`typeId${itr}`)!;
 
-      if (element instanceof HTMLInputElement) {
-        element.innerHTML = `<form>
-          <select class="blacktxt" id="cltyp${itr}">
-            <option value="1">No-Weight</option>
-            <option value="2">Honors</option>
-          </select>
-        </form>`;
-        element.value = "1";
-      }
+      element.innerHTML = `<form>
+        <select class="blacktxt" id="cltyp${itr}">
+          <option value="1">No-Weight</option>
+          <option value="2">Honors</option>
+        </select>
+      </form>`;
     }
   } else {
     gradeLvl.innerHTML = middle;
@@ -180,7 +177,7 @@ async function loadgpa(): Promise<void> {
     tempCTYID = `cltyp${itr + 1}`;
 
     course.letterGrade = Number(
-      (document.getElementById(tempLGID) as HTMLInputElement).value,
+      (document.getElementById(tempLGID) as HTMLSelectElement).value,
     );
 
     course.classText = (
@@ -228,7 +225,7 @@ async function loadgpa(): Promise<void> {
   await setData(courses);
   for (const [itr] of courses.entries()) {
     (document.getElementById(`slide${itr + 1}`) as HTMLInputElement).value = (
-      document.getElementById(`cl${itr + 1}`) as HTMLInputElement
+      document.getElementById(`cl${itr + 1}`) as HTMLSelectElement
     ).value;
   }
 }
@@ -273,20 +270,11 @@ window.classAmount = classAmount;
 /**
  * Populates course object data.
  */
-function createStorageCourse(
-  classNum: number,
-  _letterGrade: number,
-  classText: string,
-): void {
+function createStorageCourse(classNum: number): void {
   const num = classNum;
 
   tempElementId = `temp${num}`;
   tempElementIdNext = `temp${num + 1}`;
-
-  (document.getElementById(tempElementId) as HTMLInputElement).value =
-    classText;
-  (document.getElementById(tempElementIdNext) as HTMLInputElement).value =
-    String(classNum);
 }
 
 /**
@@ -298,7 +286,7 @@ function fromStorage(arraystorage: Course[]): void {
 
   for (const course of courses) {
     createCourse(course.classNum);
-    createStorageCourse(course.classNum, course.letterGrade, course.classText);
+    createStorageCourse(course.classNum);
   }
   for (let itr = 0; itr < courses.length; itr++) {
     tempLGID = `cl${itr + 1}`;
@@ -307,11 +295,7 @@ function fromStorage(arraystorage: Course[]): void {
 
     for (const course of courses) {
       createCourse(course.classNum);
-      createStorageCourse(
-        course.classNum,
-        course.letterGrade,
-        course.classText,
-      );
+      createStorageCourse(course.classNum);
     }
 
     for (const [itr2, course] of courses.entries()) {
@@ -319,12 +303,12 @@ function fromStorage(arraystorage: Course[]): void {
       tempCTID = `cl${itr2 + 1}txt`;
       tempCTYID = `cltyp${itr2 + 1}`;
 
-      (document.getElementById(tempLGID) as HTMLInputElement).value = String(
+      (document.getElementById(tempLGID) as HTMLSelectElement).value = String(
         course.letterGrade,
       );
       (document.getElementById(tempCTID) as HTMLInputElement).value =
         course.classText;
-      (document.getElementById(tempCTYID) as HTMLInputElement).value =
+      (document.getElementById(tempCTYID) as HTMLSelectElement).value =
         course.classType;
     }
 
