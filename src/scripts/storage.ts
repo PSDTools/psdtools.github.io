@@ -22,12 +22,12 @@ async function clearAll(): Promise<void> {
 }
 
 /** Sets the storage data. */
-async function setData(value: Course[] | true): Promise<void> {
+async function setData(value: Course[]): Promise<void> {
   await storage.setItem(arraystorage, value);
 }
 
 /** Gets the storage data. */
-async function getData(): Promise<Course[] | true | null> {
+async function getData(): Promise<Course[] | null> {
   return storage.getItem(arraystorage);
 }
 

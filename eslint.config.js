@@ -50,6 +50,7 @@ export default defineFlatConfig([
       "@typescript-eslint/prefer-function-type": "warn",
       "@typescript-eslint/explicit-function-return-type": "warn",
       "@typescript-eslint/promise-function-async": "warn",
+      "@typescript-eslint/strict-boolean-expressions": "warn",
     },
   },
 ]);

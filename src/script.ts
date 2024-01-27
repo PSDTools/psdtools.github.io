@@ -344,10 +344,6 @@ async function getStorage(): Promise<void> {
   const gradestorage = await getGrade();
   const arraystorage = await getData();
 
-  if (!arraystorage) {
-    await setData(true);
-  }
-
   if (gradestorage === "true") {
     hsmsInput.checked = true;
     gradeLvl.innerHTML = high;
@@ -358,9 +354,6 @@ async function getStorage(): Promise<void> {
   if (arraystorage === null) {
     // if storage doesn't exist
     await classAmount();
-  } else if (arraystorage === true) {
-    // if storage does exist, but is empty
-    return;
   } else {
     // if storage does exist
     fromStorage(arraystorage);
