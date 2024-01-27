@@ -54,7 +54,12 @@ window.clearAll = clearAll;
  * @param open - If you want to open the sidebar (defaults to close).
  */
 function toggleNav(open: boolean): void {
-  document.getElementById("mySidenav")!.style.width = open ? "100%" : "0%";
+  const classlist = document.getElementById("mySidenav")?.classList;
+  const w100 = "w-full";
+  const w0 = "w-0";
+
+  classlist?.add(open ? w100 : w0);
+  classlist?.remove(open ? w0 : w100);
 }
 window.toggleNav = toggleNav;
 
@@ -107,15 +112,14 @@ function createCourse(num: number): void {
     >
       <div id="input-con-div" class="">
         <input
-          style="width:150px;"
-          class="hover:scale-105 placeholder-white blacktxt"
+          class="hover:scale-105 w-36 placeholder-white blacktxt"
           placeholder="Class ${num}:"
           oninput="loadgpa();"
           id="cl${num}txt"
           type="text"
           required=""
         />
-        <span style="float:right;" id="typeId${num}">
+        <span class="float-right" id="typeId${num}">
           <form>
             <select class="hover:scale-105 blacktxt" id="cltyp${num}">
               <option value="1">No-Weight</option>
@@ -129,15 +133,13 @@ function createCourse(num: number): void {
           min="0"
           max="4"
           value="4"
-          class="hover:scale-105 slider"
-          style="float:right; width:50%;"
+          class="hover:scale-105 slider float-right w-1/2"
           id="slide${num}"
           oninput="document.getElementById('cl${num}').value = document.getElementById('slide${num}').value;loadgpa();"
         />
         <select
-          class="hover:scale-105 blacktxt"
+          class="hover:scale-105 blacktxt float-right appearance-none"
           oninput="document.getElementById('slide${num}').value = document.getElementById('cl${num}').value;loadgpa();"
-          style="float:right;-webkit-appearance: none;"
           id="cl${num}"
         >
           <option value="4">A</option>

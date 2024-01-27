@@ -14,6 +14,11 @@ body {
   font-family: Norwester, Verdana, Geneva, Tahoma, sans-serif;
 }
 
+button {
+  background-color: #00d5ff;
+  color: black;
+}
+
 .row {
   display: flex;
 }
