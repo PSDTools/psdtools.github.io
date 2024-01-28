@@ -14,6 +14,7 @@ import {
   setData,
   setGrade,
 } from "./scripts/storage.js";
+import { getElementByIdTyped as getElementById } from "./data/utils.js";
 
 declare global {
   interface Window {
@@ -39,8 +40,8 @@ let tempElementIdNext = "";
 
 const high = "High School";
 const middle = "Middle School";
-const hsmsInput = document.getElementById("hsmsInput") as HTMLInputElement;
-const gradeLvl = document.getElementById("gradeLvl")!;
+const hsmsInput = getElementById("hsmsInput", HTMLInputElement)!;
+const gradeLvl = getElementById("gradeLvl", HTMLElement)!;
 
 window.clearData = clearData;
 window.clearAll = clearAll;
@@ -54,7 +55,7 @@ window.clearAll = clearAll;
  * @param open - If you want to open the sidebar (defaults to close).
  */
 function toggleNav(open: boolean): void {
-  const classlist = document.getElementById("mySidenav")?.classList;
+  const classlist = getElementById("mySidenav", HTMLDivElement)?.classList;
   const w100 = "w-full";
   const w0 = "w-0";
 
@@ -73,10 +74,11 @@ async function hsmsSwap(): Promise<void> {
     gradeLvl.innerHTML = high;
 
     await setGrade(String(checked));
-    (document.getElementById("numOfClasses") as HTMLInputElement).value =
-      String(courses.length);
+    getElementById("numOfClasses", HTMLInputElement)!.value = String(
+      courses.length,
+    );
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      const element = document.getElementById(`typeId${itr}`)!;
+      const element = getElementById(`typeId${itr}`, HTMLSpanElement)!;
 
       element.innerHTML = `<form>
         <select class="blacktxt" id="cltyp${itr}">
@@ -89,7 +91,7 @@ async function hsmsSwap(): Promise<void> {
     gradeLvl.innerHTML = middle;
     await setGrade(String(checked));
     for (let itr = 1; itr < courses.length + 1; itr++) {
-      document.getElementById(`typeId${itr}`)!.innerHTML = "";
+      getElementById(`typeId${itr}`, HTMLInputElement)!.innerHTML = "";
     }
   }
 }
@@ -103,7 +105,7 @@ function createCourse(num: number): void {
   tempElementIdNext = `temp${num + 1}`;
 
   // creates html elements in the courses class
-  document.getElementById(tempElementId)!.innerHTML = `<div
+  getElementById(tempElementId, HTMLDivElement)!.innerHTML = `<div
       oninput="loadgpa();"
       class="pt-4 pb-4 lg:text-2xl text-lg"
     >
@@ -132,11 +134,11 @@ function createCourse(num: number): void {
           value="4"
           class="hover:scale-105 slider float-right w-1/2"
           id="slide${num}"
-          oninput="document.getElementById('cl${num}').value = document.getElementById('slide${num}').value;loadgpa();"
+          oninput="getElementById('cl${num}').value = getElementById('slide${num}').value;loadgpa();"
         />
         <select
           class="hover:scale-105 blacktxt float-right appearance-none"
-          oninput="document.getElementById('slide${num}').value = document.getElementById('cl${num}').value;loadgpa();"
+          oninput="getElementById('slide${num}').value = getElementById('cl${num}').value;loadgpa();"
           id="cl${num}"
         >
           <option value="4">A</option>
@@ -155,7 +157,7 @@ function createCourse(num: number): void {
  * Remove "Saved!" text.
  */
 function saveRemove(): void {
-  document.getElementById("saved")!.innerHTML = "";
+  getElementById("saved", HTMLElement)!.innerHTML = "";
 }
 
 /**
@@ -177,18 +179,14 @@ async function loadgpa(): Promise<void> {
     tempCTYID = `cltyp${itr + 1}`;
 
     course.letterGrade = Number(
-      (document.getElementById(tempLGID) as HTMLSelectElement).value,
+      getElementById(tempLGID, HTMLSelectElement)!.value,
     );
 
-    course.classText = (
-      document.getElementById(tempCTID) as HTMLInputElement
-    ).value;
+    course.classText = getElementById(tempCTID, HTMLInputElement)!.value;
 
     if (hsmsInput.checked) {
       tempCTYID = `cltyp${itr + 1}`;
-      course.classType = (
-        document.getElementById(tempCTYID) as HTMLInputElement
-      ).value;
+      course.classType = getElementById(tempCTYID, HTMLInputElement)!.value;
     }
   }
 
@@ -215,18 +213,20 @@ async function loadgpa(): Promise<void> {
   // Round.
   const roundedgpa = Math.round(gpa * 100) / 100;
 
-  document.getElementById("gpa")!.innerHTML = `Your GPA is a: ${roundedgpa}`;
+  getElementById("gpa", HTMLHeadingElement)!.innerHTML =
+    `Your GPA is a: ${roundedgpa}`;
 
   // shows save text
-  document.getElementById("saved")!.innerHTML = "Saved!";
+  getElementById("saved", HTMLParagraphElement)!.innerHTML = "Saved!";
   setTimeout(saveRemove, 1000);
 
   // save storage
   await setData(courses);
   for (const [itr] of courses.entries()) {
-    (document.getElementById(`slide${itr + 1}`) as HTMLInputElement).value = (
-      document.getElementById(`cl${itr + 1}`) as HTMLSelectElement
-    ).value;
+    getElementById(`slide${itr + 1}`, HTMLInputElement)!.value = getElementById(
+      `cl${itr + 1}`,
+      HTMLSelectElement,
+    )!.value;
   }
 }
 window.loadgpa = loadgpa;
@@ -236,9 +236,7 @@ async function classAmount(): Promise<void> {
 
   // get textbox with number of classes
   classAmountNum = Math.abs(
-    parseInt(
-      (document.getElementById("numOfClasses") as HTMLInputElement).value,
-    ),
+    parseInt(getElementById("numOfClasses", HTMLInputElement)!.value),
   );
 
   if (
@@ -257,13 +255,13 @@ async function classAmount(): Promise<void> {
   if (!hsmsInput.checked) {
     for (let itr = 1; itr < courses.length + 1; itr++) {
       // loops through all course classes and removes the <span id="typeId"></span> (honors dropdown)
-      document.getElementById(`typeId${itr}`)!.innerHTML = "";
+      getElementById(`typeId${itr}`, HTMLSpanElement)!.innerHTML = "";
     }
   }
   // calculates and saves the gpa
   await loadgpa();
   // sets the gpa text to ""
-  document.getElementById("gpa")!.innerHTML = "";
+  getElementById("gpa", HTMLHeadingElement)!.innerHTML = "";
 }
 window.classAmount = classAmount;
 
@@ -303,19 +301,17 @@ function fromStorage(arraystorage: Course[]): void {
       tempCTID = `cl${itr2 + 1}txt`;
       tempCTYID = `cltyp${itr2 + 1}`;
 
-      (document.getElementById(tempLGID) as HTMLSelectElement).value = String(
+      getElementById(tempLGID, HTMLSelectElement)!.value = String(
         course.letterGrade,
       );
-      (document.getElementById(tempCTID) as HTMLInputElement).value =
-        course.classText;
-      (document.getElementById(tempCTYID) as HTMLSelectElement).value =
-        course.classType;
+      getElementById(tempCTID, HTMLInputElement)!.value = course.classText;
+      getElementById(tempCTYID, HTMLSelectElement)!.value = course.classType;
     }
 
     if (!hsmsInput.checked) {
       for (let itr2 = 1; itr2 < courses.length + 1; itr2++) {
         // removes typeId <span> element from courses objects
-        document.getElementById(`typeId${itr + 1}`)!.innerHTML = "";
+        getElementById(`typeId${itr + 1}`, HTMLSpanElement)!.innerHTML = "";
       }
     }
   }
