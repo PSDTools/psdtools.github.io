@@ -18,24 +18,26 @@
     onload="startApp()"
   >
     <!-- The overlay -->
-    <div id="mySidenav" class="overlay">
+    <div id="mySidenav" class="overlay w-0">
       <!-- Button to close the overlay navigation -->
       <a href="javascript:void(0)" class="closebtn" onclick="toggleNav(false)"
         >&times;</a
       >
 
       <!-- Overlay content -->
-      <form class="overlay-content text-white">
-        <label>
-          <button type="submit" id="clearDataButton" onclick="clearData()">
-            Clear Grade Data
-          </button>
-          <p class="text-sm mt-4">Note: This action refreshes the page.</p>
-        </label>
-
-        <p></p>
-        <button type="submit" onclick="clearAll()">Clear All Site Data</button>
-        <p></p>
+      <form class="overlay-content text-white flex flex-col">
+        <p class="text-white text-sm mt-4">These actions refresh the page.</p>
+        <button
+          class="text-white m-2"
+          type="submit"
+          id="clearDataButton"
+          onclick="clearData()"
+        >
+          Clear Grade Data
+        </button>
+        <button class="text-white m-2" type="submit" onclick="clearAll()">
+          Clear All Site Data
+        </button>
       </form>
     </div>
 
