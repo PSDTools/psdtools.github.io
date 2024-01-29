@@ -64,6 +64,10 @@ function toggleNav(open: boolean): void {
 }
 window.toggleNav = toggleNav;
 
+function getTypeIds(): NodeListOf<HTMLSpanElement> {
+  return document.querySelectorAll<HTMLSpanElement>('[id^="typeId"]');
+}
+
 /**
  * Swaps the High School and the Middle School.
  */
@@ -77,11 +81,10 @@ async function hsmsSwap(): Promise<void> {
     getElementById("numOfClasses", HTMLInputElement)!.value = String(
       courses.length,
     );
-    for (let itr = 1; itr < courses.length + 1; itr++) {
-      const element = getElementById(`typeId${itr}`, HTMLSpanElement)!;
 
+    for (const element of getTypeIds()) {
       element.innerHTML = `<form>
-        <select class="blacktxt" id="cltyp${itr}">
+        <select class="blacktxt" id="cltyp${element.id.slice(6)}">
           <option value="1">No-Weight</option>
           <option value="2">Honors</option>
         </select>
@@ -90,8 +93,9 @@ async function hsmsSwap(): Promise<void> {
   } else {
     gradeLvl.innerHTML = middle;
     await setGrade(String(checked));
-    for (let itr = 1; itr < courses.length + 1; itr++) {
-      getElementById(`typeId${itr}`, HTMLInputElement)!.innerHTML = "";
+
+    for (const element of getTypeIds()) {
+      element.innerHTML = "";
     }
   }
 }
@@ -157,7 +161,11 @@ function createCourse(num: number): void {
  * Remove "Saved!" text.
  */
 function saveRemove(): void {
-  getElementById("saved", HTMLElement)!.innerHTML = "";
+  const element = getElementById("saved", HTMLElement);
+
+  if (element !== undefined) {
+    element.innerHTML = "";
+  }
 }
 
 /**
@@ -183,11 +191,6 @@ async function loadgpa(): Promise<void> {
     );
 
     course.classText = getElementById(tempCTID, HTMLInputElement)!.value;
-
-    if (hsmsInput.checked) {
-      tempCTYID = `cltyp${itr + 1}`;
-      course.classType = getElementById(tempCTYID, HTMLInputElement)!.value;
-    }
   }
 
   // remove N/A from addition
@@ -253,11 +256,12 @@ async function classAmount(): Promise<void> {
     createCourse(itr + 1);
   }
   if (!hsmsInput.checked) {
-    for (let itr = 1; itr < courses.length + 1; itr++) {
-      // loops through all course classes and removes the <span id="typeId"></span> (honors dropdown)
-      getElementById(`typeId${itr}`, HTMLSpanElement)!.innerHTML = "";
+    // loops through all course classes and removes the honors dropdowns
+    for (const element of getTypeIds()) {
+      element.innerHTML = "";
     }
   }
+
   // calculates and saves the gpa
   await loadgpa();
   // sets the gpa text to ""
@@ -286,7 +290,7 @@ function fromStorage(arraystorage: Course[]): void {
     createCourse(course.classNum);
     createStorageCourse(course.classNum);
   }
-  for (let itr = 0; itr < courses.length; itr++) {
+  for (const [itr] of courses.entries()) {
     tempLGID = `cl${itr + 1}`;
     tempCTID = `cl${itr + 1}txt`;
     tempCTYID = `cltyp${itr + 1}`;
@@ -309,9 +313,8 @@ function fromStorage(arraystorage: Course[]): void {
     }
 
     if (!hsmsInput.checked) {
-      for (let itr2 = 1; itr2 < courses.length + 1; itr2++) {
-        // removes typeId <span> element from courses objects
-        getElementById(`typeId${itr + 1}`, HTMLSpanElement)!.innerHTML = "";
+      for (const element of getTypeIds()) {
+        element.innerHTML = "";
       }
     }
   }
