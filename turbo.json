@@ -2,45 +2,86 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["bundle", "typecheck", "lint", "format:check"]
+      "dependsOn": [
+        "bundle",
+        "typecheck",
+        "lint",
+        "format:check"
+      ]
     },
     "bundle": {
-      "inputs": ["src/**", "public/**", "vite.config.ts", "index.html"],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ],
+      "inputs": [
+        "src/**",
+        "public/**",
+        "vite.config.ts",
+        "index.html"
+      ]
     },
     "lint": {
-      "inputs": ["src/**", "vite.config.ts"]
+      "inputs": [
+        "src/**",
+        "vite.config.ts"
+      ]
     },
     "typecheck": {
-      "dependsOn": ["typecheck:src", "typecheck:sw", "typecheck:extra"]
+      "dependsOn": [
+        "typecheck:src",
+        "typecheck:sw",
+        "typecheck:extra"
+      ]
     },
     "typecheck:src": {
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"],
-      "inputs": ["src/**", "!src/sw.ts", "tsconfig.json"]
+      "outputs": [
+        "node_modules/.cache/tsbuildinfo.json"
+      ],
+      "inputs": [
+        "src/**",
+        "!src/sw.ts",
+        "tsconfig.json"
+      ]
     },
     "typecheck:sw": {
-      "outputs": ["node_modules/.cache/tsbuildinfo.sw.json"],
-      "inputs": ["src/sw.ts", "tsconfig.json"]
+      "outputs": [
+        "node_modules/.cache/tsbuildinfo.sw.json"
+      ],
+      "inputs": [
+        "src/sw.ts",
+        "tsconfig.json"
+      ]
     },
     "typecheck:extra": {
-      "outputs": ["node_modules/.cache/tsbuildinfo.extra.json"],
-      "inputs": ["vite.config.ts"]
+      "outputs": [
+        "node_modules/.cache/tsbuildinfo.extra.json"
+      ],
+      "inputs": [
+        "vite.config.ts"
+      ]
     },
     "format": {
-      "outputs": ["node_modules/.cache/prettier/**"],
+      "outputs": [
+        "node_modules/.cache/prettier/**"
+      ],
       "inputs": [
+        "$TURBO_DEFAULT$",
         "**/*.html",
         "**/*.ts",
         "**/*.md",
         "**/*.json",
         "**/*.js",
         "**/*.css",
-        ".prettierc"
+        ".prettierc",
+        "!**/dist/**"
       ]
     },
     "format:check": {
-      "outputs": ["node_modules/.cache/prettier/**"],
+      "outputs": [
+        "node_modules/.cache/prettier/**"
+      ],
       "inputs": [
+        "$TURBO_DEFAULT$",
         "**/*.html",
         "**/*.ts",
         "**/*.md",
@@ -48,14 +89,23 @@
         "turbo.json",
         "**/*.js",
         "**/*.css",
-        ".prettierc"
+        ".prettierc",
+        "!**/dist/**"
       ]
     },
     "dev": {
       "cache": false,
       "persistent": true,
-      "inputs": ["src/**", "public/**", "vite.config.ts", "index.html"],
-      "outputs": ["node_modules/.vite/**", "dev-dist/**"]
+      "outputs": [
+        "node_modules/.vite/**",
+        "dev-dist/**"
+      ],
+      "inputs": [
+        "src/**",
+        "public/**",
+        "vite.config.ts",
+        "index.html"
+      ]
     }
   },
   "remoteCache": {
