@@ -1,6 +1,9 @@
 import { sheriff } from "eslint-config-sheriff";
 import { defineFlatConfig } from "eslint-define-config";
 
+/**
+ * @type import("@sherifforg/types").SheriffSettings
+ */
 const sheriffOptions = {
   react: false,
   lodash: false,
@@ -8,25 +11,24 @@ const sheriffOptions = {
   playwright: false,
   jest: false,
   vitest: false,
+  // astro: false, // THIS DOESN'T DO ANYTHING!
   pathsOveriddes: {
     tsconfigLocation: [
       "./tsconfig.json",
       "./tsconfig.sw.json",
       "./tsconfig.eslint.json",
     ],
-    ignores: [
-      "**/node_modules/**",
-      "**/dist/**",
-      "**/dev-dist/**",
-      "**/build/**",
-      "**/.yarn/**",
-      "**/.pnp.*",
-    ],
   },
 };
 
+/**
+ * @type import("eslint-define-config").FlatESLintConfig[]
+ */
+// @ts-expect-error: null and undefined are different.
+const sheriffRules = sheriff(sheriffOptions);
+
 export default defineFlatConfig([
-  ...sheriff(sheriffOptions),
+  ...sheriffRules,
   {
     files: ["**/*.ts"],
     rules: {
