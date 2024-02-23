@@ -1,12 +1,10 @@
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve, join } from "node:path";
 import browserslist from "browserslist";
 import browserslistToEsbuild from "browserslist-to-esbuild";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const browsersList = browserslist();
 const basename = "/GPA_Calculator/";
 
@@ -17,7 +15,8 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
+        // TODO(lishaduck): Once oven-sh/bun#2472 is resolved, use it. Pun not intended :)
+        main: resolve(import.meta.dir, "index.html"),
       },
     },
     target: browserslistToEsbuild(browsersList),
@@ -60,7 +59,7 @@ export default defineConfig({
         display_override: ["window-controls-overlay"],
         icons: [
           {
-            src: `${basename}/psdr3-icon.png`,
+            src: join(basename, `psdr3-icon.png`),
             sizes: "512x512",
             type: "image/png",
             purpose: "any",
