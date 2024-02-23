@@ -62,7 +62,6 @@ export default defineConfig({
             src: join(basename, `psdr3-icon.png`),
             sizes: "512x512",
             type: "image/png",
-            purpose: "any",
           },
         ],
         screenshots: [],
