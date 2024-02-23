@@ -31,19 +31,23 @@ jobs:
       - name: Install bun
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: 1.0.25
+          bun-version: 1.0.29
 
       - name: Cache
-        uses: actions/cache@v3.3.2
+        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        id: cache
         with:
           path: |
             .turbo
             node_modules
             ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-turbo-${{ hashFiles('**/turbo.json') }}
+          key: ${{ runner.os }}-${{ runner.arch }}-node_modules-${{ hashFiles('**/bun.lockb', '**/turbo.json') }}
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: bun --bun install --frozen-lockfile
+        env:
+          SHARP_IGNORE_GLOBAL_LIBVIPS: 1
 
       - name: Lint & Build
         run: bun --bun run turbo build
