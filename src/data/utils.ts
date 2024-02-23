@@ -1,17 +1,11 @@
-function isInstanceOf<T extends new (...args: unknown[]) => unknown>(
-  obj: unknown,
-  cls: T,
-): obj is InstanceType<T> {
-  return obj instanceof cls;
-}
-
+// TODO(lishaduck): convert this to be named runtimeQuerySelector
 function getElementByIdTyped<T extends HTMLElement>(
   id: string,
   type: new () => T,
 ): T | undefined {
-  const element = document.getElementById(id);
+  const element = document.querySelector(`#${id}`);
 
-  if (isInstanceOf(element, type)) {
+  if (element instanceof type) {
     return element;
   }
 

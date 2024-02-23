@@ -72,7 +72,7 @@ function getTypeIds(): NodeListOf<HTMLSpanElement> {
  * Swaps the High School and the Middle School.
  */
 async function hsmsSwap(): Promise<void> {
-  const checked = hsmsInput.checked;
+  const { checked } = hsmsInput;
 
   if (checked) {
     gradeLvl.innerHTML = high;
@@ -196,17 +196,17 @@ async function loadgpa(): Promise<void> {
   // remove N/A from addition
   for (const course of courses) {
     if (course.letterGrade === 5) {
-      courseLen = courseLen - 1;
+      courseLen -= 1;
     } else {
       // adds to pregpa
       if (course.classType === "2" && hsmsInput.checked) {
         if (course.letterGrade === 0) {
-          pregpa = pregpa + course.letterGrade;
+          pregpa += course.letterGrade;
         } else {
-          pregpa = pregpa + 1 + course.letterGrade;
+          pregpa += 1 + course.letterGrade;
         }
       } else {
-        pregpa = pregpa + course.letterGrade;
+        pregpa += course.letterGrade;
       }
     }
   }
