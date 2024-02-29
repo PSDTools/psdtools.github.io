@@ -1,12 +1,11 @@
-import { resolve, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 import browserslist from "browserslist";
 import browserslistToEsbuild from "browserslist-to-esbuild";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
+import { minify } from "html-minifier-terser";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const browsersList = browserslist();
 const basename = "/GPA_Calculator/";
 
@@ -17,7 +16,8 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
+        // TODO(lishaduck): Once oven-sh/bun#2472 is resolved, use it. Pun not intended :)
+        main: resolve(import.meta.dirname, "index.html"),
       },
     },
     target: browserslistToEsbuild(browsersList),
@@ -30,6 +30,28 @@ export default defineConfig({
     },
   },
   plugins: [
+    {
+      name: "html-minify", // Name of the plugin
+      transformIndexHtml: {
+        order: "post",
+        handler: async (html: string): Promise<string> =>
+          minify(html, {
+            removeAttributeQuotes: true,
+            collapseWhitespace: true,
+            removeComments: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            collapseBooleanAttributes: true,
+            minifyURLs: true,
+            collapseInlineTagWhitespace: true,
+            decodeEntities: true,
+            noNewlinesBeforeTagClose: true,
+            removeStyleLinkTypeAttributes: true,
+            removeScriptTypeAttributes: true,
+          }),
+      },
+    },
     VitePWA({
       strategies: "injectManifest",
       injectManifest: {
@@ -38,6 +60,8 @@ export default defineConfig({
         globDirectory: "dist",
         globPatterns: ["**/*.{html,js,css,json,png}"],
       },
+      injectRegister: "script-defer",
+      registerType: "autoUpdate",
       srcDir: "src",
       filename: "sw.ts",
       workbox: {
@@ -58,18 +82,16 @@ export default defineConfig({
         related_applications: [],
         prefer_related_applications: false,
         display_override: ["window-controls-overlay"],
-        icons: [
-          {
-            src: `${basename}/psdr3-icon.png`,
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "any",
-          },
-        ],
         screenshots: [],
         // features: [],
         categories: [],
         shortcuts: [],
+      },
+      pwaAssets: {
+        htmlPreset: "2023",
+        preset: "minimal-2023",
+        image: "public/logo.svg",
+        overrideManifestIcons: true,
       },
     }),
   ],

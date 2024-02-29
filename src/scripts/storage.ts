@@ -1,19 +1,44 @@
+import { createStorage, type Storage } from "unstorage";
+import indexedDbDriver from "unstorage/drivers/indexedb";
+import type { Course } from "../data/data-types";
+
+const storage: Storage = createStorage({
+  driver: indexedDbDriver({ base: "app:" }),
+});
+
+const arraystorage = "arraystorage";
+const gradestorage = "gradestorage";
+
 /** Clears class storage data. */
-function clearData(): void {
-  localStorage.removeItem("arraystorage");
+async function clearData(): Promise<void> {
+  await storage.removeItem(arraystorage);
   location.reload();
 }
 
 /** Clears all website storage data. */
-function clearAll(): void {
-  localStorage.removeItem("gradestorage");
-  localStorage.removeItem("color");
-  localStorage.removeItem("shade");
-  window.clearData();
+async function clearAll(): Promise<void> {
+  await storage.clear();
+  location.reload();
 }
 
-function setData(arraystorage: string): void {
-  localStorage.setItem("arraystorage", arraystorage);
+/** Sets the storage data. */
+async function setData(value: Course[]): Promise<void> {
+  await storage.setItem(arraystorage, value);
 }
 
-export { clearData, clearAll, setData };
+/** Gets the storage data. */
+async function getData(): Promise<Course[] | null> {
+  return storage.getItem(arraystorage);
+}
+
+/** Sets the grade. */
+async function setGrade(value: string): Promise<void> {
+  await storage.setItem(gradestorage, value);
+}
+
+/** Gets the grade. */
+async function getGrade(): Promise<string | null> {
+  return storage.getItem(gradestorage);
+}
+
+export { clearAll, clearData, getData, getGrade, setData, setGrade };

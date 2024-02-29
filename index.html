@@ -5,49 +5,35 @@
     <meta name="viewport" content="width=device-width" />
     <base href="/" />
     <title>GPA Calculator</title>
-    <link
-      href="/AppImages/android/android-launchericon-512-512.png"
-      rel="shortcut icon"
-    />
     <script type="module" src="/src/script.ts"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
     id=""
     class="bg-[url('/GPA_Calculator/bground.png')]"
-    onload="getStorage()"
+    onload="startApp()"
   >
     <!-- The overlay -->
-    <div id="mySidenav" class="overlay">
+    <div id="mySidenav" class="overlay w-0">
       <!-- Button to close the overlay navigation -->
       <a href="javascript:void(0)" class="closebtn" onclick="toggleNav(false)"
         >&times;</a
       >
 
       <!-- Overlay content -->
-      <form class="overlay-content text-white">
-        <label>
-          <button
-            type="submit"
-            id="clearDataButton"
-            style="background-color: #00d5ff; color: black"
-            onclick="clearData()"
-          >
-            Clear Grade Data
-          </button>
-          <p class="text-sm mt-4">Note: This action refreshes the page.</p>
-        </label>
-
-        <!-- <button id="darkModeButton" onclick="darkMode()">Dark Mode</button> -->
-        <p></p>
+      <form class="overlay-content text-white flex flex-col">
+        <p class="text-white text-sm mt-4">These actions refresh the page.</p>
         <button
+          class="text-white m-2"
           type="submit"
-          style="background-color: #00d5ff; color: black"
-          onclick="clearAll()"
+          id="clearDataButton"
+          onclick="clearData()"
         >
+          Clear Grade Data
+        </button>
+        <button class="text-white m-2" type="submit" onclick="clearAll()">
           Clear All Site Data
         </button>
-        <p></p>
       </form>
     </div>
 
@@ -59,7 +45,6 @@
           type="button"
           onclick="toggleNav(true)"
           class="pb-8 text-xl text-white rounded-full w-8 h-8"
-          style="background-color: #00d5ff; color: black"
         >
           ☰
         </button>
@@ -86,56 +71,7 @@
       </div>
     </div>
 
-    <!-- Side Navigation -->
-    <!-- <nav id="mySidebar">
-      <button onclick="w3_close()">Close <i></i></button>
-      <p></p>
-      <button onclick="document.getElementById('id01').style.display='block'">
-        Select Grade Level
-      </button>
-      <p></p>
-      <button id="darkModeButton" onclick="darkMode()">Dark Mode</button>
-      <p></p>
-      <p></p>
-
-      <p>Note: This action refreshes the page.</p>
-      <p></p>
-      <button onclick="clearAll()">Clear All Site Data</button>
-      <p></p>
-
-    <!- Google Translate -->
-    <!-- <div id="google_translate_element"></div> -->
-    <!-- <script type="text/javascript">
-        // <![CDATA[
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement(
-            {
-              pageLanguage: "en",
-              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            },
-            "google_translate_element"
-          );
-        }
-        // ]]>
-      </script>
-      <script
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-        type="text/javascript"
-      ></script> -->
-    <!-- </nav> -->
-
-    <!-- Header -->
-    <header id="myHeader">
-      <!-- <i onclick="w3_open()"></i>
-      <div>
-        <h4 class="absolute top-0 left-0 shadow-lg p-4 text-white bg-black">
-          Pattonville
-        </h4>
-        <input onclick="hsmsSwap()" type="checkbox" id="hsmsInput" checked />
-
-        <h1>GPA Calculator</h1>
-      </div> -->
-    </header>
+    <header id="myHeader"></header>
     <div class="lg:pb-8 lg:flex h-full text-white">
       <div
         class="basis-1/3 lg:rounded-br-lg lg:px-10 lg:pt-8 p-8 bg-black lg:h-screen"
@@ -145,7 +81,6 @@
           Input number of classes you are taking and press "Submit", then input
           your grades under "Grades".
         </p>
-        <p></p>
         <p id="Directions2">
           Your class data will then be saved to your device. This is so if you
           refresh, your data is saved!
@@ -161,18 +96,15 @@
           <button
             onclick="classAmount()"
             class="text-black px-1 rounded-sm"
-            style="background-color: #00d5ff; color: black"
             type="submit"
           >
             Submit
           </button>
         </form>
-        <p></p>
       </div>
 
       <div class="lg:w-2/3 lg:px-16 px-4 lg:p-8 p-4" id="c">
         <h5>Grades:</h5>
-        <p></p>
         <div id="temp1"></div>
         <div
           class="lg:drop-shadow-2xl lg:fixed static lg:right-16 lg:bottom-16 p-4 bg-black rounded-lg text-white"
@@ -180,88 +112,7 @@
           <h2 class="" id="gpa">No Data</h2>
         </div>
         <p id="saved"></p>
-        <!-- <button id="gpaButton" onclick="loadgpa()">
-          Calculate GPA and Save
-        </button> -->
       </div>
     </div>
-
-    <!-- <div id="id01" class="">
-      <div class="">
-        <header class="">
-          <h3>Choose Your Grade Level</h3>
-        </header>
-        <div class="">
-          <h4 id="modalClass">Middle School</h4>
-          <label class="switch">
-            <span></span>
-          </label>
-          <p></p>
-          <span
-            onclick="document.getElementById('id01').style.display='none'"
-            class=""
-            >Ok</span
-          >
-          <p></p>
-        </div>
-        <footer class="">
-          <p>This can be changed later inside the menu.</p>
-        </footer>
-      </div>
-    </div> -->
-
-    <!-- Easter Egg -->
-
-    <!-- Footer -->
-    <footer id="myFooter">
-      <!-- <h3>About</h3>
-      Easter egg
-      <p>.... . .-.. .-.. --- / - .... . .-. . -.-.--</p>
-      <!- Info -->
-      <!--
-      <p>
-        Created by Parker Hasenkamp for the
-        <a href="https://psdr3.org" target="_blank"
-          >Pattonville School District</a
-        >
-      </p>
-      <p>
-        My submission for the 2021
-        <a href="https://www.congressionalappchallenge.us/" target="_blank"
-          >Congressional App Challenge!</a
-        >
-      </p> -->
-    </footer>
-    <!--Smooth Scroll Buttons-->
-    <!-- <script type="module">
-      import $ from "jquery";
-
-      $(document).ready(function () {
-        // Add smooth scrolling to all links
-        $("a").on("click", function (event) {
-          // Make sure this.hash has a value before overriding default behavior
-          if (this.hash !== "") {
-            // Prevent default anchor click behavior
-            event.preventDefault();
-
-            // Store hash
-            var hash = this.hash;
-
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-            $("html, body").animate(
-              {
-                scrollTop: $(hash).offset().top,
-              },
-              1000,
-              function () {
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-              }
-            );
-          } // #ENDIF
-        });
-      });
-    </script> -->
   </body>
 </html>

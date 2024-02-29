@@ -7,9 +7,9 @@
     }
   },
   "explorer.fileNesting.patterns": {
-    ".replit": "replit.nix",
-    "package.json": "package-lock.json",
-    "REAME*": "*.${capture}"
+    "package.json": ".prettierrc, .prettierignore, bun.lockb, eslint.config.js, turbo.json",
+    "README*": "*.${capture}",
+    ".replit": "replit.*"
   },
   "cSpell.enableFiletypes": ["!typescript"],
   "prettier.prettierPath": "./node_modules/prettier/index.cjs"
