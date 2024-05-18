@@ -28,7 +28,7 @@ async function setData(value: Course[]): Promise<void> {
 
 /** Gets the storage data. */
 async function getData(): Promise<Course[] | null> {
-  return storage.getItem(arraystorage);
+  return await storage.getItem(arraystorage);
 }
 
 /** Sets the grade. */
@@ -38,7 +38,7 @@ async function setGrade(value: string): Promise<void> {
 
 /** Gets the grade. */
 async function getGrade(): Promise<string | null> {
-  return storage.getItem(gradestorage);
+  return await storage.getItem(gradestorage);
 }
 
 export { clearAll, clearData, getData, getGrade, setData, setGrade };

@@ -35,7 +35,7 @@ export default defineConfig({
       transformIndexHtml: {
         order: "post",
         handler: async (html: string): Promise<string> =>
-          minify(html, {
+          await minify(html, {
             removeAttributeQuotes: true,
             collapseWhitespace: true,
             removeComments: true,
