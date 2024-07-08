@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://www.w3schools.com/lib/w3-theme-black.css"
+    />
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="/src/script.ts" type="module"></script>
+    <title>PHS Map</title>
+  </head>
+
+  <body onload="window.startApp()" class="lightModeBg">
+    <header class="w3-container w3-theme w3-padding-16" id="my-header">
+      <!-- Side Navigation -->
+      <nav id="my-sidenav" class="sidenav">
+        <a
+          aria-label="close navigation"
+          href="javascript:void(0)"
+          class="closebtn no-bounce colored-a font-36px"
+          onclick="window.toggleNav(false)"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </a>
+        <button
+          id="darkModeButton"
+          onclick="window.toggleDarkMode()"
+          class="smallbutton w3-button w3-theme"
+        >
+          Dark Mode
+        </button>
+        <button
+          class="clearDataButton smallbutton w3-button w3-theme"
+          onclick="window.clearAll()"
+        >
+          Clear All Site Data
+        </button>
+        <div class="no-bounce align-centered"></div>
+      </nav>
+      <span onclick="window.toggleNav(true)">
+        <i class="fa-solid fa-bars"></i>
+      </span>
+
+      <div class="w3-center">
+        <h1 class="w3-animate-top phs">PHS</h1>
+        <h5 id="gradeLvl" class="w3-large w3-animate-top"></h5>
+        <h2 class="w3-xxxlarge w3-animate-left">Treasure Map</h2>
+        <h2 class="lgreen w3-xxlarge w3-animate-left">Schedules</h2>
+      </div>
+      <a class="no-bounce colored-a" href="#my-footer" aria-label="Go down!">
+        <span class="w3-xlarge">
+          <i class="fa-solid fa-circle-chevron-down"></i>
+        </span>
+      </a>
+    </header>
+
+    <div class="w3-row lightMode" id="bg">
+      <div id="c" class="lightMode w3-half w3-container w3-padding-16">
+        <img
+          id="LVL0"
+          src="/Schooloverlayl0color.jpg"
+          title="map"
+          class="display-none"
+        />
+        <img
+          id="LVL1"
+          src="/Schooloverlayl1color.jpg"
+          title="map"
+          class="display-none"
+        />
+        <img
+          id="LVL2"
+          src="/Schooloverlayl2color.jpg"
+          title="map"
+          class="display-none"
+        />
+
+        <canvas id="my-canvas"></canvas>
+        <button id="lvl0" onclick="window.lvl(0)">Level 0</button>
+        <button id="lvl1" onclick="window.lvl(1)">Level 1</button>
+        <button id="lvl2" onclick="window.lvl(2)">Level 2</button>
+        <a
+          id="download"
+          download="phs-map.jpg"
+          onclick="window.downloadImg(this);"
+        >
+          Download Current Map
+        </a>
+      </div>
+      <div id="c2" class="lightMode w3-half w3-container w3-padding-16">
+        <h3>How to use!</h3>
+        <ol>
+          <li>
+            Press the
+            <button
+              class="lime plusbuttonsml add"
+              aria-label="add"
+              onclick="window.addProf()"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            button to add a schedule.
+          </li>
+          <li>Type in the number of classes in that schedule.</li>
+          <li>Press <kbd>Submit</kbd>.</li>
+          <li>Fill out the class information.</li>
+          <li>Press <kbd>Save Courses</kbd>.</li>
+          <li>
+            Now use the passing time button in-between classes to show a path
+            between those classes!
+          </li>
+          <li>
+            Use the <kbd>Level 1</kbd> and <kbd>Level 2</kbd> buttons below the
+            map to view different floors.
+            <a
+              href="https://drive.google.com/file/d/1i5vZrMjG_jptY4Fs-r54Wgd_pd4jF10U/view?usp=sharing"
+              >Click Here for a Video Tutorial!
+            </a>
+          </li>
+          <li>
+            Now use the <kbd>Path</kbd> button in-between classes to show a path
+            between those classes!
+          </li>
+          <li>
+            Use the <kbd>Level 0</kbd>, <kbd>Level 1</kbd>, and
+            <kbd>Level 2</kbd> buttons below the map to view different floors.
+          </li>
+        </ol>
+        <p class="margin-24px"></p>
+        <span id="zod-error"></span>
+        <div id="profiles">
+          <div class="" id="tempProf1"></div>
+        </div>
+        <button
+          class="lime plusbutton add"
+          aria-label="add"
+          onclick="window.addProf()"
+        >
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+    </div>
+    <footer
+      class="footer w3-container w3-theme-dark w3-padding-16"
+      id="my-footer"
+    >
+      <a class="no-bounce colored-a" href="#my-header" aria-label="Go up!">
+        <span class="w3-xlarge">
+          <i class="fa-solid fa-circle-chevron-up"></i>
+        </span>
+      </a>
+      <h3>About</h3>
+      <h5>
+        Created by Eli, Parker Hasenkamp, and Ethan Arana for the
+        <a href="https://psdr3.org">Pattonville School District</a>
+      </h5>
+      <h5>
+        Found a Bug?
+        <a href="https://forms.gle/AtFo1ixfryVuKAEU7"> Submit a Bug Report!</a>
+      </h5>
+    </footer>
+  </body>
+</html>

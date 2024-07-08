@@ -1,0 +1,80 @@
+---
+name: Deploy to GitHub Pages
+
+env:
+  CI: true
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+  merge_group:
+  schedule:
+    - cron: "0 14 * * 1" # every monday at 9 in the morning CST
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📚 Git checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          submodules: recursive
+          clean: true
+          persist-credentials: false
+          set-safe-directory: true
+      - name: 🥟 Install Bun
+        uses: oven-sh/setup-bun@f4d14e03ff726c06358e5557344e1da148b56cf7 # v1.1.0
+        with:
+          bun-version: 1.1.12
+      - name: ⚙️ Cache Turbo
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        id: cache
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+      - name: 📦 Install dependencies
+        run: bun --bun install --frozen-lockfile
+        env:
+          SHARP_IGNORE_GLOBAL_LIBVIPS: 1
+      - name: 🌐 Disable analytics
+        run: bun --bun run turbo telemetry disable
+      - name: 🔨 Build
+        run: bun --bun run turbo build
+      - name: 📃 Setup Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+      - name: ⚙️ Upload Artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: "./dist/"
+
+  deploy:
+    name: Deploy
+    needs: [build]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    concurrency:
+      group: "pages"
+      cancel-in-progress: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 🔧 Deploy
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
