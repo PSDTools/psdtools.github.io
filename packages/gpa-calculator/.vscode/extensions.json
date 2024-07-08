@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "christian-kohler.npm-intellisense",
+    "ms-edgedevtools.vscode-edge-devtools",
+    "pwabuilder.pwa-studio",
+    "esbenp.prettier-vscode",
+    "davidanson.vscode-markdownlint",
+    "swellaby.node-pack"
+  ]
+}

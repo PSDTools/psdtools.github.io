@@ -1,0 +1,23 @@
+{
+  "trailingComma": "all",
+  "singleQuote": false,
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": [".prettierrc"],
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": ["tsconfig.json"],
+      "options": {
+        "trailingComma": "none"
+      }
+    }
+  ],
+  "experimentalTernaries": true
+}

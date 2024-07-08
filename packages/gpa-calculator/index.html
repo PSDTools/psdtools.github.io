@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <base href="/" />
+    <title>GPA Calculator</title>
+    <script type="module" src="/src/script.ts"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    id=""
+    class="bg-[url('/GPA_Calculator/bground.png')]"
+    onload="startApp()"
+  >
+    <!-- The overlay -->
+    <div id="mySidenav" class="overlay w-0">
+      <!-- Button to close the overlay navigation -->
+      <a href="javascript:void(0)" class="closebtn" onclick="toggleNav(false)"
+        >&times;</a
+      >
+
+      <!-- Overlay content -->
+      <form class="overlay-content text-white flex flex-col">
+        <p class="text-white text-sm mt-4">These actions refresh the page.</p>
+        <button
+          class="text-white m-2"
+          type="submit"
+          id="clearDataButton"
+          onclick="clearData()"
+        >
+          Clear Grade Data
+        </button>
+        <button class="text-white m-2" type="submit" onclick="clearAll()">
+          Clear All Site Data
+        </button>
+      </form>
+    </div>
+
+    <div class="main">
+      <div
+        class="grid grid-cols-6 gap-4 lg:w-1/3 lg:p-2 p-8 bg-black text-white border borderwhite border-t-0 border-l-0 border-r-0 border-b-1"
+      >
+        <button
+          type="button"
+          onclick="toggleNav(true)"
+          class="pb-8 text-xl text-white rounded-full w-8 h-8"
+        >
+          ☰
+        </button>
+
+        <h5
+          class="col-start-2 col-span-4 align-middle text-center text-3xl"
+          id="gradeLvl"
+        >
+          Middle School
+        </h5>
+        <div class="col-start-6 align-middle text-xs">
+          Grade Level
+          <label class="oldswitch">
+            <input
+              onclick="hsmsSwap()"
+              type="checkbox"
+              id="hsmsInput"
+              title="hsmsInput"
+              oninput="loadgpa();"
+            />
+            <span class="switch round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <header id="myHeader"></header>
+    <div class="lg:pb-8 lg:flex h-full text-white">
+      <div
+        class="basis-1/3 lg:rounded-br-lg lg:px-10 lg:pt-8 p-8 bg-black lg:h-screen"
+      >
+        <h5>How to use!</h5>
+        <p id="Directions">
+          Input number of classes you are taking and press "Submit", then input
+          your grades under "Grades".
+        </p>
+        <p id="Directions2">
+          Your class data will then be saved to your device. This is so if you
+          refresh, your data is saved!
+        </p>
+
+        <form>
+          <input
+            type="number"
+            placeholder="Number of Classes"
+            id="numOfClasses"
+            class="text-black rounded-sm mt-3 pl-1"
+          />
+          <button
+            onclick="classAmount()"
+            class="text-black px-1 rounded-sm"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div class="lg:w-2/3 lg:px-16 px-4 lg:p-8 p-4" id="c">
+        <h5>Grades:</h5>
+        <div id="temp1"></div>
+        <div
+          class="lg:drop-shadow-2xl lg:fixed static lg:right-16 lg:bottom-16 p-4 bg-black rounded-lg text-white"
+        >
+          <h2 class="" id="gpa">No Data</h2>
+        </div>
+        <p id="saved"></p>
+      </div>
+    </div>
+  </body>
+</html>
