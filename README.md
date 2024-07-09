@@ -1,7 +1,8 @@
-# [PSDTools.github.io](https://PSDTools.github.io/)
+# @PSDTools
 
-Our website. In the future an app linking all of our tools?
+Welcome to the PSDTools web monorepo.
+This repository contains _all_ of our websites.
 
 ## Links
 
-Replit IDE: https://replit.com/@ParkerHasenkamp/PSDTools
+- Our [app](https://github.com/PSDTools/app)
