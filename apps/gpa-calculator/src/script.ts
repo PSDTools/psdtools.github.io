@@ -1,5 +1,9 @@
 /**
- * The main script.
+ * The main script for the GPA Calculator.
+ *
+ * @remarks
+ * While it is fetched asynchronously, it is executed synchronously.
+ * Therefore, it is important to keep the script as fast as possible.
  */
 
 import "./styles/global.css";

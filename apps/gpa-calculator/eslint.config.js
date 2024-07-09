@@ -59,6 +59,7 @@ export default defineFlatConfig([
         2,
         { allowNumber: true },
       ],
+      "jsdoc/check-tag-names": "off", // TSDoc is used instead.
     },
   },
 ]);
