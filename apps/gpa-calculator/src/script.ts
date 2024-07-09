@@ -3,9 +3,9 @@
  */
 
 import "./styles/global.css";
-
 import { registerSW } from "virtual:pwa-register";
-import { newCourse, type Course } from "./data/data-types.js";
+import { type Course, newCourse } from "./data/data-types.js";
+import { getElementByIdTyped as getElementById } from "./data/utils.js";
 import {
   clearAll,
   clearData,
@@ -14,7 +14,6 @@ import {
   setData,
   setGrade,
 } from "./scripts/storage.js";
-import { getElementByIdTyped as getElementById } from "./data/utils.js";
 
 declare global {
   interface Window {

@@ -3,7 +3,11 @@
 
 import "./styles/bounce.css";
 import "./styles/style.css";
-
+import * as PF from "pathfinding";
+import { createStorage, type Storage } from "unstorage";
+import indexedDbDriver from "unstorage/drivers/indexedb";
+import { registerSW } from "virtual:pwa-register";
+import { fromZodError } from "zod-validation-error";
 import { dom, library } from "@fortawesome/fontawesome-svg-core";
 import {
   faBars,
@@ -13,21 +17,16 @@ import {
   faPlus,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import * as PF from "pathfinding";
-import { createStorage, type Storage } from "unstorage";
-import indexedDbDriver from "unstorage/drivers/indexedb";
-import { registerSW } from "virtual:pwa-register";
-import { fromZodError } from "zod-validation-error";
 import { colorMap } from "./data/colors.ts";
 import type { Coords2D, Level, Lvl, StairList } from "./data/data-types.ts";
 import { level0, level1, level2 } from "./data/levels.ts";
 import { rooms } from "./data/rooms.ts";
 import {
   isKey,
-  profilesListSchema,
-  roomSchema,
   type ProfilesList,
+  profilesListSchema,
   type Room,
+  roomSchema,
 } from "./data/schemas.ts";
 import { btmStairs, stairs } from "./data/stairs.ts";
 
@@ -343,11 +342,11 @@ async function locateCourses(profNum: number): Promise<void> {
     document.querySelector(`#nameProf${profNum}`) as HTMLInputElement
   ).value;
   for (const [i] of document.querySelectorAll(`.prof${profNum}`).entries()) {
-    profiles[profNum]![i] = [];
-    (profiles[profNum]![i] as string[])[0] = (
+    profiles[profNum][i] = [];
+    (profiles[profNum][i] as string[])[0] = (
       document.querySelector(`#rmnum${i + 1}${prof}txt`) as HTMLInputElement
     ).value;
-    (profiles[profNum]![i] as string[])[1] = (
+    (profiles[profNum][i] as string[])[1] = (
       document.querySelector(`#cl${i + 1}${prof}txt`) as HTMLInputElement
     ).value;
   }

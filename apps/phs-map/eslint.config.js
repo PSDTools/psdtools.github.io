@@ -51,6 +51,13 @@ export default defineFlatConfig([
       "@typescript-eslint/explicit-function-return-type": "warn",
       "@typescript-eslint/promise-function-async": "warn",
       "@typescript-eslint/strict-boolean-expressions": "warn",
+      // This rule doesn't support enforcing implicit return for multiline returns.
+      "arrow-return-style/arrow-return-style": "off",
+      "arrow-body-style": 0,
+      "@typescript-eslint/restrict-template-expressions": [
+        2,
+        { allowNumber: true },
+      ],
     },
   },
 ]);

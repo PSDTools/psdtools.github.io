@@ -1,10 +1,10 @@
 import { resolve } from "node:path";
 import browserslist from "browserslist";
 import browserslistToEsbuild from "browserslist-to-esbuild";
+import { minify } from "html-minifier-terser";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
-import { minify } from "html-minifier-terser";
 
 const browsersList = browserslist();
 const basename = "/GPA_Calculator/";
