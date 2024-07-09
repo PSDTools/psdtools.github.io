@@ -1,0 +1,16 @@
+{
+  "files.trimTrailingWhitespace": true,
+  "markdownlint.config": {
+    "MD028": false,
+    "MD025": {
+      "front_matter_title": ""
+    }
+  },
+  "explorer.fileNesting.patterns": {
+    "package.json": ".prettierrc, .prettierignore, bun.lockb, eslint.config.js, turbo.json",
+    "README*": "*.${capture}",
+    ".replit": "replit.*"
+  },
+  "cSpell.enableFiletypes": ["!typescript"],
+  "prettier.prettierPath": "./node_modules/prettier/index.cjs"
+}

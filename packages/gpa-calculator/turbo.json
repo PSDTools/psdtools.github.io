@@ -1,0 +1,115 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["bun.lockb"],
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "bundle",
+        "typecheck",
+        "lint",
+        "format:check"
+      ]
+    },
+    "bundle": {
+      "outputs": [
+        "dist/**"
+      ],
+      "inputs": [
+        "src/**",
+        "public/**",
+        "vite.config.ts",
+        "index.html"
+      ]
+    },
+    "lint": {
+      "inputs": [
+        "**/*.ts",
+        "eslint.config.js"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": [
+        "typecheck:src",
+        "typecheck:sw",
+        "typecheck:extra"
+      ]
+    },
+    "typecheck:src": {
+      "outputs": [
+        "node_modules/.cache/tsbuildinfo.json"
+      ],
+      "inputs": [
+        "src/**",
+        "!src/sw.ts",
+        "tsconfig.json"
+      ]
+    },
+    "typecheck:sw": {
+      "outputs": [
+        "node_modules/.cache/tsbuildinfo.sw.json"
+      ],
+      "inputs": [
+        "src/sw.ts",
+        "tsconfig.json"
+      ]
+    },
+    "typecheck:extra": {
+      "outputs": [
+        "node_modules/.cache/tsbuildinfo.extra.json"
+      ],
+      "inputs": [
+        "vite.config.ts"
+      ]
+    },
+    "format": {
+      "outputs": [
+        "node_modules/.cache/prettier/**"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "**/*.html",
+        "**/*.ts",
+        "**/*.md",
+        "**/*.json",
+        "**/*.js",
+        "**/*.css",
+        ".prettierc",
+        "!**/dist/**"
+      ]
+    },
+    "format:check": {
+      "outputs": [
+        "node_modules/.cache/prettier/**"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "**/*.html",
+        "**/*.ts",
+        "**/*.md",
+        "tsconfig*.json",
+        "turbo.json",
+        "**/*.js",
+        "**/*.css",
+        ".prettierc",
+        "!**/dist/**"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "outputs": [
+        "node_modules/.vite/**",
+        "dev-dist/**"
+      ],
+      "inputs": [
+        "src/**",
+        "public/**",
+        "vite.config.ts",
+        "index.html"
+      ]
+    }
+  },
+  "remoteCache": {
+    "enabled": false
+  }
+}

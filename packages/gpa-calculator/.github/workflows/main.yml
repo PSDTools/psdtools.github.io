@@ -1,0 +1,84 @@
+---
+name: Deploy to GitHub Pages
+
+env:
+  CI: true
+
+on:
+  # Runs on pushes to the default branch
+  push:
+    branches:
+      - main
+
+  # Runs on PRs targeting the default branch
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build_job:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.0
+        with:
+          submodules: true
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 1.0.29
+
+      - name: Cache
+        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        id: cache
+        with:
+          path: |
+            .turbo
+            node_modules
+            ~/.bun/install/cache
+          key: ${{ runner.os }}-${{ runner.arch }}-node_modules-${{ hashFiles('**/bun.lockb', '**/turbo.json') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: bun --bun install --frozen-lockfile
+        env:
+          SHARP_IGNORE_GLOBAL_LIBVIPS: 1
+
+      - name: Lint & Build
+        run: bun --bun run turbo build
+
+      - name: Redirect 404 to Index for SPA
+        run: cp dist/index.html dist/404.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3.0.5
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v1.0.8
+        with:
+          path: "./dist/"
+
+  deploy_job:
+    name: Deploy
+    needs: [build_job]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    concurrency:
+      group: "pages"
+      cancel-in-progress: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v2.0.0
