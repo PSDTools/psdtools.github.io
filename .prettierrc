@@ -11,12 +11,6 @@
       "options": {
         "parser": "json"
       }
-    },
-    {
-      "files": ["tsconfig.json"],
-      "options": {
-        "trailingComma": "none"
-      }
     }
   ],
   "experimentalTernaries": true
