@@ -8,6 +8,9 @@
     "phs-map": "workspace:*",
     "gpa-calculator": "workspace:*"
   },
+  "devDependencies": {
+    "turbo": "^2.0.6"
+  },
   "trustedDependencies": [
     "esbuild"
   ],
