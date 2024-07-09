@@ -24,7 +24,6 @@ const sheriffOptions = {
 /**
  * @type import("eslint-define-config").FlatESLintConfig[]
  */
-// @ts-expect-error: null and undefined are different.
 const sheriffRules = sheriff(sheriffOptions);
 
 export default defineFlatConfig([
