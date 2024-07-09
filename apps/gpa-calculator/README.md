@@ -1,6 +1,6 @@
-# Gpa Calculator
+# GPA Calculator
 
-A PWA that calculates your GPA!
+A PWA that calculates your grade point average!
 
 ## Created by
 
@@ -9,11 +9,9 @@ A PWA that calculates your GPA!
 
 ## Links
 
-- Github Repository:
+- Github repository:
   <https://github.com/PSDTools/GPA_Calculator>
-
-- Github Hosted Site:
+- Github-hosted site:
   <https://PSDTools.github.io/GPA_Calculator/>
-
-- Replit Project:
+- Replit project:
   <https://replit.com/@ParkerHasenkamp/GPACalculatorExpBranch>
