@@ -13,5 +13,6 @@
     "README*": "*.${capture}",
     ".replit": "replit.*"
   },
-  "cSpell.words": ["fontawesome", "fortawesome", "pathfinding", "Xmark"]
+  "cSpell.words": ["fontawesome", "fortawesome", "pathfinding", "Xmark"],
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }
