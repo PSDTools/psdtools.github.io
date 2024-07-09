@@ -116,7 +116,7 @@ function createCourse(num: number): void {
       oninput="loadgpa();"
       class="pt-4 pb-4 lg:text-2xl text-lg"
     >
-      <div id="input-con-div" class="">
+      <div id="input-con-div">
         <input
           class="hover:scale-105 w-36 placeholder-white blacktxt"
           placeholder="Class ${num}:"

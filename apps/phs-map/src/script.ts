@@ -260,7 +260,6 @@ async function remProf(profNum: number): Promise<void> {
   profiles[0]?.splice(profNum, 1);
 
   window.document.querySelector("#profiles")!.innerHTML = /* HTML */ `<div
-    class=""
     id="tempProf1"
   ></div>`;
 

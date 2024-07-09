@@ -8,16 +8,13 @@
     <script type="module" src="/src/script.ts"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body
-    id=""
-    class="bg-[url('/GPA_Calculator/bground.png')]"
-    onload="startApp()"
-  >
+  <body class="bg-[url('/GPA_Calculator/bground.png')]" onload="startApp()">
     <!-- The overlay -->
     <div id="mySidenav" class="overlay w-0">
       <!-- Button to close the overlay navigation -->
+      <!-- TODO: Semanticize this to a `<button>`. -->
       <a href="javascript:void(0)" class="closebtn" onclick="toggleNav(false)"
-        >&times;</a
+        >×</a
       >
 
       <!-- Overlay content -->
@@ -109,7 +106,7 @@
         <div
           class="lg:drop-shadow-2xl lg:fixed static lg:right-16 lg:bottom-16 p-4 bg-black rounded-lg text-white"
         >
-          <h2 class="" id="gpa">No Data</h2>
+          <h2 id="gpa">No Data</h2>
         </div>
         <p id="saved"></p>
       </div>
