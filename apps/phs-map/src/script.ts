@@ -342,7 +342,8 @@ async function locateCourses(profNum: number): Promise<void> {
     document.querySelector(`#nameProf${profNum}`) as HTMLInputElement
   ).value;
   for (const [i] of document.querySelectorAll(`.prof${profNum}`).entries()) {
-    profiles[profNum][i] = [];
+    // TODO(@lishaduck): Remove this type assertion, and fix the underlying issue.
+    profiles[profNum][i] = [] as unknown as [string, string];
     (profiles[profNum][i] as string[])[0] = (
       document.querySelector(`#rmnum${i + 1}${prof}txt`) as HTMLInputElement
     ).value;
