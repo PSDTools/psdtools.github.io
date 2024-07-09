@@ -59,6 +59,7 @@
     "vite-plugin-webfont-dl": "^3.9.1"
   },
   "trustedDependencies": [
+    "esbuild",
     "sharp"
   ],
   "scripts": {
