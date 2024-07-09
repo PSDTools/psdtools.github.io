@@ -58,8 +58,6 @@
     "vite-plugin-html-minifier": "^1.0.4",
     "vite-plugin-pwa": "^0.20.0"
   },
-  "markdown": "github",
-  "readme": "README.md",
   "trustedDependencies": [
     "esbuild",
     "sharp"
