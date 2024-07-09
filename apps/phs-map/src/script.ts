@@ -119,7 +119,7 @@ function createProfile(profNum: number): void {
   const tempElementIdNext = `tempProf${profNum + 1}`;
 
   // Creates html elements in the courses class.
-  document.querySelector(`#${tempElementId}`)!.innerHTML = `<div
+  document.querySelector(`#${tempElementId}`)!.innerHTML = /* HTML */ `<div
       class="prof txtbox w3-animate-right"
       id="profBox${prof}"
     >
@@ -156,7 +156,7 @@ function createCourse(num: number, profNum: number): void {
   const tempElementIdNext = `temp${prof}${numNext}`;
 
   // Creates html elements in the courses class.
-  document.querySelector(`#${tempElementId}`)!.innerHTML = `<div
+  document.querySelector(`#${tempElementId}`)!.innerHTML = /* HTML */ `<div
       id="input-con-div"
       class=" input-container lightModeInput"
     >
@@ -251,7 +251,7 @@ async function remProf(profNum: number): Promise<void> {
   profiles.splice(profNum, 1);
   profiles[0]?.splice(profNum, 1);
 
-  window.document.querySelector("#profiles")!.innerHTML = `<div
+  window.document.querySelector("#profiles")!.innerHTML = /* HTML */ `<div
     class=""
     id="tempProf1"
   ></div>`;

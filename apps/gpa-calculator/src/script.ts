@@ -82,7 +82,7 @@ async function hsmsSwap(): Promise<void> {
     );
 
     for (const element of getTypeIds()) {
-      element.innerHTML = `<form>
+      element.innerHTML = /* HTML */ `<form>
         <select class="blacktxt" id="cltyp${element.id.slice(6)}">
           <option value="1">No-Weight</option>
           <option value="2">Honors</option>
@@ -108,7 +108,7 @@ function createCourse(num: number): void {
   tempElementIdNext = `temp${num + 1}`;
 
   // creates html elements in the courses class
-  getElementById(tempElementId, HTMLDivElement)!.innerHTML = `<div
+  getElementById(tempElementId, HTMLDivElement)!.innerHTML = /* HTML */ `<div
       oninput="loadgpa();"
       class="pt-4 pb-4 lg:text-2xl text-lg"
     >
