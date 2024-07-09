@@ -1,3 +1,4 @@
+import { resolve } from "node:path";
 import browserslist from "browserslist";
 import browserslistToEsbuild from "browserslist-to-esbuild";
 import { browserslistToTargets } from "lightningcss";
@@ -15,7 +16,8 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       input: {
-        main: import.meta.resolve("./index.html"),
+        // TODO(lishaduck): Once oven-sh/bun#2472 is resolved, use it. Pun not intended :)
+        main: resolve(import.meta.dirname, "index.html"),
       },
     },
     target: browserslistToEsbuild(browsersList),
