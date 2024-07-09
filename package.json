@@ -1,0 +1,14 @@
+{
+  "name": "psdtools",
+  "version": "0.0.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "dependencies": {
+    "phs-map": "workspace:*",
+    "gpa-calculator": "workspace:*"
+  },
+  "trustedDependencies": [
+    "esbuild"
+  ]
+}
