@@ -1,6 +1,7 @@
 {
   "name": "psdtools",
   "version": "0.0.0",
+  "type": "module",
   "workspaces": [
     "apps/*",
     "packages/*"
