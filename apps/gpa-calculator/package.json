@@ -52,10 +52,10 @@
     "eslint": "^8.57.0",
     "eslint-config-sheriff": "^18.5.0",
     "eslint-define-config": "^2.1.0",
-    "html-minifier-terser": "^7.2.0",
     "lightningcss": "^1.25.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
+    "vite-plugin-html-minifier": "^1.0.4",
     "vite-plugin-pwa": "^0.20.0"
   },
   "markdown": "github",

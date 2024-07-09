@@ -1,8 +1,8 @@
 import browserslist from "browserslist";
 import browserslistToEsbuild from "browserslist-to-esbuild";
-import { minify } from "html-minifier-terser";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
+import htmlMinifier from "vite-plugin-html-minifier";
 import { VitePWA } from "vite-plugin-pwa";
 import webfontDownload from "vite-plugin-webfont-dl";
 
@@ -31,28 +31,9 @@ export default defineConfig({
   },
   plugins: [
     webfontDownload(["https://fonts.googleapis.com/css?family=Lato"]),
-    {
-      name: "html-minify", // Name of the plugin
-      transformIndexHtml: {
-        order: "post",
-        handler: async (html: string): Promise<string> =>
-          minify(html, {
-            removeAttributeQuotes: true,
-            collapseWhitespace: true,
-            removeComments: true,
-            removeRedundantAttributes: true,
-            useShortDoctype: true,
-            removeEmptyAttributes: true,
-            collapseBooleanAttributes: true,
-            minifyURLs: true,
-            collapseInlineTagWhitespace: true,
-            decodeEntities: true,
-            noNewlinesBeforeTagClose: true,
-            removeStyleLinkTypeAttributes: true,
-            removeScriptTypeAttributes: true,
-          }),
-      },
-    },
+    htmlMinifier({
+      minify: true,
+    }),
     VitePWA({
       strategies: "injectManifest",
       injectManifest: {
