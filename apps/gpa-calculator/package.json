@@ -64,7 +64,6 @@
     "format:check": "prettier . --check",
     "lint": "eslint ."
   },
-  "packageManager": "bun@1.0.13",
   "browserslist": [
     "defaults and fully supports es6-module"
   ]

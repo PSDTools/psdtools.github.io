@@ -10,5 +10,6 @@
   },
   "trustedDependencies": [
     "esbuild"
-  ]
+  ],
+  "packageManager": "bun@1.0.29"
 }
