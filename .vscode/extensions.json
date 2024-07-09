@@ -1,9 +1,11 @@
 {
   "recommendations": [
-    "christian-kohler.npm-intellisense",
-    "ms-edgedevtools.vscode-edge-devtools",
     "pwabuilder.pwa-studio",
+    "Vercel.turbo-vsc",
     "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "webhint.vscode-webhint",
+    "christian-kohler.npm-intellisense",
     "davidanson.vscode-markdownlint",
     "swellaby.node-pack"
   ]

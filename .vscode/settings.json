@@ -1,4 +1,6 @@
 {
+  "eslint.useFlatConfig": true,
+  "eslint.workingDirectories": ["apps/gpa-calculator", "app/phs-map"],
   "files.trimTrailingWhitespace": true,
   "markdownlint.config": {
     "MD028": false,
@@ -11,6 +13,5 @@
     "README*": "*.${capture}",
     ".replit": "replit.*"
   },
-  "cSpell.enableFiletypes": ["!typescript"],
-  "prettier.prettierPath": "./node_modules/prettier/index.cjs"
+  "cSpell.words": ["fontawesome", "fortawesome", "pathfinding", "Xmark"]
 }
