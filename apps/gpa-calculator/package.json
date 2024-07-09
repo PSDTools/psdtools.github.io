@@ -1,18 +1,16 @@
 {
   "name": "gpa-calculator",
-  "private": true,
   "version": "1.1.0",
+  "private": true,
   "description": "A GPA calculator for built for students in the Pattonville School District.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PSDTools/GPA_Calculator.git"
   },
-  "markdown": "github",
   "author": {
     "name": "Parker Hasenkamp",
     "email": "58083460+PetalCat@users.noreply.github.com"
   },
-  "readme": "README.md",
   "contributors": [
     {
       "name": "Eli",
@@ -25,6 +23,19 @@
       "./src/script.ts"
     ]
   },
+  "scripts": {
+    "bundle": "vite build",
+    "dev": "vite --open",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "eslint .",
+    "typecheck:extra": "tsc -p tsconfig.eslint.json",
+    "typecheck:src": "tsc",
+    "typecheck:sw": "tsc -p tsconfig.sw.json"
+  },
+  "browserslist": [
+    "defaults and fully supports es6-module"
+  ],
   "dependencies": {
     "idb-keyval": "^6.2.1",
     "unstorage": "^1.10.2",
@@ -52,19 +63,8 @@
     "vite": "^5.2.11",
     "vite-plugin-pwa": "^0.20.0"
   },
-  "scripts": {
-    "dev": "vite --open",
-    "bundle": "vite build",
-    "typecheck:src": "tsc",
-    "typecheck:sw": "tsc -p tsconfig.sw.json",
-    "typecheck:extra": "tsc -p tsconfig.eslint.json",
-    "format": "prettier . --write",
-    "format:check": "prettier . --check",
-    "lint": "eslint ."
-  },
-  "browserslist": [
-    "defaults and fully supports es6-module"
-  ],
+  "markdown": "github",
+  "readme": "README.md",
   "trustedDependencies": [
     "esbuild",
     "sharp"

@@ -1,18 +1,16 @@
 {
   "name": "phs-map",
-  "private": true,
   "version": "1.2.1",
+  "private": true,
   "description": "(Formerly) A starter kit for building PWAs!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PSDTools/PHS-Map.git"
   },
-  "markdown": "github",
   "author": {
     "name": "Parker Hasenkamp",
     "email": "58083460+PetalCat@users.noreply.github.com"
   },
-  "readme": "README.md",
   "contributors": [
     {
       "name": "Eli",
@@ -25,6 +23,19 @@
       "./src/script.js"
     ]
   },
+  "scripts": {
+    "bundle": "vite build",
+    "dev": "vite --open",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "eslint .",
+    "typecheck:extra": "tsc -p tsconfig.eslint.json",
+    "typecheck:src": "tsc",
+    "typecheck:sw": "tsc -p tsconfig.sw.json"
+  },
+  "browserslist": [
+    "defaults and fully supports es6-module"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -58,21 +69,10 @@
     "vite-plugin-pwa": "^0.19.0",
     "vite-plugin-webfont-dl": "^3.9.1"
   },
+  "markdown": "github",
+  "readme": "README.md",
   "trustedDependencies": [
     "esbuild",
     "sharp"
-  ],
-  "scripts": {
-    "dev": "vite --open",
-    "bundle": "vite build",
-    "typecheck:src": "tsc",
-    "typecheck:sw": "tsc -p tsconfig.sw.json",
-    "typecheck:extra": "tsc -p tsconfig.eslint.json",
-    "format": "prettier . --write",
-    "format:check": "prettier . --check",
-    "lint": "eslint ."
-  },
-  "browserslist": [
-    "defaults and fully supports es6-module"
   ]
 }
