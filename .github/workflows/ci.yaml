@@ -1,0 +1,133 @@
+---
+name: Continuous Integration
+
+on:
+  # Run on pushes to the default branch.
+  push:
+    branches:
+      - main
+
+  # Run on all PRs.
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+  # Support merge queues.
+  merge_group:
+
+  # Run on a schedule.
+  schedule:
+    - cron: "0 14 * * 1" # Every Monday at 9 in the morning CST
+
+  # Allow running this workflow manually from the Actions tab.
+  workflow_dispatch:
+
+env:
+  DENO_VERSION: v1.44.4
+
+permissions:
+  contents: read # Needed to clone the repository
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Git checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          submodules: recursive
+          clean: true
+          persist-credentials: false
+          set-safe-directory: true
+      - name: 🥟 Install Bun
+        uses: oven-sh/setup-bun@123c6c4e2fea3eb7bffaa91a85eb6b3d505bf7af # v2
+        with:
+          bun-version: 1.1.18
+      - name: ⚙️ Cache Turbo
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        id: cache
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+      - name: 📦 Install dependencies
+        run: bun --bun install --frozen-lockfile
+        env:
+          SHARP_IGNORE_GLOBAL_LIBVIPS: 1
+      - name: 🌐 Disable analytics
+        run: bun --bun run turbo telemetry disable
+      - name: 🔨 Build
+        run: bun --bun run turbo run build
+      - name: ⚙️ Upload GPA Calculator
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          name: gpa-calculator
+          path: "./apps/gpa-calculator/dist/"
+      - name: ⚙️ Upload Map
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          name: phs-map
+          path: "./apps/phs-map/dist/"
+
+  deploy-calculator:
+    name: Deploy GPA Calculator
+    needs: [build]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+    concurrency:
+      group: ${{ github.workflow }}-deploy
+      cancel-in-progress: true
+
+    steps:
+      - name: 🦕 Install Deno
+        uses: denoland/setup-deno@041b854f97b325bd60e53e9dc2de9cb9f9ac0cba # v1.1.4
+        with:
+          deno-version: ${{ env.DENO_VERSION }}
+      - name: ⚙️ Download GPA Calculator
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
+        with:
+          name: gpa-calculator
+      - name: 🔧 Upload to Deno Deploy
+        id: deploy
+        uses: denoland/deployctl@612f83df2b874c6908d68de5cf3f36a6538fa8f7 # 1.12.0
+        with:
+          project: "gpa-calculator"
+          entrypoint: https://deno.land/std@0.224.0/http/file_server.ts
+          root: "./apps/gpa-calculator/dist/"
+
+  deploy-map:
+    name: Deploy Map
+    needs: [build]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+    concurrency:
+      group: ${{ github.workflow }}-deploy
+      cancel-in-progress: true
+
+    steps:
+      - name: 🦕 Install Deno
+        uses: denoland/setup-deno@041b854f97b325bd60e53e9dc2de9cb9f9ac0cba # v1.1.4
+        with:
+          deno-version: ${{ env.DENO_VERSION }}
+      - name: ⚙️ Download Map
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
+        with:
+          name: phs-map
+      - name: 🔧 Upload to Deno Deploy
+        id: deploy
+        uses: denoland/deployctl@612f83df2b874c6908d68de5cf3f36a6538fa8f7 # 1.12.0
+        with:
+          project: "phs-map"
+          entrypoint: https://deno.land/std@0.224.0/http/file_server.ts
+          root: "./apps/phs-map/dist/"
