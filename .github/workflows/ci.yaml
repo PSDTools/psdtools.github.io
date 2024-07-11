@@ -62,7 +62,7 @@ jobs:
       - name: 🌐 Disable analytics
         run: bun --bun run turbo telemetry disable
       - name: 🔨 Build
-        run: bun --bun run turbo run build --continue
+        run: bun --bun run turbo run build
       - name: ⚙️ Upload GPA Calculator
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
