@@ -9,10 +9,13 @@
     }
   },
   "explorer.fileNesting.patterns": {
-    "package.json": ".prettierrc, .prettierignore, bun.lockb, eslint.config.js, turbo.json",
+    "package.json": ".prettierrc, .prettierignore, eslint.config.js, turbo.json",
     "README*": "*.${capture}",
     ".replit": "replit.*"
   },
   "cSpell.words": ["fontawesome", "fortawesome", "pathfinding", "Xmark"],
-  "typescript.tsdk": "./node_modules/typescript/lib"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.sortImports": "never"
+  }
 }

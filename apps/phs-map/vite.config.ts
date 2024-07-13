@@ -16,7 +16,6 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       input: {
-        // TODO(lishaduck): Once oven-sh/bun#2472 is resolved, use it. Pun not intended :)
         main: new URL(import.meta.resolve("./index.html")).pathname,
       },
     },

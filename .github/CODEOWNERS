@@ -21,8 +21,8 @@
 
 .prettierrc       @lishaduck
 .prettierignore   @lishaduck
-bun.lockb         @lishaduck
 eslint.config.js  @lishaduck
 package.json      @lishaduck
+pnpm-lock.yaml    @lishaduck
 tsconfig.*json    @lishaduck
 vite.config.ts    @lishaduck

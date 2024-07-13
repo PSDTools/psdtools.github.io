@@ -3,12 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "turbo run build"
   },
   "dependencies": {
     "gpa-calculator": "workspace:*",
@@ -21,5 +18,8 @@
     "prettier": "^3.3.2",
     "turbo": "^2.0.6"
   },
-  "packageManager": "bun@1.0.29"
+  "engines": {
+    "node": "22.4.1"
+  },
+  "packageManager": "pnpm@9.5.0"
 }

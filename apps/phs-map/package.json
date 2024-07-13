@@ -46,7 +46,6 @@
     "@eslint-types/typescript-eslint": "^6.21.0",
     "@eslint-types/unicorn": "^51.0.1",
     "@sherifforg/types": "^3.0.0",
-    "@types/bun": "^1.0.7",
     "@types/eslint": "^8.56.3",
     "@types/html-minifier-terser": "^7.0.2",
     "@types/pathfinding": "^0.0.9",
@@ -60,7 +59,7 @@
     "typescript": "^5.3.3",
     "vite": "^5.1.4",
     "vite-plugin-html-minifier": "^1.0.4",
-    "vite-plugin-pwa": "^0.19.0",
+    "vite-plugin-pwa": "^0.20.0",
     "vite-plugin-webfont-dl": "^3.9.1"
   },
   "trustedDependencies": [
