@@ -1,10 +1,12 @@
+// @ts-check
 import { sheriff } from "eslint-config-sheriff";
 import { defineFlatConfig } from "eslint-define-config";
 
 /**
- * @type import("@sherifforg/types").SheriffSettings
+ * @import {SheriffSettings} from "@sherifforg/types"
  */
-const sheriffOptions = {
+
+const sheriffOptions = /** @satisfies {SheriffSettings} */ ({
   react: false,
   lodash: false,
   next: false,
@@ -19,15 +21,10 @@ const sheriffOptions = {
       "./tsconfig.eslint.json",
     ],
   },
-};
-
-/**
- * @type import("eslint-define-config").FlatESLintConfig[]
- */
-const sheriffRules = sheriff(sheriffOptions);
+});
 
 export default defineFlatConfig([
-  ...sheriffRules,
+  ...sheriff(sheriffOptions),
   {
     files: ["**/*.ts"],
     rules: {
