@@ -23,7 +23,6 @@
     "dev": "vite --open",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint": "eslint . --report-unused-disable-directives --max-warnings=0",
     "typecheck:extra": "tsc -p tsconfig.eslint.json",
     "typecheck:src": "tsc",
     "typecheck:sw": "tsc -p tsconfig.sw.json"
