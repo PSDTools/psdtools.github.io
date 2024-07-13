@@ -43,10 +43,10 @@
     "zod-validation-error": "^3.0.2"
   },
   "devDependencies": {
-    "@eslint-types/typescript-eslint": "^6.21.0",
-    "@eslint-types/unicorn": "^51.0.1",
-    "@sherifforg/types": "^3.0.0",
-    "@types/eslint": "^8.56.3",
+    "@eslint-types/typescript-eslint": "^7.5.0",
+    "@eslint-types/unicorn": "^52.0.0",
+    "@sherifforg/types": "^3.1.2",
+    "@types/eslint": "^8.56.10",
     "@types/html-minifier-terser": "^7.0.2",
     "@types/pathfinding": "^0.0.9",
     "@vite-pwa/assets-generator": "^0.2.4",
@@ -56,7 +56,7 @@
     "eslint-config-sheriff": "^18.7.0",
     "eslint-define-config": "^2.1.0",
     "lightningcss": "^1.24.0",
-    "typescript": "^5.3.3",
+    "typescript": "^5.5.3",
     "vite": "^5.1.4",
     "vite-plugin-html-minifier": "^1.0.4",
     "vite-plugin-pwa": "^0.20.0",

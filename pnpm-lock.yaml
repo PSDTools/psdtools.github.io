@@ -59,7 +59,7 @@ importers:
         specifier: ^52.0.0
         version: 52.0.0
       '@sherifforg/types':
-        specifier: ^3.1.1
+        specifier: ^3.1.2
         version: 3.1.2
       '@types/eslint':
         specifier: ^8.56.10
@@ -89,7 +89,7 @@ importers:
         specifier: ^1.25.0
         version: 1.25.1
       typescript:
-        specifier: ^5.4.5
+        specifier: ^5.5.3
         version: 5.5.3
       vite:
         specifier: ^5.2.11
@@ -135,16 +135,16 @@ importers:
         version: 3.3.0(zod@3.23.8)
     devDependencies:
       '@eslint-types/typescript-eslint':
-        specifier: ^6.21.0
-        version: 6.21.0
+        specifier: ^7.5.0
+        version: 7.5.0
       '@eslint-types/unicorn':
-        specifier: ^51.0.1
-        version: 51.0.1
+        specifier: ^52.0.0
+        version: 52.0.0
       '@sherifforg/types':
-        specifier: ^3.0.0
+        specifier: ^3.1.2
         version: 3.1.2
       '@types/eslint':
-        specifier: ^8.56.3
+        specifier: ^8.56.10
         version: 8.56.10
       '@types/html-minifier-terser':
         specifier: ^7.0.2
@@ -174,7 +174,7 @@ importers:
         specifier: ^1.24.0
         version: 1.25.1
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.5.3
         version: 5.5.3
       vite:
         specifier: ^5.1.4
@@ -1038,14 +1038,8 @@ packages:
   '@eslint-react/var@1.5.24':
     resolution: {integrity: sha512-KUQdkNUyipyj8wxb38Gtq+wibL7NJGnnq6HwTFMURnzNgZAhzoVZ/fQ7kFrUbzjUFWfk/N5HzRjUlUJ3p0YbkQ==}
 
-  '@eslint-types/typescript-eslint@6.21.0':
-    resolution: {integrity: sha512-ao4TdMLw+zFdAJ9q6iBBxC5GSrJ14Hpv0VKaergr++jRTDaGgoYiAq84tx1FYqUJzQgzJC7dm6s52IAQP7EiHA==}
-
   '@eslint-types/typescript-eslint@7.5.0':
     resolution: {integrity: sha512-zKvsPBDq6o0L4p2sRtq8fxOtGc+mm37aZSXLsiD4DIRl2kYUxKNO9CKDTAgmuMYUzih9J7lbLxAomreLrdAiVQ==}
-
-  '@eslint-types/unicorn@51.0.1':
-    resolution: {integrity: sha512-RuuEK+dBISEikf7a8lrWOrDCUYv09sZfqLoG/kozH+5UqEvot1xMmGHXomGkTyB68rzjgJe0N4uESVyL62obJw==}
 
   '@eslint-types/unicorn@52.0.0':
     resolution: {integrity: sha512-1+Om/IekT0AwlPiARvhbtKsSgVMu3ZAtP99YCzhHkDSnF5f8sQegh8/3ZmMhlCnKipa7/x8qEC7Bn4rbaagnSA==}
@@ -5353,11 +5347,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@eslint-types/typescript-eslint@6.21.0': {}
-
   '@eslint-types/typescript-eslint@7.5.0': {}
-
-  '@eslint-types/unicorn@51.0.1': {}
 
   '@eslint-types/unicorn@52.0.0': {}
 
