@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "prepare": "husky",
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "dependencies": {
     "gpa-calculator": "workspace:*",
