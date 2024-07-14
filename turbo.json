@@ -29,7 +29,6 @@
     "typecheck": {
       "dependsOn": [
         "typecheck:src",
-        "typecheck:sw",
         "typecheck:extra"
       ]
     },
@@ -39,16 +38,6 @@
       ],
       "inputs": [
         "src/**",
-        "!src/sw.ts",
-        "tsconfig.json"
-      ]
-    },
-    "typecheck:sw": {
-      "outputs": [
-        "node_modules/.cache/tsbuildinfo.sw.json"
-      ],
-      "inputs": [
-        "src/sw.ts",
         "tsconfig.json"
       ]
     },

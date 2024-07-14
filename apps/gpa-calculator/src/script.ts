@@ -7,7 +7,6 @@
  */
 
 import "./styles/global.css";
-import { registerSW } from "virtual:pwa-register";
 import { type Course, newCourse } from "./data/data-types.js";
 import { getElementByIdTyped as getElementById } from "./data/utils.js";
 import {
@@ -352,40 +351,7 @@ async function getStorage(): Promise<void> {
   }
 }
 
-async function updateSw(): Promise<void> {
-  await registerSW({
-    onRegisteredSW(swUrl, r) {
-      const intervalMS = 60 * 60 * 1000;
-
-      r &&
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        setInterval(async (): Promise<void> => {
-          if (r.installing !== null) {
-            return;
-          }
-
-          if (Object.hasOwn(navigator, "connection") && !navigator.onLine) {
-            return;
-          }
-
-          const resp = await fetch(swUrl, {
-            cache: "no-store",
-            headers: {
-              cache: "no-store",
-              "cache-control": "no-cache",
-            },
-          });
-
-          if (resp.status === 200) {
-            await r.update();
-          }
-        }, intervalMS);
-    },
-  })(true);
-}
-
 async function startApp(): Promise<void> {
-  await updateSw();
   await getStorage();
 }
 

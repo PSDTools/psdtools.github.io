@@ -24,8 +24,7 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "typecheck:extra": "tsc -p tsconfig.eslint.json",
-    "typecheck:src": "tsc",
-    "typecheck:sw": "tsc -p tsconfig.sw.json"
+    "typecheck:src": "tsc"
   },
   "browserslist": [
     "defaults and fully supports es6-module"

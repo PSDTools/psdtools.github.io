@@ -15,11 +15,7 @@ const sheriffOptions = /** @satisfies {SheriffSettings} */ ({
   vitest: false,
   // astro: false, // THIS DOESN'T DO ANYTHING!
   pathsOveriddes: {
-    tsconfigLocation: [
-      "./tsconfig.json",
-      "./tsconfig.sw.json",
-      "./tsconfig.eslint.json",
-    ],
+    tsconfigLocation: ["./tsconfig.json", "./tsconfig.eslint.json"],
   },
 });
 
