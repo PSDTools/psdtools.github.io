@@ -2,16 +2,16 @@
 
 A PWA that calculates your grade point average!
 
-## Created by
-
-- Parker Hasenkamp ([**@ParkerH27**](https://github.com/ParkerH27))
-- Eli D. ([**@lishaduck**](https://github.com/lishaduck))
-
 ## Links
 
 - Github repository:
-  <https://github.com/PSDTools/GPA_Calculator>
-- Github-hosted site:
-  <https://PSDTools.github.io/GPA_Calculator/>
+  <https://github.com/PSDTools/psdtools.github.io>
+- Deno-hosted site:
+  <https://gpa-calculator.deno.dev>
 - Replit project:
   <https://replit.com/@ParkerHasenkamp/GPACalculatorExpBranch>
+
+## Credits
+
+- Parker Hasenkamp ([**@ParkerH27**](https://github.com/ParkerH27))
+- Eli D. ([**@lishaduck**](https://github.com/lishaduck))

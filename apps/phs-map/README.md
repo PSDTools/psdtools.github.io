@@ -1,10 +1,15 @@
-# PHS-Map
+# PHS Map
 
-A website that is a map of PHS!
+A website that is a map of Pattonville Senior High School!
 
-The source code used to be available at [PSDTools/PHS-Map-old](https://github.com/PSDTools/PHS-Map-old/).
+## Links
 
-## Created by
+- Github repository:
+  <https://github.com/PSDTools/psdtools.github.io>
+- Deno-hosted site:
+  <https://phs-map.deno.dev>
+
+## Credits
 
 - Parker Hasenkamp ([**@ParkerH27**](https://github.com/ParkerH27))
 - Ethan A ([**@EthanA1**](https://github.com/EthanA1))
