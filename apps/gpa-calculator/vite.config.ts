@@ -6,11 +6,9 @@ import htmlMinifier from "vite-plugin-html-minifier";
 import { VitePWA } from "vite-plugin-pwa";
 
 const browsersList = browserslist();
-const basename = "/GPA_Calculator/";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: basename,
   build: {
     sourcemap: true,
     rollupOptions: {
@@ -47,11 +45,11 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
       },
       manifest: {
-        id: basename,
-        scope: basename,
+        id: "/",
+        scope: "/",
         name: "Pattonville GPA Calculator",
         display: "standalone",
-        start_url: basename,
+        start_url: "/",
         short_name: "GPA Calculator",
         theme_color: "#00843e",
         description: "GPA Calculator for Pattonville",

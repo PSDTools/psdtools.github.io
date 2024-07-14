@@ -38,7 +38,7 @@ import {
 import { btmStairs, stairs } from "./data/stairs.ts";
 
 const storage: Storage = createStorage({
-  driver: indexedDbDriver({ base: "app:" }),
+  driver: indexedDbDriver({ base: "map:" }),
 });
 
 declare global {

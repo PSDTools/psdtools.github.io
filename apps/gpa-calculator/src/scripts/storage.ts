@@ -3,7 +3,7 @@ import indexedDbDriver from "unstorage/drivers/indexedb";
 import type { Course } from "../data/data-types";
 
 const storage: Storage = createStorage({
-  driver: indexedDbDriver({ base: "app:" }),
+  driver: indexedDbDriver({ base: "gpa:" }),
 });
 
 const arraystorage = "arraystorage";
