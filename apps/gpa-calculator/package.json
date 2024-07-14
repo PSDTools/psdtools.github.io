@@ -33,9 +33,6 @@
   "dependencies": {
     "idb-keyval": "^6.2.1",
     "unstorage": "^1.10.2",
-    "workbox-build": "^7.1.0",
-    "workbox-core": "^7.1.0",
-    "workbox-precaching": "^7.1.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -44,6 +41,7 @@
     "@sherifforg/types": "^3.1.2",
     "@types/eslint": "^8.56.10",
     "@types/html-minifier-terser": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@vite-pwa/assets-generator": "^0.2.4",
     "browserslist": "^4.23.0",
     "browserslist-to-esbuild": "^2.1.1",
@@ -54,7 +52,11 @@
     "typescript": "^5.5.3",
     "vite": "^5.2.11",
     "vite-plugin-html-minifier": "^1.0.4",
-    "vite-plugin-pwa": "^0.20.0"
+    "vite-plugin-pwa": "^0.20.0",
+    "workbox-build": "^7.1.1",
+    "workbox-core": "^7.1.0",
+    "workbox-precaching": "^7.1.0",
+    "workbox-window": "^7.1.0"
   },
   "trustedDependencies": [
     "esbuild",
