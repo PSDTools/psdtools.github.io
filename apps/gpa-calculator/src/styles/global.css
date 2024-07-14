@@ -56,9 +56,6 @@ button {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -70,9 +67,6 @@ button {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -85,10 +79,6 @@ input:focus + .switch {
 }
 
 input:checked + .switch:before {
-  -webkit-transform: translateX(26px);
-  -moz-transform: translateX(26px);
-  -o-transform: translateX(26px);
-  -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
@@ -214,7 +204,7 @@ input[type="range"] {
   2. Shadow is negative the full width of the input and has a spread of the width of the input.
  */
 ::-webkit-slider-thumb {
-  -webkit-appearance: none;
+  appearance: none;
   width: 25px; /* 1 */
   height: 25px;
   border-radius: 13px;
