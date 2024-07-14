@@ -93,6 +93,11 @@
         "vite.config.ts",
         "index.html"
       ]
+    },
+    "//#manypkg": {
+      "inputs": [
+        "**/package.json"
+      ]
     }
   },
   "remoteCache": {
