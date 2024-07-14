@@ -98,6 +98,16 @@
       "inputs": [
         "**/package.json"
       ]
+    },
+    "//#typesync": {
+      "inputs": [
+        "**/package.json"
+      ]
+    },
+    "//#typesync:check": {
+      "inputs": [
+        "**/package.json"
+      ]
     }
   },
   "remoteCache": {
