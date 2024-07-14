@@ -6,3 +6,4 @@
 .git/
 /turbo.json
 pnpm-lock.yaml
+vite.config.ts.timestamp-*.mjs
