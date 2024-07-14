@@ -7,8 +7,8 @@
  */
 
 import "./styles/global.css";
+import type {} from "typed-query-selector/strict";
 import { type Course, newCourse } from "./data/data-types.js";
-import { getElementByIdTyped as getElementById } from "./data/utils.js";
 import {
   clearAll,
   clearData,
@@ -42,8 +42,8 @@ let tempElementIdNext = "";
 
 const high = "High School";
 const middle = "Middle School";
-const hsmsInput = getElementById("hsmsInput", HTMLInputElement)!;
-const gradeLvl = getElementById("gradeLvl", HTMLElement)!;
+const hsmsInput = document.querySelector("input#hsmsInput")!;
+const gradeLvl = document.querySelector("#gradeLvl")!;
 
 window.clearData = clearData;
 window.clearAll = clearAll;
@@ -57,7 +57,7 @@ window.clearAll = clearAll;
  * @param open - If you want to open the sidebar (defaults to close).
  */
 function toggleNav(open: boolean): void {
-  const classlist = getElementById("mySidenav", HTMLDivElement)?.classList;
+  const classlist = document.querySelector("div#mySidenav")?.classList;
   const w100 = "w-full";
   const w0 = "w-0";
 
@@ -67,7 +67,7 @@ function toggleNav(open: boolean): void {
 window.toggleNav = toggleNav;
 
 function getTypeIds(): NodeListOf<HTMLSpanElement> {
-  return document.querySelectorAll<HTMLSpanElement>('[id^="typeId"]');
+  return document.querySelectorAll('span[id^="typeId"]');
 }
 
 /**
@@ -80,7 +80,7 @@ async function hsmsSwap(): Promise<void> {
     gradeLvl.innerHTML = high;
 
     await setGrade(String(checked));
-    getElementById("numOfClasses", HTMLInputElement)!.value = String(
+    document.querySelector("input#numOfClasses")!.value = String(
       courses.length,
     );
 
@@ -111,7 +111,7 @@ function createCourse(num: number): void {
   tempElementIdNext = `temp${num + 1}`;
 
   // creates html elements in the courses class
-  getElementById(tempElementId, HTMLDivElement)!.innerHTML = /* HTML */ `<div
+  document.querySelector(`div#${tempElementId}`)!.innerHTML = /* HTML */ `<div
       oninput="loadgpa();"
       class="pt-4 pb-4 lg:text-2xl text-lg"
     >
@@ -163,9 +163,9 @@ function createCourse(num: number): void {
  * Remove "Saved!" text.
  */
 function saveRemove(): void {
-  const element = getElementById("saved", HTMLElement);
+  const element = document.querySelector("#saved");
 
-  if (element !== undefined) {
+  if (element !== null) {
     element.innerHTML = "";
   }
 }
@@ -189,10 +189,10 @@ async function loadgpa(): Promise<void> {
     tempCTYID = `cltyp${itr + 1}`;
 
     course.letterGrade = Number(
-      getElementById(tempLGID, HTMLSelectElement)!.value,
+      document.querySelector(`select#${tempLGID}`)!.value,
     );
 
-    course.classText = getElementById(tempCTID, HTMLInputElement)!.value;
+    course.classText = document.querySelector(`input#${tempCTID}`)!.value;
   }
 
   // remove N/A from addition
@@ -218,20 +218,17 @@ async function loadgpa(): Promise<void> {
   // Round.
   const roundedgpa = Math.round(gpa * 100) / 100;
 
-  getElementById("gpa", HTMLHeadingElement)!.innerHTML =
-    `Your GPA is a: ${roundedgpa}`;
+  document.querySelector("h2#gpa")!.innerHTML = `Your GPA is a: ${roundedgpa}`;
 
   // shows save text
-  getElementById("saved", HTMLParagraphElement)!.innerHTML = "Saved!";
+  document.querySelector("p#saved")!.innerHTML = "Saved!";
   setTimeout(saveRemove, 1000);
 
   // save storage
   await setData(courses);
   for (const [itr] of courses.entries()) {
-    getElementById(`slide${itr + 1}`, HTMLInputElement)!.value = getElementById(
-      `cl${itr + 1}`,
-      HTMLSelectElement,
-    )!.value;
+    document.querySelector(`input#slide${itr + 1}`)!.value =
+      document.querySelector(`select#cl${itr + 1}`)!.value;
   }
 }
 window.loadgpa = loadgpa;
@@ -241,7 +238,7 @@ async function classAmount(): Promise<void> {
 
   // get textbox with number of classes
   classAmountNum = Math.abs(
-    parseInt(getElementById("numOfClasses", HTMLInputElement)!.value),
+    parseInt(document.querySelector("input#numOfClasses")!.value),
   );
 
   if (
@@ -267,7 +264,7 @@ async function classAmount(): Promise<void> {
   // calculates and saves the gpa
   await loadgpa();
   // sets the gpa text to ""
-  getElementById("gpa", HTMLHeadingElement)!.innerHTML = "";
+  document.querySelector("h2#gpa")!.innerHTML = "";
 }
 window.classAmount = classAmount;
 
@@ -307,11 +304,11 @@ function fromStorage(arraystorage: Course[]): void {
       tempCTID = `cl${itr2 + 1}txt`;
       tempCTYID = `cltyp${itr2 + 1}`;
 
-      getElementById(tempLGID, HTMLSelectElement)!.value = String(
+      document.querySelector(`select#${tempLGID}`)!.value = String(
         course.letterGrade,
       );
-      getElementById(tempCTID, HTMLInputElement)!.value = course.classText;
-      getElementById(tempCTYID, HTMLSelectElement)!.value = course.classType;
+      document.querySelector(`input#${tempCTID}`)!.value = course.classText;
+      document.querySelector(`select#${tempCTYID}`)!.value = course.classType;
     }
 
     if (!hsmsInput.checked) {
