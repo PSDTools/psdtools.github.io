@@ -125,37 +125,41 @@ button.disabled:focus-visible:after {
 h1 {
   font-size: 64px;
   line-height: 96px;
-  font-family: "Clash Display Bold", sans-serif;
+  font-family: "Clash Display Bold", "Clash Display Bold fallback", sans-serif;
 }
 
 h2 {
   font-size: 48px;
   line-height: 80px;
-  font-family: "Clash Display Bold", sans-serif;
+  font-family: "Clash Display Bold", "Clash Display Bold fallback", sans-serif;
 }
 
 h3 {
   font-size: 32px;
   line-height: 64px;
-  font-family: "Clash Display Semibold", sans-serif;
+  font-family: "Clash Display Semibold", "Clash Display Semibold fallback",
+    sans-serif;
 }
 
 h4 {
   font-size: 24px;
   line-height: 48px;
-  font-family: "Clash Display Semibold", sans-serif;
+  font-family: "Clash Display Semibold", "Clash Display Semibold fallback",
+    sans-serif;
 }
 
 h5 {
   font-size: 20px;
   line-height: 40px;
-  font-family: "Clash Display Semibold", sans-serif;
+  font-family: "Clash Display Semibold", "Clash Display Semibold fallback",
+    sans-serif;
 }
 
 h6 {
   font-size: 16px;
   line-height: 32px;
-  font-family: "Clash Display Semibold", sans-serif;
+  font-family: "Clash Display Semibold", "Clash Display Semibold fallback",
+    sans-serif;
 }
 
 p,
@@ -170,7 +174,8 @@ th,
 select {
   font-size: 16px;
   line-height: 28px;
-  font-family: "Clash Grotesk Medium", sans-serif;
+  font-family: "Clash Grotesk Medium", "Clash Grotesk Medium fallback",
+    sans-serif;
 }
 
 ul {
@@ -272,7 +277,8 @@ mark.purple {
 button {
   font-size: 16px;
   line-height: 24px;
-  font-family: Clash Display Semibold;
+  font-family: "Clash Display Semibold", "Clash Display Semibold fallback",
+    sans-serif;
   color: var(--black);
   padding: 8px 16px;
   border-radius: 2px;
@@ -593,7 +599,8 @@ input {
   text-align: left;
   font-size: 16px;
   line-height: 24px;
-  font-family: Clash Display Semibold;
+  font-family: "Clash Display Semibold", "Clash Display Semibold fallback",
+    sans-serif;
   color: var(--black);
   padding: 8px;
   border-radius: 2px;
@@ -1413,7 +1420,8 @@ table td {
 table th {
   background: var(--light-gray);
   text-align: left;
-  font-family: "Clash Display Semibold", sans-serif;
+  font-family: "Clash Display Semibold", "Clash Display Semibold fallback",
+    sans-serif;
 }
 
 table th,

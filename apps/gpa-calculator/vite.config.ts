@@ -1,5 +1,6 @@
 import browserslist from "browserslist";
 import browserslistToEsbuild from "browserslist-to-esbuild";
+import { FontaineTransform } from "fontaine";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import htmlMinifier from "vite-plugin-html-minifier";
@@ -26,6 +27,10 @@ export default defineConfig({
     },
   },
   plugins: [
+    FontaineTransform.vite({
+      fallbacks: ["Verdana", "Geneva", "Tahoma", "sans-serif"],
+      resolvePath: (path) => new URL(`.${path}`, import.meta.url),
+    }),
     htmlMinifier({
       minify: true,
     }),
