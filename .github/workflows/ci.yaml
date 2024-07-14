@@ -65,17 +65,19 @@ jobs:
       - name: 🌐 Disable analytics
         run: pnpm exec turbo telemetry disable
       - name: 🔨 Build
-        run: pnpm build
+        run: pnpm run build
       - name: ⚙️ Upload GPA Calculator
-        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b # v4.3.4
         with:
           name: gpa-calculator
           path: "./apps/gpa-calculator/dist/"
+          if-no-files-found: error
       - name: ⚙️ Upload Map
-        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b # v4.3.4
         with:
           name: phs-map
           path: "./apps/phs-map/dist/"
+          if-no-files-found: error
 
   deploy-calculator:
     name: Deploy GPA Calculator
@@ -98,7 +100,7 @@ jobs:
         uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
         with:
           name: gpa-calculator
-      - run: ls -la
+          path: "./apps/gpa-calculator/dist/"
       - name: 🔧 Upload to Deno Deploy
         id: deploy
         uses: denoland/deployctl@612f83df2b874c6908d68de5cf3f36a6538fa8f7 # 1.12.0
@@ -128,7 +130,7 @@ jobs:
         uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
         with:
           name: phs-map
-      - run: ls -la
+          path: "./apps/phs-map/dist/"
       - name: 🔧 Upload to Deno Deploy
         id: deploy
         uses: denoland/deployctl@612f83df2b874c6908d68de5cf3f36a6538fa8f7 # 1.12.0
