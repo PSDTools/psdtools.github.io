@@ -30,6 +30,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "html-template-tag": "^4.0.1",
     "idb-keyval": "^6.2.1",
     "pathfinding": "^0.4.18",
     "typed-query-selector": "^2.11.2",

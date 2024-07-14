@@ -39,6 +39,9 @@ importers:
 
   apps/gpa-calculator:
     dependencies:
+      html-template-tag:
+        specifier: ^4.0.1
+        version: 4.0.1
       idb-keyval:
         specifier: ^6.2.1
         version: 6.2.1
@@ -127,6 +130,9 @@ importers:
       '@fortawesome/free-solid-svg-icons':
         specifier: ^6.5.1
         version: 6.5.2
+      html-template-tag:
+        specifier: ^4.0.1
+        version: 4.0.1
       idb-keyval:
         specifier: ^6.2.1
         version: 6.2.1
@@ -2891,10 +2897,16 @@ packages:
     resolution: {integrity: sha512-puUZAUKT5m8Zzvs72XWy3HtvVbTWljRE66cP60bxJzAqf2DgICo7lYTY2IHUmLnNpjYvw5bvmoHvPc0QO2a62w==}
     engines: {node: ^16.14.0 || >=18.0.0}
 
+  html-es6cape@2.0.2:
+    resolution: {integrity: sha512-utzhH8rq2VABdW1LsPdv5tmxeMNOtP83If0jKCa79xPBgLWfcMvdf9K+EZoxJ5P7KioCxTs6WBnSDWLQHJ2lWA==}
+
   html-minifier-terser@7.2.0:
     resolution: {integrity: sha512-tXgn3QfqPIpGl9o+K5tpcj3/MN4SfLtsx2GWwBC3SSd0tXQGyF3gsSqad8loJgKZGM3ZxbYDd5yhiBIdWpmvLA==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
+
+  html-template-tag@4.0.1:
+    resolution: {integrity: sha512-c8a1i2G4aKkas2CXqagh89hB6uzUxlU65gUPQkGhkiFImTEboUmBmMqXZhmoBRqtJtYLtCc2wofT/I7qJF+1Jw==}
 
   http-cache-semantics@4.1.1:
     resolution: {integrity: sha512-er295DKPVsV82j5kw1Gjt+ADA/XYHsajl82cGNQG2eyoPkvgUhX+nDIyelzhIWbbsXP39EHcI6l5tYs2FYqYXQ==}
@@ -8235,6 +8247,8 @@ snapshots:
     dependencies:
       lru-cache: 10.4.3
 
+  html-es6cape@2.0.2: {}
+
   html-minifier-terser@7.2.0:
     dependencies:
       camel-case: 4.1.2
@@ -8244,6 +8258,10 @@ snapshots:
       param-case: 3.0.4
       relateurl: 0.2.7
       terser: 5.31.2
+
+  html-template-tag@4.0.1:
+    dependencies:
+      html-es6cape: 2.0.2
 
   http-cache-semantics@4.1.1: {}
 

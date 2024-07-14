@@ -11,6 +11,7 @@
 
 import "./styles/bounce.css";
 import "./styles/style.css";
+import html from "html-template-tag";
 import * as PF from "pathfinding";
 import type {} from "typed-query-selector/strict";
 import { createStorage, type Storage } from "unstorage";
@@ -126,33 +127,39 @@ function createProfile(profNum: number): void {
   const tempElementId = `tempProf${prof}`;
   const tempElementIdNext = `tempProf${profNum + 1}`;
 
+  const profString = prof.toString();
+  const profNumString = prof.toString();
+
   // Creates html elements in the courses class.
-  document.querySelector(`#${tempElementId}`)!.innerHTML = /* HTML */ `<div
+  document.querySelector(`#${tempElementId}`)!.innerHTML = html`<div
       class="prof txtbox w3-animate-right"
-      id="profBox${prof}"
+      id="profBox${profString}"
     >
       <div>
-        <button class="containerinpt red add" onclick="remProf(${profNum})">
+        <button
+          class="containerinpt red add"
+          onclick="remProf(${profNumString})"
+        >
           <i class="fa-solid fa-xmark"></i>
         </button>
         <input
-          onkeyup="locateCourses(${profNum})"
+          onkeyup="locateCourses(${profNumString})"
           class="pink containerinpt bordered"
           type="text"
-          id="nameProf${prof}"
+          id="nameProf${profString}"
           placeholder="Schedule Name"
         />
       </div>
       <input
         class="pink containerinpt"
-        id="num${prof}"
+        id="num${profString}"
         type="number"
         placeholder="Num of classes in schedule"
       />
-      <button class="pink containerinpt" onclick="courseLoop(${profNum})">
+      <button class="pink containerinpt" onclick="courseLoop(${profNumString})">
         Submit
       </button>
-      <div class="selectionbox w3-animate-right" id="temp${prof}1"></div>
+      <div class="selectionbox w3-animate-right" id="temp${profString}1"></div>
     </div>
     <div class="margin" id="profspacer1"></div>
     <div class="container" id="${tempElementIdNext}"></div>`;
@@ -163,35 +170,43 @@ function createCourse(num: number, profNum: number): void {
   const tempElementId = `temp${prof}${num}`;
   const tempElementIdNext = `temp${prof}${numNext}`;
 
+  const numString = num.toString();
+  const lessNumString = (num - 1).toString();
+  const profString = prof.toString();
+  const profNumString = profNum.toString();
+
   // Creates html elements in the courses class.
-  document.querySelector(`#${tempElementId}`)!.innerHTML = /* HTML */ `<div
+  document.querySelector(`#${tempElementId}`)!.innerHTML = html`<div
       id="input-con-div"
       class=" input-container lightModeInput"
     >
-      <p>Class ${num}</p>
+      <p>Class ${numString}</p>
       <input
-        onkeyup="locateCourses(${profNum})"
+        onkeyup="locateCourses(${profNumString})"
         class="purple containerinpt"
-        id="cl${num}${prof}txt"
+        id="cl${numString}${profString}txt"
         type="text"
         placeholder="Name:"
       />
     </div>
     <div id="input-con-div" class="purple input-container lightModeInput">
       <input
-        onkeyup="locateCourses(${profNum})"
-        class="purple containerinpt prof${profNum}"
-        id="rmnum${num}${prof}txt"
+        onkeyup="locateCourses(${profNumString})"
+        class="purple containerinpt prof${profNumString}"
+        id="rmnum${numString}${profString}txt"
         type="text"
         placeholder="Room Number:(ex: H100)"
       />
     </div>
-    <p class="inv" id="inv${num}${prof}"></p>
+    <p class="inv" id="inv${numString}${profString}"></p>
     <div>
-      <span class="containerinpt display-block" id="passing${num}${prof}">
+      <span
+        class="containerinpt display-block"
+        id="passing${numString}${profString}"
+      >
         <button
           class="purple btninpt showpth"
-          onclick="passingTime(${num - 1}, ${profNum})"
+          onclick="passingTime(${lessNumString}, ${profNumString})"
         >
           Show Path
           <span class="big-text"><i class="fa-solid fa-down-long"></i></span>
@@ -259,7 +274,7 @@ async function remProf(profNum: number): Promise<void> {
   profiles.splice(profNum, 1);
   profiles[0]?.splice(profNum, 1);
 
-  window.document.querySelector("#profiles")!.innerHTML = /* HTML */ `<div
+  window.document.querySelector("#profiles")!.innerHTML = html`<div
     id="tempProf1"
   ></div>`;
 

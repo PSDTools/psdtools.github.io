@@ -7,6 +7,7 @@
  */
 
 import "./styles/global.css";
+import html from "html-template-tag";
 import type {} from "typed-query-selector/strict";
 import { type Course, newCourse } from "./data/data-types.js";
 import {
@@ -85,7 +86,7 @@ async function hsmsSwap(): Promise<void> {
     );
 
     for (const element of getTypeIds()) {
-      element.innerHTML = /* HTML */ `<form>
+      element.innerHTML = html`<form>
         <select class="blacktxt" id="cltyp${element.id.slice(6)}">
           <option value="1">No-Weight</option>
           <option value="2">Honors</option>
@@ -110,23 +111,25 @@ function createCourse(num: number): void {
   tempElementId = `temp${num}`;
   tempElementIdNext = `temp${num + 1}`;
 
+  const stringNum = num.toString();
+
   // creates html elements in the courses class
-  document.querySelector(`div#${tempElementId}`)!.innerHTML = /* HTML */ `<div
+  document.querySelector(`div#${tempElementId}`)!.innerHTML = html`<div
       oninput="loadgpa();"
       class="pt-4 pb-4 lg:text-2xl text-lg"
     >
       <div id="input-con-div">
         <input
           class="hover:scale-105 w-36 placeholder-white blacktxt"
-          placeholder="Class ${num}:"
+          placeholder="Class ${stringNum}:"
           oninput="loadgpa();"
-          id="cl${num}txt"
+          id="cl${stringNum}txt"
           type="text"
           required=""
         />
-        <span class="float-right" id="typeId${num}">
+        <span class="float-right" id="typeId${stringNum}">
           <form>
-            <select class="hover:scale-105 blacktxt" id="cltyp${num}">
+            <select class="hover:scale-105 blacktxt" id="cltyp${stringNum}">
               <option value="1">No-Weight</option>
               <option value="2">Honors</option>
             </select>
@@ -139,13 +142,13 @@ function createCourse(num: number): void {
           max="4"
           value="4"
           class="hover:scale-105 slider float-right w-1/2"
-          id="slide${num}"
-          oninput="document.querySelector('#cl${num}').value = document.querySelector('#slide${num}').value;loadgpa();"
+          id="slide${stringNum}"
+          oninput="document.querySelector('#cl${stringNum}').value = document.querySelector('#slide${stringNum}').value;loadgpa();"
         />
         <select
           class="hover:scale-105 blacktxt float-right appearance-none"
-          oninput="document.querySelector('#slide${num}').value = document.querySelector('#cl${num}').value;loadgpa();"
-          id="cl${num}"
+          oninput="document.querySelector('#slide${stringNum}').value = document.querySelector('#cl${stringNum}').value;loadgpa();"
+          id="cl${stringNum}"
         >
           <option value="4">A</option>
           <option value="3">B</option>
