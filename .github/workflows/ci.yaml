@@ -82,7 +82,6 @@ jobs:
   deploy-calculator:
     name: Deploy GPA Calculator
     needs: [build]
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -112,7 +111,6 @@ jobs:
   deploy-map:
     name: Deploy Map
     needs: [build]
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
