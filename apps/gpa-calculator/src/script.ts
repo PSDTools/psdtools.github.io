@@ -140,11 +140,11 @@ function createCourse(num: number): void {
           value="4"
           class="hover:scale-105 slider float-right w-1/2"
           id="slide${num}"
-          oninput="getElementById('cl${num}').value = getElementById('slide${num}').value;loadgpa();"
+          oninput="document.querySelector('#cl${num}').value = document.querySelector('#slide${num}').value;loadgpa();"
         />
         <select
           class="hover:scale-105 blacktxt float-right appearance-none"
-          oninput="getElementById('slide${num}').value = getElementById('cl${num}').value;loadgpa();"
+          oninput="document.querySelector('#slide${num}').value = document.querySelector('#cl${num}').value;loadgpa();"
           id="cl${num}"
         >
           <option value="4">A</option>
