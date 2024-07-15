@@ -33,7 +33,11 @@
     "experimentalDecorators": false,
     "useDefineForClassFields": true,
     "paths": {},
-    "types": ["vite-plugin-pwa/vanillajs", "vite/client"]
+    "types": [
+      "vite-plugin-pwa/vanillajs",
+      "vite/client",
+      "@total-typescript/ts-reset"
+    ]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

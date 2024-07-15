@@ -42,6 +42,7 @@
     "@eslint-types/typescript-eslint": "^7.5.0",
     "@eslint-types/unicorn": "^52.0.0",
     "@sherifforg/types": "^3.1.2",
+    "@total-typescript/ts-reset": "^0.5.1",
     "@types/eslint": "^8.56.10",
     "@types/html-minifier-terser": "^7.0.2",
     "@types/pathfinding": "^0.0.9",
