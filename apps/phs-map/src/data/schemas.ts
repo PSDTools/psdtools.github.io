@@ -20,10 +20,6 @@ function normalizeRoomString(room: string): string {
     .replaceAll("/", "");
 }
 
-function isKey<T extends object>(obj: T, val: PropertyKey): val is keyof T {
-  return Object.hasOwn(obj, val);
-}
-
 /**
  * Represents the custom schema for a room.
  *
@@ -37,7 +33,9 @@ const roomStrictSchema = z.custom<keyof typeof rooms>(
       .toUpperCase()
       .trim()
       .transform(normalizeRoomString)
-      .refine((val2: string): val2 is keyof typeof rooms => isKey(rooms, val2))
+      .refine((val2: string): val2 is keyof typeof rooms =>
+        Object.hasOwn(rooms, val2),
+      )
       .safeParse(val).success,
   (val) => ({ message: `${val} is not a room` }),
 );
@@ -84,4 +82,4 @@ const profilesListSchema = z.union([
   z.tuple([]),
 ]);
 
-export { isKey, type ProfilesList, profilesListSchema, type Room, roomSchema };
+export { type ProfilesList, profilesListSchema, type Room, roomSchema };

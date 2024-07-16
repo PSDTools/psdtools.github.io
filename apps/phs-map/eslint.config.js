@@ -37,7 +37,10 @@ export default defineFlatConfig([
       "unicorn/no-negated-condition": "error",
       "@typescript-eslint/ban-ts-comment": [
         "error",
-        { "ts-expect-error": true, "ts-check": false },
+        {
+          "ts-expect-error": { descriptionFormat: "^\\(TS\\d+\\): .+$" },
+          "ts-check": false,
+        },
       ],
       "import/no-unresolved": [2, { ignore: ["^virtual:"] }],
       "@typescript-eslint/prefer-function-type": "warn",
@@ -52,6 +55,8 @@ export default defineFlatConfig([
         { allowNumber: true },
       ],
       "jsdoc/check-tag-names": "off", // TSDoc is used instead.
+      "unicorn/expiring-todo-comments": "warn",
+      "unicorn/no-typeof-undefined": "warn",
     },
   },
 ]);

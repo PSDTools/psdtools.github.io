@@ -31,7 +31,6 @@ import type { Coords2D, Level, Lvl, StairList } from "./data/data-types.ts";
 import { level0, level1, level2 } from "./data/levels.ts";
 import { rooms } from "./data/rooms.ts";
 import {
-  isKey,
   type ProfilesList,
   profilesListSchema,
   type Room,
@@ -315,7 +314,8 @@ function printGrid(level: Lvl): void {
     for (const [y, cell] of row.entries()) {
       const key = cell.toString();
 
-      if (isKey(colorMap, key)) {
+      if (Object.hasOwn(colorMap, key)) {
+        // @ts-expect-error(TS7053): Narrowing for Object.hasOwn isn't implemented yet: microsoft/TypeScript#44253.
         ctx.fillStyle = colorMap[key];
         ctx.fillRect(cellSize * y, cellSize * x, cellSize, cellSize);
       }
