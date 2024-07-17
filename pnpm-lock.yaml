@@ -68,11 +68,8 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1
       '@types/eslint':
-        specifier: ^8.56.10
+        specifier: ~8.56.10
         version: 8.56.10
-      '@types/html-minifier-terser':
-        specifier: ^7.0.2
-        version: 7.0.2
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.16.1
         version: 7.16.1(@typescript-eslint/parser@7.16.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
@@ -168,11 +165,8 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1
       '@types/eslint':
-        specifier: ^8.56.10
+        specifier: ~8.56.10
         version: 8.56.10
-      '@types/html-minifier-terser':
-        specifier: ^7.0.2
-        version: 7.0.2
       '@types/pathfinding':
         specifier: ^0.0.9
         version: 0.0.9
@@ -1501,9 +1495,6 @@ packages:
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
-
-  '@types/html-minifier-terser@7.0.2':
-    resolution: {integrity: sha512-mm2HqV22l8lFQh4r2oSsOEVea+m0qqxEmwpc9kC1p/XzmjLWrReR9D/GRs8Pex2NX/imyEH9c5IU/7tMBQCHOA==}
 
   '@types/http-cache-semantics@4.0.4':
     resolution: {integrity: sha512-1m0bIFVc7eJWyve9S0RnuRgcQqF/Xd5QsUZAZeQFr1Q3/p9JWoQQEqmVy+DPTNpGXwhgIetAoYF8JSc33q29QA==}
@@ -6458,8 +6449,6 @@ snapshots:
   '@types/estree@0.0.39': {}
 
   '@types/estree@1.0.5': {}
-
-  '@types/html-minifier-terser@7.0.2': {}
 
   '@types/http-cache-semantics@4.0.4': {}
 
