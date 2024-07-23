@@ -87,7 +87,7 @@ jobs:
     permissions:
       id-token: write # Needed for auth with Deno Deploy
     concurrency:
-      group: ${{ github.workflow }}-deploy-calculator
+      group: ${{ github.workflow }}=${{ github.ref }}-deploy-calculator
       cancel-in-progress: true
 
     steps:
@@ -116,7 +116,7 @@ jobs:
     permissions:
       id-token: write # Needed for auth with Deno Deploy
     concurrency:
-      group: ${{ github.workflow }}-deploy-map
+      group: ${{ github.workflow }}-${{ github.ref }}-deploy-map
       cancel-in-progress: true
 
     steps:
