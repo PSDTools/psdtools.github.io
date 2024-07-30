@@ -45,7 +45,7 @@
     "@total-typescript/ts-reset": "^0.5.1",
     "@types/eslint": "~8.56.10",
     "@types/pathfinding": "^0.0.9",
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@vite-pwa/assets-generator": "^0.2.4",
     "browserslist": "^4.23.0",
     "browserslist-to-esbuild": "^2.1.1",
