@@ -47,7 +47,7 @@
     "@types/pathfinding": "^0.0.9",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@vite-pwa/assets-generator": "^0.2.4",
-    "browserslist": "^4.23.0",
+    "browserslist": "^4.23.3",
     "browserslist-to-esbuild": "^2.1.1",
     "eslint": "^8.57.0",
     "eslint-config-sheriff": "^18.7.0",
