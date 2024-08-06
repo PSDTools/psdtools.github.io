@@ -67,13 +67,13 @@ jobs:
       - name: 🔨 Build
         run: pnpm run build
       - name: ⚙️ Upload GPA Calculator
-        uses: actions/upload-artifact@89ef406dd8d7e03cfd12d9e0a4a378f454709029 # v4.3.5
+        uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4.3.6
         with:
           name: gpa-calculator
           path: "./apps/gpa-calculator/dist/"
           if-no-files-found: error
       - name: ⚙️ Upload Map
-        uses: actions/upload-artifact@89ef406dd8d7e03cfd12d9e0a4a378f454709029 # v4.3.5
+        uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4.3.6
         with:
           name: phs-map
           path: "./apps/phs-map/dist/"
