@@ -36,7 +36,7 @@
     "typed-query-selector": "^2.11.3",
     "unstorage": "^1.10.2",
     "zod": "^3.23.8",
-    "zod-validation-error": "^3.0.2"
+    "zod-validation-error": "^3.3.1"
   },
   "devDependencies": {
     "@eslint-types/typescript-eslint": "^7.5.0",
