@@ -30,7 +30,7 @@
   "dependencies": {
     "html-template-tag": "^4.0.1",
     "idb-keyval": "^6.2.1",
-    "typed-query-selector": "^2.11.3",
+    "typed-query-selector": "^2.11.4",
     "unstorage": "^1.10.2",
     "zod": "^3.23.8"
   },
