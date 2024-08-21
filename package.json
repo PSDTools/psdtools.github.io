@@ -9,8 +9,8 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "manypkg": "manypkg check",
-    "typesync": "pnpm -r exec typesync",
-    "typesync:check": "pnpm -r exec typesync --dry=fail",
+    "typesync": "typesync",
+    "typesync:check": "typesync --dry=fail",
     "check-deduped-deps": "pnpm dedupe --check",
     "merge-checks": "turbo run typecheck lint format:check manypkg typesync:check check-deduped-deps"
   },
