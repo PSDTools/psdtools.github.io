@@ -39,8 +39,8 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1
       typed-query-selector:
-        specifier: ^2.11.4
-        version: 2.11.4
+        specifier: ^2.12.0
+        version: 2.12.0
       unstorage:
         specifier: ^1.10.2
         version: 1.10.2(idb-keyval@6.2.1)
@@ -133,8 +133,8 @@ importers:
         specifier: ^0.4.18
         version: 0.4.18
       typed-query-selector:
-        specifier: ^2.11.4
-        version: 2.11.4
+        specifier: ^2.12.0
+        version: 2.12.0
       unstorage:
         specifier: ^1.10.2
         version: 1.10.2(idb-keyval@6.2.1)
@@ -4591,8 +4591,8 @@ packages:
     resolution: {integrity: sha512-/OxDN6OtAk5KBpGb28T+HZc2M+ADtvRxXrKKbUwtsLgdoxgX13hyy7ek6bFRl5+aBs2yZzB0c4CnQfAtVypW/g==}
     engines: {node: '>= 0.4'}
 
-  typed-query-selector@2.11.4:
-    resolution: {integrity: sha512-O/56BMFJc62KLGaw1HTz66N2RRCPU+JnoJUL5q07LVmTXTlhoUdm9azor7keLwSncKTeVtWTJP3TZlMopynJBw==}
+  typed-query-selector@2.12.0:
+    resolution: {integrity: sha512-SbklCd1F0EiZOyPiW192rrHZzZ5sBijB6xM+cpmrwDqObvdtunOHHIk9fCGsoK5JVIYXoyEp4iEdE3upFH3PAg==}
 
   typescript-eslint@7.16.0:
     resolution: {integrity: sha512-kaVRivQjOzuoCXU6+hLnjo3/baxyzWVO5GrnExkFzETRYJKVHYkrJglOu2OCm8Hi9RPDWX1PTNNTpU5KRV0+RA==}
@@ -10047,7 +10047,7 @@ snapshots:
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
 
-  typed-query-selector@2.11.4: {}
+  typed-query-selector@2.12.0: {}
 
   typescript-eslint@7.16.0(eslint@8.57.0)(typescript@5.5.4):
     dependencies:
