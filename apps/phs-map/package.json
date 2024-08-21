@@ -5,7 +5,8 @@
   "description": "(Formerly) A starter kit for building PWAs!",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PSDTools/psdtool.github.io.git"
+    "url": "git+https://github.com/PSDTools/psdtool.github.io.git",
+    "directory": "apps/phs-map"
   },
   "author": {
     "name": "Parker Hasenkamp",

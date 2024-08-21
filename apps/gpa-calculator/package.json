@@ -5,7 +5,8 @@
   "description": "A GPA calculator for built for students in the Pattonville School District.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PSDTools/psdtools.github.io.git"
+    "url": "git+https://github.com/PSDTools/psdtools.github.io.git",
+    "directory": "apps/gpa-calculator"
   },
   "author": {
     "name": "Parker Hasenkamp",
