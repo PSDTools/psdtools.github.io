@@ -31,7 +31,7 @@
     "defaults and fully supports es6-module"
   ],
   "dependencies": {
-    "html-template-tag": "^4.0.1",
+    "html-template-tag": "^4.1.0",
     "idb-keyval": "^6.2.1",
     "typed-query-selector": "^2.11.4",
     "unstorage": "^1.10.2",
