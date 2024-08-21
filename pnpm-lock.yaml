@@ -27,8 +27,8 @@ importers:
         specifier: ^2.0.12
         version: 2.0.12
       typesync:
-        specifier: ^0.12.2
-        version: 0.12.2(typescript@5.5.4)
+        specifier: ^0.13.0
+        version: 0.13.0(typescript@5.5.4)
 
   apps/gpa-calculator:
     dependencies:
@@ -4609,8 +4609,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typesync@0.12.2:
-    resolution: {integrity: sha512-PdjWi2vk/gEsZvBFa3CNKeapbjo3fYo/olwxJq7M10JVy9oPvM7ULIUYV/Xtohezouz63NBZdoD+ncTVQUBw2A==}
+  typesync@0.13.0:
+    resolution: {integrity: sha512-t5+DHmXqNHJyX9PSocEEB6c5gQlO0j0LLxEiZ/HMz0lWJWBf+bKEXTORkquAuUgjMZ7U5Hx8w63Qmebx7bK2FA==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -10062,13 +10062,14 @@ snapshots:
 
   typescript@5.5.4: {}
 
-  typesync@0.12.2(typescript@5.5.4):
+  typesync@0.13.0(typescript@5.5.4):
     dependencies:
       awilix: 10.0.2
       chalk: 4.1.2
       cosmiconfig: 9.0.0(typescript@5.5.4)
       detect-indent: 6.1.0
       glob: 10.4.5
+      js-yaml: 4.1.0
       npm-registry-fetch: 17.1.0
       ora: 5.4.1
       semver: 7.6.2

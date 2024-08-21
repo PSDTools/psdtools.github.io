@@ -21,7 +21,7 @@
     "husky": "^9.1.4",
     "prettier": "3.3.3",
     "turbo": "^2.0.12",
-    "typesync": "^0.12.2"
+    "typesync": "^0.13.0"
   },
   "engines": {
     "node": "22.4.1"
