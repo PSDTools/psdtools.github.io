@@ -7,13 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      gpa-calculator:
-        specifier: workspace:*
-        version: link:apps/gpa-calculator
-      phs-map:
-        specifier: workspace:*
-        version: link:apps/phs-map
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.4.0

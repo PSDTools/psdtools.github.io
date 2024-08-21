@@ -12,10 +12,6 @@
     "typesync": "pnpm -r exec typesync",
     "typesync:check": "pnpm -r exec typesync --dry=fail"
   },
-  "dependencies": {
-    "gpa-calculator": "workspace:*",
-    "phs-map": "workspace:*"
-  },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
