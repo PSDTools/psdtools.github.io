@@ -10,7 +10,8 @@
     "format:check": "prettier . --check",
     "manypkg": "manypkg check",
     "typesync": "pnpm -r exec typesync",
-    "typesync:check": "pnpm -r exec typesync --dry=fail"
+    "typesync:check": "pnpm -r exec typesync --dry=fail",
+    "merge-checks": "turbo run typecheck lint format:check manypkg typesync:check"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",

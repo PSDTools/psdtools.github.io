@@ -19,7 +19,7 @@
   ],
   "type": "module",
   "scripts": {
-    "bundle": "vite build",
+    "build": "vite build",
     "dev": "vite --open",
     "typecheck:extra": "tsc -p tsconfig.eslint.json",
     "typecheck:src": "tsc"
