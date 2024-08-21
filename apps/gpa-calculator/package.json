@@ -38,12 +38,10 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@eslint-types/typescript-eslint": "^7.5.0",
     "@eslint-types/unicorn": "^52.0.0",
     "@sherifforg/types": "^4.0.1",
     "@total-typescript/ts-reset": "^0.5.1",
     "@types/eslint": "~9.6.0",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@vite-pwa/assets-generator": "^0.2.4",
     "browserslist": "^4.23.3",
     "browserslist-to-esbuild": "^2.1.1",

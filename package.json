@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "turbo run build",
+    "lint": "turbo run lint",
     "prepare": "husky",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
@@ -27,6 +28,13 @@
     "node": "22.4.1"
   },
   "packageManager": "pnpm@9.7.1",
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": "9"
+      }
+    }
+  },
   "manypkg": {
     "workspaceProtocol": "require",
     "ignoredRules": [

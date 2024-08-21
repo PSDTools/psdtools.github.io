@@ -13,8 +13,8 @@ const sheriffOptions = /** @satisfies {SheriffSettings} */ ({
   playwright: false,
   jest: false,
   vitest: false,
-  // astro: false, // THIS DOESN'T DO ANYTHING!
-  pathsOveriddes: {
+  astro: false,
+  pathsOverrides: {
     tsconfigLocation: ["./tsconfig.json", "./tsconfig.eslint.json"],
   },
 });
