@@ -3,7 +3,7 @@ import { cleanupOutdatedCaches, precacheAndRoute } from "workbox-precaching";
 
 declare let self: ServiceWorkerGlobalScope;
 
-await self.skipWaiting();
+void self.skipWaiting();
 clientsClaim();
 
 cleanupOutdatedCaches();

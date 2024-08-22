@@ -39,20 +39,23 @@ export default defineFlatConfig([
         "error",
         { "ts-expect-error": true, "ts-check": false },
       ],
-      "import/no-unresolved": [2, { ignore: ["^virtual:"] }],
+      "import/no-unresolved": ["error", { ignore: ["^virtual:"] }],
       "@typescript-eslint/prefer-function-type": "warn",
       "@typescript-eslint/explicit-function-return-type": "warn",
       "@typescript-eslint/promise-function-async": "warn",
       "@typescript-eslint/strict-boolean-expressions": "warn",
-      "@typescript-eslint/return-await": [2, "always"],
+      "@typescript-eslint/return-await": ["error", "always"],
       // This rule doesn't support enforcing implicit return for multiline returns.
       "arrow-return-style/arrow-return-style": "off",
-      "arrow-body-style": 0,
+      "arrow-body-style": "off",
       "@typescript-eslint/restrict-template-expressions": [
-        2,
+        "error",
         { allowNumber: true },
       ],
       "jsdoc/check-tag-names": "off", // TSDoc is used instead.
+      "unicorn/expiring-todo-comments": "warn",
+      "unicorn/no-typeof-undefined": "warn",
+      "no-void": ["error", { allowAsStatement: true }],
     },
   },
 ]);
