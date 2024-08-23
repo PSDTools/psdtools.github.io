@@ -232,25 +232,20 @@ async function applySavedProfiles(): Promise<void> {
         profiles[0]?.[i] ?? "";
       for (let f = 1; f < (profiles[i]?.length ?? 0) + 1; f++) {
         createCourse(f, i);
-        const roomInput = document.querySelector(`#rmnum${f}${i}txt`);
-        const nameInput = document.querySelector(`#cl${f}${i}txt`);
+        const roomInput = document.querySelector(`input#rmnum${f}${i}txt`)!;
+        const nameInput = document.querySelector(`input#cl${f}${i}txt`)!;
 
-        if (
-          roomInput instanceof HTMLInputElement &&
-          nameInput instanceof HTMLInputElement
-        ) {
-          const parsedRoom = roomSchema.safeParse(profiles[i]?.[f - 1]?.[0]);
+        const parsedRoom = roomSchema.safeParse(profiles[i]?.[f - 1]?.[0]);
 
-          if (parsedRoom.success) {
-            roomInput.value = parsedRoom.data;
-          } else {
-            document.querySelector("#zod-error")!.innerHTML = fromZodError(
-              parsedRoom.error,
-            ).toString();
-            stinv1 = 1;
-          }
-          nameInput.value = profiles[i]?.[f - 1]?.[1] ?? "";
+        if (parsedRoom.success) {
+          roomInput.value = parsedRoom.data;
+        } else {
+          document.querySelector("#zod-error")!.innerHTML = fromZodError(
+            parsedRoom.error,
+          ).toString();
+          stinv1 = 1;
         }
+        nameInput.value = profiles[i]?.[f - 1]?.[1] ?? "";
       }
 
       const lastCourseIndex = profiles[i]?.length;
