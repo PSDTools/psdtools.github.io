@@ -229,7 +229,7 @@ async function applySavedProfiles(): Promise<void> {
     for (let i = 1; i < profiles.length; i++) {
       createProfile(i);
       document.querySelector(`input#nameProf${i}`)!.value =
-        (profiles[0]?.[i] ?? "") as string;
+        profiles[0]?.[i] ?? "";
       for (let f = 1; f < (profiles[i]?.length ?? 0) + 1; f++) {
         createCourse(f, i);
         const roomInput = document.querySelector(`#rmnum${f}${i}txt`);
@@ -369,14 +369,10 @@ async function locateCourses(profNum: number): Promise<void> {
     `input#nameProf${profNum}`,
   )!.value;
   for (const [i] of document.querySelectorAll(`.prof${profNum}`).entries()) {
-    // TODO(@lishaduck): Remove this type assertion, and fix the underlying issue.
-    profiles[profNum][i] = [] as unknown as [string, string];
-    (profiles[profNum][i] as string[])[0] = document.querySelector(
-      `input#rmnum${i + 1}${prof}txt`,
-    )!.value;
-    (profiles[profNum][i] as string[])[1] = document.querySelector(
-      `input#cl${i + 1}${prof}txt`,
-    )!.value;
+    profiles[profNum][i] = [
+      document.querySelector(`input#rmnum${i + 1}${prof}txt`)!.value,
+      document.querySelector(`input#cl${i + 1}${prof}txt`)!.value,
+    ];
   }
 
   await storage.setItem("profiles", profiles);

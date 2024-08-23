@@ -65,7 +65,7 @@ function coerceNullToUndefined(val: unknown): unknown {
 const profilesSchema = z.union([
   z
     .tuple([z.preprocess(coerceNullToUndefined, z.undefined())])
-    .rest(z.union([z.string(), z.string().array()])),
+    .rest(z.string()),
   z.tuple([]),
 ]);
 
