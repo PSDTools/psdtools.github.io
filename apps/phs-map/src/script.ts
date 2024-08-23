@@ -228,7 +228,7 @@ async function applySavedProfiles(): Promise<void> {
     // We can't use `for-of` here to reduce the number of DOM queries because `createProfile()` mutates the DOM.
     for (let i = 1; i < profiles.length; i++) {
       createProfile(i);
-      (document.querySelector(`#nameProf${i}`) as HTMLInputElement).value =
+      document.querySelector(`input#nameProf${i}`)!.value =
         (profiles[0]?.[i] ?? "") as string;
       for (let f = 1; f < (profiles[i]?.length ?? 0) + 1; f++) {
         createCourse(f, i);
@@ -329,20 +329,23 @@ function printGrid(level: Lvl): void {
 }
 
 function createCanvas(): void {
-  canvas = document.querySelector("#my-canvas") as HTMLCanvasElement;
+  canvas = document.querySelector("canvas#my-canvas")!;
   ctx = canvas.getContext("2d")!;
-  size = (document.querySelector<HTMLDivElement>("#c")?.offsetWidth ?? 0) - 48;
+
+  const container = document.querySelector("div#c");
+  const containerWidth = container?.offsetWidth ?? 0;
+
+  size = containerWidth - 48;
   canvas.width = size;
   canvas.height = size;
+
   printGrid(viewLvl);
 }
 
 function courseLoop(profNum: number): void {
   prof = profNum;
   coursesAmt =
-    parseInt(
-      (document.querySelector(`#num${profNum}`) as HTMLInputElement).value,
-    ) + 1;
+    parseInt(document.querySelector(`input#num${profNum}`)!.value) + 1;
   if (!Number.isNaN(coursesAmt)) {
     const array = Array.from(
       { length: coursesAmt - 1 },
@@ -362,18 +365,18 @@ async function locateCourses(profNum: number): Promise<void> {
   profiles[profNum] = [];
   profiles[0] = profiles[0] ?? [undefined, ""];
 
-  profiles[0][profNum] = (
-    document.querySelector(`#nameProf${profNum}`) as HTMLInputElement
-  ).value;
+  profiles[0][profNum] = document.querySelector(
+    `input#nameProf${profNum}`,
+  )!.value;
   for (const [i] of document.querySelectorAll(`.prof${profNum}`).entries()) {
     // TODO(@lishaduck): Remove this type assertion, and fix the underlying issue.
     profiles[profNum][i] = [] as unknown as [string, string];
-    (profiles[profNum][i] as string[])[0] = (
-      document.querySelector(`#rmnum${i + 1}${prof}txt`) as HTMLInputElement
-    ).value;
-    (profiles[profNum][i] as string[])[1] = (
-      document.querySelector(`#cl${i + 1}${prof}txt`) as HTMLInputElement
-    ).value;
+    (profiles[profNum][i] as string[])[0] = document.querySelector(
+      `input#rmnum${i + 1}${prof}txt`,
+    )!.value;
+    (profiles[profNum][i] as string[])[1] = document.querySelector(
+      `input#cl${i + 1}${prof}txt`,
+    )!.value;
   }
 
   await storage.setItem("profiles", profiles);
@@ -391,7 +394,7 @@ window.addProf = addProf;
 
 function lvl(level: Lvl): void {
   viewLvl = level;
-  source = document.querySelector(`#LVL${level}`) as HTMLImageElement;
+  source = document.querySelector(`img#LVL${level}`)!;
   createCanvas();
 }
 window.lvl = lvl;
