@@ -8,14 +8,10 @@
       "front_matter_title": ""
     }
   },
-  "explorer.fileNesting.patterns": {
-    "package.json": ".prettierrc, .prettierignore, eslint.config.js, turbo.json",
-    "README*": "*.${capture}",
-    ".replit": "replit.*"
-  },
   "cSpell.words": ["fontawesome", "fortawesome", "pathfinding", "Xmark"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.sortImports": "never"
-  }
+  },
+  "commitlint.config.file": "commitlint.config.js"
 }
