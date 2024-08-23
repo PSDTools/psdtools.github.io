@@ -332,6 +332,8 @@ function createCanvas(): void {
   canvas = document.querySelector("#my-canvas") as HTMLCanvasElement;
   ctx = canvas.getContext("2d")!;
   size = (document.querySelector<HTMLDivElement>("#c")?.offsetWidth ?? 0) - 48;
+  canvas.width = size;
+  canvas.height = size;
   printGrid(viewLvl);
 }
 
