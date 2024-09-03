@@ -18,6 +18,9 @@ updates:
           - "@eslint-types/*"
           - "@sherifforg/*"
           - "eslint*"
+      commitlint:
+        patterns:
+          - "@commitlint/*"
       build:
         patterns:
           - "vite*"
