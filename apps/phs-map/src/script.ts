@@ -13,7 +13,6 @@ import "./styles/bounce.css";
 import "./styles/style.css";
 import html from "html-template-tag";
 import * as PF from "pathfinding";
-import type {} from "typed-query-selector/strict";
 import { createStorage, type Storage } from "unstorage";
 import indexedDbDriver from "unstorage/drivers/indexedb";
 import { fromZodError } from "zod-validation-error";

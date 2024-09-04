@@ -8,7 +8,6 @@
 
 import "./styles/global.css";
 import html from "html-template-tag";
-import type {} from "typed-query-selector/strict";
 import { type Course, newCourse } from "./data/data-types.js";
 import {
   clearAll,
