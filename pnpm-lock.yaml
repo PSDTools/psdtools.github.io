@@ -1082,10 +1082,6 @@ packages:
     resolution: {integrity: sha512-fuXtbiP5GWIn8Fz+LWoOMVf/Jxm+aajZYkhi6CuEm4SxymFM+eUWzbO9qXT+L0iCkL5+KGYMCSGxo686H19S1g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/js@9.9.1':
-    resolution: {integrity: sha512-xIDQRsfg5hNBqHz04H1R3scSVwmI+KUbqjsQKHKQ1DAUSaUjYPReZZmS/5PNiKu1fUvzDd6H7DEDKACSEhu+TQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
   '@eslint/object-schema@2.1.4':
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -3724,10 +3720,6 @@ packages:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
     engines: {node: '>=4'}
 
-  postcss@8.4.41:
-    resolution: {integrity: sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.4.45:
     resolution: {integrity: sha512-7KTLTdzdZZYscUc65XmjFiB73vBhBfbPztCYdUNvlaso9PrzjzcmjqBPR0lNGkcVlcO4BjiO5rK/qNz+XAen1Q==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4269,9 +4261,6 @@ packages:
   tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
 
-  tslib@2.6.3:
-    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
-
   tslib@2.7.0:
     resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
@@ -4366,9 +4355,6 @@ packages:
     resolution: {integrity: sha512-t5+DHmXqNHJyX9PSocEEB6c5gQlO0j0LLxEiZ/HMz0lWJWBf+bKEXTORkquAuUgjMZ7U5Hx8w63Qmebx7bK2FA==}
     engines: {node: '>=16.0.0'}
     hasBin: true
-
-  ufo@1.5.3:
-    resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
 
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
@@ -5824,8 +5810,6 @@ snapshots:
 
   '@eslint/js@9.10.0': {}
 
-  '@eslint/js@9.9.1': {}
-
   '@eslint/object-schema@2.1.4': {}
 
   '@eslint/plugin-kit@0.1.0':
@@ -6272,7 +6256,7 @@ snapshots:
   '@swc/helpers@0.4.36':
     dependencies:
       legacy-swc-helpers: '@swc/helpers@0.4.14'
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@szmarczak/http-timer@5.0.1':
     dependencies:
@@ -6806,7 +6790,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   caniuse-lite@1.0.30001649: {}
 
@@ -7058,7 +7042,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   dot-prop@5.3.0:
     dependencies:
@@ -7148,7 +7132,7 @@ snapshots:
     dependencies:
       '@eslint-react/eslint-plugin': 1.12.1(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2)
       '@eslint/compat': 1.1.1
-      '@eslint/js': 9.9.1
+      '@eslint/js': 9.10.0
       '@next/eslint-plugin-next': 13.5.6
       '@regru/eslint-plugin-prefer-early-return': 1.0.0
       '@stylistic/eslint-plugin': 2.6.4(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2)
@@ -7243,7 +7227,7 @@ snapshots:
       eslint: 9.10.0(jiti@1.21.6)
       eslint-compat-utils: 0.5.1(eslint@9.10.0(jiti@1.21.6))
       globals: 15.9.0
-      postcss: 8.4.41
+      postcss: 8.4.45
       postcss-selector-parser: 6.1.2
     transitivePeerDependencies:
       - supports-color
@@ -7727,7 +7711,7 @@ snapshots:
       magic-regexp: 0.8.0
       magic-string: 0.30.10
       pathe: 1.1.2
-      ufo: 1.5.3
+      ufo: 1.5.4
       unplugin: 1.11.0
     transitivePeerDependencies:
       - encoding
@@ -8311,7 +8295,7 @@ snapshots:
       mlly: 1.7.1
       regexp-tree: 0.1.27
       type-level-regexp: 0.1.17
-      ufo: 1.5.3
+      ufo: 1.5.4
       unplugin: 1.11.0
 
   magic-string@0.25.9:
@@ -8457,7 +8441,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   node-abi@3.65.0:
     dependencies:
@@ -8609,7 +8593,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   parent-module@1.0.1:
     dependencies:
@@ -8640,7 +8624,7 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   path-exists@4.0.0: {}
 
@@ -8687,12 +8671,6 @@ snapshots:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
-
-  postcss@8.4.41:
-    dependencies:
-      nanoid: 3.3.7
-      picocolors: 1.0.1
-      source-map-js: 1.2.0
 
   postcss@8.4.45:
     dependencies:
@@ -9267,8 +9245,6 @@ snapshots:
 
   tslib@1.14.1: {}
 
-  tslib@2.6.3: {}
-
   tslib@2.7.0: {}
 
   tsutils@3.21.0(typescript@5.6.2):
@@ -9352,8 +9328,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
-
-  ufo@1.5.3: {}
 
   ufo@1.5.4: {}
 
