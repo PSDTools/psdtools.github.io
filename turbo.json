@@ -41,7 +41,7 @@
         "vite.config.ts"
       ]
     },
-    "format": {
+    "//#format": {
       "outputs": [
         "node_modules/.cache/prettier/**"
       ],
@@ -56,7 +56,7 @@
         "!**/dist/**"
       ]
     },
-    "format:check": {
+    "//#format:check": {
       "outputs": [
         "node_modules/.cache/prettier/**"
       ],
@@ -101,7 +101,7 @@
         "**/package.json"
       ]
     },
-    "check-deduped-deps": {
+    "//#check-deduped-deps": {
       "inputs": [
         "pnpm-lock.yaml"
       ]
