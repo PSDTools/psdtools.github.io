@@ -66,6 +66,8 @@ jobs:
         run: pnpm exec turbo telemetry disable
       - name: 🔨 Build
         run: pnpm run build
+      - name: 🧹 Check for deduped dependencies
+        run: pnpm exec turbo check-deduped-deps
       - name: 🕵️ Merge Checks
         run: pnpm run merge-checks
       - name: ⚙️ Upload GPA Calculator
