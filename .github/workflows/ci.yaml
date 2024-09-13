@@ -97,7 +97,7 @@ jobs:
 
     steps:
       - name: 🦕 Install Deno
-        uses: denoland/setup-deno@fa660b328d065f7683e7303976bd81e2d58e98ae # v1.4.1
+        uses: denoland/setup-deno@5e01c016a857a4dbb5afe9d0f9733cd472cba985 # v1.5.1
         with:
           deno-version: ${{ env.DENO_VERSION }}
       - name: ⚙️ Download GPA Calculator
@@ -126,7 +126,7 @@ jobs:
 
     steps:
       - name: 🦕 Install Deno
-        uses: denoland/setup-deno@fa660b328d065f7683e7303976bd81e2d58e98ae # v1.4.1
+        uses: denoland/setup-deno@5e01c016a857a4dbb5afe9d0f9733cd472cba985 # v1.5.1
         with:
           deno-version: ${{ env.DENO_VERSION }}
       - name: ⚙️ Download Map
