@@ -107,7 +107,8 @@
         ".pnpmfile.cjs"
       ],
       "outputs": ["**/node_modules/"]
-    }
+    },
+    "//#knip": {}
   },
   "remoteCache": {
     "enabled": false
