@@ -24,7 +24,7 @@
     "knip": "^5.34.0",
     "prettier": "3.3.3",
     "turbo": "^2.2.3",
-    "typesync": "^0.13.0"
+    "typesync": "^0.13.1"
   },
   "devEngines": {
     "runtime": [

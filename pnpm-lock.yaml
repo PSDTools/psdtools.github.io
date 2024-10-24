@@ -32,8 +32,8 @@ importers:
         specifier: ^2.2.3
         version: 2.2.3
       typesync:
-        specifier: ^0.13.0
-        version: 0.13.0(typescript@5.6.2)
+        specifier: ^0.13.1
+        version: 0.13.1(typescript@5.6.2)
 
   apps/gpa-calculator:
     dependencies:
@@ -4408,8 +4408,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typesync@0.13.0:
-    resolution: {integrity: sha512-t5+DHmXqNHJyX9PSocEEB6c5gQlO0j0LLxEiZ/HMz0lWJWBf+bKEXTORkquAuUgjMZ7U5Hx8w63Qmebx7bK2FA==}
+  typesync@0.13.1:
+    resolution: {integrity: sha512-yxrkb3F8d7Lb3jq7X14gcLKQoDu6EKRcIQ+PFAtcSy5Jo7M6o7QGObDndRVsRpmiOBVFV3KOAxqyx2N1hEv6Ag==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -9436,7 +9436,7 @@ snapshots:
 
   typescript@5.6.2: {}
 
-  typesync@0.13.0(typescript@5.6.2):
+  typesync@0.13.1(typescript@5.6.2):
     dependencies:
       awilix: 10.0.2
       chalk: 4.1.2
