@@ -39,7 +39,7 @@
     "typed-query-selector": "^2.12.0",
     "unstorage": "^1.12.0",
     "zod": "^3.23.8",
-    "zod-validation-error": "^3.3.1"
+    "zod-validation-error": "^3.4.0"
   },
   "devDependencies": {
     "@eslint-types/unicorn": "^52.0.0",
