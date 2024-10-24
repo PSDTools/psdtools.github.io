@@ -24,6 +24,20 @@
     "turbo": "^2.2.3",
     "typesync": "^0.13.0"
   },
+  "devEngines": {
+    "runtime": [
+      {
+        "name": "node",
+        "version": ">= 22.0.0"
+      }
+    ],
+    "packageManager": [
+      {
+        "name": "pnpm",
+        "version": "^9.0.0"
+      }
+    ]
+  },
   "engines": {
     "node": "22.7.0"
   },
