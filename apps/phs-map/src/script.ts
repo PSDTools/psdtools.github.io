@@ -42,19 +42,17 @@ const storage: Storage = createStorage({
 });
 
 declare global {
-  interface Window {
-    startApp: () => Promise<void>;
-    toggleDarkMode: () => Promise<void>;
-    clearAll: () => Promise<void>;
-    toggleNav: (open: boolean) => void;
-    lvl: (level: Lvl) => void;
-    addProf: () => Promise<void>;
-    locateCourses: (profNum: number) => Promise<void>;
-    courseLoop: (profNum: number) => void;
-    remProf: (profNum: number) => Promise<void>;
-    passingTime: (num: number, profNum: number) => void;
-    downloadImg: (el: HTMLAnchorElement) => void;
-  }
+  function startApp(): Promise<void>;
+  function toggleDarkMode(): Promise<void>;
+  function clearAll(): Promise<void>;
+  function toggleNav(open: boolean): void;
+  function lvl(level: Lvl): void;
+  function addProf(): Promise<void>;
+  function locateCourses(profNum: number): Promise<void>;
+  function courseLoop(profNum: number): void;
+  function remProf(profNum: number): Promise<void>;
+  function passingTime(num: number, profNum: number): void;
+  function downloadImg(el: HTMLAnchorElement): void;
 }
 
 let grid: Level;
@@ -112,13 +110,13 @@ function toggleNav(isOpen: boolean): void {
     `${isOpen ? open : close}-body`,
   );
 }
-window.toggleNav = toggleNav;
+globalThis.toggleNav = toggleNav;
 
 async function clearAll(): Promise<void> {
   await storage.clear();
-  window.location.reload();
+  globalThis.location.reload();
 }
-window.clearAll = clearAll;
+globalThis.clearAll = clearAll;
 
 function createProfile(profNum: number): void {
   prof = profNum;
@@ -267,14 +265,14 @@ async function remProf(profNum: number): Promise<void> {
   profiles.splice(profNum, 1);
   profiles[0]?.splice(profNum, 1);
 
-  window.document.querySelector("#profiles")!.innerHTML = html`<div
+  globalThis.document.querySelector("#profiles")!.innerHTML = html`<div
     id="tempProf1"
   ></div>`;
 
   await storage.setItem("profiles", profiles);
   await applySavedProfiles();
 }
-window.remProf = remProf;
+globalThis.remProf = remProf;
 
 function printGrid(level: Lvl): void {
   let currentGrid: number[][];
@@ -352,7 +350,7 @@ function courseLoop(profNum: number): void {
     document.querySelector(`#passing${coursesAmt - 1}${prof}`)!.innerHTML = "";
   }
 }
-window.courseLoop = courseLoop;
+globalThis.courseLoop = courseLoop;
 
 async function locateCourses(profNum: number): Promise<void> {
   prof = profNum;
@@ -371,7 +369,7 @@ async function locateCourses(profNum: number): Promise<void> {
 
   await storage.setItem("profiles", profiles);
 }
-window.locateCourses = locateCourses;
+globalThis.locateCourses = locateCourses;
 
 async function addProf(): Promise<void> {
   profNum = document.querySelectorAll(".prof").length;
@@ -380,14 +378,14 @@ async function addProf(): Promise<void> {
   }
   createProfile(profNum + 1);
 }
-window.addProf = addProf;
+globalThis.addProf = addProf;
 
 function lvl(level: Lvl): void {
   viewLvl = level;
   source = document.querySelector(`img#LVL${level}`)!;
   createCanvas();
 }
-window.lvl = lvl;
+globalThis.lvl = lvl;
 
 function path(
   grid: number[][],
@@ -580,7 +578,7 @@ function passingTime(num: number, profNum: number): void {
     }
   }
 }
-window.passingTime = passingTime;
+globalThis.passingTime = passingTime;
 
 /**
  * Dark Mode!
@@ -611,7 +609,7 @@ async function toggleDarkMode(): Promise<void> {
   darkModeButton.innerHTML = isDarkMode ? "Light Mode" : "Dark Mode";
   await storage.setItem("shade", isDarkMode ? "dark" : "light");
 }
-window.toggleDarkMode = toggleDarkMode;
+globalThis.toggleDarkMode = toggleDarkMode;
 
 async function startApp(): Promise<void> {
   lvl(1);
@@ -621,7 +619,7 @@ async function startApp(): Promise<void> {
     await toggleDarkMode();
   }
 }
-window.startApp = startApp;
+globalThis.startApp = startApp;
 
 function onKeyDown(event: KeyboardEvent): void {
   switch (viewLvl) {
@@ -675,14 +673,14 @@ function onKeyDown(event: KeyboardEvent): void {
 
   printGrid(viewLvl);
 }
-window.addEventListener("keydown", onKeyDown);
+globalThis.addEventListener("keydown", onKeyDown);
 
 function downloadImg(element: HTMLAnchorElement): void {
   const image = canvas.toDataURL("image/jpg");
 
   element.href = image;
 }
-window.downloadImg = downloadImg;
+globalThis.downloadImg = downloadImg;
 
 /**
  * Make links scroll smoothly.
@@ -691,29 +689,28 @@ for (const anchor of document.querySelectorAll("a")) {
   anchor.addEventListener(
     "click",
 
-    ((document, window) =>
-      function (event: MouseEvent): void {
-        // Make sure this.hash has a value before overriding default behavior
-        if (anchor.hash === "") {
-          return;
-        }
+    (event: MouseEvent): void => {
+      // Make sure this.hash has a value before overriding default behavior
+      if (anchor.hash === "") {
+        return;
+      }
 
-        // Store hash
-        const { hash } = anchor;
+      // Store hash
+      const { hash } = anchor;
 
-        // Prevent default anchor click behavior
-        event.preventDefault();
+      // Prevent default anchor click behavior
+      event.preventDefault();
 
-        // Use window.scrollTo with behavior: 'smooth' to add smooth page scroll
-        // The scrollIntoView method scrolls the specified element into the visible area of the document
-        const target = document.querySelector(hash);
+      // Use globalThis.scrollTo with behavior: 'smooth' to add smooth page scroll
+      // The scrollIntoView method scrolls the specified element into the visible area of the document
+      const target = document.querySelector(hash);
 
-        if (target !== null) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
+      if (target !== null) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
 
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = this.hash;
-      })(document, window),
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      globalThis.location.hash = hash;
+    },
   );
 }

@@ -3,12 +3,13 @@ import { sheriff } from "eslint-config-sheriff";
 import { defineFlatConfig } from "eslint-define-config";
 
 /**
- * @import {SheriffSettings} from "@sherifforg/types"
+ * @import {SheriffSettings} from "eslint-config-sheriff"
  */
 
 const sheriffOptions = /** @satisfies {SheriffSettings} */ ({
   react: false,
   lodash: false,
+  remeda: false,
   next: false,
   playwright: false,
   jest: false,

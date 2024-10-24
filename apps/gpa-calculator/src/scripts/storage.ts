@@ -12,13 +12,13 @@ const gradestorage = "gradestorage";
 /** Clears class storage data. */
 async function clearData(): Promise<void> {
   await storage.removeItem(arraystorage);
-  location.reload();
+  globalThis.location.reload();
 }
 
 /** Clears all website storage data. */
 async function clearAll(): Promise<void> {
   await storage.clear();
-  location.reload();
+  globalThis.location.reload();
 }
 
 /** Sets the storage data. */

@@ -19,16 +19,14 @@ import {
 } from "./scripts/storage.js";
 
 declare global {
-  interface Window {
-    hsmsSwap: () => Promise<void>;
-    classAmount: () => Promise<void>;
-    loadgpa: () => Promise<void>;
-    clearData: () => Promise<void>;
-    clearAll: () => Promise<void>;
-    toggleNav: (open: boolean) => void;
-    startApp: () => Promise<void>;
-    darkMode: () => Promise<void>;
-  }
+  function hsmsSwap(): Promise<void>;
+  function classAmount(): Promise<void>;
+  function loadgpa(): Promise<void>;
+  function clearData(): Promise<void>;
+  function clearAll(): Promise<void>;
+  function toggleNav(open: boolean): void;
+  function startApp(): Promise<void>;
+  function darkMode(): Promise<void>;
 }
 
 let courses: Course[] = [];
@@ -45,8 +43,8 @@ const middle = "Middle School";
 const hsmsInput = document.querySelector("input#hsmsInput")!;
 const gradeLvl = document.querySelector("#gradeLvl")!;
 
-window.clearData = clearData;
-window.clearAll = clearAll;
+globalThis.clearData = clearData;
+globalThis.clearAll = clearAll;
 
 /**
  * Toggle the navigation.
@@ -64,7 +62,7 @@ function toggleNav(open: boolean): void {
   classlist?.add(open ? w100 : w0);
   classlist?.remove(open ? w0 : w100);
 }
-window.toggleNav = toggleNav;
+globalThis.toggleNav = toggleNav;
 
 function getTypeIds(): NodeListOf<HTMLSpanElement> {
   return document.querySelectorAll('span[id^="typeId"]');
@@ -101,7 +99,7 @@ async function hsmsSwap(): Promise<void> {
     }
   }
 }
-window.hsmsSwap = hsmsSwap;
+globalThis.hsmsSwap = hsmsSwap;
 
 /**
  * Create a `Course`.
@@ -233,7 +231,7 @@ async function loadgpa(): Promise<void> {
       document.querySelector(`select#cl${itr + 1}`)!.value;
   }
 }
-window.loadgpa = loadgpa;
+globalThis.loadgpa = loadgpa;
 
 async function classAmount(): Promise<void> {
   courses = []; // if storage don't exist, create the array
@@ -268,7 +266,7 @@ async function classAmount(): Promise<void> {
   // sets the gpa text to ""
   document.querySelector("h2#gpa")!.innerHTML = "";
 }
-window.classAmount = classAmount;
+globalThis.classAmount = classAmount;
 
 /**
  * Populates course object data.
@@ -354,4 +352,4 @@ async function startApp(): Promise<void> {
   await getStorage();
 }
 
-window.startApp = startApp;
+globalThis.startApp = startApp;

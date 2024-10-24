@@ -13,7 +13,7 @@
     <title>PHS Map</title>
   </head>
 
-  <body onload="window.startApp()" class="lightModeBg">
+  <body onload="globalThis.startApp()" class="lightModeBg">
     <header class="w3-container w3-theme w3-padding-16" id="my-header">
       <!-- Side Navigation -->
       <nav id="my-sidenav" class="sidenav">
@@ -21,26 +21,26 @@
           aria-label="close navigation"
           href="javascript:void(0)"
           class="closebtn no-bounce colored-a font-36px"
-          onclick="window.toggleNav(false)"
+          onclick="globalThis.toggleNav(false)"
         >
           <i class="fa-solid fa-xmark"></i>
         </a>
         <button
           id="darkModeButton"
-          onclick="window.toggleDarkMode()"
+          onclick="globalThis.toggleDarkMode()"
           class="smallbutton w3-button w3-theme"
         >
           Dark Mode
         </button>
         <button
           class="clearDataButton smallbutton w3-button w3-theme"
-          onclick="window.clearAll()"
+          onclick="globalThis.clearAll()"
         >
           Clear All Site Data
         </button>
         <div class="no-bounce align-centered"></div>
       </nav>
-      <span onclick="window.toggleNav(true)">
+      <span onclick="globalThis.toggleNav(true)">
         <i class="fa-solid fa-bars"></i>
       </span>
 
@@ -79,13 +79,13 @@
         />
 
         <canvas id="my-canvas"></canvas>
-        <button id="lvl0" onclick="window.lvl(0)">Level 0</button>
-        <button id="lvl1" onclick="window.lvl(1)">Level 1</button>
-        <button id="lvl2" onclick="window.lvl(2)">Level 2</button>
+        <button id="lvl0" onclick="globalThis.lvl(0)">Level 0</button>
+        <button id="lvl1" onclick="globalThis.lvl(1)">Level 1</button>
+        <button id="lvl2" onclick="globalThis.lvl(2)">Level 2</button>
         <a
           id="download"
           download="phs-map.jpg"
-          onclick="window.downloadImg(this);"
+          onclick="globalThis.downloadImg(this);"
         >
           Download Current Map
         </a>
@@ -98,7 +98,7 @@
             <button
               class="lime plusbuttonsml add"
               aria-label="add"
-              onclick="window.addProf()"
+              onclick="globalThis.addProf()"
             >
               <i class="fa-solid fa-plus"></i>
             </button>
@@ -137,7 +137,7 @@
         <button
           class="lime plusbutton add"
           aria-label="add"
-          onclick="window.addProf()"
+          onclick="globalThis.addProf()"
         >
           <i class="fa-solid fa-plus"></i>
         </button>
