@@ -103,7 +103,8 @@
     },
     "//#check-deduped-deps": {
       "inputs": [
-        "pnpm-lock.yaml"
+        "pnpm-lock.yaml",
+        ".pnpmfile.cjs"
       ]
     }
   },

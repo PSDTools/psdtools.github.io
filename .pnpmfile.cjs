@@ -3,6 +3,8 @@
 /// PNPM Typedefs.
 // From <https://github.com/pnpm/pnpm/blob/eeb76cd1d0a3133d71d96de5646e305f34474652/hooks/pnpmfile/src/Hooks.ts> & <https://github.com/pnpm/pnpm/blob/d500d9f12e8819bf2659abece126938fb3a9ac87/packages/types/src/package.ts>.
 
+const VERBOSE = false;
+
 /**
  * A local `package.json` or a remote manifest from a registry as deserialized JSON.
  *
@@ -167,8 +169,10 @@ function readPackage(pkg, context) {
         // Replace the original package with the nolyfill.
         newPkg.dependencies[name] = `npm:${nolyfill}@^1`;
 
-        // Tell the user that the package has been nolyfilled.
-        context.log(`${name} => ${nolyfill}`);
+        if (VERBOSE) {
+          // Tell the user that the package has been nolyfilled.
+          context.log(`${name} => ${nolyfill}`);
+        }
       }
     }
   }
