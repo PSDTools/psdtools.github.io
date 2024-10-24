@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "workspaces": {
+    "apps/*": {
+      "entry": ["src/script.ts", "src/sw.ts"],
+      "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"]
+    },
+    "apps/gpa-calculator": {
+      "entry": ["src/script.ts", "src/sw.ts"],
+      "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"],
+      "ignore": ["tailwind.config.ts"]
+    }
+  },
+  "ignore": [".pnpmfile.cjs"],
+  "ignoreDependencies": ["@commitlint/cli", "@eslint-types/*"]
+}
