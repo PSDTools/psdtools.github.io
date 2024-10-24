@@ -105,7 +105,8 @@
       "inputs": [
         "pnpm-lock.yaml",
         ".pnpmfile.cjs"
-      ]
+      ],
+      "outputs": ["**/node_modules/"]
     }
   },
   "remoteCache": {
