@@ -68,7 +68,7 @@ jobs:
         run: pnpm run build
       - run: git diff
       - name: 🧹 Check for deduped dependencies
-        run: pnpm exec turbo check-deduped-deps -- --ignore-scripts
+        run: pnpm exec turbo check-deduped-deps
       - name: 🕵️ Merge Checks
         run: pnpm run merge-checks
       - name: ⚙️ Upload GPA Calculator
