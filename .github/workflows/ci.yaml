@@ -25,7 +25,7 @@ on:
   workflow_dispatch:
 
 env:
-  DENO_VERSION: v1.44.4
+  CI: true
 
 permissions:
   contents: read # Needed to clone the repository
@@ -95,10 +95,6 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - name: 🦕 Install Deno
-        uses: denoland/setup-deno@fa660b328d065f7683e7303976bd81e2d58e98ae # v1.4.1
-        with:
-          deno-version: ${{ env.DENO_VERSION }}
       - name: ⚙️ Download GPA Calculator
         uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
         with:
@@ -124,10 +120,6 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - name: 🦕 Install Deno
-        uses: denoland/setup-deno@fa660b328d065f7683e7303976bd81e2d58e98ae # v1.4.1
-        with:
-          deno-version: ${{ env.DENO_VERSION }}
       - name: ⚙️ Download Map
         uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
         with:
