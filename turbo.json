@@ -98,7 +98,8 @@
     },
     "//#typesync:check": {
       "inputs": [
-        "**/package.json"
+        "**/package.json",
+        ".typesyncrc"
       ]
     },
     "//#check-deduped-deps": {

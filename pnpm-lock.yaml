@@ -32,8 +32,8 @@ importers:
         specifier: ^2.2.3
         version: 2.2.3
       typesync:
-        specifier: ^0.13.0
-        version: 0.13.0(typescript@5.6.2)
+        specifier: ^0.13.3
+        version: 0.13.3(typescript@5.6.2)
 
   apps/gpa-calculator:
     dependencies:
@@ -145,7 +145,7 @@ importers:
         specifier: ^0.6.1
         version: 0.6.1
       '@types/pathfinding':
-        specifier: ^0.0.9
+        specifier: ~0.0.9
         version: 0.0.9
       '@vite-pwa/assets-generator':
         specifier: ^0.2.6
@@ -4408,8 +4408,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typesync@0.13.0:
-    resolution: {integrity: sha512-t5+DHmXqNHJyX9PSocEEB6c5gQlO0j0LLxEiZ/HMz0lWJWBf+bKEXTORkquAuUgjMZ7U5Hx8w63Qmebx7bK2FA==}
+  typesync@0.13.3:
+    resolution: {integrity: sha512-pX4DFcdF6fJGShG269lYih8ZaGH9KzbXVq/Oo9wYyy8ni8/UOBZ/UXzfABqS9A3mXlgRYO8kGR9cGIq9efBxnQ==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -9436,7 +9436,7 @@ snapshots:
 
   typescript@5.6.2: {}
 
-  typesync@0.13.0(typescript@5.6.2):
+  typesync@0.13.3(typescript@5.6.2):
     dependencies:
       awilix: 10.0.2
       chalk: 4.1.2
