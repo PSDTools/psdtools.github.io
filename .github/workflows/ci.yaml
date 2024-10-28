@@ -67,7 +67,7 @@ jobs:
       - name: 🔨 Build
         run: pnpm run build
       - name: 🕵️ Merge Checks
-        run: pnpm run merge-checks
+        run: pnpm run merge-checks --continue
       - name: 🧹 Check for deduped dependencies
         run: pnpm exec turbo check-deduped-deps
       - name: ⚙️ Upload GPA Calculator
