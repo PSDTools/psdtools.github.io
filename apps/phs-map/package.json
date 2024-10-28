@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@eslint-types/unicorn": "^52.0.0",
+    "@psdtools/tsconfig": "workspace:^",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/pathfinding": "~0.0.9",
     "@vite-pwa/assets-generator": "^0.2.6",

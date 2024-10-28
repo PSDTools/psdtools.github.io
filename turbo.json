@@ -38,7 +38,10 @@
         "node_modules/.cache/tsbuildinfo.extra.json"
       ],
       "inputs": [
-        "vite.config.ts"
+        "eslint.config.js",
+        "tailwind.config.ts",
+        "vite.config.ts",
+        "tsconfig.extra.json"
       ]
     },
     "//#format": {

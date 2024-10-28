@@ -1,0 +1,19 @@
+{
+  "name": "@psdtools/tsconfig",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Our strict TypeScript configuration",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PSDTools/psdtool.github.io.git",
+    "directory": "packages/typescript-config"
+  },
+  "author": {
+    "name": "Eli D.",
+    "email": "88557639+lishaduck@users.noreply.github.com"
+  },
+  "exports": {
+    "./base.json": "./base.json",
+    "./extra.json": "./extra.json"
+  }
+}

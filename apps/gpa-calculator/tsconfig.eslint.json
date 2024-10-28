@@ -1,9 +1,4 @@
 {
-  "extends": "./tsconfig.json",
-  "include": ["vite.config.ts", "eslint.config.js", "tailwind.config.ts"],
-  "compilerOptions": {
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.extra.json",
-    "allowJs": true,
-    "checkJs": true
-  }
+  "extends": "@psdtools/tsconfig/extra.json",
+  "files": ["eslint.config.js", "tailwind.config.ts", "vite.config.ts"]
 }
