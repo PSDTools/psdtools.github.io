@@ -31,7 +31,8 @@
     "allowJs": false,
     "checkJs": false,
     "experimentalDecorators": false,
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "composite": true
   },
   "include": ["${configDir}/src/**/*.ts"],
   "exclude": ["**/node_modules/"]
