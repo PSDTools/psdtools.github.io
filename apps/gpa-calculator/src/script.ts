@@ -12,7 +12,7 @@ import "./styles/global.css";
 
 import html from "html-template-tag";
 
-import { type Course, newCourse } from "./data/data-types.js";
+import { type Course, newCourse } from "./data/data-types.ts";
 import {
   clearAll,
   clearData,
@@ -20,7 +20,7 @@ import {
   getGrade,
   setData,
   setGrade,
-} from "./scripts/storage.js";
+} from "./scripts/storage.ts";
 
 declare global {
   function hsmsSwap(): Promise<void>;
