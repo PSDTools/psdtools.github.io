@@ -11,11 +11,7 @@
 
 import "./styles/bounce.css";
 import "./styles/style.css";
-import html from "html-template-tag";
-import * as PF from "pathfinding";
-import { createStorage, type Storage } from "unstorage";
-import indexedDbDriver from "unstorage/drivers/indexedb";
-import { fromZodError } from "zod-validation-error";
+
 import { dom, library } from "@fortawesome/fontawesome-svg-core";
 import {
   faBars,
@@ -25,8 +21,15 @@ import {
   faPlus,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { colorMap } from "./data/colors.ts";
+import html from "html-template-tag";
+import * as PF from "pathfinding";
+import { createStorage, type Storage } from "unstorage";
+import indexedDbDriver from "unstorage/drivers/indexedb";
+import { fromZodError } from "zod-validation-error";
+
 import type { Coords2D, Level, Lvl, StairList } from "./data/data-types.ts";
+
+import { colorMap } from "./data/colors.ts";
 import { level0, level1, level2 } from "./data/levels.ts";
 import { rooms } from "./data/rooms.ts";
 import {
@@ -278,6 +281,11 @@ function printGrid(level: Lvl): void {
   let currentGrid: number[][];
 
   switch (level) {
+    case 0: {
+      currentGrid = level0;
+
+      break;
+    }
     case 1: {
       currentGrid = level1;
 
@@ -285,11 +293,6 @@ function printGrid(level: Lvl): void {
     }
     case 2: {
       currentGrid = level2;
-
-      break;
-    }
-    case 0: {
-      currentGrid = level0;
 
       break;
     }
@@ -623,6 +626,11 @@ globalThis.startApp = startApp;
 
 function onKeyDown(event: KeyboardEvent): void {
   switch (viewLvl) {
+    case 0: {
+      grid = level0;
+
+      break;
+    }
     case 1: {
       grid = level1;
 
@@ -633,22 +641,12 @@ function onKeyDown(event: KeyboardEvent): void {
 
       break;
     }
-    case 0: {
-      grid = level0;
-
-      break;
-    }
     default: {
       break; // no-op
     }
   }
   grid[py]![px] = old;
   switch (event.key) {
-    case "ArrowUp": {
-      py -= 1;
-
-      break;
-    }
     case "ArrowDown": {
       py += 1;
 
@@ -661,6 +659,11 @@ function onKeyDown(event: KeyboardEvent): void {
     }
     case "ArrowRight": {
       px += 1;
+
+      break;
+    }
+    case "ArrowUp": {
+      py -= 1;
 
       break;
     }

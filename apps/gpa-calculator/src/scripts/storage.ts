@@ -1,5 +1,6 @@
 import { createStorage, type Storage } from "unstorage";
 import indexedDbDriver from "unstorage/drivers/indexedb";
+
 import type { Course } from "../data/data-types";
 
 const storage: Storage = createStorage({

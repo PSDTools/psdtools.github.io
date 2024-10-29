@@ -6,10 +6,10 @@ type Course = z.infer<typeof courseSchema>;
  * Represent a course.
  */
 const courseSchema = z.object({
-  letterGrade: z.number().readonly(),
-  classText: z.string().readonly(),
   classNum: z.number().readonly(),
+  classText: z.string().readonly(),
   classType: z.string().readonly(),
+  letterGrade: z.number().readonly(),
 });
 
 /**
@@ -19,18 +19,18 @@ const newCourse = z
   .function()
   .args(
     courseSchema.partial({
-      letterGrade: true,
       classText: true,
       classType: true,
+      letterGrade: true,
     }),
   )
   .returns(courseSchema)
   .implement(
-    ({ classNum, classText = "", letterGrade = 5, classType = "1" }) => ({
-      letterGrade,
-      classText,
+    ({ classNum, classText = "", classType = "1", letterGrade = 5 }) => ({
       classNum,
+      classText,
       classType,
+      letterGrade,
     }),
   );
 

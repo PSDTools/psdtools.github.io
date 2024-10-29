@@ -7,7 +7,9 @@
  */
 
 import "./styles/global.css";
+
 import html from "html-template-tag";
+
 import { type Course, newCourse } from "./data/data-types.js";
 import {
   clearAll,

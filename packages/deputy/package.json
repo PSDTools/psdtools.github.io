@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "eslint-config-sheriff": "^25.1.0",
-    "eslint-define-config": "^2.1.0"
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-perfectionist": "^3.9.1"
   },
   "peerDependencies": {
     "eslint": "^9.13.0"
