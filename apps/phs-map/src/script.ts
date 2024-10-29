@@ -9,6 +9,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-shadow */
 
+// cspell:ignore stinv, txtbox, containerinpt, xmark, rmnum, btninpt, showpth
+
 import "./styles/bounce.css";
 import "./styles/style.css";
 

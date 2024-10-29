@@ -1,5 +1,6 @@
 import type { ESLint } from "eslint";
 
+import cspell from "@cspell/eslint-plugin";
 import { sheriff, type SheriffSettings } from "eslint-config-sheriff";
 import {
   defineFlatConfig,
@@ -38,6 +39,7 @@ export const config: FlatESLintConfig[] = defineFlatConfig([
       "func-style": [error, "declaration", { allowArrowFunctions: true }],
       "no-console": warn,
       "no-negated-condition": off,
+      "no-nested-ternary": off,
       "no-plusplus": [error, { allowForLoopAfterthoughts: true }],
       "no-void": [error, { allowAsStatement: true }],
       "operator-assignment": [warn, "always"],
@@ -91,9 +93,20 @@ export const config: FlatESLintConfig[] = defineFlatConfig([
     rules: {
       ...(perfectionist.configs["recommended-natural"].rules as Rules),
       "perfectionist/sort-union-types": [
-        "error",
+        error,
         {
           groups: ["unknown", "nullish"],
+        },
+      ],
+    },
+  },
+  {
+    plugins: { "@cspell": cspell },
+    rules: {
+      "@cspell/spellchecker": [
+        warn,
+        {
+          configFile: import.meta.resolve("../../../cspell.json"),
         },
       ],
     },
