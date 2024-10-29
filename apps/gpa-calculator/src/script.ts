@@ -6,8 +6,12 @@
  * Therefore, it is important to keep the script as fast as possible.
  */
 
+// cspell:ignore LGID, CTID, CTYID, cltyp
+
 import "./styles/global.css";
+
 import html from "html-template-tag";
+
 import { type Course, newCourse } from "./data/data-types.js";
 import {
   clearAll,
@@ -21,7 +25,7 @@ import {
 declare global {
   function hsmsSwap(): Promise<void>;
   function classAmount(): Promise<void>;
-  function loadgpa(): Promise<void>;
+  function loadGpa(): Promise<void>;
   function clearData(): Promise<void>;
   function clearAll(): Promise<void>;
   function toggleNav(open: boolean): void;
@@ -112,14 +116,14 @@ function createCourse(num: number): void {
 
   // creates html elements in the courses class
   document.querySelector(`div#${tempElementId}`)!.innerHTML = html`<div
-      oninput="loadgpa();"
+      oninput="loadGpa();"
       class="pt-4 pb-4 lg:text-2xl text-lg"
     >
       <div id="input-con-div">
         <input
           class="hover:scale-105 w-36 placeholder-white blacktxt"
           placeholder="Class ${stringNum}:"
-          oninput="loadgpa();"
+          oninput="loadGpa();"
           id="cl${stringNum}txt"
           type="text"
           required=""
@@ -140,11 +144,11 @@ function createCourse(num: number): void {
           value="4"
           class="hover:scale-105 slider float-right w-1/2"
           id="slide${stringNum}"
-          oninput="document.querySelector('#cl${stringNum}').value = document.querySelector('#slide${stringNum}').value;loadgpa();"
+          oninput="document.querySelector('#cl${stringNum}').value = document.querySelector('#slide${stringNum}').value;loadGpa();"
         />
         <select
           class="hover:scale-105 blacktxt float-right appearance-none"
-          oninput="document.querySelector('#slide${stringNum}').value = document.querySelector('#cl${stringNum}').value;loadgpa();"
+          oninput="document.querySelector('#slide${stringNum}').value = document.querySelector('#cl${stringNum}').value;loadGpa();"
           id="cl${stringNum}"
         >
           <option value="4">A</option>
@@ -173,9 +177,9 @@ function saveRemove(): void {
 /**
  * Saves values to the array.
  */
-async function loadgpa(): Promise<void> {
+async function loadGpa(): Promise<void> {
   // set vars
-  let pregpa = 0;
+  let preGpa = 0;
   let courseLen = courses.length;
 
   tempLGID = "";
@@ -200,25 +204,23 @@ async function loadgpa(): Promise<void> {
     if (course.letterGrade === 5) {
       courseLen -= 1;
     } else {
-      // adds to pregpa
-      if (course.classType === "2" && hsmsInput.checked) {
-        if (course.letterGrade === 0) {
-          pregpa += course.letterGrade;
-        } else {
-          pregpa += 1 + course.letterGrade;
-        }
-      } else {
-        pregpa += course.letterGrade;
-      }
+      preGpa +=
+        (
+          course.classType === "2" &&
+          hsmsInput.checked &&
+          course.letterGrade !== 0
+        ) ?
+          1 + course.letterGrade
+        : course.letterGrade;
     }
   }
 
   // Divide.
-  const gpa = pregpa / courseLen;
+  const gpa = preGpa / courseLen;
   // Round.
-  const roundedgpa = Math.round(gpa * 100) / 100;
+  const roundedGpa = Math.round(gpa * 100) / 100;
 
-  document.querySelector("h2#gpa")!.innerHTML = `Your GPA is a: ${roundedgpa}`;
+  document.querySelector("h2#gpa")!.innerHTML = `Your GPA is a: ${roundedGpa}`;
 
   // shows save text
   document.querySelector("p#saved")!.innerHTML = "Saved!";
@@ -231,7 +233,7 @@ async function loadgpa(): Promise<void> {
       document.querySelector(`select#cl${itr + 1}`)!.value;
   }
 }
-globalThis.loadgpa = loadgpa;
+globalThis.loadGpa = loadGpa;
 
 async function classAmount(): Promise<void> {
   courses = []; // if storage don't exist, create the array
@@ -262,7 +264,7 @@ async function classAmount(): Promise<void> {
   }
 
   // calculates and saves the gpa
-  await loadgpa();
+  await loadGpa();
   // sets the gpa text to ""
   document.querySelector("h2#gpa")!.innerHTML = "";
 }
@@ -341,7 +343,7 @@ async function getStorage(): Promise<void> {
   } else {
     // if storage does exist
     fromStorage(arraystorage);
-    await loadgpa();
+    await loadGpa();
   }
   if (gradestorage === "false") {
     await hsmsSwap();

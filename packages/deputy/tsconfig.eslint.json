@@ -1,0 +1,4 @@
+{
+  "extends": "@psdtools/tsconfig/extra.json",
+  "files": ["eslint.config.js", "tsdown.config.ts"]
+}

@@ -1,6 +1,10 @@
 {
   "eslint.useFlatConfig": true,
-  "eslint.workingDirectories": ["apps/gpa-calculator", "app/phs-map"],
+  "eslint.workingDirectories": [
+    "apps/gpa-calculator",
+    "apps/phs-map",
+    "packages/deputy"
+  ],
   "files.trimTrailingWhitespace": true,
   "markdownlint.config": {
     "MD028": false,

@@ -16,7 +16,8 @@
       "inputs": [
         "**/*.ts",
         "eslint.config.js"
-      ]
+      ],
+      "dependsOn": ["deputy#build"]
     },
     "typecheck": {
       "dependsOn": [

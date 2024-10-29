@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 import { rooms } from "./rooms.ts";
 
 type ProfilesList = z.infer<typeof profilesListSchema>;
