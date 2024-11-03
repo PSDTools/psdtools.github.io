@@ -53,6 +53,9 @@
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp"
+    ],
+    "neverBuildDependencies": [
+      "eslint-config-sheriff"
     ]
   },
   "manypkg": {
