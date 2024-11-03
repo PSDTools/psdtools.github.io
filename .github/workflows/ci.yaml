@@ -60,8 +60,11 @@ jobs:
           key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
+          # fetch registry metadata
+      - name: 🎾 Fetch package metadata
+        run: pnpm fetch
       - name: 📦 Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --offline
       - name: 🌐 Disable analytics
         run: pnpm exec turbo telemetry disable
       - name: 🔨 Build

@@ -13,7 +13,7 @@
     "manypkg": "manypkg check",
     "typesync": "typesync",
     "typesync:check": "typesync --dry=fail",
-    "check-deduped-deps": "pnpm dedupe --check --prefer-offline",
+    "check-deduped-deps": "pnpm dedupe --check --offline",
     "merge-checks": "turbo run typecheck lint format:check manypkg typesync:check"
   },
   "devDependencies": {
