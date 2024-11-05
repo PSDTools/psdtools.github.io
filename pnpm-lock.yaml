@@ -214,9 +214,6 @@ importers:
       '@psdtools/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
-      '@total-typescript/ts-reset':
-        specifier: ^0.6.1
-        version: 0.6.1
       eslint:
         specifier: ^9.14.0
         version: 9.14.0(jiti@2.4.0)
