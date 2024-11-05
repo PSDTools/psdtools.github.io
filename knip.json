@@ -9,8 +9,12 @@
       "entry": ["src/script.ts", "src/sw.ts"],
       "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"],
       "ignore": ["tailwind.config.ts"]
+    },
+    "packages/deputy": {
+      "ignore": ["tsdown.config.ts"],
+      "ignoreDependencies": ["@eslint-types/*", "rolldown"]
     }
   },
   "ignore": [".pnpmfile.cjs"],
-  "ignoreDependencies": ["@commitlint/cli", "@eslint-types/*"]
+  "ignoreDependencies": ["@commitlint/cli"]
 }
