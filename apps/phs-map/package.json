@@ -31,8 +31,8 @@
     "defaults and fully supports es6-module"
   ],
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.0",
+    "@fortawesome/free-solid-svg-icons": "^6.7.0",
     "html-template-tag": "^4.1.0",
     "idb-keyval": "^6.2.1",
     "pathfinding": "^0.4.18",
