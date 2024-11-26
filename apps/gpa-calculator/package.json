@@ -47,7 +47,7 @@
     "eslint": "^9.14.0",
     "fontaine": "^0.5.0",
     "lightningcss": "^1.28.1",
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "vite": "^5.4.11",
     "vite-plugin-html-minifier": "^1.0.4",
     "vite-plugin-pwa": "^0.20.5",
