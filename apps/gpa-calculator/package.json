@@ -35,7 +35,7 @@
     "idb-keyval": "^6.2.1",
     "typed-query-selector": "^2.12.0",
     "unstorage": "^1.13.1",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@psdtools/tsconfig": "workspace:^",
