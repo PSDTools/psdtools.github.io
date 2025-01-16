@@ -24,8 +24,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import html from "html-template-tag";
 import * as PF from "pathfinding";
-import { createStorage, type Storage } from "unstorage";
-import indexedDbDriver from "unstorage/drivers/indexedb";
 import { fromZodError } from "zod-validation-error";
 
 import type { Coords2D, Level, Lvl, StairList } from "./data/data-types.ts";
@@ -40,10 +38,13 @@ import {
   roomSchema,
 } from "./data/schemas.ts";
 import { btmStairs, stairs } from "./data/stairs.ts";
-
-const storage: Storage = createStorage({
-  driver: indexedDbDriver({ base: "map:" }),
-});
+import {
+  clearAll,
+  getProfiles,
+  getShade,
+  setProfiles,
+  setShade,
+} from "./data/storage.ts";
 
 declare global {
   function startApp(): Promise<void>;
@@ -96,6 +97,8 @@ library.add(
 );
 dom.watch();
 
+globalThis.clearAll = clearAll;
+
 /**
  * Despite the name, this function is purely functional and has no state, though it does perform a side effect.
  *
@@ -115,12 +118,6 @@ function toggleNav(isOpen: boolean): void {
   );
 }
 globalThis.toggleNav = toggleNav;
-
-async function clearAll(): Promise<void> {
-  await storage.clear();
-  globalThis.location.reload();
-}
-globalThis.clearAll = clearAll;
 
 function createProfile(profNum: number): void {
   prof = profNum;
@@ -220,7 +217,7 @@ function createCourse(num: number, profNum: number): void {
 const zodErrorElement = document.querySelector("#zod-error");
 
 async function applySavedProfiles(): Promise<void> {
-  const unparsedProfiles = await storage.getItem("profiles");
+  const unparsedProfiles = await getProfiles();
   const parsedProfiles = profilesListSchema.safeParse(unparsedProfiles ?? []);
 
   if (parsedProfiles.success) {
@@ -273,7 +270,7 @@ async function remProf(profNum: number): Promise<void> {
     id="tempProf1"
   ></div>`;
 
-  await storage.setItem("profiles", profiles);
+  await setProfiles(profiles);
   await applySavedProfiles();
 }
 globalThis.remProf = remProf;
@@ -371,7 +368,7 @@ async function locateCourses(profNum: number): Promise<void> {
     ];
   }
 
-  await storage.setItem("profiles", profiles);
+  await setProfiles(profiles);
 }
 globalThis.locateCourses = locateCourses;
 
@@ -599,7 +596,7 @@ async function toggleDarkMode(): Promise<void> {
   const darkModeButton = document.querySelector("#darkModeButton")!;
 
   darkModeButton.innerHTML = isDarkMode ? "Light Mode" : "Dark Mode";
-  await storage.setItem("shade", isDarkMode ? "dark" : "light");
+  await setShade(isDarkMode ? "dark" : "light");
 }
 globalThis.toggleDarkMode = toggleDarkMode;
 
@@ -607,7 +604,7 @@ async function startApp(): Promise<void> {
   lvl(1);
   await applySavedProfiles();
 
-  if ((await storage.getItem("shade")) === "dark") {
+  if ((await getShade()) === "dark") {
     await toggleDarkMode();
   }
 }

@@ -8,7 +8,7 @@ interface StorageData {
   gradestorage: string;
 }
 
-const storage: Storage<StorageData> = createStorage<StorageData>({
+const storage: Storage<StorageData> = createStorage({
   driver: indexedDbDriver({ base: "gpa:" }),
 });
 

@@ -106,4 +106,6 @@ type GWing = "G";
  */
 type HWing = "H";
 
-export type { Coords, Coords2D, Level, Lvl, Rooms, StairList, Wing };
+type Shade = "dark" | "light";
+
+export type { Coords, Coords2D, Level, Lvl, Rooms, Shade, StairList, Wing };
