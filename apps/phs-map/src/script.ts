@@ -6,7 +6,6 @@
  * Therefore, it is important to keep the script as fast as possible.
  */
 
-/* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-shadow */
 
 // cspell:ignore stinv, txtbox, containerinpt, xmark, rmnum, btninpt, showpth
@@ -568,19 +567,7 @@ function passingTime(num: number, profNum: number): void {
     } else {
       btmPath(x1, y1, x2, y2, flr1, flr2);
     }
-    switch (flr1) {
-      case 1: {
-        lvl(1);
-        break;
-      }
-      case 2: {
-        lvl(2);
-        break;
-      }
-      default: {
-        lvl(0);
-      }
-    }
+    lvl(flr1);
   }
 }
 globalThis.passingTime = passingTime;

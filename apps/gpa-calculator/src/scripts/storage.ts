@@ -3,7 +3,12 @@ import indexedDbDriver from "unstorage/drivers/indexedb";
 
 import type { Course } from "../data/data-types";
 
-const storage: Storage = createStorage({
+interface StorageData {
+  arraystorage: Course[];
+  gradestorage: string;
+}
+
+const storage: Storage<StorageData> = createStorage<StorageData>({
   driver: indexedDbDriver({ base: "gpa:" }),
 });
 

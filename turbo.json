@@ -14,10 +14,8 @@
     },
     "lint": {
       "inputs": [
-        "**/*.ts",
-        "eslint.config.js"
-      ],
-      "dependsOn": ["deputy#build"]
+        "**/*.ts"
+      ]
     },
     "typecheck": {
       "dependsOn": [
@@ -39,7 +37,7 @@
         "node_modules/.cache/tsbuildinfo.extra.json"
       ],
       "inputs": [
-        "eslint.config.js",
+        "eslint.config.ts",
         "tailwind.config.ts",
         "vite.config.ts",
         "tsconfig.extra.json"

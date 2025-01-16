@@ -1,4 +1,4 @@
 {
   "extends": "@psdtools/tsconfig/extra.json",
-  "files": ["eslint.config.js", "tailwind.config.ts", "vite.config.ts"]
+  "files": ["eslint.config.ts", "tailwind.config.ts", "vite.config.ts"]
 }

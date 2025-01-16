@@ -5,21 +5,21 @@ import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import htmlMinifier from "vite-plugin-html-minifier";
 import { VitePWA } from "vite-plugin-pwa";
-import webfontDownload from "vite-plugin-webfont-dl";
+import { webfontDownload } from "vite-plugin-webfont-dl";
 
 const browsersList = browserslist();
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
+    cssMinify: "lightningcss",
     rollupOptions: {
       input: {
-        main: new URL(import.meta.resolve("./index.html")).pathname,
+        main: "./index.html",
       },
     },
     sourcemap: true,
     target: browserslistToEsbuild(browsersList),
-    // cssMinify: "lightningcss", // Currently doesn't support first-child.
   },
   css: {
     lightningcss: {
@@ -31,7 +31,8 @@ export default defineConfig({
     webfontDownload(["https://fonts.googleapis.com/css?family=Lato"]),
     FontaineTransform.vite({
       fallbacks: ["sans-serif"],
-      resolvePath: (path) => new URL(`.${path}`, import.meta.url),
+      // The config gets moved to `node_modules/.vite-temp/`.
+      resolvePath: (path) => new URL(`../../.${path}`, import.meta.url),
     }),
     htmlMinifier({
       minify: true,
