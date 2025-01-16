@@ -1397,7 +1397,7 @@ table tr:hover {
   outline: 2px solid black;
 }
 
-table tr:first-chid:hover {
+table tr:first-child:hover {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }

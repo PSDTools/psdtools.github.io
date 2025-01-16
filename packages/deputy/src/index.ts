@@ -1,7 +1,11 @@
 import type { ESLint } from "eslint";
 
 import cspell from "@cspell/eslint-plugin";
-import { sheriff, type SheriffSettings } from "eslint-config-sheriff";
+import {
+  sheriff,
+  type SheriffSettings,
+  supportedFileTypes,
+} from "eslint-config-sheriff";
 import {
   defineFlatConfig,
   type FlatESLintConfig,
@@ -19,6 +23,7 @@ const sheriffOptions = {
   lodash: false,
   next: false,
   pathsOverrides: {
+    playwrightTests: [],
     tsconfigLocation: ["./tsconfig.json", "./tsconfig.eslint.json"],
   },
   playwright: false,
@@ -28,10 +33,10 @@ const sheriffOptions = {
   vitest: false,
 } satisfies SheriffSettings;
 
-export const config: FlatESLintConfig[] = defineFlatConfig([
-  ...sheriff(sheriffOptions),
+const baseConfig: FlatESLintConfig[] = defineFlatConfig([
+  ...(sheriff(sheriffOptions) as FlatESLintConfig[]),
   {
-    files: ["**/*.ts"],
+    files: [supportedFileTypes],
     rules: {
       "arrow-body-style": off,
       // This rule doesn't support enforcing implicit return for multiline returns.
@@ -66,8 +71,10 @@ export const config: FlatESLintConfig[] = defineFlatConfig([
       "@typescript-eslint/strict-boolean-expressions": warn,
 
       "import/no-unresolved": [error, { ignore: ["^virtual:"] }],
+      "import/no-useless-path-segments": [error, { noUselessIndex: false }],
 
       "jsdoc/check-tag-names": off, // TSDoc is used instead.
+      "jsdoc/convert-to-jsdoc-comments": off, // Experimental, has bugs.
 
       "simple-import-sort/imports": off,
 
@@ -78,6 +85,7 @@ export const config: FlatESLintConfig[] = defineFlatConfig([
     },
   },
   {
+    files: [supportedFileTypes],
     plugins: {
       perfectionist: perfectionist as unknown as ESLint.Plugin,
     },
@@ -92,6 +100,8 @@ export const config: FlatESLintConfig[] = defineFlatConfig([
 
     rules: {
       ...(perfectionist.configs["recommended-natural"].rules as Rules),
+      "perfectionist/sort-imports": [error, { partitionByNewLine: false }],
+      "perfectionist/sort-modules": off,
       "perfectionist/sort-union-types": [
         error,
         {
@@ -112,3 +122,7 @@ export const config: FlatESLintConfig[] = defineFlatConfig([
     },
   },
 ]);
+
+export function config(): FlatESLintConfig[] {
+  return baseConfig;
+}

@@ -23,14 +23,14 @@ import {
 } from "./scripts/storage.ts";
 
 declare global {
-  function hsmsSwap(): Promise<void>;
   function classAmount(): Promise<void>;
-  function loadGpa(): Promise<void>;
-  function clearData(): Promise<void>;
   function clearAll(): Promise<void>;
-  function toggleNav(open: boolean): void;
-  function startApp(): Promise<void>;
+  function clearData(): Promise<void>;
   function darkMode(): Promise<void>;
+  function hsmsSwap(): Promise<void>;
+  function loadGpa(): Promise<void>;
+  function startApp(): Promise<void>;
+  function toggleNav(open: boolean): void;
 }
 
 let courses: Course[] = [];

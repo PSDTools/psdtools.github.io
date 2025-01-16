@@ -106,4 +106,4 @@ type GWing = "G";
  */
 type HWing = "H";
 
-export type { Coords2D, Level, Lvl, Rooms, StairList };
+export type { Coords, Coords2D, Level, Lvl, Rooms, StairList, Wing };

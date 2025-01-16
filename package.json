@@ -17,33 +17,30 @@
     "merge-checks": "turbo run typecheck knip lint format:check manypkg typesync:check"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.0",
+    "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@manypkg/cli": "^0.22.0",
+    "@manypkg/cli": "^0.23.0",
     "husky": "^9.1.7",
-    "knip": "^5.41.0",
+    "knip": "^5.42.1",
     "prettier": "3.4.2",
-    "turbo": "^2.2.3",
+    "turbo": "^2.3.3",
     "typesync": "^0.14.0"
   },
   "devEngines": {
     "runtime": [
       {
         "name": "node",
-        "version": ">= 22.0.0"
+        "version": ">= 23.0.0"
       }
     ],
     "packageManager": [
       {
         "name": "pnpm",
-        "version": "^9.0.0"
+        "version": "^10.0.0"
       }
     ]
   },
-  "engines": {
-    "node": "22.10.0"
-  },
-  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
+  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b",
   "pnpm": {
     "peerDependencyRules": {
       "allowedVersions": {
@@ -54,14 +51,14 @@
       "esbuild",
       "sharp"
     ],
-    "neverBuildDependencies": [
+    "ignoredBuiltDependencies": [
       "eslint-config-sheriff"
-    ]
+    ],
+    "overrides": {
+      "eslint-plugin-unicorn": "^56.0.1"
+    }
   },
   "manypkg": {
-    "workspaceProtocol": "require",
-    "ignoredRules": [
-      "ROOT_HAS_DEV_DEPENDENCIES"
-    ]
+    "workspaceProtocol": "require"
   }
 }

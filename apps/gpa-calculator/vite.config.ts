@@ -14,7 +14,7 @@ export default defineConfig({
     cssMinify: "lightningcss",
     rollupOptions: {
       input: {
-        main: new URL(import.meta.resolve("./index.html")).pathname,
+        main: "./index.html",
       },
     },
     sourcemap: true,
