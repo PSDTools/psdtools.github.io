@@ -5,7 +5,7 @@
       "entry": ["src/{script,sw}.ts"],
       "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"],
       "ignore": ["eslint.config.ts", "tailwind.config.ts"],
-      "ignoreDependencies": ["deputy"]
+      "ignoreDependencies": ["deputy", "fontaine", "tailwindcss"]
     },
     "apps/petal-notes": {
       "ignore": [".storybook/vitest.setup.ts", "eslint.config.ts"],
