@@ -1,6 +1,6 @@
+import tailwindcss from "@tailwindcss/vite";
 import browserslist from "browserslist";
 import browserslistToEsbuild from "browserslist-to-esbuild";
-import { FontaineTransform } from "fontaine";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import htmlMinifier from "vite-plugin-html-minifier";
@@ -27,10 +27,13 @@ export default defineConfig({
     transformer: "lightningcss",
   },
   plugins: [
-    FontaineTransform.vite({
-      fallbacks: ["Verdana", "Geneva", "Tahoma", "sans-serif"],
-      resolvePath: (path) => new URL(`.${path}`, import.meta.url),
-    }),
+    tailwindcss(),
+    // See unjs/fontaine#446.
+    // FontaineTransform.vite({
+    //   fallbacks: ["Verdana", "Geneva", "Tahoma", "sans-serif"],
+    //   // Convert an absolute paths to be relative to the root.
+    //   resolvePath: (path) => new URL(`.${path}`, import.meta.url),
+    // }),
     htmlMinifier({
       minify: true,
     }),
