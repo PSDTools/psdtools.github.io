@@ -60,7 +60,14 @@
       "svelte-preprocess"
     ],
     "overrides": {
-      "eslint-plugin-unicorn": "^56.0.1"
+      "eslint-plugin-unicorn": "^56.0.1",
+      "hypermd>emojione": "-",
+      "hypermd>flowchart.js": "-",
+      "hypermd>mathjax": "-",
+      "hypermd>mermaid": "-",
+      "hypermd>turndown": "-",
+      "hypermd>turndown-plugin-gfm": "-",
+      "hypermd>twemoji": "-"
     },
     "patchedDependencies": {
       "eslint-config-sheriff": "patches/eslint-config-sheriff.patch"

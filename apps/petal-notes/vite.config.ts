@@ -1,6 +1,9 @@
 import { storybookTest } from "@storybook/experimental-addon-test/vitest-plugin";
 import { sveltekit } from "@sveltejs/kit/vite";
 import tailwindcss from "@tailwindcss/vite";
+import browserslist from "browserslist";
+import browserslistToEsbuild from "browserslist-to-esbuild";
+import { browserslistToTargets } from "lightningcss";
 import * as path from "node:path";
 import {
   coverageConfigDefaults,
@@ -8,16 +11,24 @@ import {
   defineConfig,
 } from "vitest/config";
 
+const browsersList = browserslist();
+
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [sveltekit(), tailwindcss()],
 
   build: {
     cssMinify: "lightningcss",
     sourcemap: true,
+    target: browserslistToEsbuild(browsersList),
   },
 
   css: {
     transformer: "lightningcss",
+
+    lightningcss: {
+      targets: browserslistToTargets(browsersList),
+    },
   },
 
   // Tell Vitest to use the `browser` entry points in `package.json` files, even though it's running in Node

@@ -27,7 +27,7 @@
     "lint:fix": "pnpm run lint --fix"
   },
   "browserslist": [
-    "defaults and fully supports es6-module"
+    "defaults"
   ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
