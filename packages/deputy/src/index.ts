@@ -197,9 +197,55 @@ function svelteConfig({
       },
       rules: {
         "@typescript-eslint/no-unsafe-call": off,
+        "prefer-const": off,
         "storybook/default-exports": off,
 
+        // Possible Errors
+        "svelte/infinite-reactive-loop": warn,
+        "svelte/no-dom-manipulating": warn,
+        "svelte/no-dupe-on-directives": warn,
+        "svelte/no-dupe-use-directives": warn,
+        "svelte/no-raw-special-elements": warn,
+        "svelte/no-reactive-reassign": warn,
+
+        // Security Vulnerability
+        "svelte/no-target-blank": warn,
+
+        // Best Practices
+        "svelte/block-lang": [warn, { script: "ts" }],
+        "svelte/button-has-type": warn,
+        "svelte/no-ignored-unsubscribe": warn,
+        "svelte/no-immutable-reactive-statements": warn,
+        "svelte/no-inline-styles": warn,
+        "svelte/no-inspect": warn,
+        "svelte/no-reactive-functions": warn,
+        "svelte/no-reactive-literals": warn,
+        "svelte/no-svelte-internal": warn,
+        "svelte/no-useless-children-snippet": warn,
+        "svelte/no-useless-mustaches": warn,
+        "svelte/prefer-const": warn,
+        "svelte/prefer-destructured-store-props": warn,
+        "svelte/require-each-key": warn,
+        "svelte/require-event-dispatcher-types": warn,
+        "svelte/require-optimized-style-attribute": warn,
+        "svelte/require-stores-init": warn,
+        "svelte/valid-each-key": warn,
+
+        // Stylistic Issues
+        "svelte/consistent-selector-style": warn,
+        "svelte/derived-has-same-inputs-outputs": warn,
+        "svelte/html-self-closing": warn,
+        "svelte/no-extra-reactive-curlies": warn,
+        "svelte/prefer-class-directive": warn,
+        "svelte/prefer-style-directive": warn,
+        "svelte/shorthand-attribute": warn,
+        "svelte/shorthand-directive": warn,
         "svelte/sort-attributes": warn,
+        "svelte/spaced-html-comment": warn,
+
+        // SvelteKit
+        "svelte/no-export-load-in-svelte-module-in-kit-pages": warn,
+        "svelte/no-navigation-without-base": warn,
       },
     },
   ]);
