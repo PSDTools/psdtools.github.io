@@ -23,9 +23,10 @@
   }: Props = $props();
 </script>
 
+<!-- eslint-disable svelte/no-inline-styles -- It’s just a demo. -->
 <button
   style:background-color={backgroundColor}
-  class={["storybook-button", `storybook-button--${size}`].join(" ")}
+  class={["storybook-button", `storybook-button--${size}`]}
   class:storybook-button--primary={primary}
   class:storybook-button--secondary={!primary}
   onclick={onClick}
@@ -33,3 +34,4 @@
 >
   {label}
 </button>
+<!-- eslint-enable -->
