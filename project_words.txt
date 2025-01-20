@@ -2,11 +2,15 @@ fontaine
 Fontaine
 fontawesome
 fortawesome
+hypermd
+katex
 lightningcss
 lishaduck
+mathjax
 pathfinding
 Pattonville
 remeda
+stex
 storybookjs
 Tahoma
 unjs

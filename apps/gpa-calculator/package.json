@@ -27,7 +27,7 @@
     "lint:fix": "pnpm run lint --fix"
   },
   "browserslist": [
-    "defaults and fully supports es6-module"
+    "defaults"
   ],
   "dependencies": {
     "html-template-tag": "^4.1.1",
