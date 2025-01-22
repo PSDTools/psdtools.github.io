@@ -2,13 +2,12 @@
   import HyperMDC from "$lib/hypermd.svelte";
 
   let mode: "hypermd" | "normal" = $state("hypermd");
-
   const value = `---
 title: Hello, HyperMD!
 ---
-# Your HyperMD editor is here :gift:
-
-![Logo](/favicon.png)
+# Your ~~HyperMD editor~~ Logo is here :gift:
+Cant figure out how to make it smaller, but it's here!
+![Logo](/PetalNotes-logo.svg)
 
 -------------------
 
@@ -52,4 +51,12 @@ Try out these methods!
   </button>
 </div>
 
-<HyperMDC {value} bind:mode />
+<div class="hypermd-container">
+  <HyperMDC {value} bind:mode />
+</div>
+
+<style>
+  .hypermd-container {
+    overflow: hidden;
+  }
+</style>
