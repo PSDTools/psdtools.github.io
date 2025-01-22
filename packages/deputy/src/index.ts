@@ -113,6 +113,11 @@ const baseConfig = ts.config([
   {
     files: ["*.js"],
     rules: {
+      "@typescript-eslint/explicit-function-return-type": off,
+      "@typescript-eslint/explicit-module-boundary-types": off,
+      "@typescript-eslint/no-unsafe-assignment": off,
+      "@typescript-eslint/parameter-properties": off,
+      "@typescript-eslint/typedef": off,
       "tsdoc/syntax": off,
     },
   },

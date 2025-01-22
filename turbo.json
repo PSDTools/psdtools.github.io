@@ -1,6 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
     "build": {
       "outputs": [
         "dist/**"
@@ -10,12 +13,14 @@
         "public/**",
         "vite.config.ts",
         "index.html"
-      ]
+      ],
+      "dependsOn": ["^topo"]
     },
     "lint": {
       "inputs": [
         "**/*.ts"
-      ]
+      ],
+      "dependsOn": ["^topo"]
     },
     "typecheck": {
       "outputs": [
@@ -25,7 +30,8 @@
         "src/**",
         "*.config.{js,ts}",
         "tsconfig.json"
-      ]
+      ],
+      "dependsOn": ["^topo"]
     },
     "//#format": {
       "outputs": [
