@@ -28,5 +28,11 @@
     "source.sortImports": "never"
   },
   "commitlint.config.file": "commitlint.config.js",
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[css][javascript][json][markdown][svelte][tailwindcss][typescript][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
