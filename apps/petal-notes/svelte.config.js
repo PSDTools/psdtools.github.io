@@ -2,13 +2,15 @@
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
-const config = /** @satisfies {import('@sveltejs/kit').Config} */ ({
+export default /** @satisfies {import('@sveltejs/kit').Config} */ ({
   // Consult https://svelte.dev/docs/kit/integrations
   // for more information about preprocessors
   preprocess: vitePreprocess(),
 
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      fallback: "index.html",
+    }),
   },
 
   compilerOptions: {
@@ -16,5 +18,3 @@ const config = /** @satisfies {import('@sveltejs/kit').Config} */ ({
     // runes: true, // Breaks Storybook (legacy compatibility).
   },
 });
-
-export default config;
