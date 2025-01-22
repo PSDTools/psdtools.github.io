@@ -103,7 +103,7 @@ jobs:
           path: "./apps/gpa-calculator/dist/"
       - name: 🔧 Upload to Deno Deploy
         id: deploy
-        uses: denoland/deployctl@01283bc66613e6b67e329ac8e1eccdcf3c188c93 # 1.13.0
+        uses: denoland/deployctl@7bded90d0d09cd99bbfb513966146315db97618b # 1.13.1
         with:
           project: "gpa-calculator"
           entrypoint: https://deno.land/std@0.224.0/http/file_server.ts
@@ -128,7 +128,7 @@ jobs:
           path: "./apps/phs-map/dist/"
       - name: 🔧 Upload to Deno Deploy
         id: deploy
-        uses: denoland/deployctl@01283bc66613e6b67e329ac8e1eccdcf3c188c93 # 1.13.0
+        uses: denoland/deployctl@7bded90d0d09cd99bbfb513966146315db97618b # 1.13.1
         with:
           project: "phs-map"
           entrypoint: https://deno.land/std@0.224.0/http/file_server.ts
