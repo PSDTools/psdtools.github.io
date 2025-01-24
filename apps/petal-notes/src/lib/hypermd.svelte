@@ -56,3 +56,18 @@
 </script>
 
 <textarea bind:this={textarea} bind:value></textarea>
+
+<style>
+  :global {
+    .CodeMirror-gutters {
+      display: none;
+    }
+    .CodeMirror-sizer {
+      margin-left: 1rem !important;
+      margin-right: 1rem !important;
+    }
+    .CodeMirror-gutter-wrapper {
+      display: none;
+    }
+  }
+</style>
