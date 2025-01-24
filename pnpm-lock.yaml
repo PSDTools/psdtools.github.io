@@ -362,9 +362,15 @@ importers:
       globals:
         specifier: ^15.14.0
         version: 15.14.0
+      svelte2tsx:
+        specifier: ^0.7.34
+        version: 0.7.34(svelte@5.19.2)(typescript@5.7.3)
       typescript-eslint:
         specifier: ^8.21.0
         version: 8.21.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3)
+      typescript-eslint-parser-for-extra-files:
+        specifier: ^0.7.0
+        version: 0.7.0(@typescript-eslint/parser@8.21.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3))(astrojs-compiler-sync@1.0.1(@astrojs/compiler@2.10.3))(svelte2tsx@0.7.34(svelte@5.19.2)(typescript@5.7.3))(typescript@5.7.3)
     devDependencies:
       '@psdtools/tsconfig':
         specifier: workspace:*
@@ -378,6 +384,9 @@ importers:
       jiti:
         specifier: ^2.4.2
         version: 2.4.2
+      svelte:
+        specifier: ^5.19.2
+        version: 5.19.2
       typescript:
         specifier: ~5.7.3
         version: 5.7.3
@@ -5804,6 +5813,25 @@ packages:
 
   typed-query-selector@2.12.0:
     resolution: {integrity: sha512-SbklCd1F0EiZOyPiW192rrHZzZ5sBijB6xM+cpmrwDqObvdtunOHHIk9fCGsoK5JVIYXoyEp4iEdE3upFH3PAg==}
+
+  typescript-eslint-parser-for-extra-files@0.7.0:
+    resolution: {integrity: sha512-dNjuJCeGHA2yreEzQC8NRrZylgrJKZJ/kpLNusbRqEUAJfwJo2eOALpr2vsxcoqAzDyi72T8FQypSVhAOAaJrw==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@typescript-eslint/parser': '>=5.41.0'
+      astrojs-compiler-sync: '>=0.3.1'
+      svelte2tsx: '>=0.7.9'
+      typescript: '>=4.8.4'
+      vue: ^3.2.45
+    peerDependenciesMeta:
+      astrojs-compiler-sync:
+        optional: true
+      svelte2tsx:
+        optional: true
+      typescript:
+        optional: true
+      vue:
+        optional: true
 
   typescript-eslint@8.21.0:
     resolution: {integrity: sha512-txEKYY4XMKwPXxNkN8+AxAdX6iIJAPiJbHE/FpQccs/sxw8Lf26kqwC3cn0xkHlW8kEbLhkhCsjWuMveaY9Rxw==}
@@ -12243,6 +12271,16 @@ snapshots:
   type-level-regexp@0.1.17: {}
 
   typed-query-selector@2.12.0: {}
+
+  typescript-eslint-parser-for-extra-files@0.7.0(@typescript-eslint/parser@8.21.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3))(astrojs-compiler-sync@1.0.1(@astrojs/compiler@2.10.3))(svelte2tsx@0.7.34(svelte@5.19.2)(typescript@5.7.3))(typescript@5.7.3):
+    dependencies:
+      '@typescript-eslint/parser': 8.21.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3)
+      globby: 11.1.0
+      is-glob: 4.0.3
+    optionalDependencies:
+      astrojs-compiler-sync: 1.0.1(@astrojs/compiler@2.10.3)
+      svelte2tsx: 0.7.34(svelte@5.19.2)(typescript@5.7.3)
+      typescript: 5.7.3
 
   typescript-eslint@8.21.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3):
     dependencies:

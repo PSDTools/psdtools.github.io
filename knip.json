@@ -14,7 +14,11 @@
         "@tailwindcss/typography",
         "tailwindcss",
         "vitest-browser-svelte"
-      ]
+      ],
+      "paths": {
+        "$app/*": ["node_modules/@sveltejs/kit/src/runtime/app/*"]
+      },
+      "ignoreUnresolved": ["./\\$types"]
     },
     "apps/phs-map": {
       "entry": ["src/{script,sw}.ts"],
