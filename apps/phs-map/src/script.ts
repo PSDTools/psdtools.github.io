@@ -308,7 +308,7 @@ function printGrid(level: Lvl): void {
 
       if (Object.hasOwn(colorMap, key)) {
         // @ts-expect-error(TS7053): Narrowing for Object.hasOwn isn't implemented yet: microsoft/TypeScript#44253.
-        ctx.fillStyle = colorMap[key];
+        ctx.fillStyle = colorMap[key] as string;
         ctx.fillRect(cellSize * y, cellSize * x, cellSize, cellSize);
       }
     }

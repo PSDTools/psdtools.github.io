@@ -23,6 +23,9 @@
     "apps/phs-map": {
       "entry": ["src/{script,sw}.ts"],
       "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"]
+    },
+    "packages/deputy": {
+      "ignoreDependencies": ["svelte"]
     }
   },
   "ignore": [".pnpmfile.cjs", "**/eslint.config.ts"],

@@ -94,9 +94,10 @@ export default defineConfig({
             // https://vitest.dev/guide/browser/playwright
             headless: true,
             provider: "playwright",
-            // Storybook needs name to use `name` instead of `instances`.
-            // See storybookjs/storybook#30299.
-            name: "chromium",
+
+            instances: [
+              { browser: "chromium" }
+            ]
           },
           setupFiles: ["./.storybook/vitest.setup.ts"],
         },

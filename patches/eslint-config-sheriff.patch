@@ -1,18 +1,5 @@
-diff --git a/dist/index.d.ts b/dist/index.d.ts
-index ef3fbfc5baeeb5429e52147ba151d247a34fa749..33bc6e632daae308af17be84d513b441f3bc44d5 100644
---- a/dist/index.d.ts
-+++ b/dist/index.d.ts
-@@ -96,7 +96,7 @@ export interface SheriffSettings extends Partial<SheriffConfigurablePlugins> {
- 		/**
- 		 * This setting overrides the default Sheriff filepaths for Playwright linting. It accepts an array of filepaths, dictaced by minimatch syntax. Sheriff will apply Playwright rules only on these files.
- 		 */
--		playwrightTests: string[];
-+		playwrightTests?: string[];
- 	};
- 	/**
- 	 * This setting apply some ignore patterns to the whole config.
 diff --git a/dist/index.js b/dist/index.js
-index 24faa50e91c7370ab21892d1b7a49c13e8827742..ea53ed02cf5a6be9a8f9a3de8ddc9098b909402f 100644
+index e0dba2cc8ef72e24197f79587e1c4e80efac951b..68e11a1d83f0755cdccee5a7dadf4ed8bfb837dc 100644
 --- a/dist/index.js
 +++ b/dist/index.js
 @@ -11,7 +11,8 @@ var sheriffStartingOptions = {
@@ -47,12 +34,10 @@ index 24faa50e91c7370ab21892d1b7a49c13e8827742..ea53ed02cf5a6be9a8f9a3de8ddc9098
        rules: {
          ...storybook.configs["flat/recommended"][1].rules,
          ...storybook.configs["flat/csf"][1].rules,
-@@ -691,7 +691,8 @@ var getBaseConfig = (userConfigChoices) => {
-       }
+@@ -692,6 +692,7 @@ var getBaseConfig = (userConfigChoices) => {
      },
      {
--      files: ["**/.storybook/main.@(js|cjs|mjs|ts)"],
-+      files: ["**/.storybook/main.@(js|cjs|mjs|ts)"],
+       files: ["**/.storybook/main.@(js|cjs|mjs|ts)"],
 +      plugins: { storybook },
        rules: { ...storybook.configs["flat/recommended"][2].rules }
      },
