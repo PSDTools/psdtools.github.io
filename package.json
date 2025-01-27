@@ -23,7 +23,7 @@
     "husky": "^9.1.7",
     "knip": "^5.42.1",
     "prettier": "3.4.2",
-    "turbo": "^2.3.3",
+    "turbo": "^2.3.4",
     "typesync": "^0.14.0"
   },
   "devEngines": {
