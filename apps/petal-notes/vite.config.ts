@@ -24,7 +24,7 @@ export default defineConfig({
   },
 
   css: {
-    // transformer: "lightningcss",
+    transformer: "lightningcss",
 
     lightningcss: {
       targets: browserslistToTargets(browsersList),
