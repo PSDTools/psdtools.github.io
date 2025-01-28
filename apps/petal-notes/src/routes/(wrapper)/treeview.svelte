@@ -16,7 +16,7 @@
 
   <details open={isRoot}>
     <summary>{label}</summary>
-    <ul>
+    <ul class="m-0 select-none list-none pl-0.5">
       {#each children as child (child.id)}
         <li>
           <TreeView item={child} />
@@ -29,12 +29,3 @@
 
   <span>{label}</span>
 {/if}
-
-<style>
-  ul {
-    margin: 0;
-    list-style: none;
-    padding-left: 0.8rem;
-    user-select: none;
-  }
-</style>

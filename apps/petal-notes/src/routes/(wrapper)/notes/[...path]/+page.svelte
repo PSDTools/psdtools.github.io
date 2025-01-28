@@ -25,13 +25,7 @@
   {@render button("hypermd", "HyperMD")}
 </div>
 
-<div id="hypermd-container">
+<div class="overflow-hidden">
   <!-- eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -->
   <HyperMDC value={data.note} bind:mode={editorMode} />
 </div>
-
-<style>
-  #hypermd-container {
-    overflow: hidden;
-  }
-</style>
