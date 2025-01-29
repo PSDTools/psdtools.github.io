@@ -63,7 +63,7 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile --offline
       - name: 🎭 Install browser
-        run: pnpm dlx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
       - name: 🌐 Disable analytics
         run: pnpm exec turbo telemetry disable
       - name: 🔨 Build
