@@ -64,6 +64,7 @@ jobs:
         run: pnpm install --frozen-lockfile --offline
       - name: 🎭 Install browser
         run: pnpm exec playwright install --with-deps
+        working-directory: apps/petal-notes
       - name: 🌐 Disable analytics
         run: pnpm exec turbo telemetry disable
       - name: 🔨 Build
