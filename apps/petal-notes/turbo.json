@@ -1,23 +1,47 @@
 {
   "$schema": "../../node_modules/turbo/schema.json",
-  "extends": ["//"],
+  "extends": [
+    "//"
+  ],
   "tasks": {
     "build": {
-      "outputs": ["node_modules/.vite/**", "build/**"],
-      "inputs": ["src/**", "static/**", "vite.config.ts", "svelte.config.js"],
-      "dependsOn": ["prepare"]
+      "outputs": [
+        "node_modules/.vite/**",
+        "build/**"
+      ],
+      "inputs": [
+        "src/**",
+        "static/**",
+        "vite.config.ts",
+        "svelte.config.js"
+      ],
+      "dependsOn": [
+        "prepare"
+      ]
     },
     "preview": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["build"]
+      "dependsOn": [
+        "build"
+      ]
     },
     "dev": {
       "cache": false,
       "persistent": true,
-      "outputs": ["node_modules/.vite/**", "dev-dist/**"],
-      "inputs": ["src/**", "static/**", "vite.config.ts", "svelte.config.js"],
-      "dependsOn": ["prepare"]
+      "outputs": [
+        "node_modules/.vite/**",
+        "dev-dist/**"
+      ],
+      "inputs": [
+        "src/**",
+        "static/**",
+        "vite.config.ts",
+        "svelte.config.js"
+      ],
+      "dependsOn": [
+        "prepare"
+      ]
     },
     "prepare": {
       "outputs": [
@@ -26,7 +50,10 @@
       ]
     },
     "lint": {
-      "inputs": ["**/*.ts", "**/*.svelte"]
+      "inputs": [
+        "**/*.ts",
+        "**/*.svelte"
+      ]
     },
     "typecheck": {
       "inputs": [
@@ -36,7 +63,9 @@
         "tsconfig.json"
       ],
       "outputs": [],
-      "dependsOn": ["prepare"]
+      "dependsOn": [
+        "prepare"
+      ]
     },
     "typecheck:watch": {
       "cache": false,
@@ -47,19 +76,39 @@
         "*.config.{js,ts}",
         "tsconfig.json"
       ],
-      "dependsOn": ["prepare"]
+      "dependsOn": [
+        "prepare"
+      ]
     },
     "test": {
-      "inputs": ["src/**", "vite.config.ts", "svelte.config.js"],
-      "outputs": ["node_modules/.vite/results.json", "coverage/**"],
-      "dependsOn": ["prepare"]
+      "inputs": [
+        "src/**",
+        "vite.config.ts",
+        "svelte.config.js"
+      ],
+      "outputs": [
+        "node_modules/.vite/results.json",
+        "coverage/**"
+      ],
+      "dependsOn": [
+        "prepare"
+      ]
     },
     "test:watch": {
       "cache": false,
       "persistent": true,
-      "inputs": ["src/**", "vite.config.ts", "svelte.config.js"],
-      "outputs": ["node_modules/.vite/results.json", "coverage/**"],
-      "dependsOn": ["prepare"]
+      "inputs": [
+        "src/**",
+        "vite.config.ts",
+        "svelte.config.js"
+      ],
+      "outputs": [
+        "node_modules/.vite/results.json",
+        "coverage/**"
+      ],
+      "dependsOn": [
+        "prepare"
+      ]
     },
     "storybook": {
       "cache": false,
@@ -67,7 +116,9 @@
     },
     "build-storybook": {},
     "chromatic": {
-      "passThroughEnv": ["CHROMATIC_PROJECT_TOKEN"]
+      "passThroughEnv": [
+        "CHROMATIC_PROJECT_TOKEN"
+      ]
     }
   }
 }

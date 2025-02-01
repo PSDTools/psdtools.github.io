@@ -9,15 +9,15 @@
   "experimentalTernaries": true,
   "overrides": [
     {
-      "files": [".prettierrc"],
-      "options": {
-        "parser": "json"
-      }
-    },
-    {
       "files": "*.svelte",
       "options": {
         "parser": "svelte"
+      }
+    },
+    {
+      "files": "**/turbo.json",
+      "options": {
+        "parser": "json-stringify"
       }
     }
   ]

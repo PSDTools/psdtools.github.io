@@ -2,7 +2,9 @@
   "$schema": "./node_modules/turbo/schema.json",
   "tasks": {
     "topo": {
-      "dependsOn": ["^topo"]
+      "dependsOn": [
+        "^topo"
+      ]
     },
     "build": {
       "outputs": [
@@ -14,13 +16,17 @@
         "vite.config.ts",
         "index.html"
       ],
-      "dependsOn": ["^topo"]
+      "dependsOn": [
+        "^topo"
+      ]
     },
     "lint": {
       "inputs": [
         "**/*.ts"
       ],
-      "dependsOn": ["^topo"]
+      "dependsOn": [
+        "^topo"
+      ]
     },
     "typecheck": {
       "outputs": [
@@ -31,11 +37,14 @@
         "*.config.{js,ts}",
         "tsconfig.json"
       ],
-      "dependsOn": ["^topo"]
+      "dependsOn": [
+        "^topo"
+      ]
     },
     "//#format": {
       "outputs": [
-        "node_modules/.cache/prettier/**"
+        "node_modules/.cache/prettier/**",
+        "node_modules/.cache/.prettiercache"
       ],
       "inputs": [
         "**/*.html",
@@ -44,24 +53,24 @@
         "**/*.json",
         "**/*.js",
         "**/*.css",
-        ".prettierc",
-        "!**/dist/**"
+        "!**/dist/**",
+        "!**/node_modules/**"
       ]
     },
     "//#format:check": {
       "outputs": [
-        "node_modules/.cache/prettier/**"
+        "node_modules/.cache/prettier/**",
+        "node_modules/.cache/.prettiercache"
       ],
       "inputs": [
         "**/*.html",
         "**/*.ts",
         "**/*.md",
-        "tsconfig.json",
-        "turbo.json",
+        "**/*.json",
         "**/*.js",
         "**/*.css",
-        ".prettierc",
-        "!**/dist/**"
+        "!**/dist/**",
+        "!**/node_modules/**"
       ]
     },
     "dev": {
@@ -99,7 +108,9 @@
         "pnpm-lock.yaml",
         ".pnpmfile.cjs"
       ],
-      "outputs": ["**/node_modules/"]
+      "outputs": [
+        "**/node_modules/"
+      ]
     },
     "//#knip": {}
   },
