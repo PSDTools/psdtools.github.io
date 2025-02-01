@@ -53,6 +53,7 @@
     "eslint": "^9.19.0",
     "jiti": "^2.4.2",
     "lightningcss": "^1.29.1",
+    "playwright": "^1.50.1",
     "storybook": "^8.5.2",
     "svelte": "^5.19.3",
     "svelte-check": "^4.1.4",
