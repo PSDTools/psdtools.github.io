@@ -5,6 +5,7 @@ import browserslist from "browserslist";
 import browserslistToEsbuild from "browserslist-to-esbuild";
 import { browserslistToTargets } from "lightningcss";
 import * as path from "node:path";
+import process from "node:process";
 import {
   coverageConfigDefaults,
   defaultExclude,
@@ -31,9 +32,10 @@ export default defineConfig({
     },
   },
 
-  // Tell Vitest to use the `browser` entry points in `package.json` files, even though it's running in Node
-  resolve: {
-    conditions: process.env["VITEST"] === undefined ? [] : ["browser"],
+  ssr: {
+    resolve: {
+      conditions: process.env["VITEST"] === undefined ? [] : ["browser"],
+    },
   },
 
   test: {
