@@ -1,6 +1,11 @@
 {
-  "$schema": "https://turbo.build/schema.json",
+  "$schema": "./node_modules/turbo/schema.json",
   "tasks": {
+    "topo": {
+      "dependsOn": [
+        "^topo"
+      ]
+    },
     "build": {
       "outputs": [
         "dist/**"
@@ -10,42 +15,36 @@
         "public/**",
         "vite.config.ts",
         "index.html"
+      ],
+      "dependsOn": [
+        "^topo"
       ]
     },
     "lint": {
       "inputs": [
         "**/*.ts"
+      ],
+      "dependsOn": [
+        "^topo"
       ]
     },
     "typecheck": {
-      "dependsOn": [
-        "typecheck:src",
-        "typecheck:extra"
-      ]
-    },
-    "typecheck:src": {
       "outputs": [
         "node_modules/.cache/tsbuildinfo.json"
       ],
       "inputs": [
         "src/**",
+        "*.config.{js,ts}",
         "tsconfig.json"
-      ]
-    },
-    "typecheck:extra": {
-      "outputs": [
-        "node_modules/.cache/tsbuildinfo.extra.json"
       ],
-      "inputs": [
-        "eslint.config.ts",
-        "tailwind.config.ts",
-        "vite.config.ts",
-        "tsconfig.extra.json"
+      "dependsOn": [
+        "^topo"
       ]
     },
     "//#format": {
       "outputs": [
-        "node_modules/.cache/prettier/**"
+        "node_modules/.cache/prettier/**",
+        "node_modules/.cache/.prettiercache"
       ],
       "inputs": [
         "**/*.html",
@@ -54,24 +53,24 @@
         "**/*.json",
         "**/*.js",
         "**/*.css",
-        ".prettierc",
-        "!**/dist/**"
+        "!**/dist/**",
+        "!**/node_modules/**"
       ]
     },
     "//#format:check": {
       "outputs": [
-        "node_modules/.cache/prettier/**"
+        "node_modules/.cache/prettier/**",
+        "node_modules/.cache/.prettiercache"
       ],
       "inputs": [
         "**/*.html",
         "**/*.ts",
         "**/*.md",
-        "tsconfig*.json",
-        "turbo.json",
+        "**/*.json",
         "**/*.js",
         "**/*.css",
-        ".prettierc",
-        "!**/dist/**"
+        "!**/dist/**",
+        "!**/node_modules/**"
       ]
     },
     "dev": {
@@ -109,7 +108,9 @@
         "pnpm-lock.yaml",
         ".pnpmfile.cjs"
       ],
-      "outputs": ["**/node_modules/"]
+      "outputs": [
+        "**/node_modules/"
+      ]
     },
     "//#knip": {}
   },

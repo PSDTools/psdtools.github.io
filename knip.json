@@ -1,24 +1,36 @@
 {
   "$schema": "./node_modules/knip/schema.json",
   "workspaces": {
-    "apps/*": {
-      "entry": ["src/{script,sw}.ts"],
-      "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"],
-      "ignore": ["eslint.config.ts"],
-      "ignoreDependencies": ["deputy"]
-    },
     "apps/gpa-calculator": {
       "entry": ["src/{script,sw}.ts"],
       "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"],
-      "ignore": ["eslint.config.ts", "tailwind.config.ts"],
-      "ignoreDependencies": ["deputy"]
+      "ignore": ["tailwind.config.ts"],
+      "ignoreDependencies": ["fontaine", "tailwindcss"]
+    },
+    "apps/petal-notes": {
+      "ignore": [".storybook/vitest.setup.ts", "src/lib/hypermd.ts"],
+      "ignoreDependencies": [
+        "@tailwindcss/forms",
+        "@tailwindcss/typography",
+        "@types/react",
+        "tailwindcss",
+        "vitest-browser-svelte"
+      ],
+      "paths": {
+        "$app/*": ["node_modules/@sveltejs/kit/src/runtime/app/*"]
+      },
+      "ignoreUnresolved": ["./\\$types"]
+    },
+    "apps/phs-map": {
+      "entry": ["src/{script,sw}.ts"],
+      "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"]
     },
     "packages/deputy": {
-      "ignore": ["eslint.config.ts"],
-      "ignoreDependencies": ["@eslint-types/*"]
+      "ignoreDependencies": ["svelte"]
     }
   },
-  "ignore": [".pnpmfile.cjs"],
+  "ignore": [".pnpmfile.cjs", "**/eslint.config.ts"],
+  "ignoreDependencies": ["deputy"],
   "ignoreExportsUsedInFile": true,
   "includeEntryExports": true
 }

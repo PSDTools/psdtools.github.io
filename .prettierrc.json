@@ -1,0 +1,24 @@
+{
+  "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+  "trailingComma": "all",
+  "singleQuote": false,
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "endOfLine": "lf",
+  "experimentalTernaries": true,
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    },
+    {
+      "files": "**/turbo.json",
+      "options": {
+        "parser": "json-stringify"
+      }
+    }
+  ]
+}

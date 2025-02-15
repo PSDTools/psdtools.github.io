@@ -1,5 +1,0 @@
-{
-  "ignorePackages": [
-    "@types/eslint"
-  ]
-}
