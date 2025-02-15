@@ -13,7 +13,9 @@ const notes = new Map<string, string>([
 title: Hello, HyperMD!
 ---
 # Your ~~HyperMD editor~~ Logo is here :gift:
-Cant figure out how to make it smaller, but it's here!
+
+Can’t figure out how to make it smaller, but it's here!
+
 ![Logo](/PetalNotes-logo.svg)
 
 -------------------
@@ -32,8 +34,8 @@ Try out these methods!
 
 [^1]: Like this one!
 
-[hypermd-doc]: https://laobubu.net/HyperMD/docs/ HyperMD documentation
-[cm-manual]: https://codemirror.net/doc/manual.html CodeMirror User manual
+[hypermd-doc]: <https://laobubu.net/HyperMD/docs/> HyperMD documentation
+[cm-manual]: <https://codemirror.net/doc/manual.html> CodeMirror User manual
 `,
   ],
 ]);

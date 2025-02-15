@@ -1,73 +1,94 @@
-<script lang="ts" module>
-  const HyperMD_ = await import("hypermd");
-
-  const loadingP = Promise.all([
-    // Load these modes if you want highlighting ...
-    import("codemirror/mode/htmlmixed/htmlmixed.js"), // for embedded HTML.
-    import("codemirror/mode/stex/stex.js"), // for Math TeX Formulae.
-    import("codemirror/mode/yaml/yaml.js"), // for frontmatter.
-
-    // Load PowerPacks if you want to use 3rd-party libraries for enhanced features...
-    import("hypermd/powerpack/fold-math-with-katex.js"),
-    import("hypermd/powerpack/hover-with-marked.js"),
-  ]);
-</script>
-
 <script lang="ts">
+  import {
+    autocompletion,
+    closeBrackets,
+    closeBracketsKeymap,
+    completionKeymap,
+  } from "@codemirror/autocomplete";
+  import { indentWithTab } from "@codemirror/commands";
+  import { markdown } from "@codemirror/lang-markdown";
+  import {
+    bracketMatching,
+    foldKeymap,
+    indentOnInput,
+    syntaxTree,
+  } from "@codemirror/language";
+  import { languages } from "@codemirror/language-data";
+  import { highlightSelectionMatches, searchKeymap } from "@codemirror/search";
+  import { EditorState } from "@codemirror/state";
+  import {
+    crosshairCursor,
+    dropCursor,
+    EditorView,
+    highlightActiveLine,
+    highlightActiveLineGutter,
+    keymap,
+    rectangularSelection,
+  } from "@codemirror/view";
+  import { printTree } from "@lezer-unofficial/printer";
+  import { GFM } from "@lezer/markdown";
+  import { minimalSetup } from "codemirror";
+  import { hypermdExtensions, hypermdMarkdownExtensions } from "hypermd";
+  import { onMount } from "svelte";
+
   export interface Props {
     value: string;
-
-    mode: "hypermd" | "normal";
   }
 
-  let { mode = $bindable(), value = $bindable() }: Props = $props();
+  let { value = $bindable() }: Props = $props();
 
-  let editor: CodeMirror.Editor;
-  let textarea: HTMLTextAreaElement;
+  let container: HTMLDivElement;
 
-  // eslint-disable-next-line unicorn/prefer-top-level-await
-  void (async () => {
-    await loadingP;
+  onMount(() => {
+    new EditorView({
+      doc: value,
+      extensions: [
+        minimalSetup,
 
-    // @ts-expect-error(TS2454): Using `bind:this`.
-    editor = HyperMD_.fromTextArea(textarea);
-    editor.setSize(null, "200%");
-    editor.focus();
-  })();
+        highlightActiveLineGutter(),
+        dropCursor(),
+        EditorState.allowMultipleSelections.of(true),
+        indentOnInput(),
+        bracketMatching(),
+        closeBrackets(),
+        autocompletion(),
+        rectangularSelection(),
+        crosshairCursor(),
+        highlightActiveLine(),
+        highlightSelectionMatches(),
 
-  let isMounting = true;
+        markdown({
+          codeLanguages: languages,
+          extensions: [GFM, hypermdMarkdownExtensions],
+        }),
+        EditorView.lineWrapping,
+        hypermdExtensions,
+        keymap.of([
+          ...closeBracketsKeymap,
+          ...searchKeymap,
+          ...foldKeymap,
+          ...completionKeymap,
 
-  $effect(() => {
-    // Force the effect to run if the mode changes.
-    mode = mode;
+          indentWithTab,
 
-    if (isMounting) {
-      isMounting = false;
+          // Debugging
+          {
+            key: "Alt-p",
+            run: (view) => {
+              if (import.meta.env.PROD) return true;
 
-      return;
-    }
+              console.debug(
+                printTree(syntaxTree(view.state), view.state.doc.toString()),
+              );
 
-    if (mode === "hypermd") {
-      HyperMD_.switchToHyperMD(editor);
-    } else {
-      HyperMD_.switchToNormal(editor);
-    }
+              return true;
+            },
+          },
+        ]),
+      ],
+      parent: container,
+    });
   });
 </script>
 
-<textarea bind:this={textarea} bind:value></textarea>
-
-<style>
-  :global {
-    .CodeMirror-gutters {
-      display: none;
-    }
-    .CodeMirror-sizer {
-      margin-left: 1rem !important;
-      margin-right: 1rem !important;
-    }
-    .CodeMirror-gutter-wrapper {
-      display: none;
-    }
-  }
-</style>
+<div bind:this={container}></div>

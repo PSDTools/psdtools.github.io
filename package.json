@@ -61,13 +61,6 @@
     ],
     "overrides": {
       "eslint-plugin-unicorn": "^56.0.1",
-      "hypermd>emojione": "-",
-      "hypermd>flowchart.js": "-",
-      "hypermd>mathjax": "-",
-      "hypermd>mermaid": "-",
-      "hypermd>turndown": "-",
-      "hypermd>turndown-plugin-gfm": "-",
-      "hypermd>twemoji": "-",
       "vitest>jsdom": "-"
     },
     "patchedDependencies": {
