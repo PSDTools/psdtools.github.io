@@ -12,7 +12,6 @@
       "ignoreDependencies": [
         "@tailwindcss/forms",
         "@tailwindcss/typography",
-        "@types/react",
         "tailwindcss",
         "vitest-browser-svelte"
       ],

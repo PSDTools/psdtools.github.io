@@ -4,12 +4,12 @@ import {
   sheriff,
   type SheriffSettings,
   supportedFileTypes,
+  tseslint,
   type TSESLint,
 } from "eslint-config-sheriff";
 import perfectionist from "eslint-plugin-perfectionist";
 import sveltePlugin from "eslint-plugin-svelte";
 import globals from "globals";
-import ts from "typescript-eslint";
 import { meta, parseForESLint } from "typescript-eslint-parser-for-extra-files";
 
 const tsParser: TSESLint.Parser.LooseParserModule = {
@@ -42,13 +42,14 @@ const sheriffOptions = {
   playwright: false,
   react: false,
   remeda: false,
-
   vitest: false,
 } satisfies SheriffSettings;
 
-const baseConfig = ts.config([
-  ...ts.configs.strictTypeChecked,
-  ...ts.configs.stylisticTypeChecked,
+const baseConfig = tseslint.config([
+  {
+    ...tseslint.configs.stylisticTypeChecked[2],
+    files: [supportedFileTypes],
+  },
   {
     files: [supportedFileTypes],
     rules: {
@@ -69,7 +70,9 @@ const baseConfig = ts.config([
         error,
         {
           "ts-check": false,
-          "ts-expect-error": { descriptionFormat: "^\\(TS\\d+\\): .+$" },
+          "ts-expect-error": {
+            descriptionFormat: "^\\(TS\\d+\\): .+$",
+          },
         },
       ],
       "@typescript-eslint/explicit-function-return-type": [
@@ -187,7 +190,7 @@ function svelteConfig({
 }): TSESLint.FlatConfig.ConfigArray {
   const { svelteKitConfig } = settings;
 
-  return ts.config([
+  return tseslint.config([
     ...sveltePlugin.configs.recommended,
     {
       languageOptions: {
