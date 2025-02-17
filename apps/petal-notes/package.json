@@ -34,7 +34,12 @@
     "@lezer/markdown": "catalog:",
     "codemirror": "catalog:",
     "hypermd": "catalog:",
-    "svelte-codemirror-editor": "catalog:"
+    "loro-codemirror": "catalog:",
+    "loro-crdt": "catalog:",
+    "svelte-codemirror-editor": "catalog:",
+    "uint8array-extras": "catalog:",
+    "vite-plugin-top-level-await": "catalog:",
+    "vite-plugin-wasm": "catalog:"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",

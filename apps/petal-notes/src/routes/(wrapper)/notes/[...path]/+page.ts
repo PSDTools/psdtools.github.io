@@ -9,34 +9,7 @@ interface Data {
 const notes = new Map<string, string>([
   [
     "1",
-    `---
-title: Hello, HyperMD!
----
-# Your ~~HyperMD editor~~ Logo is here :gift:
-
-Can’t figure out how to make it smaller, but it's here!
-
-![Logo](/PetalNotes-logo.svg)
-
--------------------
-
-All ~~builtin~~ features are ready to go 🤘
-Try out these methods!
-
-1. \`HyperMD.switchToNormal(cm)\`
-2. \`HyperMD.switchToHyperMD(cm)\`
-3. \`cm.getValue()\` returns the Markdown source text
-
-**Note**: This demo uses these powerpacks:
-
-1. **fold-math-with-katex** uses _$K^{a}T_{e}X$_, the math typesetting library.
-2. **hover-with-marked** uses _marked_ to render footnotes[^1].
-
-[^1]: Like this one!
-
-[hypermd-doc]: <https://laobubu.net/HyperMD/docs/> HyperMD documentation
-[cm-manual]: <https://codemirror.net/doc/manual.html> CodeMirror User manual
-`,
+    "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",
   ],
 ]);
 

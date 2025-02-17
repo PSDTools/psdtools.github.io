@@ -6,6 +6,8 @@ import browserslistToEsbuild from "browserslist-to-esbuild";
 import { browserslistToTargets } from "lightningcss";
 import * as path from "node:path";
 import process from "node:process";
+import topLevelAwait from "vite-plugin-top-level-await";
+import wasm from "vite-plugin-wasm";
 import {
   coverageConfigDefaults,
   defaultExclude,
@@ -16,7 +18,7 @@ const browsersList = browserslist();
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [sveltekit(), tailwindcss()],
+  plugins: [sveltekit(), tailwindcss(), wasm(), topLevelAwait()],
 
   build: {
     cssMinify: "lightningcss",
