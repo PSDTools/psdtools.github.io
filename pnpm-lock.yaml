@@ -171,6 +171,9 @@ catalogs:
     svelte-check:
       specifier: ^4.1.4
       version: 4.1.4
+    svelte-codemirror-editor:
+      specifier: ^1.4.1
+      version: 1.4.1
     svelte2tsx:
       specifier: ^0.7.34
       version: 0.7.34
@@ -392,6 +395,9 @@ importers:
       hypermd:
         specifier: 'catalog:'
         version: https://pkg.pr.new/jsimonrichard/HyperMD/hypermd@9c02ff2(@codemirror/commands@6.8.0)(@codemirror/lang-markdown@6.3.2)(@codemirror/language-data@6.5.1)(@codemirror/language@6.10.8)(@codemirror/state@6.5.2)(@codemirror/view@6.36.2)(@lezer/highlight@1.2.1)
+      svelte-codemirror-editor:
+        specifier: 'catalog:'
+        version: 1.4.1(codemirror@6.0.1)(svelte@5.20.1)
     devDependencies:
       '@chromatic-com/storybook':
         specifier: 'catalog:'
@@ -5973,6 +5979,12 @@ packages:
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
+
+  svelte-codemirror-editor@1.4.1:
+    resolution: {integrity: sha512-Pv350iro0Y/AZTT/y2OLaonheQqAwl50Hdfipa2Jv1Z04TSP5kPUyxQnRjqxeRW7DXOX9s5Nd11tHdBl9iYSzw==}
+    peerDependencies:
+      codemirror: ^6.0.0
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0
 
   svelte-eslint-parser@1.0.0-next.13:
     resolution: {integrity: sha512-ZcxpplZNwh0ORcn9Lxwj0+3RhcrkSGgM6s1LKijsFCRMNjy2racIPC/OlmYL1R81Xu0/SPMEMvei0e2xfJi6IQ==}
@@ -12812,6 +12824,11 @@ snapshots:
       typescript: 5.7.3
     transitivePeerDependencies:
       - picomatch
+
+  svelte-codemirror-editor@1.4.1(codemirror@6.0.1)(svelte@5.20.1):
+    dependencies:
+      codemirror: 6.0.1
+      svelte: 5.20.1
 
   svelte-eslint-parser@1.0.0-next.13(svelte@5.20.1):
     dependencies:

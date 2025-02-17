@@ -33,7 +33,8 @@
     "@lezer/highlight": "catalog:",
     "@lezer/markdown": "catalog:",
     "codemirror": "catalog:",
-    "hypermd": "catalog:"
+    "hypermd": "catalog:",
+    "svelte-codemirror-editor": "catalog:"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
