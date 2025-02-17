@@ -21,7 +21,6 @@
     dropCursor,
     EditorView,
     highlightActiveLine,
-    highlightActiveLineGutter,
     keymap,
     rectangularSelection,
   } from "@codemirror/view";
@@ -29,7 +28,7 @@
   import { GFM } from "@lezer/markdown";
   import { minimalSetup } from "codemirror";
   import { hypermdExtensions, hypermdMarkdownExtensions } from "hypermd";
-  import { onMount } from "svelte";
+  import CodeMirror from "svelte-codemirror-editor";
 
   export interface Props {
     value: string;
@@ -37,58 +36,52 @@
 
   let { value = $bindable() }: Props = $props();
 
-  let container: HTMLDivElement;
+  const extensions = [
+    minimalSetup,
+    dropCursor(),
+    EditorState.allowMultipleSelections.of(true),
+    indentOnInput(),
+    bracketMatching(),
+    closeBrackets(),
+    autocompletion(),
+    rectangularSelection(),
+    crosshairCursor(),
+    highlightActiveLine(),
+    highlightSelectionMatches(),
 
-  onMount(() => {
-    new EditorView({
-      doc: value,
-      extensions: [
-        minimalSetup,
+    EditorView.lineWrapping,
+    hypermdExtensions,
+    keymap.of([
+      ...closeBracketsKeymap,
+      ...searchKeymap,
+      ...foldKeymap,
+      ...completionKeymap,
 
-        highlightActiveLineGutter(),
-        dropCursor(),
-        EditorState.allowMultipleSelections.of(true),
-        indentOnInput(),
-        bracketMatching(),
-        closeBrackets(),
-        autocompletion(),
-        rectangularSelection(),
-        crosshairCursor(),
-        highlightActiveLine(),
-        highlightSelectionMatches(),
+      indentWithTab,
 
-        markdown({
-          codeLanguages: languages,
-          extensions: [GFM, hypermdMarkdownExtensions],
-        }),
-        EditorView.lineWrapping,
-        hypermdExtensions,
-        keymap.of([
-          ...closeBracketsKeymap,
-          ...searchKeymap,
-          ...foldKeymap,
-          ...completionKeymap,
+      // Debugging
+      {
+        key: "Alt-p",
+        run: (view) => {
+          if (import.meta.env.PROD) return true;
 
-          indentWithTab,
+          console.debug(
+            printTree(syntaxTree(view.state), view.state.doc.toString()),
+          );
 
-          // Debugging
-          {
-            key: "Alt-p",
-            run: (view) => {
-              if (import.meta.env.PROD) return true;
-
-              console.debug(
-                printTree(syntaxTree(view.state), view.state.doc.toString()),
-              );
-
-              return true;
-            },
-          },
-        ]),
-      ],
-      parent: container,
-    });
-  });
+          return true;
+        },
+      },
+    ]),
+  ];
 </script>
 
-<div bind:this={container}></div>
+<CodeMirror
+  basic={false}
+  {extensions}
+  lang={markdown({
+    codeLanguages: languages,
+    extensions: [GFM, hypermdMarkdownExtensions],
+  })}
+  bind:value
+/>
