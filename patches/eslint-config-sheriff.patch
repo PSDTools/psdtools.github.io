@@ -1,18 +1,18 @@
 diff --git a/dist/index.js b/dist/index.js
-index e0dba2cc8ef72e24197f79587e1c4e80efac951b..68e11a1d83f0755cdccee5a7dadf4ed8bfb837dc 100644
+index bb5f041bf6f7f42971b67849adc190e9cdcd63af..756d5e48c39dd9fd7b5784d9ed03a2b04fc342cc 100644
 --- a/dist/index.js
 +++ b/dist/index.js
-@@ -11,7 +11,8 @@ var sheriffStartingOptions = {
- };
- var allJsExtensions = "js,mjs,cjs,ts,mts,cts";
- var allJsxExtensions = "jsx,tsx,mtsx,mjsx";
+@@ -15,7 +15,8 @@ var tsExtensions = "ts,mts,cts";
+ var tsxExtensions = "tsx,mtsx";
+ var allJsExtensions = `${jsExtensions},${tsExtensions}`;
+ var allJsxExtensions = `${jsxExtensions},${tsxExtensions}`;
 -var supportedFileTypes = `**/*{${allJsExtensions},${allJsxExtensions},astro}`;
-+var allSupportedExtensions = `${allJsExtensions},${allJsxExtensions},astro,svelte`
++var allSupportedExtensions = `${allJsExtensions},${allJsxExtensions},astro,svelte`;
 +var supportedFileTypes = `**/*.{${allSupportedExtensions}}`;
  var messages = {
    NO_ACCESS_MODIFIER: "Avoid access modifiers. In Javascript modules there is no need to limit developer access to properties."
  };
-@@ -155,7 +156,6 @@ import tsdoc from "eslint-plugin-tsdoc";
+@@ -159,7 +160,6 @@ import tsdoc from "eslint-plugin-tsdoc";
  import unicorn from "eslint-plugin-unicorn";
  import globals from "globals";
  import tseslint3 from "typescript-eslint";
@@ -20,7 +20,7 @@ index e0dba2cc8ef72e24197f79587e1c4e80efac951b..68e11a1d83f0755cdccee5a7dadf4ed8
  import eslintJs from "@eslint/js";
  import preferEarlyReturn from "@regru/eslint-plugin-prefer-early-return";
  import stylistic from "@stylistic/eslint-plugin";
-@@ -680,10 +680,10 @@ var getBaseConfig = (userConfigChoices) => {
+@@ -684,10 +684,10 @@ var getBaseConfig = (userConfigChoices) => {
      },
      {
        files: [
@@ -34,28 +34,20 @@ index e0dba2cc8ef72e24197f79587e1c4e80efac951b..68e11a1d83f0755cdccee5a7dadf4ed8
        rules: {
          ...storybook.configs["flat/recommended"][1].rules,
          ...storybook.configs["flat/csf"][1].rules,
-@@ -692,6 +692,7 @@ var getBaseConfig = (userConfigChoices) => {
+@@ -695,6 +695,7 @@ var getBaseConfig = (userConfigChoices) => {
+       }
      },
      {
-       files: ["**/.storybook/main.@(js|cjs|mjs|ts)"],
 +      plugins: { storybook },
+       files: ["**/.storybook/main.@(js|cjs|mjs|ts)"],
        rules: { ...storybook.configs["flat/recommended"][2].rules }
      },
-     {
-@@ -710,7 +711,7 @@ var getBaseConfig = (userConfigChoices) => {
+@@ -714,7 +715,7 @@ var getBaseConfig = (userConfigChoices) => {
        rules: { "fsecond/prefer-destructured-optionals": 2 }
      },
      {
--      files: ["**/*.config.*"],
-+      files: [`**/*.config.{${allSupportedExtensions}}`, `.storybook/*.{${allJsExtensions}}`],
+-      files: [`**/*.config.{${allJsExtensions}}`],
++      files: [`**/*.config.{${allJsExtensions}}`, `.storybook/*.{${allJsExtensions}}`],
        rules: {
          "import/no-default-export": 0,
          "import/no-anonymous-default-export": 0,
-@@ -948,7 +949,6 @@ var vitestHandPickedRules = {
-   "vitest/no-conditional-expect": 2,
-   "vitest/no-conditional-in-test": 2,
-   "vitest/no-disabled-tests": 2,
--  "vitest/no-done-callback": 2,
-   "vitest/no-duplicate-hooks": 2,
-   "vitest/no-identical-title": 2,
-   "vitest/no-focused-tests": 2,
