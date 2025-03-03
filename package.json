@@ -26,7 +26,7 @@
     "prettier": "3.5.1",
     "prettier-plugin-svelte": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "turbo": "^2.4.2",
+    "turbo": "^2.4.4",
     "typesync": "^0.14.1"
   },
   "devEngines": {
