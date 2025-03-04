@@ -29,7 +29,6 @@
     }
   },
   "ignore": [".pnpmfile.cjs", "**/eslint.config.ts"],
-  "ignoreDependencies": ["deputy"],
   "ignoreExportsUsedInFile": true,
   "includeEntryExports": true
 }

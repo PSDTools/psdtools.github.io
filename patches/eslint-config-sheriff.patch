@@ -1,53 +1,23 @@
 diff --git a/dist/index.js b/dist/index.js
-index bb5f041bf6f7f42971b67849adc190e9cdcd63af..756d5e48c39dd9fd7b5784d9ed03a2b04fc342cc 100644
+index 2b83747e0517c5883b6cadc86a6bf3b78d5abfae..b8865ef3baa146e9eef1548510e15bf76ad70f66 100644
 --- a/dist/index.js
 +++ b/dist/index.js
-@@ -15,7 +15,8 @@ var tsExtensions = "ts,mts,cts";
+@@ -16,7 +16,8 @@ var tsExtensions = "ts,mts,cts";
  var tsxExtensions = "tsx,mtsx";
  var allJsExtensions = `${jsExtensions},${tsExtensions}`;
  var allJsxExtensions = `${jsxExtensions},${tsxExtensions}`;
 -var supportedFileTypes = `**/*{${allJsExtensions},${allJsxExtensions},astro}`;
 +var allSupportedExtensions = `${allJsExtensions},${allJsxExtensions},astro,svelte`;
 +var supportedFileTypes = `**/*.{${allSupportedExtensions}}`;
- var messages = {
-   NO_ACCESS_MODIFIER: "Avoid access modifiers. In Javascript modules there is no need to limit developer access to properties."
- };
-@@ -159,7 +160,6 @@ import tsdoc from "eslint-plugin-tsdoc";
- import unicorn from "eslint-plugin-unicorn";
- import globals from "globals";
- import tseslint3 from "typescript-eslint";
--import { fixupPluginRules } from "@eslint/compat";
- import eslintJs from "@eslint/js";
- import preferEarlyReturn from "@regru/eslint-plugin-prefer-early-return";
- import stylistic from "@stylistic/eslint-plugin";
-@@ -684,10 +684,10 @@ var getBaseConfig = (userConfigChoices) => {
-     },
-     {
-       files: [
--        "**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)",
--        "**/*.story.@(ts|tsx|js|jsx|mjs|cjs)"
-+        "**/*.stories.@(ts|tsx|js|jsx|mjs|cjs|svelte)",
-+        "**/*.story.@(ts|tsx|js|jsx|mjs|cjs|svelte)"
-       ],
--      plugins: { storybook: fixupPluginRules(storybook) },
-+      plugins: { storybook },
-       rules: {
-         ...storybook.configs["flat/recommended"][1].rules,
-         ...storybook.configs["flat/csf"][1].rules,
-@@ -695,6 +695,7 @@ var getBaseConfig = (userConfigChoices) => {
-       }
-     },
-     {
-+      plugins: { storybook },
-       files: ["**/.storybook/main.@(js|cjs|mjs|ts)"],
-       rules: { ...storybook.configs["flat/recommended"][2].rules }
-     },
-@@ -714,7 +715,7 @@ var getBaseConfig = (userConfigChoices) => {
+ var testsFilePatterns = [
+   `**/*.{test,spec}.{${allJsExtensions}}`,
+   `**/tests/**/*.{${allJsExtensions}}`,
+@@ -718,7 +719,7 @@ var getBaseConfig = (userConfigChoices) => {
        rules: { "fsecond/prefer-destructured-optionals": 2 }
      },
      {
 -      files: [`**/*.config.{${allJsExtensions}}`],
-+      files: [`**/*.config.{${allJsExtensions}}`, `.storybook/*.{${allJsExtensions}}`],
++      files: [`**/*.config.{${allJsExtensions}}`, `**/.storybook/*.{${allJsExtensions}}`],
        rules: {
          "import/no-default-export": 0,
          "import/no-anonymous-default-export": 0,
