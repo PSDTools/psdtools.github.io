@@ -18,8 +18,8 @@
     "merge-checks": "turbo run typecheck knip lint format:check manypkg typesync:check test"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@manypkg/cli": "^0.23.0",
     "husky": "^9.1.7",
     "knip": "^5.44.1",
