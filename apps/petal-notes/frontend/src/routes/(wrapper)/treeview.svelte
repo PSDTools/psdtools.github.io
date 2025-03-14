@@ -4,7 +4,6 @@
 
   interface Props {
     item: Item;
-
     isRoot?: boolean;
   }
 
