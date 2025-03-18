@@ -1,5 +1,6 @@
 {
   "name": "@psdtools/tsconfig",
+  "type": "module",
   "version": "1.0.0",
   "private": true,
   "description": "Our strict TypeScript configuration",
