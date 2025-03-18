@@ -10,7 +10,7 @@
     "prepare": "husky",
     "format": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache' --log-level=warn",
     "format:check": "prettier . --check --cache --cache-location='node_modules/.cache/.prettiercache'",
-    "knip": "knip",
+    "knip": "knip --treat-config-hints-as-errors",
     "manypkg": "manypkg check",
     "typesync": "typesync",
     "typesync:check": "typesync --dry=fail",
@@ -18,55 +18,28 @@
     "merge-checks": "turbo run typecheck knip lint format:check manypkg typesync:check test"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@manypkg/cli": "^0.23.0",
-    "husky": "^9.1.7",
-    "knip": "^5.44.1",
-    "prettier": "3.5.1",
-    "prettier-plugin-svelte": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "turbo": "^2.4.4",
-    "typesync": "^0.14.1"
+    "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
+    "@manypkg/cli": "catalog:",
+    "husky": "catalog:",
+    "knip": "catalog:",
+    "prettier": "catalog:",
+    "prettier-plugin-svelte": "catalog:",
+    "prettier-plugin-tailwindcss": "catalog:",
+    "turbo": "catalog:",
+    "typesync": "catalog:"
   },
   "devEngines": {
-    "runtime": [
-      {
-        "name": "node",
-        "version": ">= 23.0.0"
-      }
-    ],
-    "packageManager": [
-      {
-        "name": "pnpm",
-        "version": "^10.4.0"
-      }
-    ]
-  },
-  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "eslint": "9"
-      }
+    "runtime": {
+      "name": "node",
+      "version": ">= 23.0.0"
     },
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "sharp"
-    ],
-    "ignoredBuiltDependencies": [
-      "eslint-config-sheriff",
-      "mws",
-      "svelte-preprocess"
-    ],
-    "overrides": {
-      "eslint-plugin-unicorn": "^56.0.1",
-      "vitest>jsdom": "-"
-    },
-    "patchedDependencies": {
-      "eslint-config-sheriff": "patches/eslint-config-sheriff.patch"
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^10.6.4"
     }
   },
+  "packageManager": "pnpm@10.6.4+sha512.da3d715bfd22a9a105e6e8088cfc7826699332ded60c423b14ec613a185f1602206702ff0fe4c438cb15c979081ce4cb02568e364b15174503a63c7a8e2a5f6c",
   "manypkg": {
     "workspaceProtocol": "require"
   }
