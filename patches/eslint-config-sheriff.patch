@@ -12,12 +12,3 @@ index 2b83747e0517c5883b6cadc86a6bf3b78d5abfae..b8865ef3baa146e9eef1548510e15bf7
  var testsFilePatterns = [
    `**/*.{test,spec}.{${allJsExtensions}}`,
    `**/tests/**/*.{${allJsExtensions}}`,
-@@ -718,7 +719,7 @@ var getBaseConfig = (userConfigChoices) => {
-       rules: { "fsecond/prefer-destructured-optionals": 2 }
-     },
-     {
--      files: [`**/*.config.{${allJsExtensions}}`],
-+      files: [`**/*.config.{${allJsExtensions}}`, `**/.storybook/*.{${allJsExtensions}}`],
-       rules: {
-         "import/no-default-export": 0,
-         "import/no-anonymous-default-export": 0,
