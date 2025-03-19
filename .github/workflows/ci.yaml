@@ -51,7 +51,7 @@ jobs:
           node-version-file: .nvmrc
           cache: "pnpm"
       - name: ⚙️ Cache Turbo
-        uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         id: cache-turbo
         with:
           path: .turbo
@@ -74,13 +74,13 @@ jobs:
       # - name: 🧹 Check for deduped dependencies
       #   run: pnpm exec turbo check-deduped-deps
       - name: ⚙️ Upload GPA Calculator
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: gpa-calculator
           path: "./apps/gpa-calculator/dist/"
           if-no-files-found: error
       - name: ⚙️ Upload Map
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: phs-map
           path: "./apps/phs-map/dist/"
@@ -100,7 +100,7 @@ jobs:
 
     steps:
       - name: ⚙️ Download GPA Calculator
-        uses: actions/download-artifact@b14cf4c92620c250e1c074ab0a5800e37df86765 # v4.2.0
+        uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e # v4.2.1
         with:
           name: gpa-calculator
           path: "./apps/gpa-calculator/dist/"
@@ -126,7 +126,7 @@ jobs:
 
     steps:
       - name: ⚙️ Download Map
-        uses: actions/download-artifact@b14cf4c92620c250e1c074ab0a5800e37df86765 # v4.2.0
+        uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e # v4.2.1
         with:
           name: phs-map
           path: "./apps/phs-map/dist/"
