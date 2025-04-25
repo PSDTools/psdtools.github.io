@@ -5,16 +5,14 @@ const config = {
 
   addons: [
     "@storybook/addon-svelte-csf",
-    "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-designs",
     "@storybook/addon-a11y",
-    "@storybook/experimental-addon-test",
+    "@storybook/addon-docs",
+    "@storybook/addon-vitest",
   ],
   features: {
-    backgroundsStoryGlobals: true,
     developmentModeForBuild: true,
-    viewportStoryGlobals: true,
   },
   framework: {
     name: "@storybook/sveltekit",
