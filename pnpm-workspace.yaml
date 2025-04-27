@@ -2,18 +2,25 @@ autoInstallPeers: false
 strictPeerDependencies: true
 disallowWorkspaceCycles: true
 engineStrict: true
+strictDepBuilds: true
+shellEmulator: true
+verifyDepsBeforeRun: warn
+enablePrePostScripts: false
+ignorePatchFailures: false
+
+hoist: false
 
 peerDependencyRules:
-  allowAny:
-    - eslint
+  allowedVersions:
+    eslint: ^9.0.0
 
 onlyBuiltDependencies:
+  - "@swc/core"
   - esbuild
   - sharp
 
 ignoredBuiltDependencies:
-  - eslint-config-sheriff
-  - mws
+  - msw
   - svelte-preprocess
 
 overrides:
