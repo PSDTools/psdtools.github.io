@@ -50,6 +50,13 @@ packageExtensions:
       "@codemirror/state": "*"
       "@codemirror/view": "*"
 
+  "@sveltejs/kit":
+    peerDependencies:
+      "typescript": "*"
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
 patchedDependencies:
   eslint-config-sheriff: patches/eslint-config-sheriff.patch
 
