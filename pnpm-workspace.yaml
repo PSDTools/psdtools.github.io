@@ -1,5 +1,5 @@
 autoInstallPeers: false
-strictPeerDependencies: true
+# strictPeerDependencies: true # Currently broken, see pnpm/pnpm#9449.
 disallowWorkspaceCycles: true
 engineStrict: true
 strictDepBuilds: true
@@ -19,8 +19,8 @@ ignoredBuiltDependencies:
   - msw
   - svelte-preprocess
 
-overrides:
-  vitest>jsdom: "-"
+ignoredOptionalDependencies:
+  - jsdom
 
 peerDependencyRules:
   allowedVersions:
@@ -30,6 +30,28 @@ packageExtensions:
   vite-plugin-top-level-await:
     peerDependencies:
       rollup: "*"
+
+  "@storybook/core":
+    peerDependencies:
+      "@chromatic-com/storybook": "*"
+      "@storybook/addon-a11y": "*"
+      "@storybook/addon-designs": "*"
+      "@storybook/addon-essentials": "*"
+      "@storybook/addon-svelte-csf": "*"
+      "@storybook/experimental-addon-test": "*"
+      "@storybook/sveltekit": "*"
+    peerDependenciesMeta:
+      "@storybook/sveltekit":
+        optional: true
+      "@storybook/addon-svelte-csf":
+        optional: true
+
+  svelte-codemirror-editor:
+    peerDependencies:
+      "@codemirror/commands": "*"
+      "@codemirror/language": "*"
+      "@codemirror/state": "*"
+      "@codemirror/view": "*"
 
 patchedDependencies:
   eslint-config-sheriff: patches/eslint-config-sheriff.patch

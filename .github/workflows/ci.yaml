@@ -71,8 +71,8 @@ jobs:
         run: pnpm run build
       - name: 🕵️ Merge Checks
         run: pnpm run merge-checks --continue
-      # - name: 🧹 Check for deduped dependencies
-      #   run: pnpm exec turbo check-deduped-deps
+      - name: 🧹 Check for deduped dependencies
+        run: pnpm exec turbo check-deduped-deps
       - name: ⚙️ Upload GPA Calculator
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
