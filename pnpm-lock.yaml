@@ -274,7 +274,7 @@ catalogs:
       specifier: ^3.4.0
       version: 3.4.0
 
-packageExtensionsChecksum: sha256-dJuFSFzY7laCUOEzvzmXGncVaPcgCl4g/6YuXs6UIQo=
+packageExtensionsChecksum: sha256-OAI+rTs6uFqgls84CYzrQCCrgRVPuLtgop2FDc1Jy6o=
 
 pnpmfileChecksum: sha256-m6uwuhKT2j3VHcEJMIjA6EpecaNNDAe6+ybumz89AWw=
 
@@ -667,7 +667,7 @@ importers:
         version: 8.17.5(eslint@9.22.0(jiti@2.4.2))
       eslint-config-sheriff:
         specifier: 'catalog:'
-        version: 27.0.0(patch_hash=9e476f464d807976433ebcb453719a4c2c586fb5d520f1b8d11b6308f404986a)(@typescript-eslint/eslint-plugin@8.26.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(@typescript-eslint/parser@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(@typescript-eslint/utils@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(ts-api-utils@2.0.1(typescript@5.8.2))(typescript@5.8.2)(vitest@3.0.9)
+        version: 27.0.0(patch_hash=9e476f464d807976433ebcb453719a4c2c586fb5d520f1b8d11b6308f404986a)(@typescript-eslint/eslint-plugin@8.26.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(@typescript-eslint/parser@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(ts-api-utils@2.0.1(typescript@5.8.2))(typescript@5.8.2)(vitest@3.0.9)
       eslint-plugin-perfectionist:
         specifier: 'catalog:'
         version: 4.10.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
@@ -10791,7 +10791,7 @@ snapshots:
       eslint: 9.22.0(jiti@2.4.2)
       find-up-simple: 1.0.1
 
-  eslint-config-sheriff@27.0.0(patch_hash=9e476f464d807976433ebcb453719a4c2c586fb5d520f1b8d11b6308f404986a)(@typescript-eslint/eslint-plugin@8.26.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(@typescript-eslint/parser@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(@typescript-eslint/utils@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(ts-api-utils@2.0.1(typescript@5.8.2))(typescript@5.8.2)(vitest@3.0.9):
+  eslint-config-sheriff@27.0.0(patch_hash=9e476f464d807976433ebcb453719a4c2c586fb5d520f1b8d11b6308f404986a)(@typescript-eslint/eslint-plugin@8.26.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(@typescript-eslint/parser@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(ts-api-utils@2.0.1(typescript@5.8.2))(typescript@5.8.2)(vitest@3.0.9):
     dependencies:
       '@eslint-react/eslint-plugin': 1.35.0(eslint@9.22.0(jiti@2.4.2))(ts-api-utils@2.0.1(typescript@5.8.2))(typescript@5.8.2)
       '@eslint/compat': 1.2.7(eslint@9.22.0(jiti@2.4.2))
@@ -10799,6 +10799,7 @@ snapshots:
       '@next/eslint-plugin-next': 15.2.2
       '@regru/eslint-plugin-prefer-early-return': 1.0.0
       '@stylistic/eslint-plugin': 2.13.0(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
+      '@typescript-eslint/utils': 8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
       '@vitest/eslint-plugin': 1.1.37(@typescript-eslint/utils@8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)(vitest@3.0.9)
       confusing-browser-globals: 1.0.11
       eslint: 9.22.0(jiti@2.4.2)
@@ -10831,7 +10832,6 @@ snapshots:
     transitivePeerDependencies:
       - '@typescript-eslint/eslint-plugin'
       - '@typescript-eslint/parser'
-      - '@typescript-eslint/utils'
       - eslint-import-resolver-webpack
       - eslint-plugin-import-x
       - jest

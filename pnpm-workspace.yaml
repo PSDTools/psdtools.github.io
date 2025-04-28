@@ -57,6 +57,10 @@ packageExtensions:
       typescript:
         optional: true
 
+  "eslint-config-sheriff":
+    dependencies:
+      "@typescript-eslint/utils": "*"
+
 patchedDependencies:
   eslint-config-sheriff: patches/eslint-config-sheriff.patch
 
