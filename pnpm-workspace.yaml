@@ -10,10 +10,6 @@ ignorePatchFailures: false
 
 hoist: false
 
-peerDependencyRules:
-  allowedVersions:
-    eslint: ^9.0.0
-
 onlyBuiltDependencies:
   - "@swc/core"
   - esbuild
@@ -25,6 +21,15 @@ ignoredBuiltDependencies:
 
 overrides:
   vitest>jsdom: "-"
+
+peerDependencyRules:
+  allowedVersions:
+    eslint: ^9.0.0
+
+packageExtensions:
+  vite-plugin-top-level-await:
+    peerDependencies:
+      rollup: "*"
 
 patchedDependencies:
   eslint-config-sheriff: patches/eslint-config-sheriff.patch
@@ -124,3 +129,6 @@ catalog:
   workbox-window: ^7.3.0
   zod: ^3.24.2
   zod-validation-error: ^3.4.0
+
+configDependencies:
+  "@pnpmfiles/nolyfill": 0.0.1+sha512-xP8Yijxn1ej9e9hwNssvofdmmlC91kCWtkpRGkDawxvulO2zebnSGiWN5WseRT66tfSgPGyyWHCfER3QyLv0GA==
