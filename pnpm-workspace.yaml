@@ -19,9 +19,6 @@ ignoredBuiltDependencies:
   - msw
   - svelte-preprocess
 
-ignoredOptionalDependencies:
-  - jsdom
-
 peerDependencyRules:
   allowedVersions:
     eslint: ^9.0.0
