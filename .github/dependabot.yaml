@@ -35,6 +35,12 @@ updates:
       zod:
         patterns:
           - "zod*"
+      storybook:
+        patterns:
+          - "@storybook/"
+          - "storybook"
+          - "@chromatic-com/storybook"
+          - "chromatic"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
