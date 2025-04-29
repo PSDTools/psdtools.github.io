@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices"
+  ],
+  "assigneesFromCodeOwners": true,
+  "labels": [
+    "dependencies"
+  ],
+  "postUpdateOptions": [
+    "pnpmDedupe"
+  ],
+  "prHourlyLimit": 0
+}
