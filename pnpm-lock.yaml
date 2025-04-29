@@ -85,8 +85,8 @@ catalogs:
       specifier: ^8.6.7
       version: 8.6.7
     '@storybook/test':
-      specifier: ^8.6.7
-      version: 8.6.7
+      specifier: ^8.6.12
+      version: 8.6.12
     '@sveltejs/adapter-static':
       specifier: ^3.0.8
       version: 3.0.8
@@ -489,7 +489,7 @@ importers:
         version: 8.6.7(@babel/core@7.26.10)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(postcss-load-config@3.1.4(postcss@8.5.3))(postcss@8.5.3)(storybook@8.6.7)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
       '@storybook/test':
         specifier: 'catalog:'
-        version: 8.6.7(storybook@8.6.7)
+        version: 8.6.12(storybook@8.6.7)
       '@sveltejs/adapter-static':
         specifier: 'catalog:'
         version: 3.0.8(@sveltejs/kit@2.20.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(svelte@5.23.2)(typescript@5.8.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))
@@ -2596,6 +2596,11 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
 
+  '@storybook/instrumenter@8.6.12':
+    resolution: {integrity: sha512-VK5fYAF8jMwWP/u3YsmSwKGh+FeSY8WZn78flzRUwirp2Eg1WWjsqPRubAk7yTpcqcC/km9YMF3KbqfzRv2s/A==}
+    peerDependencies:
+      storybook: ^8.6.12
+
   '@storybook/instrumenter@8.6.7':
     resolution: {integrity: sha512-FeQiV0g5crCWs0P1wKY4xZzb4PxAYNcrm2+9LLGVqwnC7qzrSCPf0p10MlveVfwsen1m6Wbqfe+wl21c31Hfmg==}
     peerDependencies:
@@ -2641,6 +2646,11 @@ packages:
       storybook: ^8.6.7
       svelte: ^4.0.0 || ^5.0.0
       vite: ^4.0.0 || ^5.0.0 || ^6.0.0
+
+  '@storybook/test@8.6.12':
+    resolution: {integrity: sha512-0BK1Eg+VD0lNMB1BtxqHE3tP9FdkUmohtvWG7cq6lWvMrbCmAmh3VWai3RMCCDOukPFpjabOr8BBRLVvhNpv2w==}
+    peerDependencies:
+      storybook: ^8.6.12
 
   '@storybook/test@8.6.7':
     resolution: {integrity: sha512-uF1JbBtdT7tuiXfEtHsUShBHIhm2vc0C39nKVJaTWyK9CybajXaj2Ny3IRa3oY9NKnklwGgN+kZ/Z9YiIOc4MQ==}
@@ -9300,6 +9310,12 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+  '@storybook/instrumenter@8.6.12(storybook@8.6.7)':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@vitest/utils': 2.1.9
+      storybook: 8.6.7(@chromatic-com/storybook@3.2.6)(@storybook/addon-a11y@8.6.7)(@storybook/addon-designs@8.2.1)(@storybook/addon-essentials@8.6.7)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/experimental-addon-test@8.6.7)(@storybook/sveltekit@8.6.7)(prettier@3.5.3)
+
   '@storybook/instrumenter@8.6.7(storybook@8.6.7)':
     dependencies:
       '@storybook/global': 5.0.0
@@ -9383,6 +9399,17 @@ snapshots:
       - stylus
       - sugarss
       - supports-color
+
+  '@storybook/test@8.6.12(storybook@8.6.7)':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@storybook/instrumenter': 8.6.12(storybook@8.6.7)
+      '@testing-library/dom': 10.4.0
+      '@testing-library/jest-dom': 6.5.0
+      '@testing-library/user-event': 14.5.2(@testing-library/dom@10.4.0)
+      '@vitest/expect': 2.0.5
+      '@vitest/spy': 2.0.5
+      storybook: 8.6.7(@chromatic-com/storybook@3.2.6)(@storybook/addon-a11y@8.6.7)(@storybook/addon-designs@8.2.1)(@storybook/addon-essentials@8.6.7)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/experimental-addon-test@8.6.7)(@storybook/sveltekit@8.6.7)(prettier@3.5.3)
 
   '@storybook/test@8.6.7(storybook@8.6.7)':
     dependencies:
