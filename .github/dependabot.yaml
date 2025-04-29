@@ -23,10 +23,10 @@ updates:
       build:
         patterns:
           - "vite*"
+          - "@vitest/*"
           - "@vite-pwa/*"
           - "workbox*"
           - "browserslist*"
-          - "*html-minifier-terser"
           - "lightningcss"
           - "turbo"
       fontawesome:
