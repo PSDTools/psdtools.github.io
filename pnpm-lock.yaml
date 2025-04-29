@@ -73,8 +73,8 @@ catalogs:
       specifier: '=5.0.0-next.28'
       version: 5.0.0-next.28
     '@storybook/blocks':
-      specifier: ^8.6.7
-      version: 8.6.7
+      specifier: ^8.6.12
+      version: 8.6.12
     '@storybook/experimental-addon-test':
       specifier: ^8.6.7
       version: 8.6.7
@@ -468,7 +468,7 @@ importers:
         version: 8.6.7(storybook@8.6.7)
       '@storybook/addon-designs':
         specifier: 'catalog:'
-        version: 8.2.1(@storybook/blocks@8.6.7)(@storybook/components@8.6.7)(@storybook/theming@8.6.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 8.2.1(@storybook/blocks@8.6.12)(@storybook/components@8.6.7)(@storybook/theming@8.6.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@storybook/addon-essentials':
         specifier: 'catalog:'
         version: 8.6.7(@types/react@18.3.18)(storybook@8.6.7)
@@ -477,7 +477,7 @@ importers:
         version: 5.0.0-next.28(@storybook/svelte@8.6.7)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(storybook@8.6.7)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
       '@storybook/blocks':
         specifier: 'catalog:'
-        version: 8.6.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7)
+        version: 8.6.12(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7)
       '@storybook/experimental-addon-test':
         specifier: 'catalog:'
         version: 8.6.7(@vitest/browser@3.0.9)(@vitest/runner@3.0.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7)(vitest@3.0.9)
@@ -2517,6 +2517,18 @@ packages:
     resolution: {integrity: sha512-kTrt6ByCbBIbqoRqQO9watDl5nSIKCC+R0/EmpEl6ZtzBV3l8trZHdvCHhIqOyv7nfaa7pIeTTG1GD6Gdrxk3w==}
     peerDependencies:
       storybook: ^8.6.7
+
+  '@storybook/blocks@8.6.12':
+    resolution: {integrity: sha512-DohlTq6HM1jDbHYiXL4ZvZ00VkhpUp5uftzj/CZDLY1fYHRjqtaTwWm2/OpceivMA8zDitLcq5atEZN+f+siTg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      storybook: ^8.6.12
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@storybook/blocks@8.6.7':
     resolution: {integrity: sha512-IFhIKO7R1UPpnoG/5tZH0FgC79oYgXNf+7aGUwq29M/CQWy6p/Pvp0y4P962btY1UZRol+SsU//33nH8o6yNRw==}
@@ -9131,11 +9143,11 @@ snapshots:
       storybook: 8.6.7(@chromatic-com/storybook@3.2.6)(@storybook/addon-a11y@8.6.7)(@storybook/addon-designs@8.2.1)(@storybook/addon-essentials@8.6.7)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/experimental-addon-test@8.6.7)(@storybook/sveltekit@8.6.7)(prettier@3.5.3)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-designs@8.2.1(@storybook/blocks@8.6.7)(@storybook/components@8.6.7)(@storybook/theming@8.6.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@storybook/addon-designs@8.2.1(@storybook/blocks@8.6.12)(@storybook/components@8.6.7)(@storybook/theming@8.6.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@figspec/react': 1.0.4(react@19.0.0)
     optionalDependencies:
-      '@storybook/blocks': 8.6.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7)
+      '@storybook/blocks': 8.6.12(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7)
       '@storybook/components': 8.6.7(storybook@8.6.7)
       '@storybook/theming': 8.6.7(storybook@8.6.7)
       react: 19.0.0
@@ -9213,6 +9225,15 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 8.6.7(@chromatic-com/storybook@3.2.6)(@storybook/addon-a11y@8.6.7)(@storybook/addon-designs@8.2.1)(@storybook/addon-essentials@8.6.7)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/experimental-addon-test@8.6.7)(@storybook/sveltekit@8.6.7)(prettier@3.5.3)
 
+  '@storybook/blocks@8.6.12(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7)':
+    dependencies:
+      '@storybook/icons': 1.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      storybook: 8.6.7(@chromatic-com/storybook@3.2.6)(@storybook/addon-a11y@8.6.7)(@storybook/addon-designs@8.2.1)(@storybook/addon-essentials@8.6.7)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/experimental-addon-test@8.6.7)(@storybook/sveltekit@8.6.7)(prettier@3.5.3)
+      ts-dedent: 2.2.0
+    optionalDependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   '@storybook/blocks@8.6.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7)':
     dependencies:
       '@storybook/icons': 1.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -9238,7 +9259,7 @@ snapshots:
     dependencies:
       '@chromatic-com/storybook': 3.2.6(react@19.0.0)(storybook@8.6.7)
       '@storybook/addon-a11y': 8.6.7(storybook@8.6.7)
-      '@storybook/addon-designs': 8.2.1(@storybook/blocks@8.6.7)(@storybook/components@8.6.7)(@storybook/theming@8.6.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@storybook/addon-designs': 8.2.1(@storybook/blocks@8.6.12)(@storybook/components@8.6.7)(@storybook/theming@8.6.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@storybook/addon-essentials': 8.6.7(@types/react@18.3.18)(storybook@8.6.7)
       '@storybook/experimental-addon-test': 8.6.7(@vitest/browser@3.0.9)(@vitest/runner@3.0.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7)(vitest@3.0.9)
       '@storybook/theming': 8.6.7(storybook@8.6.7)
