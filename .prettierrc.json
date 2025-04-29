@@ -9,13 +9,13 @@
   "experimentalTernaries": true,
   "overrides": [
     {
-      "files": "*.svelte",
+      "files": ["*.svelte"],
       "options": {
         "parser": "svelte"
       }
     },
     {
-      "files": "**/turbo.json",
+      "files": ["**/turbo.json", ".github/renovate.json"],
       "options": {
         "parser": "json-stringify"
       }
