@@ -1,7 +1,59 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:best-practices"
+    "config:best-practices",
+    "group:fortawesome"
+  ],
+  "packageRules": [
+    {
+      "extends": [
+        "packages:eslint",
+        "monorepo:cspell"
+      ],
+      "matchPackageNames": [
+        "@sherifforg/**"
+      ],
+      "groupName": "lint"
+    },
+    {
+      "extends": [
+        "monorepo:vitest",
+        "packages:vite",
+        "monorepo:workbox",
+        "monorepo:turbo"
+      ],
+      "matchPackageNames": [
+        "@vite-pwa/**",
+        "browserslist**",
+        "lightningcss"
+      ],
+      "groupName": "build"
+    },
+    {
+      "extends": [
+        "monorepo:storybook"
+      ],
+      "matchPackageNames": [
+        "@chromatic-com/storybook",
+        "chromatic"
+      ],
+      "groupName": "storybook"
+    },
+    {
+      "matchPackageNames": [
+        "zod**"
+      ],
+      "groupName": "zod"
+    },
+    {
+      "groupName": "github-actions",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchPackageNames": [
+        "actions/**"
+      ]
+    }
   ],
   "assigneesFromCodeOwners": true,
   "labels": [
