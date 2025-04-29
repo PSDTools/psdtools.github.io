@@ -1,4 +1,10 @@
-import type { Preview } from "@storybook/svelte";
+import type { Preview } from "@storybook/sveltekit";
+
+export const parameters = {
+  docs: {
+    codePanel: true,
+  },
+};
 
 const preview = {
   parameters: {

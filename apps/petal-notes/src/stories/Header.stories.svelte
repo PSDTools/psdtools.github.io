@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import { defineMeta } from "@storybook/addon-svelte-csf";
-  import { fn } from "@storybook/test";
+  import { fn } from "storybook/test";
 
   import Header from "./Header.svelte";
 
