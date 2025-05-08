@@ -1,23 +1,16 @@
-autoInstallPeers: false
-# strictPeerDependencies: true # Currently broken, see pnpm/pnpm#9449.
-disallowWorkspaceCycles: true
-engineStrict: true
-strictDepBuilds: true
-shellEmulator: true
-verifyDepsBeforeRun: warn
-enablePrePostScripts: false
-ignorePatchFailures: false
+# autoInstallPeers: false
+# # strictPeerDependencies: true # Currently broken, see pnpm/pnpm#9449.
+# disallowWorkspaceCycles: true
+# engineStrict: true
+# strictDepBuilds: true
+# shellEmulator: true
+# verifyDepsBeforeRun: warn
+# enablePrePostScripts: false
+# ignorePatchFailures: false
 
-hoist: false
+# hoist: false
 
-onlyBuiltDependencies:
-  - "@swc/core"
-  - esbuild
-  - sharp
-
-ignoredBuiltDependencies:
-  - msw
-  - svelte-preprocess
+neverBuiltDependencies: []
 
 peerDependencyRules:
   allowedVersions:
@@ -163,6 +156,3 @@ catalog:
   workbox-window: ^7.3.0
   zod: ^3.24.2
   zod-validation-error: ^3.4.0
-
-configDependencies:
-  "@pnpmfiles/nolyfill": 0.0.2+sha512-/tt28JylZjOfpWO50ByRkcsLRvb7uD0V8JXA5SYfMUSOWRx42oE8mGfFBxsIlvuPxO26ldC2aY4CBCUj6krqgg==
