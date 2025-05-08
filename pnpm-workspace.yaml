@@ -1,16 +1,23 @@
-# autoInstallPeers: false
-# # strictPeerDependencies: true # Currently broken, see pnpm/pnpm#9449.
-# disallowWorkspaceCycles: true
-# engineStrict: true
-# strictDepBuilds: true
-# shellEmulator: true
-# verifyDepsBeforeRun: warn
-# enablePrePostScripts: false
-# ignorePatchFailures: false
+autoInstallPeers: false
+# strictPeerDependencies: true # Currently broken, see pnpm/pnpm#9449.
+disallowWorkspaceCycles: true
+engineStrict: true
+strictDepBuilds: true
+shellEmulator: true
+verifyDepsBeforeRun: warn
+enablePrePostScripts: false
+ignorePatchFailures: false
 
-# hoist: false
+hoist: false
 
-neverBuiltDependencies: []
+onlyBuiltDependencies:
+  - "@swc/core"
+  - esbuild
+  - sharp
+
+ignoredBuiltDependencies:
+  - msw
+  - svelte-preprocess
 
 peerDependencyRules:
   allowedVersions:
