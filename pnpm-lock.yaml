@@ -604,7 +604,7 @@ importers:
         specifier: 'catalog:'
         version: 0.6.1
       '@types/pathfinding':
-        specifier: ~0.0.9
+        specifier: 0.0.9
         version: 0.0.9
       '@vite-pwa/assets-generator':
         specifier: 'catalog:'
