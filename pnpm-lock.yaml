@@ -70,8 +70,8 @@ catalogs:
       specifier: '=9.0.0-beta.5'
       version: 9.0.0-beta.5
     '@storybook/addon-svelte-csf':
-      specifier: '=5.0.0-next.28'
-      version: 5.0.0-next.28
+      specifier: '=5.0.1'
+      version: 5.0.1
     '@storybook/addon-vitest':
       specifier: '=9.0.0-beta.5'
       version: 9.0.0-beta.5
@@ -472,7 +472,7 @@ importers:
         version: 9.0.0-beta.5(@types/react@19.1.2)(storybook@9.0.0-beta.5)
       '@storybook/addon-svelte-csf':
         specifier: 'catalog:'
-        version: 5.0.0-next.28(@storybook/svelte@9.0.0-beta.5)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
+        version: 5.0.1(@storybook/svelte@9.0.0-beta.5)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
       '@storybook/addon-vitest':
         specifier: 'catalog:'
         version: 9.0.0-beta.5(@vitest/browser@3.0.9)(@vitest/runner@3.0.9)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.0-beta.5)(vitest@3.0.9)
@@ -544,7 +544,7 @@ importers:
         version: 19.1.0(react@19.1.0)
       storybook:
         specifier: 'catalog:'
-        version: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+        version: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       svelte:
         specifier: 'catalog:'
         version: 5.23.2
@@ -2338,8 +2338,8 @@ packages:
     peerDependencies:
       storybook: ^9.0.0-beta.5
 
-  '@storybook/addon-svelte-csf@5.0.0-next.28':
-    resolution: {integrity: sha512-Ojj6m8xEd3rlVP7PkNYv/0st4M0NZdSYWwnCowhsw3ItBasmyB8jmP5Ht2WmwH+EIUYq0mMfsRI7Rb6Yl63QbQ==}
+  '@storybook/addon-svelte-csf@5.0.1':
+    resolution: {integrity: sha512-zRU4huAeNEY0VzC2VTDtyQJrZPkUXpq2vx6RYgW3dP/jNzVcLjWaG8B4dp2ZMHC1mEW3NwiYK8s9MjcdbkxFXA==}
     peerDependencies:
       '@storybook/svelte': ^0.0.0-0 || ^8.2.0 || ^9.0.0-0
       '@sveltejs/vite-plugin-svelte': ^4.0.0 || ^5.0.0
@@ -7750,7 +7750,7 @@ snapshots:
       filesize: 10.1.6
       jsonfile: 6.1.0
       react-confetti: 6.4.0(react@19.1.0)
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       strip-ansi: 7.1.0
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
@@ -9027,12 +9027,12 @@ snapshots:
     dependencies:
       '@storybook/global': 5.0.0
       axe-core: 4.10.3
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
 
   '@storybook/addon-designs@10.0.0(@storybook/addon-docs@9.0.0-beta.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.0-beta.5)':
     dependencies:
       '@figspec/react': 1.0.4(react@19.1.0)
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
     optionalDependencies:
       '@storybook/addon-docs': 9.0.0-beta.5(@types/react@19.1.2)(storybook@9.0.0-beta.5)
       react: 19.1.0
@@ -9046,12 +9046,12 @@ snapshots:
       '@storybook/react-dom-shim': 9.0.0-beta.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.0-beta.5)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-svelte-csf@5.0.0-next.28(@storybook/svelte@9.0.0-beta.5)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))':
+  '@storybook/addon-svelte-csf@5.0.1(@storybook/svelte@9.0.0-beta.5)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))':
     dependencies:
       '@storybook/csf': 0.1.13
       '@storybook/svelte': 9.0.0-beta.5(storybook@9.0.0-beta.5)(svelte@5.23.2)
@@ -9060,7 +9060,7 @@ snapshots:
       es-toolkit: 1.33.0
       esrap: 1.4.5
       magic-string: 0.30.17
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       svelte: 5.23.2
       svelte-ast-print: 0.4.2(svelte@5.23.2)
       vite: 6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)
@@ -9073,7 +9073,7 @@ snapshots:
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.4.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       prompts: 2.4.2
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       ts-dedent: 2.2.0
     optionalDependencies:
       '@vitest/browser': 3.0.9(@types/node@22.13.10)(playwright@1.51.1)(typescript@5.8.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))(vitest@3.0.9)
@@ -9087,13 +9087,13 @@ snapshots:
     dependencies:
       '@storybook/csf-plugin': 9.0.0-beta.5(storybook@9.0.0-beta.5)
       browser-assert: 1.2.1
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       ts-dedent: 2.2.0
       vite: 6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)
 
   '@storybook/csf-plugin@9.0.0-beta.5(storybook@9.0.0-beta.5)':
     dependencies:
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       unplugin: 1.16.1
 
   '@storybook/csf@0.1.13':
@@ -9111,7 +9111,7 @@ snapshots:
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
 
   '@storybook/svelte-vite@9.0.0-beta.5(@babel/core@7.26.10)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(postcss-load-config@3.1.4(postcss@8.5.3))(postcss@8.5.3)(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))':
     dependencies:
@@ -9119,7 +9119,7 @@ snapshots:
       '@storybook/svelte': 9.0.0-beta.5(storybook@9.0.0-beta.5)(svelte@5.23.2)
       '@sveltejs/vite-plugin-svelte': 5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
       magic-string: 0.30.17
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       svelte: 5.23.2
       svelte-preprocess: 5.1.4(@babel/core@7.26.10)(postcss-load-config@3.1.4(postcss@8.5.3))(postcss@8.5.3)(svelte@5.23.2)(typescript@5.8.2)
       svelte2tsx: 0.7.35(svelte@5.23.2)(typescript@5.8.2)
@@ -9138,7 +9138,7 @@ snapshots:
 
   '@storybook/svelte@9.0.0-beta.5(storybook@9.0.0-beta.5)(svelte@5.23.2)':
     dependencies:
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       svelte: 5.23.2
       ts-dedent: 2.2.0
       type-fest: 2.19.0
@@ -9148,7 +9148,7 @@ snapshots:
       '@storybook/builder-vite': 9.0.0-beta.5(storybook@9.0.0-beta.5)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
       '@storybook/svelte': 9.0.0-beta.5(storybook@9.0.0-beta.5)(svelte@5.23.2)
       '@storybook/svelte-vite': 9.0.0-beta.5(@babel/core@7.26.10)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(postcss-load-config@3.1.4(postcss@8.5.3))(postcss@8.5.3)(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
-      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      storybook: 9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3)
       svelte: 5.23.2
       vite: 6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)
     transitivePeerDependencies:
@@ -13241,7 +13241,7 @@ snapshots:
 
   stdin-discarder@0.2.2: {}
 
-  storybook@9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.0-next.28)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3):
+  storybook@9.0.0-beta.5(@chromatic-com/storybook@4.0.0-next.5)(@storybook/addon-a11y@9.0.0-beta.5)(@storybook/addon-designs@10.0.0)(@storybook/addon-docs@9.0.0-beta.5)(@storybook/addon-svelte-csf@5.0.1)(@storybook/addon-vitest@9.0.0-beta.5)(@storybook/sveltekit@9.0.0-beta.5)(@testing-library/dom@10.4.0)(prettier@3.5.3):
     dependencies:
       '@chromatic-com/storybook': 4.0.0-next.5(react@19.1.0)(storybook@9.0.0-beta.5)
       '@storybook/addon-a11y': 9.0.0-beta.5(storybook@9.0.0-beta.5)
@@ -13260,7 +13260,7 @@ snapshots:
       semver: 7.7.1
       ws: 8.18.1
     optionalDependencies:
-      '@storybook/addon-svelte-csf': 5.0.0-next.28(@storybook/svelte@9.0.0-beta.5)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
+      '@storybook/addon-svelte-csf': 5.0.1(@storybook/svelte@9.0.0-beta.5)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
       '@storybook/sveltekit': 9.0.0-beta.5(@babel/core@7.26.10)(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0)))(postcss-load-config@3.1.4(postcss@8.5.3))(postcss@8.5.3)(storybook@9.0.0-beta.5)(svelte@5.23.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.7.0))
       prettier: 3.5.3
     transitivePeerDependencies:
