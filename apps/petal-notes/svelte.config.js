@@ -14,7 +14,6 @@ export default /** @satisfies {import('@sveltejs/kit').Config} */ ({
   },
 
   compilerOptions: {
-    modernAst: true,
     // runes: true, // Breaks Storybook (legacy compatibility).
   },
 });
