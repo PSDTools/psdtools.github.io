@@ -592,7 +592,7 @@ importers:
         specifier: 'catalog:'
         version: 0.6.1
       '@types/pathfinding':
-        specifier: ~0.0.9
+        specifier: 0.0.9
         version: 0.0.9
       '@vite-pwa/assets-generator':
         specifier: 'catalog:'
@@ -5958,6 +5958,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
