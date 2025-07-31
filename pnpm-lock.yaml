@@ -56,7 +56,7 @@ catalogs:
       version: 1.2.1
     '@lezer/markdown':
       specifier: ^1.4.2
-      version: 1.4.2
+      version: 1.4.3
     '@manypkg/cli':
       specifier: ^0.23.0
       version: 0.23.0
@@ -423,7 +423,7 @@ importers:
         version: 1.2.1
       '@lezer/markdown':
         specifier: 'catalog:'
-        version: 1.4.2
+        version: 1.4.3
       codemirror:
         specifier: 'catalog:'
         version: 6.0.1
@@ -1949,8 +1949,8 @@ packages:
   '@lezer/lr@1.4.2':
     resolution: {integrity: sha512-pu0K1jCIdnQ12aWNaAVU5bzi7Bd1w54J3ECgANPmYLtQKP0HBj2cE/5coBD66MT10xbtIuUr7tg0Shbsvk0mDA==}
 
-  '@lezer/markdown@1.4.2':
-    resolution: {integrity: sha512-iYewCigG/517D0xJPQd7RGaCjZAFwROiH8T9h7OTtz0bRVtkxzFhGBFJ9JGKgBBs4uuo1cvxzyQ5iKhDLMcLUQ==}
+  '@lezer/markdown@1.4.3':
+    resolution: {integrity: sha512-kfw+2uMrQ/wy/+ONfrH83OkdFNM0ye5Xq96cLlaCy7h5UT9FO54DU4oRoIc0CSBh5NWmWuiIJA7NGLMJbQ+Oxg==}
 
   '@lezer/php@1.0.2':
     resolution: {integrity: sha512-GN7BnqtGRpFyeoKSEqxvGvhJQiI4zkgmYnDk/JIyc7H7Ifc1tkPnUn/R2R8meH3h/aBf5rzjvU8ZQoyiNDtDrA==}
@@ -7677,7 +7677,7 @@ snapshots:
       '@codemirror/state': 6.5.2
       '@codemirror/view': 6.36.4
       '@lezer/common': 1.2.3
-      '@lezer/markdown': 1.4.2
+      '@lezer/markdown': 1.4.3
 
   '@codemirror/lang-php@6.0.1':
     dependencies:
@@ -8508,7 +8508,7 @@ snapshots:
     dependencies:
       '@lezer/common': 1.2.3
 
-  '@lezer/markdown@1.4.2':
+  '@lezer/markdown@1.4.3':
     dependencies:
       '@lezer/common': 1.2.3
       '@lezer/highlight': 1.2.1
@@ -11394,7 +11394,7 @@ snapshots:
       '@codemirror/view': 6.36.4
       '@lezer/common': 1.2.2
       '@lezer/highlight': 1.2.1
-      '@lezer/markdown': 1.4.2
+      '@lezer/markdown': 1.4.3
       node-emoji: 2.2.0
 
   ico-endec@0.1.6: {}
