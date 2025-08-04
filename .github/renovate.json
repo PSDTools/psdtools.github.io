@@ -62,5 +62,6 @@
   "postUpdateOptions": [
     "pnpmDedupe"
   ],
+  "rangeStrategy": "bump",
   "prHourlyLimit": 0
 }
