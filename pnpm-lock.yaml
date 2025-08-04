@@ -125,7 +125,7 @@ catalogs:
       version: 13.0.1
     codemirror:
       specifier: ^6.0.1
-      version: 6.0.1
+      version: 6.0.2
     eslint:
       specifier: ^9.22.0
       version: 9.22.0
@@ -426,7 +426,7 @@ importers:
         version: 1.4.3
       codemirror:
         specifier: 'catalog:'
-        version: 6.0.1
+        version: 6.0.2
       hypermd:
         specifier: 'catalog:'
         version: https://pkg.pr.new/jsimonrichard/HyperMD/hypermd@7a49f4a(@codemirror/commands@6.8.1)(@codemirror/lang-markdown@6.3.4)(@codemirror/language-data@6.5.1)(@codemirror/language@6.11.2)(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(@lezer/highlight@1.2.1)
@@ -438,7 +438,7 @@ importers:
         version: 1.4.6
       svelte-codemirror-editor:
         specifier: 'catalog:'
-        version: 1.4.1(@codemirror/commands@6.8.1)(@codemirror/language@6.11.2)(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(codemirror@6.0.1)(svelte@5.34.8)
+        version: 1.4.1(@codemirror/commands@6.8.1)(@codemirror/language@6.11.2)(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(codemirror@6.0.2)(svelte@5.34.8)
       uint8array-extras:
         specifier: 'catalog:'
         version: 1.4.0
@@ -3281,8 +3281,8 @@ packages:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
 
-  codemirror@6.0.1:
-    resolution: {integrity: sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg==}
+  codemirror@6.0.2:
+    resolution: {integrity: sha512-VhydHotNW5w1UGK0Qj96BwSk/Zqbp9WbnyK2W/eVMv4QyF41INRGpjUhFJY7/uDNuudSc33a/PKr4iDqRduvHw==}
 
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -9873,7 +9873,7 @@ snapshots:
 
   clsx@2.1.1: {}
 
-  codemirror@6.0.1:
+  codemirror@6.0.2:
     dependencies:
       '@codemirror/autocomplete': 6.18.6
       '@codemirror/commands': 6.8.1
@@ -12996,13 +12996,13 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
-  svelte-codemirror-editor@1.4.1(@codemirror/commands@6.8.1)(@codemirror/language@6.11.2)(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(codemirror@6.0.1)(svelte@5.34.8):
+  svelte-codemirror-editor@1.4.1(@codemirror/commands@6.8.1)(@codemirror/language@6.11.2)(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(codemirror@6.0.2)(svelte@5.34.8):
     dependencies:
       '@codemirror/commands': 6.8.1
       '@codemirror/language': 6.11.2
       '@codemirror/state': 6.5.2
       '@codemirror/view': 6.38.1
-      codemirror: 6.0.1
+      codemirror: 6.0.2
       svelte: 5.34.8
 
   svelte-eslint-parser@1.1.0(svelte@5.34.8):
