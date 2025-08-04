@@ -70,7 +70,7 @@ catalogs:
       specifier: ^9.0.13
       version: 9.1.0
     '@storybook/addon-svelte-csf':
-      specifier: ^5.0.4
+      specifier: ^5.0.7
       version: 5.0.7
     '@storybook/addon-vitest':
       specifier: ^9.0.13
