@@ -88,8 +88,8 @@ catalog:
   "@codemirror/search": ^6.5.10
   "@codemirror/state": ^6.5.2
   "@codemirror/view": ^6.36.4
-  "@commitlint/cli": ^19.8.0
-  "@commitlint/config-conventional": ^19.8.0
+  "@commitlint/cli": ^19.8.1
+  "@commitlint/config-conventional": ^19.8.1
   "@cspell/eslint-plugin": ^8.17.5
   "@fortawesome/fontawesome-svg-core": ^6.7.2
   "@fortawesome/free-solid-svg-icons": ^6.7.2
