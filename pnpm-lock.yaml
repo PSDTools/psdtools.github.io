@@ -34,10 +34,10 @@ catalogs:
       specifier: ^6.36.4
       version: 6.38.1
     '@commitlint/cli':
-      specifier: ^19.8.0
+      specifier: ^19.8.1
       version: 19.8.1
     '@commitlint/config-conventional':
-      specifier: ^19.8.0
+      specifier: ^19.8.1
       version: 19.8.1
     '@cspell/eslint-plugin':
       specifier: ^8.17.5
