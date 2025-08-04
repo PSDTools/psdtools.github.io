@@ -166,8 +166,8 @@ catalogs:
       specifier: ^1.29.3
       version: 1.29.3
     loro-codemirror:
-      specifier: ^0.1.6
-      version: 0.1.6
+      specifier: ^0.2.0
+      version: 0.2.0
     loro-crdt:
       specifier: ^1.4.6
       version: 1.4.6
@@ -432,7 +432,7 @@ importers:
         version: https://pkg.pr.new/jsimonrichard/HyperMD/hypermd@7a49f4a(@codemirror/commands@6.8.1)(@codemirror/lang-markdown@6.3.4)(@codemirror/language-data@6.5.1)(@codemirror/language@6.11.2)(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(@lezer/highlight@1.2.1)
       loro-codemirror:
         specifier: 'catalog:'
-        version: 0.1.6(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(loro-crdt@1.4.6)
+        version: 0.2.0(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(loro-crdt@1.4.6)
       loro-crdt:
         specifier: 'catalog:'
         version: 1.4.6
@@ -4975,12 +4975,12 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
 
-  loro-codemirror@0.1.6:
-    resolution: {integrity: sha512-lVD+uD/I5owgmkPwyz98nZjtfvcR85XFxHGkS3C2M8RsKRRs+BIh+Y5Vay1Zx4Ppv5fybN97/WSk0ndI/+XOrQ==}
+  loro-codemirror@0.2.0:
+    resolution: {integrity: sha512-ImLH1ILn035wR//KgyunJZffXn+caPj7u0b3J3U35C29IA31/5DErVREmK9KiclDFB4frQVtAY3GqBGP56UoBg==}
     peerDependencies:
       '@codemirror/state': ^6.0.0
       '@codemirror/view': ^6.7.0
-      loro-crdt: ^1.4.6
+      loro-crdt: ^1.5.5
 
   loro-crdt@1.4.6:
     resolution: {integrity: sha512-9YvKzoNE1CpDR/DNSUMolaSkhXdHnChP8uVkfORE3iREKOILUc5OZNipMMMhsnHQesL8HxM8D+2Z3vdXlV48Ew==}
@@ -11829,7 +11829,7 @@ snapshots:
     dependencies:
       js-tokens: 4.0.0
 
-  loro-codemirror@0.1.6(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(loro-crdt@1.4.6):
+  loro-codemirror@0.2.0(@codemirror/state@6.5.2)(@codemirror/view@6.38.1)(loro-crdt@1.4.6):
     dependencies:
       '@codemirror/state': 6.5.2
       '@codemirror/view': 6.38.1
