@@ -592,8 +592,8 @@ importers:
         specifier: 'catalog:'
         version: 0.6.1
       '@types/pathfinding':
-        specifier: 0.0.9
-        version: 0.0.9
+        specifier: 0.1.0
+        version: 0.1.0
       '@vite-pwa/assets-generator':
         specifier: 'catalog:'
         version: 0.2.6
@@ -2633,8 +2633,8 @@ packages:
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
 
-  '@types/pathfinding@0.0.9':
-    resolution: {integrity: sha512-b7tf4+gVc8+sRETzJ7pCeqhknQ9XVgYqbH5+ekcHmO5Hf/fy9BTBzSstE9mcOQc81Y0qITda8tF/UsN3huIMwg==}
+  '@types/pathfinding@0.1.0':
+    resolution: {integrity: sha512-QkKZqdAPhfkHIoiCWa/4yVolcCDin10qScbdiyqtDsY9cxlcslVgoU1g9yVdFytsHqJQevkYNcNBgD/P7OZbQg==}
 
   '@types/react@19.1.9':
     resolution: {integrity: sha512-WmdoynAX8Stew/36uTSVMcLJJ1KRh6L3IZRx1PZ7qJtBqT3dYTgyDTx8H1qoRghErydW7xw9mSJ3wS//tCRpFA==}
@@ -9136,7 +9136,7 @@ snapshots:
 
   '@types/normalize-package-data@2.4.4': {}
 
-  '@types/pathfinding@0.0.9': {}
+  '@types/pathfinding@0.1.0': {}
 
   '@types/react@19.1.9':
     dependencies:
