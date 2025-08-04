@@ -90,7 +90,7 @@ catalog:
   "@codemirror/view": ^6.36.4
   "@commitlint/cli": ^19.8.0
   "@commitlint/config-conventional": ^19.8.0
-  "@cspell/eslint-plugin": ^8.17.5
+  "@cspell/eslint-plugin": ^8.19.4
   "@fortawesome/fontawesome-svg-core": ^6.7.2
   "@fortawesome/free-solid-svg-icons": ^6.7.2
   "@lezer/highlight": ^1.2.1
