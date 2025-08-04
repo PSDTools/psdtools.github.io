@@ -155,7 +155,7 @@ catalogs:
       version: 0.0.0
     idb-keyval:
       specifier: ^6.2.1
-      version: 6.2.1
+      version: 6.2.2
     jiti:
       specifier: ^2.4.2
       version: 2.4.2
@@ -317,13 +317,13 @@ importers:
         version: 4.1.1
       idb-keyval:
         specifier: 'catalog:'
-        version: 6.2.1
+        version: 6.2.2
       typed-query-selector:
         specifier: 'catalog:'
         version: 2.12.0
       unstorage:
         specifier: 'catalog:'
-        version: 1.15.0(idb-keyval@6.2.1)
+        version: 1.15.0(idb-keyval@6.2.2)
       zod:
         specifier: 'catalog:'
         version: 3.24.2
@@ -568,7 +568,7 @@ importers:
         version: 4.1.1
       idb-keyval:
         specifier: 'catalog:'
-        version: 6.2.1
+        version: 6.2.2
       pathfinding:
         specifier: 'catalog:'
         version: 0.4.18
@@ -577,7 +577,7 @@ importers:
         version: 2.12.0
       unstorage:
         specifier: 'catalog:'
-        version: 1.15.0(idb-keyval@6.2.1)
+        version: 1.15.0(idb-keyval@6.2.2)
       zod:
         specifier: 'catalog:'
         version: 3.24.2
@@ -4392,8 +4392,8 @@ packages:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
 
-  idb-keyval@6.2.1:
-    resolution: {integrity: sha512-8Sb3veuYCyrZL+VBt9LJfZjLUPWVvqn8tG28VqYNFCo43KHcKuq+b4EiXGeuaLAQWL2YmyDgMp2aSpH9JHsEQg==}
+  idb-keyval@6.2.2:
+    resolution: {integrity: sha512-yjD9nARJ/jb1g+CvD0tlhUHOrJ9Sy0P8T9MF3YaLlHnSRpwPfpTX0XIvpmw3gAJUmEu3FiICLBDPXVwyEvrleg==}
 
   idb@7.1.1:
     resolution: {integrity: sha512-gchesWBzyvGHRO9W8tzUWFDycow5gwjvFKfyV9FF32Y7F50yZMp7mP+T2mJIWFx49zicqyC4uefHM17o6xKIVQ==}
@@ -11314,7 +11314,7 @@ snapshots:
       safer-buffer: 2.1.2
     optional: true
 
-  idb-keyval@6.2.1: {}
+  idb-keyval@6.2.2: {}
 
   idb@7.1.1: {}
 
@@ -13367,7 +13367,7 @@ snapshots:
       acorn: 8.14.1
       webpack-virtual-modules: 0.6.2
 
-  unstorage@1.15.0(idb-keyval@6.2.1):
+  unstorage@1.15.0(idb-keyval@6.2.2):
     dependencies:
       anymatch: 3.1.3
       chokidar: 4.0.3
@@ -13378,7 +13378,7 @@ snapshots:
       ofetch: 1.4.1
       ufo: 1.5.4
     optionalDependencies:
-      idb-keyval: 6.2.1
+      idb-keyval: 6.2.2
 
   upath@1.2.0: {}
 
