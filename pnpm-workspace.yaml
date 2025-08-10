@@ -98,7 +98,7 @@ catalog:
   "@lezer-unofficial/printer": ^1.0.1
   "@manypkg/cli": ^0.25.0
   "@storybook/addon-a11y": ^9.0.13
-  "@storybook/addon-designs": ^10.0.1
+  "@storybook/addon-designs": ^10.0.2
   "@storybook/addon-docs": ^9.0.13
   "@storybook/addon-svelte-csf": ^5.0.7
   "@storybook/addon-vitest": ^9.0.13
