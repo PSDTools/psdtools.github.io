@@ -94,7 +94,7 @@ catalog:
   "@fortawesome/fontawesome-svg-core": ^6.7.2
   "@fortawesome/free-solid-svg-icons": ^6.7.2
   "@lezer/highlight": ^1.2.1
-  "@lezer/markdown": ^1.4.2
+  "@lezer/markdown": ^1.4.3
   "@lezer-unofficial/printer": ^1.0.1
   "@manypkg/cli": ^0.25.0
   "@storybook/addon-a11y": ^9.0.13
