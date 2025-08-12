@@ -217,7 +217,7 @@ catalogs:
       specifier: ^0.7.0
       version: 0.7.0
     typesync:
-      specifier: ^0.14.1
+      specifier: ^0.14.3
       version: 0.14.3
     uint8array-extras:
       specifier: ^1.4.0
