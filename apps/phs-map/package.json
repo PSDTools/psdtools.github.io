@@ -26,9 +26,6 @@
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "pnpm run lint --fix"
   },
-  "browserslist": [
-    "defaults"
-  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "catalog:",
     "@fortawesome/free-solid-svg-icons": "catalog:",
@@ -45,8 +42,6 @@
     "@total-typescript/ts-reset": "catalog:",
     "@types/pathfinding": "catalog:",
     "@vite-pwa/assets-generator": "catalog:",
-    "browserslist": "catalog:",
-    "browserslist-to-esbuild": "catalog:",
     "deputy": "workspace:^",
     "eslint": "catalog:",
     "fontaine": "catalog:",

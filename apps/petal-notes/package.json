@@ -17,9 +17,6 @@
     "build-storybook": "storybook build",
     "chromatic": "chromatic"
   },
-  "browserslist": [
-    "defaults"
-  ],
   "dependencies": {
     "@codemirror/autocomplete": "catalog:",
     "@codemirror/commands": "catalog:",
@@ -61,8 +58,6 @@
     "@vitest/browser": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
-    "browserslist": "catalog:",
-    "browserslist-to-esbuild": "catalog:",
     "chromatic": "catalog:",
     "deputy": "workspace:^",
     "eslint": "catalog:",

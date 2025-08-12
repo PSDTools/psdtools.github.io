@@ -1,9 +1,6 @@
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { sveltekit } from "@sveltejs/kit/vite";
 import tailwindcss from "@tailwindcss/vite";
-import browserslist from "browserslist";
-import browserslistToEsbuild from "browserslist-to-esbuild";
-import { browserslistToTargets } from "lightningcss";
 import * as path from "node:path";
 import process from "node:process";
 import topLevelAwait from "vite-plugin-top-level-await";
@@ -14,8 +11,6 @@ import {
   defineConfig,
 } from "vitest/config";
 
-const browsersList = browserslist();
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [sveltekit(), tailwindcss(), wasm(), topLevelAwait()],
@@ -23,15 +18,10 @@ export default defineConfig({
   build: {
     cssMinify: "lightningcss",
     sourcemap: true,
-    target: browserslistToEsbuild(browsersList),
   },
 
   css: {
     transformer: "lightningcss",
-
-    lightningcss: {
-      targets: browserslistToTargets(browsersList),
-    },
   },
 
   ssr: {

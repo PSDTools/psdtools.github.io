@@ -27,7 +27,8 @@
       "ignoreDependencies": ["svelte"]
     }
   },
-  "entry": [".pnpmfile.cjs", "**/eslint.config.ts"],
+  "entry": ["**/eslint.config.ts"],
+  "ignore": [".pnpmfile.cjs"],
   "ignoreExportsUsedInFile": true,
   "includeEntryExports": true
 }

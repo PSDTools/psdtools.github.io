@@ -24,7 +24,6 @@
       ],
       "matchPackageNames": [
         "@vite-pwa/**",
-        "browserslist**",
         "lightningcss"
       ],
       "groupName": "build"

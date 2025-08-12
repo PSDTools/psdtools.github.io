@@ -26,9 +26,6 @@
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "pnpm run lint --fix"
   },
-  "browserslist": [
-    "defaults"
-  ],
   "dependencies": {
     "html-template-tag": "catalog:",
     "idb-keyval": "catalog:",
@@ -41,8 +38,6 @@
     "@tailwindcss/vite": "catalog:",
     "@total-typescript/ts-reset": "catalog:",
     "@vite-pwa/assets-generator": "catalog:",
-    "browserslist": "catalog:",
-    "browserslist-to-esbuild": "catalog:",
     "deputy": "workspace:^",
     "eslint": "catalog:",
     "fontaine": "catalog:",

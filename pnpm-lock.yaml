@@ -117,12 +117,6 @@ catalogs:
     '@vitest/ui':
       specifier: ^3.2.4
       version: 3.2.4
-    browserslist:
-      specifier: ^4.24.4
-      version: 4.24.4
-    browserslist-to-esbuild:
-      specifier: ^2.1.1
-      version: 2.1.1
     chromatic:
       specifier: ^13.0.1
       version: 13.0.1
@@ -343,12 +337,6 @@ importers:
       '@vite-pwa/assets-generator':
         specifier: 'catalog:'
         version: 0.2.6
-      browserslist:
-        specifier: 'catalog:'
-        version: 4.24.4
-      browserslist-to-esbuild:
-        specifier: 'catalog:'
-        version: 2.1.1(browserslist@4.24.4)
       deputy:
         specifier: workspace:^
         version: link:../../packages/deputy
@@ -509,12 +497,6 @@ importers:
       '@vitest/ui':
         specifier: 'catalog:'
         version: 3.2.4(vitest@3.2.4)
-      browserslist:
-        specifier: 'catalog:'
-        version: 4.24.4
-      browserslist-to-esbuild:
-        specifier: 'catalog:'
-        version: 2.1.1(browserslist@4.24.4)
       chromatic:
         specifier: 'catalog:'
         version: 13.0.1
@@ -600,12 +582,6 @@ importers:
       '@vite-pwa/assets-generator':
         specifier: 'catalog:'
         version: 0.2.6
-      browserslist:
-        specifier: 'catalog:'
-        version: 4.24.4
-      browserslist-to-esbuild:
-        specifier: 'catalog:'
-        version: 2.1.1(browserslist@4.24.4)
       deputy:
         specifier: workspace:^
         version: link:../../packages/deputy
@@ -3138,13 +3114,6 @@ packages:
   brotli@1.3.3:
     resolution: {integrity: sha512-oTKjJdShmDuGW94SyyaoQvAjf30dZaHnjJ8uAF+u2/vGJkJbJPJAT1gDiOJP5v1Zb6f9KEyW/1HpuaWIXtGHPg==}
 
-  browserslist-to-esbuild@2.1.1:
-    resolution: {integrity: sha512-KN+mty6C3e9AN8Z5dI1xeN15ExcRNeISoC3g7V0Kax/MMF9MSoYA2G7lkTTcVUFntiEjkpI0HNgqJC1NjdyNUw==}
-    engines: {node: '>=18'}
-    hasBin: true
-    peerDependencies:
-      browserslist: '*'
-
   browserslist@4.24.4:
     resolution: {integrity: sha512-KDi1Ny1gSePi1vm0q4oxSF8b4DR44GF4BbmS2YdhPLOEqd8pDviZOGH/GsmRwoWJ2+5Lr085X7naowMwKHDG1A==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
@@ -3193,8 +3162,8 @@ packages:
   camel-case@4.1.2:
     resolution: {integrity: sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==}
 
-  caniuse-lite@1.0.30001705:
-    resolution: {integrity: sha512-S0uyMMiYvA7CxNgomYBwwwPUnWzFD83f3B1ce5jHUfHTH//QL6hHsreI8RVC5606R4ssqravelYO5TU6t8sEyg==}
+  caniuse-lite@1.0.30001734:
+    resolution: {integrity: sha512-uhE1Ye5vgqju6OI71HTQqcBCZrvHugk0MjLak7Q+HfoBgoq5Bi+5YnwjP4fjDgrtYr/l8MVRBvzz9dPD4KyK0A==}
 
   chai@5.2.1:
     resolution: {integrity: sha512-5nFxhUrX0PqtyogoYOA8IPswy5sZFTOsBFl/9bNsmDLgsxYTzSZQJDPppDnZPTQbzSEm0hqGjWPzRemQCYbD6A==}
@@ -5034,10 +5003,6 @@ packages:
   meow@12.1.1:
     resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
     engines: {node: '>=16.10'}
-
-  meow@13.2.0:
-    resolution: {integrity: sha512-pxQJQzB6djGPXh08dacEloMFopsOqGVRKFPYvPOt9XDZ1HasbgDZA74CJGreSU4G3Ak7EFJGoiH2auq+yXISgA==}
-    engines: {node: '>=18'}
 
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
@@ -9750,14 +9715,9 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
 
-  browserslist-to-esbuild@2.1.1(browserslist@4.24.4):
-    dependencies:
-      browserslist: 4.24.4
-      meow: 13.2.0
-
   browserslist@4.24.4:
     dependencies:
-      caniuse-lite: 1.0.30001705
+      caniuse-lite: 1.0.30001734
       electron-to-chromium: 1.5.120
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.4)
@@ -9822,7 +9782,7 @@ snapshots:
       pascal-case: 3.1.2
       tslib: 2.8.1
 
-  caniuse-lite@1.0.30001705: {}
+  caniuse-lite@1.0.30001734: {}
 
   chai@5.2.1:
     dependencies:
@@ -11905,8 +11865,6 @@ snapshots:
   mdn-data@2.12.2: {}
 
   meow@12.1.1: {}
-
-  meow@13.2.0: {}
 
   merge2@1.4.1: {}
 

@@ -1,13 +1,8 @@
-import browserslist from "browserslist";
-import browserslistToEsbuild from "browserslist-to-esbuild";
 import { FontaineTransform } from "fontaine";
-import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import htmlMinifier from "vite-plugin-html-minifier";
 import { VitePWA } from "vite-plugin-pwa";
 import { webfontDownload } from "vite-plugin-webfont-dl";
-
-const browsersList = browserslist();
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,12 +14,8 @@ export default defineConfig({
       },
     },
     sourcemap: true,
-    target: browserslistToEsbuild(browsersList),
   },
   css: {
-    lightningcss: {
-      targets: browserslistToTargets(browsersList),
-    },
     transformer: "lightningcss",
   },
   plugins: [
