@@ -146,7 +146,7 @@ catalog:
   svelte-codemirror-editor: ^1.4.1
   svelte2tsx: ^0.7.41
   tailwindcss: ^4.0.14
-  turbo: ^2.5.0
+  turbo: ^2.5.5
   typed-query-selector: ^2.12.0
   typescript: ~5.8.2
   typescript-eslint-parser-for-extra-files: ^0.7.0
