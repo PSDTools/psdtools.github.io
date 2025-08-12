@@ -112,7 +112,7 @@ catalog:
   "@tailwindcss/typography": ^0.5.16
   "@tailwindcss/vite": ^4.0.14
   "@total-typescript/ts-reset": ^0.6.1
-  "@types/pathfinding": ~0.0.9
+  "@types/pathfinding": ~0.1.0
   "@types/react": ~19.1.10
   "@vite-pwa/assets-generator": ^0.2.6
   "@vitest/browser": ^3.2.4
