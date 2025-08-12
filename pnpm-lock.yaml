@@ -154,7 +154,7 @@ catalogs:
       specifier: https://pkg.pr.new/jsimonrichard/HyperMD/hypermd@7a49f4a
       version: 0.0.0
     idb-keyval:
-      specifier: ^6.2.1
+      specifier: ^6.2.2
       version: 6.2.2
     jiti:
       specifier: ^2.4.2
