@@ -103,7 +103,7 @@ catalog:
   "@storybook/addon-svelte-csf": ^5.0.7
   "@storybook/addon-vitest": ^9.0.13
   "@storybook/sveltekit": ^9.0.13
-  "@sveltejs/adapter-static": ^3.0.8
+  "@sveltejs/adapter-static": ^3.0.9
   "@sveltejs/kit": ^2.22.0
   "@sveltejs/vite-plugin-svelte": ^5.1.0
   "@tailwindcss/forms": ^0.5.10
