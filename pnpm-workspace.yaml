@@ -129,7 +129,7 @@ catalog:
   html-template-tag: ^4.1.1
   husky: ^9.1.7
   hypermd: https://pkg.pr.new/jsimonrichard/HyperMD/hypermd@7a49f4a
-  idb-keyval: ^6.2.1
+  idb-keyval: ^6.2.2
   jiti: ^2.4.2
   knip: ^5.46.0
   lightningcss: ^1.29.3
