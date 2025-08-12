@@ -2,13 +2,12 @@
   "$schema": "./node_modules/knip/schema.json",
   "workspaces": {
     "apps/gpa-calculator": {
-      "entry": ["src/{script,sw}.ts"],
+      "entry": ["src/{script,sw}.ts", "tailwind.config.ts"],
       "project": ["**/*.{js,cjs,mjs,ts,cts,mts}"],
-      "ignore": ["tailwind.config.ts"],
       "ignoreDependencies": ["fontaine", "tailwindcss"]
     },
     "apps/petal-notes": {
-      "ignore": [".storybook/vitest.setup.ts", "src/lib/hypermd.ts"],
+      "entry": [".storybook/vitest.setup.ts"],
       "ignoreDependencies": [
         "@tailwindcss/forms",
         "@tailwindcss/typography",
@@ -28,7 +27,7 @@
       "ignoreDependencies": ["svelte"]
     }
   },
-  "ignore": [".pnpmfile.cjs", "**/eslint.config.ts"],
+  "entry": [".pnpmfile.cjs", "**/eslint.config.ts"],
   "ignoreExportsUsedInFile": true,
   "includeEntryExports": true
 }

@@ -43,7 +43,7 @@
   "devDependencies": {
     "@psdtools/tsconfig": "workspace:^",
     "@total-typescript/ts-reset": "catalog:",
-    "@types/pathfinding": "0.0.9",
+    "@types/pathfinding": "catalog:",
     "@vite-pwa/assets-generator": "catalog:",
     "browserslist": "catalog:",
     "browserslist-to-esbuild": "catalog:",
