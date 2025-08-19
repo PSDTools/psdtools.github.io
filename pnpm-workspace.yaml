@@ -121,7 +121,7 @@ catalog:
   chromatic: ^13.0.1
   codemirror: ^6.0.2
   eslint: ^9.22.0
-  eslint-config-sheriff: ^27.0.0
+  eslint-config-sheriff: ^27.1.0
   eslint-plugin-perfectionist: ^4.10.1
   eslint-plugin-svelte: ^3.3.2
   fontaine: ^0.6.0
