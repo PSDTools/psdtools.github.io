@@ -143,7 +143,7 @@ catalog:
   storybook: ^9.1.5
   svelte: ^5.34.8
   svelte-check: ^4.2.2
-  svelte-codemirror-editor: ^1.4.1
+  svelte-codemirror-editor: ^1.4.2
   svelte2tsx: ^0.7.43
   tailwindcss: ^4.0.14
   turbo: ^2.5.5

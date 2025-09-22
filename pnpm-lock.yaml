@@ -193,8 +193,8 @@ catalogs:
       specifier: ^4.2.2
       version: 4.2.2
     svelte-codemirror-editor:
-      specifier: ^1.4.1
-      version: 1.4.1
+      specifier: ^1.4.2
+      version: 1.4.2
     svelte2tsx:
       specifier: ^0.7.43
       version: 0.7.43
@@ -429,7 +429,7 @@ importers:
         version: 1.4.6
       svelte-codemirror-editor:
         specifier: 'catalog:'
-        version: 1.4.1(@codemirror/commands@6.8.1)(@codemirror/language@6.11.3)(@codemirror/state@6.5.2)(@codemirror/view@6.38.3)(codemirror@6.0.2)(svelte@5.34.8)
+        version: 1.4.2(@codemirror/commands@6.8.1)(@codemirror/language@6.11.3)(@codemirror/state@6.5.2)(@codemirror/view@6.38.3)(codemirror@6.0.2)(svelte@5.34.8)
       uint8array-extras:
         specifier: 'catalog:'
         version: 1.5.0
@@ -6098,8 +6098,8 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
 
-  svelte-codemirror-editor@1.4.1:
-    resolution: {integrity: sha512-Pv350iro0Y/AZTT/y2OLaonheQqAwl50Hdfipa2Jv1Z04TSP5kPUyxQnRjqxeRW7DXOX9s5Nd11tHdBl9iYSzw==}
+  svelte-codemirror-editor@1.4.2:
+    resolution: {integrity: sha512-iBKa1a1boXa//BUmKPhpzZoWcZ+886/REKFPrS9ISfbcfmiaNv9uVk/0/+jqbWLa40Sk/utB/5AoS5VRWzTA8Q==}
     peerDependencies:
       '@codemirror/commands': '*'
       '@codemirror/language': '*'
@@ -13064,7 +13064,7 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
-  svelte-codemirror-editor@1.4.1(@codemirror/commands@6.8.1)(@codemirror/language@6.11.3)(@codemirror/state@6.5.2)(@codemirror/view@6.38.3)(codemirror@6.0.2)(svelte@5.34.8):
+  svelte-codemirror-editor@1.4.2(@codemirror/commands@6.8.1)(@codemirror/language@6.11.3)(@codemirror/state@6.5.2)(@codemirror/view@6.38.3)(codemirror@6.0.2)(svelte@5.34.8):
     dependencies:
       '@codemirror/commands': 6.8.1
       '@codemirror/language': 6.11.3
