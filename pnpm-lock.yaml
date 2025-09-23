@@ -202,8 +202,8 @@ catalogs:
       specifier: ^4.0.14
       version: 4.0.14
     turbo:
-      specifier: ^2.5.5
-      version: 2.5.5
+      specifier: ^2.5.7
+      version: 2.5.7
     typed-query-selector:
       specifier: ^2.12.0
       version: 2.12.0
@@ -302,7 +302,7 @@ importers:
         version: 0.6.14(prettier-plugin-svelte@3.3.3(prettier@3.5.3)(svelte@5.34.8))(prettier@3.5.3)
       turbo:
         specifier: 'catalog:'
-        version: 2.5.5
+        version: 2.5.7
       typesync:
         specifier: 'catalog:'
         version: 0.14.3
@@ -6258,38 +6258,38 @@ packages:
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
 
-  turbo-darwin-64@2.5.5:
-    resolution: {integrity: sha512-RYnTz49u4F5tDD2SUwwtlynABNBAfbyT2uU/brJcyh5k6lDLyNfYKdKmqd3K2ls4AaiALWrFKVSBsiVwhdFNzQ==}
+  turbo-darwin-64@2.5.7:
+    resolution: {integrity: sha512-c7QvEnTuBjKcw7HvVIoAe0qrmKlUgF2xYGnewICfvwruOpjGcKMKhDLiqZqbkYytr4eCgXTku4UCarVABsM9KA==}
     cpu: [x64]
     os: [darwin]
 
-  turbo-darwin-arm64@2.5.5:
-    resolution: {integrity: sha512-Tk+ZeSNdBobZiMw9aFypQt0DlLsWSFWu1ymqsAdJLuPoAH05qCfYtRxE1pJuYHcJB5pqI+/HOxtJoQ40726Btw==}
+  turbo-darwin-arm64@2.5.7:
+    resolution: {integrity: sha512-3IqKiAxNHny58KPK5Ok462WTTBzedeOtpnb/Yt4VsgvOhe85YFzqiRuor35+704wv52dPa2qudI3MFj3YWmwkQ==}
     cpu: [arm64]
     os: [darwin]
 
-  turbo-linux-64@2.5.5:
-    resolution: {integrity: sha512-2/XvMGykD7VgsvWesZZYIIVXMlgBcQy+ZAryjugoTcvJv8TZzSU/B1nShcA7IAjZ0q7OsZ45uP2cOb8EgKT30w==}
+  turbo-linux-64@2.5.7:
+    resolution: {integrity: sha512-4mHvDIzcIibmP/6mUz//dsocUB5kKRKRoiEblwPho9CmDAdygDC4wIXH+G8AGTM2eagrBRYiuQhHGlvoqmkFqA==}
     cpu: [x64]
     os: [linux]
 
-  turbo-linux-arm64@2.5.5:
-    resolution: {integrity: sha512-DW+8CjCjybu0d7TFm9dovTTVg1VRnlkZ1rceO4zqsaLrit3DgHnN4to4uwyuf9s2V/BwS3IYcRy+HG9BL596Iw==}
+  turbo-linux-arm64@2.5.7:
+    resolution: {integrity: sha512-tIwIeiGk4vZkGVambP++teCBChGdhKyZ5wErfSRacYcBHMo2dqT2qFXUlhY7ENzgBUxZX6mO6OHptTb59xrmOw==}
     cpu: [arm64]
     os: [linux]
 
-  turbo-windows-64@2.5.5:
-    resolution: {integrity: sha512-q5p1BOy8ChtSZfULuF1BhFMYIx6bevXu4fJ+TE/hyNfyHJIfjl90Z6jWdqAlyaFLmn99X/uw+7d6T/Y/dr5JwQ==}
+  turbo-windows-64@2.5.7:
+    resolution: {integrity: sha512-N8hmV/1YyBCTuPSP+ymquWQM+JXsPbBDcNTzbVkgtLGqskAubon/07lw6w6InJe+2XpW7cLkCkiOlzOzrXYODg==}
     cpu: [x64]
     os: [win32]
 
-  turbo-windows-arm64@2.5.5:
-    resolution: {integrity: sha512-AXbF1KmpHUq3PKQwddMGoKMYhHsy5t1YBQO8HZ04HLMR0rWv9adYlQ8kaeQJTko1Ay1anOBFTqaxfVOOsu7+1Q==}
+  turbo-windows-arm64@2.5.7:
+    resolution: {integrity: sha512-Sp2RjE6NiJESSyml+skPU6Dn8U4Gc+DPQzOCyYSuIp/XflWV13xRCrhefH+Gf/KA3qi+m9IDRAT3VAKhXQtAWg==}
     cpu: [arm64]
     os: [win32]
 
-  turbo@2.5.5:
-    resolution: {integrity: sha512-eZ7wI6KjtT1eBqCnh2JPXWNUAxtoxxfi6VdBdZFvil0ychCOTxbm7YLRBi1JSt7U3c+u3CLxpoPxLdvr/Npr3A==}
+  turbo@2.5.7:
+    resolution: {integrity: sha512-13o+6FDe8yDUL7TpocHWw6jQBKmmVOvi5cMemkmjYsuu5tG8hylYudsfOzPsybz4VGzPDoyyr4+nNS82HgqxBw==}
     hasBin: true
 
   type-check@0.4.0:
@@ -13247,32 +13247,32 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  turbo-darwin-64@2.5.5:
+  turbo-darwin-64@2.5.7:
     optional: true
 
-  turbo-darwin-arm64@2.5.5:
+  turbo-darwin-arm64@2.5.7:
     optional: true
 
-  turbo-linux-64@2.5.5:
+  turbo-linux-64@2.5.7:
     optional: true
 
-  turbo-linux-arm64@2.5.5:
+  turbo-linux-arm64@2.5.7:
     optional: true
 
-  turbo-windows-64@2.5.5:
+  turbo-windows-64@2.5.7:
     optional: true
 
-  turbo-windows-arm64@2.5.5:
+  turbo-windows-arm64@2.5.7:
     optional: true
 
-  turbo@2.5.5:
+  turbo@2.5.7:
     optionalDependencies:
-      turbo-darwin-64: 2.5.5
-      turbo-darwin-arm64: 2.5.5
-      turbo-linux-64: 2.5.5
-      turbo-linux-arm64: 2.5.5
-      turbo-windows-64: 2.5.5
-      turbo-windows-arm64: 2.5.5
+      turbo-darwin-64: 2.5.7
+      turbo-darwin-arm64: 2.5.7
+      turbo-linux-64: 2.5.7
+      turbo-linux-arm64: 2.5.7
+      turbo-windows-64: 2.5.7
+      turbo-windows-arm64: 2.5.7
 
   type-check@0.4.0:
     dependencies:
