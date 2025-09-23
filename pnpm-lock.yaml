@@ -58,8 +58,8 @@ catalogs:
       specifier: ^1.4.3
       version: 1.4.3
     '@manypkg/cli':
-      specifier: ^0.25.0
-      version: 0.25.0
+      specifier: ^0.25.1
+      version: 0.25.1
     '@storybook/addon-a11y':
       specifier: ^9.1.8
       version: 9.1.8
@@ -284,7 +284,7 @@ importers:
         version: 19.8.1
       '@manypkg/cli':
         specifier: 'catalog:'
-        version: 0.25.0
+        version: 0.25.1
       husky:
         specifier: 'catalog:'
         version: 9.1.7
@@ -1964,8 +1964,8 @@ packages:
   '@lit/reactive-element@1.6.3':
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
 
-  '@manypkg/cli@0.25.0':
-    resolution: {integrity: sha512-qohYlbfx4RdQX6OqRR0yW7duYzSxgzB/gfHuJA+RDOrbNXhLh/3KQxcH9FxyRqr69OP+CjuEeWZVRfLhfJjqfw==}
+  '@manypkg/cli@0.25.1':
+    resolution: {integrity: sha512-lag906FyiNxzZjsRErkUD5/to174I2JzPk5bZubuJp6loMKKJn73zrtqeU7nHlVkHBg3tgXDTJj22HxUDxLRXw==}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
@@ -8517,7 +8517,7 @@ snapshots:
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.4.0
 
-  '@manypkg/cli@0.25.0':
+  '@manypkg/cli@0.25.1':
     dependencies:
       '@manypkg/get-packages': 3.1.0
       detect-indent: 7.0.1

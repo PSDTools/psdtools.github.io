@@ -98,7 +98,7 @@ catalog:
   "@lezer/highlight": ^1.2.1
   "@lezer/markdown": ^1.4.3
   "@lezer-unofficial/printer": ^1.0.1
-  "@manypkg/cli": ^0.25.0
+  "@manypkg/cli": ^0.25.1
   "@storybook/addon-a11y": ^9.1.8
   "@storybook/addon-designs": ^10.0.2
   "@storybook/addon-docs": ^9.1.8
