@@ -118,8 +118,8 @@ catalogs:
       specifier: ^3.2.4
       version: 3.2.4
     chromatic:
-      specifier: ^13.1.4
-      version: 13.1.4
+      specifier: ^13.2.0
+      version: 13.2.0
     codemirror:
       specifier: ^6.0.2
       version: 6.0.2
@@ -499,7 +499,7 @@ importers:
         version: 3.2.4(vitest@3.2.4)
       chromatic:
         specifier: 'catalog:'
-        version: 13.1.4
+        version: 13.2.0
       deputy:
         specifier: workspace:^
         version: link:../../packages/deputy
@@ -3248,8 +3248,8 @@ packages:
       '@chromatic-com/playwright':
         optional: true
 
-  chromatic@13.1.4:
-    resolution: {integrity: sha512-6Voxdy2OvSyoA7mJjyiFiWii7d8ng0jBcW97TqL+ptlAWrJhIf10jrJ78KLPDUNOBIPxvx9Vcpe/bUwoLFIG5g==}
+  chromatic@13.2.0:
+    resolution: {integrity: sha512-7ikJxdpLdYa6zmd+nLoP1U0HX6oCCtyj2eiAMd0rD4L9kbkWpl1pVIyI3CUQ/lQLtD3VKMTVi+bI3cWD+qz/IA==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -9907,7 +9907,7 @@ snapshots:
 
   chromatic@12.2.0: {}
 
-  chromatic@13.1.4: {}
+  chromatic@13.2.0: {}
 
   ci-info@4.2.0: {}
 
