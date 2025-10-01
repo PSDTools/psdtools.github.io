@@ -130,7 +130,7 @@ catalog:
   husky: ^9.1.7
   hypermd: https://pkg.pr.new/jsimonrichard/HyperMD/hypermd@7a49f4a
   idb-keyval: ^6.2.2
-  jiti: ^2.5.1
+  jiti: ^2.6.1
   knip: ^5.46.0
   lightningcss: ^1.29.3
   loro-codemirror: ^0.1.6
