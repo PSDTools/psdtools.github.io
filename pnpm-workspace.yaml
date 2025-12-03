@@ -95,7 +95,7 @@ catalog:
   "@cspell/eslint-plugin": ^8.17.5
   "@fortawesome/fontawesome-svg-core": ^6.7.2
   "@fortawesome/free-solid-svg-icons": ^6.7.2
-  "@lezer/highlight": ^1.2.1
+  "@lezer/highlight": ^1.2.3
   "@lezer/markdown": ^1.4.3
   "@lezer-unofficial/printer": ^1.0.1
   "@manypkg/cli": ^0.25.1
