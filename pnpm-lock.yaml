@@ -118,7 +118,7 @@ catalogs:
       specifier: ^3.2.4
       version: 3.2.4
     chromatic:
-      specifier: ^13.2.0
+      specifier: ^13.3.4
       version: 13.3.4
     codemirror:
       specifier: ^6.0.2
