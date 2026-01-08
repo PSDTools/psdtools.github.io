@@ -88,8 +88,8 @@ catalogs:
       specifier: ^5.1.1
       version: 5.1.1
     '@tailwindcss/forms':
-      specifier: ^0.5.10
-      version: 0.5.10
+      specifier: ^0.5.11
+      version: 0.5.11
     '@tailwindcss/typography':
       specifier: ^0.5.16
       version: 0.5.16
@@ -475,7 +475,7 @@ importers:
         version: 5.1.1(svelte@5.34.8)(vite@6.4.1(@types/node@24.1.0)(jiti@2.6.1)(lightningcss@1.29.3)(terser@5.39.0)(yaml@2.8.0))
       '@tailwindcss/forms':
         specifier: 'catalog:'
-        version: 0.5.10(tailwindcss@4.0.14)
+        version: 0.5.11(tailwindcss@4.0.14)
       '@tailwindcss/typography':
         specifier: 'catalog:'
         version: 0.5.16(tailwindcss@4.0.14)
@@ -2471,8 +2471,8 @@ packages:
   '@swc/types@0.1.19':
     resolution: {integrity: sha512-WkAZaAfj44kh/UFdAQcrMP1I0nwRqpt27u+08LMBYMqmQfwwMofYoMh/48NGkMMRfC4ynpfwRbJuu8ErfNloeA==}
 
-  '@tailwindcss/forms@0.5.10':
-    resolution: {integrity: sha512-utI1ONF6uf/pPNO68kmN1b8rEwNXv3czukalo8VtJH8ksIkZXr3Q3VYudZLkCsDd4Wku120uF02hYK25XGPorw==}
+  '@tailwindcss/forms@0.5.11':
+    resolution: {integrity: sha512-h9wegbZDPurxG22xZSoWtdzc41/OlNEUQERNqI/0fOwa2aVlWGu7C35E/x6LDyD3lgtztFSSjKZyuVM0hxhbgA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20 || >= 4.0.0-beta.1'
 
@@ -8997,7 +8997,7 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@tailwindcss/forms@0.5.10(tailwindcss@4.0.14)':
+  '@tailwindcss/forms@0.5.11(tailwindcss@4.0.14)':
     dependencies:
       mini-svg-data-uri: 1.4.4
       tailwindcss: 4.0.14
