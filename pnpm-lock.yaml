@@ -139,8 +139,8 @@ catalogs:
       specifier: ^0.6.0
       version: 0.6.0
     globals:
-      specifier: ^16.0.0
-      version: 16.0.0
+      specifier: ^16.5.0
+      version: 16.5.0
     html-template-tag:
       specifier: ^4.1.1
       version: 4.1.1
@@ -641,7 +641,7 @@ importers:
         version: 3.3.2(eslint@9.22.0(jiti@2.6.1))(svelte@5.34.8)
       globals:
         specifier: 'catalog:'
-        version: 16.0.0
+        version: 16.5.0
       svelte2tsx:
         specifier: 'catalog:'
         version: 0.7.45(svelte@5.34.8)(typescript@5.8.2)
@@ -4274,8 +4274,8 @@ packages:
     resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
     engines: {node: '>=18'}
 
-  globals@16.0.0:
-    resolution: {integrity: sha512-iInW14XItCXET01CQFqudPOWP2jYMl7T+QRQT+UNcR/iQncN/F0UNpgd76iFkBPgNQb4+X3LV9tLJYzwh+Gl3A==}
+  globals@16.5.0:
+    resolution: {integrity: sha512-c/c15i26VrJ4IRt5Z89DnIzCGDn9EcebibhAOjw5ibqEHsE1wLUgkPn9RDmNcUKyU87GeaL633nyJ+pplFR2ZQ==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -6145,6 +6145,7 @@ packages:
   tar@7.4.3:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
 
   temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
@@ -11242,7 +11243,7 @@ snapshots:
 
   globals@15.15.0: {}
 
-  globals@16.0.0: {}
+  globals@16.5.0: {}
 
   globalthis@1.0.4:
     dependencies:
