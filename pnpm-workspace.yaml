@@ -109,7 +109,7 @@ catalog:
   "@sveltejs/kit": ^2.49.5
   "@sveltejs/vite-plugin-svelte": ^5.1.1
   "@tailwindcss/forms": ^0.5.11
-  "@tailwindcss/typography": ^0.5.16
+  "@tailwindcss/typography": ^0.5.19
   "@tailwindcss/vite": ^4.0.14
   "@total-typescript/ts-reset": ^0.6.1
   "@types/pathfinding": ~0.1.0
