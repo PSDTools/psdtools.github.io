@@ -102,7 +102,7 @@ catalog:
   "@storybook/addon-a11y": ^9.1.17
   "@storybook/addon-designs": ^10.0.2
   "@storybook/addon-docs": ^9.1.17
-  "@storybook/addon-svelte-csf": ^5.0.8
+  "@storybook/addon-svelte-csf": ^5.0.10
   "@storybook/addon-vitest": ^9.1.17
   "@storybook/sveltekit": ^9.1.17
   "@sveltejs/adapter-static": ^3.0.9
