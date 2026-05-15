@@ -6,7 +6,7 @@
     "apps/phs-map",
     "packages/deputy"
   ],
-  "eslint.validate": ["javascript", "typescript", "svelte"],
+  "eslint.validate": ["javascript", "typescript", "svelte", "json"],
   "files.trimTrailingWhitespace": true,
   "markdownlint.config": {
     "MD028": false,

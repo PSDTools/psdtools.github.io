@@ -18,13 +18,14 @@
       "email": "88557639+lishaduck@users.noreply.github.com"
     }
   ],
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "build": "vite build",
     "dev": "vite --open",
-    "typecheck": "tsc",
     "lint": "eslint . --max-warnings=0",
-    "lint:fix": "pnpm run lint --fix"
+    "lint:fix": "pnpm run lint --fix",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "html-template-tag": "catalog:",
@@ -34,11 +35,11 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@eslint-deputy/config": "link:../../../deputy/packages/deputy",
     "@psdtools/tsconfig": "workspace:^",
     "@tailwindcss/vite": "catalog:",
     "@total-typescript/ts-reset": "catalog:",
     "@vite-pwa/assets-generator": "catalog:",
-    "deputy": "workspace:^",
     "eslint": "catalog:",
     "fontaine": "catalog:",
     "jiti": "catalog:",

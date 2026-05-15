@@ -34,13 +34,13 @@ declare global {
 }
 
 let courses: Course[] = [];
-let classAmountNum = 0;
+let classAmountNumber = 0;
 
-let tempLGID = "";
-let tempCTID = "";
-let tempCTYID = "";
-let tempElementId = "";
-let tempElementIdNext = "";
+let temporaryLGID = "";
+let temporaryCTID = "";
+let temporaryCTYID = "";
+let temporaryElementId = "";
+let temporaryElementIdNext = "";
 
 const high = "High School";
 const middle = "Middle School";
@@ -87,12 +87,14 @@ async function hsmsSwap(): Promise<void> {
     );
 
     for (const element of getTypeIds()) {
-      element.innerHTML = html`<form>
-        <select class="blacktxt" id="cltyp${element.id.slice(6)}">
-          <option value="1">No-Weight</option>
-          <option value="2">Honors</option>
-        </select>
-      </form>`;
+      element.innerHTML = html`
+        <form>
+          <select class="blacktxt" id="cltyp${element.id.slice(6)}">
+            <option value="1">No-Weight</option>
+            <option value="2">Honors</option>
+          </select>
+        </form>
+      `;
     }
   } else {
     gradeLvl.innerHTML = middle;
@@ -107,30 +109,30 @@ globalThis.hsmsSwap = hsmsSwap;
 
 /**
  * Create a `Course`.
+ *
+ * @param number - Class hour.
  */
-function createCourse(num: number): void {
-  tempElementId = `temp${num}`;
-  tempElementIdNext = `temp${num + 1}`;
+function createCourse(number: number): void {
+  temporaryElementId = `temp${number}`;
+  temporaryElementIdNext = `temp${number + 1}`;
 
-  const stringNum = num.toString();
+  const stringNumber = number.toString();
 
   // creates html elements in the courses class
-  document.querySelector(`div#${tempElementId}`)!.innerHTML = html`<div
-      oninput="loadGpa();"
-      class="pb-4 pt-4 text-lg lg:text-2xl"
-    >
+  document.querySelector(`div#${temporaryElementId}`)!.innerHTML = html`
+    <div oninput="loadGpa();" class="pb-4 pt-4 text-lg lg:text-2xl">
       <div id="input-con-div">
         <input
           class="blacktxt w-36 placeholder-white hover:scale-105"
-          placeholder="Class ${stringNum}:"
+          placeholder="Class ${stringNumber}:"
           oninput="loadGpa();"
-          id="cl${stringNum}txt"
+          id="cl${stringNumber}txt"
           type="text"
           required=""
         />
-        <span class="float-right" id="typeId${stringNum}">
+        <span class="float-right" id="typeId${stringNumber}">
           <form>
-            <select class="blacktxt hover:scale-105" id="cltyp${stringNum}">
+            <select class="blacktxt hover:scale-105" id="cltyp${stringNumber}">
               <option value="1">No-Weight</option>
               <option value="2">Honors</option>
             </select>
@@ -143,13 +145,13 @@ function createCourse(num: number): void {
           max="4"
           value="4"
           class="slider float-right w-1/2 hover:scale-105"
-          id="slide${stringNum}"
-          oninput="document.querySelector('#cl${stringNum}').value = document.querySelector('#slide${stringNum}').value;loadGpa();"
+          id="slide${stringNumber}"
+          oninput="document.querySelector('#cl${stringNumber}').value = document.querySelector('#slide${stringNumber}').value;loadGpa();"
         />
         <select
           class="blacktxt float-right appearance-none hover:scale-105"
-          oninput="document.querySelector('#slide${stringNum}').value = document.querySelector('#cl${stringNum}').value;loadGpa();"
-          id="cl${stringNum}"
+          oninput="document.querySelector('#slide${stringNumber}').value = document.querySelector('#cl${stringNumber}').value;loadGpa();"
+          id="cl${stringNumber}"
         >
           <option value="4">A</option>
           <option value="3">B</option>
@@ -160,7 +162,8 @@ function createCourse(num: number): void {
         </select>
       </div>
     </div>
-    <div class="selectionbox" id="${tempElementIdNext}"></div>`;
+    <div class="selectionbox" id="${temporaryElementIdNext}"></div>
+  `;
 }
 
 /**
@@ -180,29 +183,29 @@ function saveRemove(): void {
 async function loadGpa(): Promise<void> {
   // set vars
   let preGpa = 0;
-  let courseLen = courses.length;
+  let courseLength = courses.length;
 
-  tempLGID = "";
-  tempCTID = "";
-  tempCTYID = "";
+  temporaryLGID = "";
+  temporaryCTID = "";
+  temporaryCTYID = "";
 
   // save classes to array
   for (const [itr, course] of courses.entries()) {
-    tempLGID = `cl${itr + 1}`;
-    tempCTID = `cl${itr + 1}txt`;
-    tempCTYID = `cltyp${itr + 1}`;
+    temporaryLGID = `cl${itr + 1}`;
+    temporaryCTID = `cl${itr + 1}txt`;
+    temporaryCTYID = `cltyp${itr + 1}`;
 
     course.letterGrade = Number(
-      document.querySelector(`select#${tempLGID}`)!.value,
+      document.querySelector(`select#${temporaryLGID}`)!.value,
     );
 
-    course.classText = document.querySelector(`input#${tempCTID}`)!.value;
+    course.classText = document.querySelector(`input#${temporaryCTID}`)!.value;
   }
 
   // remove N/A from addition
   for (const course of courses) {
     if (course.letterGrade === 5) {
-      courseLen -= 1;
+      courseLength -= 1;
     } else {
       preGpa +=
         (
@@ -216,7 +219,7 @@ async function loadGpa(): Promise<void> {
   }
 
   // Divide.
-  const gpa = preGpa / courseLen;
+  const gpa = preGpa / courseLength;
   // Round.
   const roundedGpa = Math.round(gpa * 100) / 100;
 
@@ -239,20 +242,20 @@ async function classAmount(): Promise<void> {
   courses = []; // if storage don't exist, create the array
 
   // get textbox with number of classes
-  classAmountNum = Math.abs(
-    parseInt(document.querySelector("input#numOfClasses")!.value),
+  classAmountNumber = Math.abs(
+    Number.parseInt(document.querySelector("input#numOfClasses")!.value),
   );
 
   if (
-    classAmountNum === 0 ||
-    Number.isNaN(classAmountNum) ||
-    classAmountNum > 256
+    classAmountNumber === 0 ||
+    Number.isNaN(classAmountNumber) ||
+    classAmountNumber > 256
   ) {
-    classAmountNum = 7; // stops NaN/0/null on numOfClasses textbox
+    classAmountNumber = 7; // stops NaN/0/null on numOfClasses textbox
   }
 
   // creates classes for number of iterations
-  for (let itr = 0; itr < classAmountNum; itr++) {
+  for (let itr = 0; itr < classAmountNumber; itr++) {
     courses.push(newCourse({ classNum: itr + 1 }));
     createCourse(itr + 1);
   }
@@ -272,16 +275,20 @@ globalThis.classAmount = classAmount;
 
 /**
  * Populates course object data.
+ *
+ * @param classNumber
  */
-function createStorageCourse(classNum: number): void {
-  const num = classNum;
+function createStorageCourse(classNumber: number): void {
+  const number = classNumber;
 
-  tempElementId = `temp${num}`;
-  tempElementIdNext = `temp${num + 1}`;
+  temporaryElementId = `temp${number}`;
+  temporaryElementIdNext = `temp${number + 1}`;
 }
 
 /**
  * Not to be confused with {@link getStorage}.
+ *
+ * @param arraystorage - A.
  */
 function fromStorage(arraystorage: Course[]): void {
   courses = arraystorage;
@@ -292,9 +299,9 @@ function fromStorage(arraystorage: Course[]): void {
     createStorageCourse(course.classNum);
   }
   for (const [itr] of courses.entries()) {
-    tempLGID = `cl${itr + 1}`;
-    tempCTID = `cl${itr + 1}txt`;
-    tempCTYID = `cltyp${itr + 1}`;
+    temporaryLGID = `cl${itr + 1}`;
+    temporaryCTID = `cl${itr + 1}txt`;
+    temporaryCTYID = `cltyp${itr + 1}`;
 
     for (const course of courses) {
       createCourse(course.classNum);
@@ -302,15 +309,17 @@ function fromStorage(arraystorage: Course[]): void {
     }
 
     for (const [itr2, course] of courses.entries()) {
-      tempLGID = `cl${itr2 + 1}`;
-      tempCTID = `cl${itr2 + 1}txt`;
-      tempCTYID = `cltyp${itr2 + 1}`;
+      temporaryLGID = `cl${itr2 + 1}`;
+      temporaryCTID = `cl${itr2 + 1}txt`;
+      temporaryCTYID = `cltyp${itr2 + 1}`;
 
-      document.querySelector(`select#${tempLGID}`)!.value = String(
+      document.querySelector(`select#${temporaryLGID}`)!.value = String(
         course.letterGrade,
       );
-      document.querySelector(`input#${tempCTID}`)!.value = course.classText;
-      document.querySelector(`select#${tempCTYID}`)!.value = course.classType;
+      document.querySelector(`input#${temporaryCTID}`)!.value =
+        course.classText;
+      document.querySelector(`select#${temporaryCTYID}`)!.value =
+        course.classType;
     }
 
     if (!hsmsInput.checked) {
