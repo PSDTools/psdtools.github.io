@@ -160,7 +160,7 @@ catalog:
   vite-plugin-wasm: ^3.4.1
   vite-plugin-webfont-dl: ^3.10.4
   vitest-browser-svelte: ^1.0.0
-  vitest: ^3.2.4
+  vitest: ^4.0.0
   workbox-build: ^7.3.0
   workbox-core: ^7.3.0
   workbox-precaching: ^7.3.0
